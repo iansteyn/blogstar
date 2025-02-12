@@ -23,3 +23,8 @@ Hi :)
 
 ## JavaScript
 - java conventions? - camelCase
+
+## General
+- Header comments for all files (except html and css)
+- comment sources for code if you get it from somewhere
+- 
