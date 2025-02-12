@@ -9,5 +9,15 @@ Hi :)
 - Reviews are required before a branch can be merged to main
 - branch naming convetion: `branch-name`
 
-# GitHub issue practices:
-- 
+# coding name conventions
+## CSS
+- class/id names: `class-name`
+- name it something useful - BEM convention
+
+## HTML
+- 2 spaces indent
+- Indent your html
+- use semantic tags
+
+## JavaScript
+- java conventions? - camelCase
