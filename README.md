@@ -27,4 +27,5 @@ Hi :)
 ## General
 - Header comments for all files (except html and css)
 - comment sources for code if you get it from somewhere
-- 
+- try to name things well instead of just commenting what they do
+  - good comments are used sparingly, and describe *why* something is a certain way
