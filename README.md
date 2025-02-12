@@ -6,6 +6,7 @@ Hi :)
 - remember to pull main before you branch!
 - 1 issue, 1 branch - approximately
 - commit frequently with short, descriptive commit messages
+- try to do 1 commit to 1 file if possible
 - push before you close your computer
 - Reviews are required before a branch can be merged to main
 - branch naming convetion: `branch-name`
