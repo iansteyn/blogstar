@@ -8,28 +8,22 @@ body {
 #side-nav {
     color: white;
     background-color: rgb(9, 155, 138);
+
     height: 100vh;
     max-width:fit-content;
-
-    /* padding: 1em; */
     box-sizing: border-box; /*Why?*/
 
     display: grid;
     grid-template-rows: repeat(4);
 }
 
-#side-nav ul {
-    margin: 0; /*TODO: remove if covered by reset.css */
-    padding: 0; /*TODO: remove if covered by reset.css */
-    list-style-type: none;
-}
-
 #side-nav a {
     color: inherit;
+    display: block;
+    padding: 0.2em 1em ;
     text-decoration: none;
 }
-
-#side-nav li:hover {
+#side-nav a:hover {
     background-color:rgb(37, 199, 180);
 }
 
