@@ -13,7 +13,7 @@ body {
     width:fit-content;
     height: 100%;
     min-height: 100vh;
-    padding: 1em 0;
+    padding: 0 0 1em;
     box-sizing: border-box;
 
     display: grid;
@@ -29,6 +29,16 @@ body {
 }
 #side-nav a:hover {
     background-color:rgb(37, 199, 180);
+}
+
+#logo-container {
+    text-align: center;
+}
+#logo-container img {
+    display: block;
+    width: 4em;
+    height: auto;
+    margin: 1em auto 0.75em;
 }
 
 #side-nav #bottom-links {
