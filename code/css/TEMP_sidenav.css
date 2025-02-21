@@ -30,6 +30,10 @@ body {
 #side-nav a:hover {
     background-color:rgb(37, 199, 180);
 }
+#side-nav a.current-page {
+    background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
+    color:rgb(9, 155, 138);
+}
 
 #logo-container {
     text-align: center;
@@ -45,13 +49,28 @@ body {
     align-self: self-end;
 }
 
-#side-nav a.current-page {
-    background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
-    color:rgb(9, 155, 138);
+button.collapse-expand {
+    color: white;
+    background-color:rgb(37, 199, 180);
+    height:fit-content;
+    margin: 0 0.75em;
+    padding: 0.2em 1em;
+    border: none;
+    border-radius:4em;
+
+    font-weight: bold;
 }
+button.collapse-expand:hover {
+    background-color:rgb(129, 202, 193);
+    cursor: pointer;
+}
+
+
 
 /* TODO: I suggest this be added to our main.css, if we have something like that */
 .hidden {
     display:none !important;
 }
+
+
 
