@@ -1,4 +1,8 @@
-
+/* sidenav.css
+--------------
+Styles for the side navigation bar.
+TODO: I think I may be getting too specific with my selectors
+*/
 /* TODO: replace color literals with color variable names  */
 /* TODO: remove */
 body {
@@ -7,6 +11,7 @@ body {
     margin: 0;
 }
 
+/* SIDE NAV AND ITS GRID CELLS */
 #side-nav {
     color: white;
     background-color: rgb(9, 155, 138);
@@ -22,42 +27,33 @@ body {
     gap: 1em;
 }
 
-#side-nav a {
-    color: inherit;
-    display: block;
-    padding: 0.2em 1em ;
-    text-decoration: none;
-}
-#side-nav a:hover {
-    background-color:rgb(37, 199, 180);
-}
-#side-nav a.current-page {
-    background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
-    color:rgb(9, 155, 138);
-}
-
 #logo-container {
     text-align: center;
-}
-#logo-container .icon-logo {
-    display: block;
-    width: 4em;
-    height: 4em;
-    margin: 1em auto 0.75em;
-}
-
-.icon {
-    fill:white;
-    width: 1em;
-    height: 1em;
-    vertical-align: text-top;
-    margin-right: 0.5em;
 }
 
 #side-nav #bottom-links {
     align-self: self-end;
 }
 
+/* LINKS - should I make a .nav-link class to reduce selector specificity? */
+.nav-link {
+    color: inherit;
+    display: block;
+    padding: 0.2em 1em ;
+    text-decoration: none;
+}
+.nav-link:hover {
+    background-color:rgb(37, 199, 180);
+}
+.nav-link.current-page {
+    background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
+    color:rgb(9, 155, 138);
+}
+.nav-link.current-page .icon {
+    fill: rgb(9, 155, 138);
+}
+
+/* BUTTON */
 button.collapse-expand {
     color: white;
     background-color:rgb(37, 199, 180);
@@ -74,7 +70,21 @@ button.collapse-expand:hover {
     cursor: pointer;
 }
 
+/* ICONS */
+.icon {
+    fill:white;
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+    margin-right: 0.5em;
+}
 
+.icon-logo {
+    display: block;
+    width: 4em;
+    height: 4em;
+    margin: 1em auto 0.75em;
+}
 
 /* TODO: I suggest this be added to our main.css, if we have something like that */
 .hidden {
