@@ -3,6 +3,8 @@ In-progress group project for COSC 360 - Web Programming.
 Hi :)
 
 # Git practices
+Ian's personal Git cheat sheet: [git_tips.md gist](https://gist.github.com/iansteyn/abf4cb875b7022e46fa13b363f3753a1)
+
 - remember to pull main before you branch!
 - 1 issue, 1 branch - approximately
 - commit frequently with short, descriptive commit messages
