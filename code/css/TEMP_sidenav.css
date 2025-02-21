@@ -54,7 +54,7 @@ body {
 }
 
 /* BUTTON */
-button.collapse-expand {
+.button-collapse {
     color: white;
     background-color:rgb(37, 199, 180);
     height:fit-content;
@@ -65,7 +65,7 @@ button.collapse-expand {
 
     font-weight: bold;
 }
-button.collapse-expand:hover {
+.button-collapse:hover {
     background-color:rgb(129, 202, 193);
     cursor: pointer;
 }
