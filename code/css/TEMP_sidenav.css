@@ -46,10 +46,12 @@ body {
     margin: 1em auto 0.75em;
 }
 
-#side-nav img {
+.icon {
+    fill:white;
     width: 1em;
-    height: auto;
+    height: 1em;
     vertical-align: text-top;
+    padding-right: 0.5em;
 }
 
 #side-nav #bottom-links {
