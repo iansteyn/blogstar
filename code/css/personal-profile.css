@@ -1,0 +1,7 @@
+.icon {
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+    margin-right: 0.5em;
+}
