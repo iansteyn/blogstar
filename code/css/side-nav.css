@@ -1,20 +1,11 @@
 /* sidenav.css
 --------------
 Styles for the side navigation bar.
-TODO: I think I may be getting too specific with my selectors
 */
-/* TODO: replace color literals with color variable names  */
-/* TODO: remove */
-body {
-    font-family: sans-serif;
-    background-color: rgb(221, 221, 221);
-    margin: 0;
-}
-
 /* SIDE NAV AND ITS GRID CELLS */
 #side-nav {
-    color: white;
-    background-color: rgb(9, 155, 138);
+    color: var(--text-secondary);
+    background-color: var(--accent-primary);
 
     width:fit-content;
     height: 100%;
@@ -43,28 +34,28 @@ body {
     text-decoration: none;
 }
 .nav-link:hover {
-    background-color:rgb(37, 199, 180);
+    background-color: var(--accent-hover);
 }
 
 .nav-link.current-page {
-    background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
-    color:rgb(9, 155, 138);
+    background-color: var(--background-primary);
+    color: var(--accent-primary);
 }
 .nav-link.current-page .icon {
-    fill: rgb(9, 155, 138);
+    fill: var(--accent-primary);
 }
 
 .nav-link.no-access {
-    color: rgb(53, 104, 98);
+    color: var(--accent-dark);
 }
 .nav-link.no-access .icon {
-    fill: rgb(53, 104, 98);
+    fill: var(--accent-dark);
 }
 
 /* BUTTON */
 .button-collapse {
-    color: white;
-    background-color:rgb(37, 199, 180);
+    color: inherit;
+    background-color: var(--accent-hover);
     height:fit-content;
     margin: 0 0.75em;
     padding: 0.2em 1em;
@@ -74,13 +65,13 @@ body {
     font-weight: bold;
 }
 .button-collapse:hover {
-    background-color:rgb(129, 202, 193);
+    background-color: var(--accent-dark);
     cursor: pointer;
 }
 
 /* ICONS */
 .icon {
-    fill:white;
+    fill: var(--text-secondary);
     width: 1em;
     height: 1em;
     vertical-align: text-top;

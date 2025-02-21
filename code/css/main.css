@@ -1,9 +1,10 @@
-
+/* Note from Ian: I think we could go a liiitle brighter with our colours, or at least with some of the trim */
 :root { 
   --text-primary: #4C566A;
   --text-secondary: #ffffff;
   --accent-primary: #548687;
   --accent-hover: #3D6B6C;
+  --accent-dark: #2b4d49;
   --background-primary: #e9e9e9;
   --background-secondary: #ffffff;
 }
