@@ -23,8 +23,9 @@
 }
 
 .user-image{
-  max-width: 90%;
+  max-width: 100%;
   max-height: auto;
+  margin: 0.5em;
   overflow: hidden;
   border-radius: 1em;
 }
@@ -32,10 +33,17 @@
 .user-bio{
   text-align: left;
   padding: 1em 0 1em 0;
-  font-size: medium;
   word-wrap: break-word;
+  font-size: clamp(0.5rem, 0.75rem, 1.5rem); 
 }
 
 .user-name{
   padding: 1em 0 1em 0;
+  font-size: clamp(0.75rem, 2vw, 2rem); 
+  
+}
+
+.follower-count{
+  word-wrap: break-word;
+  font-size: clamp(0.5rem, 0.75rem, 1.5rem); 
 }
