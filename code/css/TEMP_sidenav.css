@@ -2,6 +2,7 @@
 /* TODO: replace color literals with color variable names  */
 /* TODO: remove */
 body {
+    font-family: sans-serif;
     background-color: rgb(221, 221, 221);
     margin: 0;
 }
@@ -17,7 +18,7 @@ body {
     box-sizing: border-box;
 
     display: grid;
-    grid-template-rows: repeat(4);
+    grid-template-rows: auto auto auto 1fr auto;
     gap: 1em;
 }
 
