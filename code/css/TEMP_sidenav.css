@@ -45,12 +45,20 @@ body {
 .nav-link:hover {
     background-color:rgb(37, 199, 180);
 }
+
 .nav-link.current-page {
     background-color: rgb(221, 221, 221); /* TODO: set to primary bg color */
     color:rgb(9, 155, 138);
 }
 .nav-link.current-page .icon {
     fill: rgb(9, 155, 138);
+}
+
+.nav-link.no-access {
+    color: rgb(53, 104, 98);
+}
+.nav-link.no-access .icon {
+    fill: rgb(53, 104, 98);
 }
 
 /* BUTTON */
