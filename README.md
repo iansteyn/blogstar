@@ -13,6 +13,12 @@ Ian's personal Git cheat sheet: [git_tips.md gist](https://gist.github.com/ianst
 - Reviews are required before a branch can be merged to main
 - branch naming convetion: `branch-name`
 
+# File naming conventions
+- `file-name.html`
+- `file-name.css`
+- `file-name.svg`
+- `file-name.js`??
+- `file-name.php`
 # coding name conventions
 ## CSS
 - class/id names: `class-name`
