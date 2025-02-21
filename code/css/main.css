@@ -1,83 +1,75 @@
-/*
-Text color "Slate": #4C566A
-Background color "Light grey": #E9E9E9
-Main blue color: #548687
-Hover color: #3D6B6C
-font-family: Arial, Helvetica, sans-serif;
 
-*/
+:root { 
+  --text-primary: #4C566A;
+  --text-on-blue: #ffffff;
+  --accent-primary: #548687;
+  --accent-hover: #3D6B6C;
+  --background-primary: #e9e9e9;
+  --background-secondary: #ffffff;
+}
 
 body{
-    background-color: #e9e9e9
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
 }
 
-.standard-text{
-    color: #4C566A;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-}
+h1{font-size: 2em;}
 
-h1, h2, h3, h4, h5, h6, p{
-    color: #4C566A;
-    font-family: Arial, Helvetica, sans-serif;
-}
+h2{font-size: 1.5em;}
 
-h2{
-    font-size: large;
-    font-weight: bold;
-}
+h3{font-size: 1.17em;}
 
+h4{font-size: 1em;}
+
+h5{font-size: 0.83em;}
+
+h6{font-size: 0.67em;}
 
 .sidebar-profile{
-    background-color: white;
-    max-width: 20%;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    padding: 10px 10px 10px 10px
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-secondary);
+  max-width: 20%;
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  right: 0;
+  padding: 1em;
 }
 
 .user-image{
-    width: 200px;  
-    height: 200px; 
-    overflow: hidden;
-    border-radius: 25px;
+  width: 12em;  
+  height: 12em; 
+  overflow: hidden;
+  border-radius: 1em;
 }
 
-.user-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.blue-button{
-    color: white;
-    background-color: #548687;
-    border: none;
-    border-radius: 25px;
-    text-align: center;
-    height: 30px;
-    width:100px
-}
-
-.blue-button:hover{
-    background-color: #3D6B6C
+.background-box{
+  width: 13em;
+  height: 13em;
+  border-radius: 1em;
+  background-color: var(--accent-primary);
+  margin: 0 auto;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  overflow: hidden;
 }
 
 .user-bio{
-    text-align: left;
-    margin: 0 10px 0 10px;
-    max-height: fit-content;
+  text-align: left;
+  margin-top: 0.5em;
+  overflow:hidden;
+}
+
+.follower-count{
+  overflow: hidden;
 }
 
 .users-name{
-    margin-top: 5px;
-}
-
-.user-actions{
-    position: fixed;
-    bottom: 20px;
-    transform: translateX(100%);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
