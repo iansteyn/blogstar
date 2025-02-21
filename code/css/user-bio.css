@@ -1,57 +1,43 @@
-
 .sidebar-profile{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-secondary);
-    max-width: 20%;
-    height: 100%;
-    min-height: 100vh;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    right: 0;
-    padding: 1em;
-  }
-  
-  .background-box{
-    width: 80%;
-    border-radius: 1em;
-    background-color: var(--accent-primary);
-    margin: 0 auto;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .user-image{
-    width: 90%;
-    height: 90%;
-    overflow: hidden;
-    border-radius: 1em;
-  }
-  
-  .user-bio{
-    text-align: left;
-    max-height: fit-content;
-    height: fit-content;
-    margin-top: 0.5em;
-    overflow: hidden;
-  }
-  
-  .user-info{
-    max-height: fit-content;
-    height: fit-content;
-    box-sizing: border-box;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-  }
-  
-  .follower-count{
-    overflow: hidden;
-  }
-  
-  .user-name{
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-  }
+  background-color: var(--background-secondary);
+  max-width: 20%;
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  overflow: scroll;
+}
+
+.sidebar-profile::-webkit-scrollbar{
+  overflow-y:scroll ;
+}
+
+.background-box{
+  width: 75%;
+  height: auto;
+  border-radius: 1em;
+  background-color: var(--accent-primary);
+  margin: 0 auto;
+}
+
+.user-image{
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
+  border-radius: 1em;
+}
+
+.user-bio{
+  text-align: left;
+  padding: 1em 0 1em 0;
+}
+
+
+.user-name{
+  padding: 1em 0 1em 0;
+}
+
+
