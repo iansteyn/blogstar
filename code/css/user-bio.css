@@ -23,10 +23,9 @@
 }
 
 .user-image{
-  max-width: 100%;
+  max-width: 90%;
   max-height: auto;
   margin: 0.5em;
-  overflow: hidden;
   border-radius: 1em;
 }
 
