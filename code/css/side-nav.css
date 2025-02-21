@@ -84,11 +84,3 @@ Styles for the side navigation bar.
     height: 4em;
     margin: 1em auto 0.75em;
 }
-
-/* TODO: I suggest this be added to our main.css, if we have something like that */
-.hidden {
-    display:none !important;
-}
-
-
-
