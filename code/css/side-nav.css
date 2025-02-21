@@ -2,7 +2,8 @@
 --------------
 Styles for the side navigation bar.
 */
-/* SIDE NAV AND ITS GRID CELLS */
+
+/* SIDE NAV and its GRID CELLS */
 #side-nav {
     color: var(--text-secondary);
     background-color: var(--accent-primary);
@@ -26,7 +27,7 @@ Styles for the side navigation bar.
     align-self: self-end;
 }
 
-/* LINKS - should I make a .nav-link class to reduce selector specificity? */
+/* LINKS */
 .nav-link {
     color: inherit;
     display: block;
@@ -61,7 +62,6 @@ Styles for the side navigation bar.
     padding: 0.2em 1em;
     border: none;
     border-radius:4em;
-
     font-weight: bold;
 }
 .button-collapse:hover {
