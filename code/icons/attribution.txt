@@ -1,0 +1,6 @@
+TODO: if we end up actually using these icons, put these attribution links in
+- home.png: <a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>
+- user.png: <a href="https://www.flaticon.com/free-icons/profile-picture" title="profile picture icons">Profile picture icons created by Md Tanvirul Haque - Flaticon</a>
+- magnifying-glass.png: <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Chanut - Flaticon</a>
+- writing.png: <a href="https://www.flaticon.com/free-icons/create" title="create icons">Create icons created by Tempo_doloe - Flaticon</a>
+- admin-panel.png: <a href="https://www.flaticon.com/free-icons/admin-panel" title="admin panel icons">Admin panel icons created by vectaicon - Flaticon</a>
