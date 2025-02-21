@@ -39,10 +39,10 @@ body {
 #logo-container {
     text-align: center;
 }
-#logo-container #logo-icon {
+#logo-container .icon-logo {
     display: block;
     width: 4em;
-    height: auto;
+    height: 4em;
     margin: 1em auto 0.75em;
 }
 
@@ -51,7 +51,7 @@ body {
     width: 1em;
     height: 1em;
     vertical-align: text-top;
-    padding-right: 0.5em;
+    margin-right: 0.5em;
 }
 
 #side-nav #bottom-links {
