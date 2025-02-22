@@ -18,16 +18,11 @@ Styles for the side navigation bar.
     position: sticky;
     top: 0;
     left: 0;
-    overflow-y: hidden;
-    scrollbar-gutter: auto;
+    overflow-y: auto;
 
     display: grid;
     grid-template-rows: auto auto auto 1fr auto;
     gap: 1em;
-}
-#side-nav:hover{
-    overflow-y: auto;
-    scrollbar-color: var(--background-primary) var(--accent-primary);
 }
 
 #logo-container {
