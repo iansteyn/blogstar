@@ -108,13 +108,3 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
 	background-color: var(--background-primary);
 }
-
-/* TODO: remove i think */
-/* @media (max-width: 768px) {
-	.account-form {
-		box-shadow: none;
-		border-radius: 0;
-		width: 100%;
-		height: 100vh;
-	}
-} */
