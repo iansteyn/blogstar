@@ -45,11 +45,6 @@ body{
   display:inline;
 }
 
-.interaction-container{
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .icon-text{
   display: inline;
   float:right;
@@ -65,7 +60,6 @@ body{
   grid-template-areas: 
     'title title'
     'content photo';
-  justify-content: left;
   justify-items: left;
   align-items: center;
 }
@@ -78,6 +72,8 @@ body{
   grid-area: photo;
   width: 80%;
   height: auto;
+  border-radius: 1em;
+  justify-self: center;
 }
 
 .blog-content {
