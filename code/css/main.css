@@ -29,3 +29,15 @@ h6{font-size: 0.67em;}
 .hidden {
     display:none !important;
 }
+
+/* GENERAL PAGE LAYOUT STUFF */
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.side-nav {
+    grid-column: 1;
+}
+main {
+    grid-column: 2;
+}
