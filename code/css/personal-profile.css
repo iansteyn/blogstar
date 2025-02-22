@@ -19,3 +19,13 @@ a{
 #interaction-button:hover{
     cursor: pointer;
 }
+
+.personal-profile{
+    padding: 2em;
+}
+
+.blog-photo{
+    width: 30%;
+    height: auto;
+    display: block;
+}
