@@ -27,12 +27,12 @@ body{
 }
 
 .personal-profile{
-    height: 80vh;
+    height: 100vh;
 }
 
 .all-posts{
     height: 80vh;
-    padding: 2em 2em 0em 2em;
+    padding: 2em 2em 1em 2em;
     overflow-y: scroll;
     background-color: var(--background-primary);
 }
@@ -57,13 +57,12 @@ body{
     flex-wrap: wrap;
 }
 
-.interaction-item{
-    display: flex;
+.icon-text{
+    display: inline;
+    float:right;
     white-space: nowrap;
 }
-
-.icon-text{
-    display: flex;
-    white-space: nowrap;
+.interaction-item{
+    float:right;
 }
 
