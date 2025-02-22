@@ -14,7 +14,9 @@
 </head>
 
 <body>
-  <?php include "../html/side-nav.html" ?>
+  <header>
+    <?php include "../html/side-nav.html" ?>
+  </header>
   <main>
     <h1>Home</h1>
   </main>
