@@ -3,7 +3,7 @@
     width: 1em;
     height: 1em;
     vertical-align: text-top;
-    margin-right: 0.5em;
+    margin: auto 0em auto 0.5em;
 }
 
 a{
@@ -52,6 +52,18 @@ body{
     display:inline;
 }
 
-.interaction-bar{
-    float: right;
+.interaction-container{
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.interaction-item{
+    display: flex;
+    white-space: nowrap;
+}
+
+.icon-text{
+    display: flex;
+    white-space: nowrap;
+}
+
