@@ -19,6 +19,16 @@ for (navLink of navLinks) {
 // -------------------
 const navCollapseButton = document.getElementById("nav-collapse-button");
 
+// SET CORRECT COLLAPSE STATE
+// (maintains same state as previous page)
+if(sessionStorage.getItem("navCollapsed")) {
+    collapseNav();
+}
+else{
+    expandNav();
+}
+
+// CONFIGURE BUTTON
 navCollapseButton.addEventListener("click", () => {
     if(sessionStorage.getItem("navCollapsed")) {
         expandNav();
@@ -28,6 +38,7 @@ navCollapseButton.addEventListener("click", () => {
     }
 });
 
+// HELPER FUNCTIONS
 function collapseNav() {
     for (navLink of navLinks) {
         navLink.classList.add("collapsed");
@@ -45,6 +56,4 @@ function expandNav() {
     navCollapseButton.title = "Collapse Navigation";
     sessionStorage.removeItem("navCollapsed");
 }
-
-// TODO: make the navbar collapse remember its state when you go to a new page
-// window.addEventListener("DOMContentLoaded")
+// ---------------------------------------------------------
