@@ -19,7 +19,7 @@
   <main>
     <div class="form-container">
       <form id="login-form" class="account-form" method="post" novalidate> <!-- TODO: Set up form action -->
-        <h2 class="form-title">Log in to your account</h2>
+        <h1 class="form-title">Log in to your account</h1>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email"
