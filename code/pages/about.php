@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <script src="../scripts/side-nav.js"></script>
 </head>
 
 <body>
