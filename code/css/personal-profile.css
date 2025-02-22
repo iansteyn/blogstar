@@ -1,74 +1,46 @@
 body{
   background-color: var(--backgorund-secondary);
-  padding: clamp(0.5em, 2%, 1em); 
-  font-size: clamp(0.5em, 2%, 1em); 
-  min-height: 100vh;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  padding: clamp(0.25em, 20%, 1em);
+  font-size: clamp(0.25em, 80%, 3em); 
+  height: 100vh;
+}
+
+.personal-profile{
+  height: 90vh;
+  padding: 1em 1em 1em 1em;
 }
 
 .profile-header{
   padding-bottom: 1em;
 }
 
-.personal-profile{
-  min-height: 90vh;
-  padding: 1em 1em 1em 1em;
-}
-
 .all-posts{
-  min-height: 100vh;
-  padding: 2em;
+  height: 80vh;
+  padding: 2em 2em 2em 2em;
   overflow-y: scroll;
+  overflow-x: wrap;
   background-color: var(--background-primary);
 }
 
 .singular-post{
-  padding: 1em 0em;
+  padding: 1em 0em 1em 0em;
 }
 
 .date-posted{
   display:inline;
   padding-bottom: 1em;
-  color: var(--text-primary);
 }
 
 .icon-text{
   display: inline;
   float:right;
-  color: var(--text-primary);
+  margin-right: 1em;
   white-space: nowrap;
+  color: var(--text-primary);
 }
 
 .interaction-item{
-  float:right;
-}
-
-.icon {
-  fill: var(--text-primary);
-  width: 1em;
-  height: 1em;
-  vertical-align: text-top;
-  margin: auto 0em auto 0.5em;
-}
-
-a{
-  text-decoration: none;
-  color: var(--text-primary);
-}
-
-#interaction-button{
-  border: none;
-  padding: 0;
-  background-color: var(--background-primary);
-}
-
-#interaction-button:hover{
-  cursor: pointer;
-}
-
-#interaction-container{
-  overflow: auto;
+  float:left;
 }
 
 .main-blog-components {
@@ -105,4 +77,32 @@ a{
 
 .blog-content {
   grid-area: content;
+}
+
+#interaction-container{
+  overflow: auto;
+}
+
+.icon {
+  fill: var(--text-primary);
+  width: 1em;
+  height: 1em;
+  vertical-align: text-top;
+  margin: auto 0em auto 0em;
+}
+
+a{
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+#interaction-button{
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  background-color: var(--background-primary);
+}
+
+#interaction-button:hover{
+  cursor: pointer;
 }
