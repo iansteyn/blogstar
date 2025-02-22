@@ -33,7 +33,7 @@
           <input type="password" id="password" name="password" placeholder="Enter your password" required />
         </div>
         <button type="submit">Log in</button>
-        <p>Don't have an account? <a href="register.html">Register an account</a></p>
+        <p>Don't have an account? <a href="register.php">Register an account</a></p>
       </form>
     </div>
   </main>

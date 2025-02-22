@@ -41,7 +41,7 @@
           <input type="file" id="profile-picture" name="profile-picture" required />
         </div>
         <button type="submit">Register</button>
-        <p>Already have an account? <a href="login.html">Log in</a></p>
+        <p>Already have an account? <a href="login.php">Log in</a></p>
       </form>
     </div>
   </main>
