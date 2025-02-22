@@ -12,8 +12,8 @@ main {
 	overflow: auto;
 	align-items: center;
 	background-color: var(--background-secondary);
-	border-radius: 8px;
-	box-shadow: 4px 4px 8px 4px rgba(44, 44, 44, 0.25);
+	border-radius: 0.5em;
+	box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25);
 	padding: 2rem;
 	gap: 1.5rem;
 }
@@ -65,15 +65,15 @@ input[type="email"],
 input[type="password"] {
 	width: 100%;
 	border: none;
-	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0.05em 0.05em 0.25em 0.05em rgba(0, 0, 0, 0.25);
 	padding: 0.5rem;
-	border-radius: 4px;
+	border-radius: 0.25em;
 }
 
 input:focus,
 button[type="submit"]:focus {
 	outline: none;
-	box-shadow: 2px 2px 4px 2px var(--accent-hover);
+	box-shadow: 0.125em 0.125em 0.25em 0.125em var(--accent-hover);
 }
 
 button[type="submit"] {
@@ -82,7 +82,7 @@ button[type="submit"] {
 	color: var(--text-secondary);
 	border: none;
 	padding: 0.75rem;
-	border-radius: 4px;
+	border-radius: 0.25em;
 	font-size: 1rem;
 	font-weight: bold;
 }
@@ -95,14 +95,14 @@ button[type="submit"]:hover {
 input[type="file"] {
 	width: 100%;
 	padding: 0.125rem 0.125rem;
-	border-radius: 4px;
+	border-radius: 0.25em;
 }
 
 input[type="file"]::file-selector-button {
 	border: none;
 	padding: 0.5rem 1rem;
 	margin-right: 0.5rem;
-	border-radius: 4px;
+	border-radius: 0.25em;
 	cursor: pointer;
 	background-color: #D3D3D3;
 }
