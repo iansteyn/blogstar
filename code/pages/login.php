@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/forms.css" />
+  <link rel="stylesheet" href="../css/side-nav.css">
+  <script src="../scripts/side-nav.js" defer></script>
 </head>
 
 <body>
-  <nav></nav> <!-- TODO: Import sidenav -->
+  <header>
+    <?php include "../html/side-nav.html" ?>
+  </header>
   <main>
     <form id="login-form" class="account-form" method="post" novalidate> <!-- TODO: Set up form action -->
       <h2 class="form-title">Log in to your account</h2>
