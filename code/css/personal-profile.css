@@ -1,7 +1,8 @@
 
 .personal-profile{
-  height: 100%;
+  height: 100vh;
   box-sizing: border-box;
+  background-color: var(--background-secondary);
   padding: 1em 1em 1em 1em;
 }
 
@@ -11,6 +12,7 @@
 
 .all-posts{
   height: 90%;
+  border-radius: 2em;
   padding: 2em 2em 2em 2em;
   overflow-y: scroll;
   overflow-x: wrap;
@@ -19,6 +21,10 @@
 }
 
 .singular-post{
+  display: flex;
+  height: 80%;
+  flex-direction: row;
+  flex-flow: column;
   padding: 1em 0em 1em 0em;
 }
 
@@ -48,8 +54,6 @@
   justify-items: left;
   align-items: center;
 }
-
-
 
 .blog-title {
   grid-area: title;
