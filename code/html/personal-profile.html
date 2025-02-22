@@ -51,12 +51,12 @@
 
       <!--The section containing articles-->
       <div class = "all-posts">
-
-        <div class = "singular-post">
-          <a href="full-blog-post.html"> <!--TODO: Add in the full post page-->
-            <article class = "main-blog-components"> 
-              <h1 class = "blog-title">The 7 Habits of Highly Effective People</h1>
-              <p class = "blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tellus nisl, 
+        <div class = "single-post">
+          
+          <a href="full-post.html">
+            <h1>Title</h1>
+            <div class = "content-container">
+              <p class = "blog-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tellus nisl, 
                 efficitur in commodo in, faucibus sed dolor. Aliquam vestibulum dignissim turpis tristique pellentesque. Sed semper 
                 eros sed ligula lobortis vestibulum. Aliquam erat volutpat. Cras tincidunt, nisl pulvinar eleifend varius, eros elit 
                 sodales lacus, eget accumsan nisl eros non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque 
@@ -64,19 +64,27 @@
                 Sed semper eros sed ligula lobortis vestibulum. Aliquam erat volutpat. Cras tincidunt, nisl pulvinar eleifend varius, 
                 eros elit sodales lacus, eget accumsan nisl eros non.</p>
               <img class = "blog-photo" src = "../photo/knit.png" alt = "Blog Post's Photo">
-              <p class = "date-posted">Date Posted: Today 2025</p>
-            </article>
+            </div>
+          </a>
+          <div class = "posting-info">
+            <p class = "date-posted">Today 2025</p>
+            <a href="authors-page.html">
+              <p class = "authors-name">Sadie Smith</p>
             </a>
+          </div>
           <!--The interaction bar for a singular post-->
           <div id="interaction-container">
-            <a class="interaction-item" href=comment.html> <!--TODO: make a commenting page-->
+
+            <!--TODO: make a commenting page-->
+            <a class="interaction-item" href=comment.html> 
               <span class="icon-text">
                 <svg class="icon" preserveAspectRatio="xMidYMid meet"><use href="#icon-comment"></use></svg>
                 Comment
               </span>
             </a>
 
-            <a class="interaction-item" href=create-post.html> <!--TODO: make the create page-->
+            <!--TODO: make the create page-->
+            <a class="interaction-item" href=create-post.html> 
               <span class="icon-text">
                 <svg class="icon" preserveAspectRatio="xMidYMid meet"><use href="#icon-create"></use></svg>
                 Edit Post
@@ -114,6 +122,10 @@
             </button>
           </div>
         </div>
+
+
+
+        
 
       </div>
     </main>
