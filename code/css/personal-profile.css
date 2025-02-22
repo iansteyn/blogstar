@@ -27,11 +27,11 @@ body{
 }
 
 .personal-profile{
-    height: 100vh;
+    height: 80vh;
 }
 
 .all-posts{
-    height: 80%;
+    height: 80vh;
     padding: 2em 2em 0em 2em;
     overflow-y: scroll;
     background-color: var(--background-primary);
@@ -44,4 +44,14 @@ body{
 
 .singular-post{
     padding: 1em 1em 1em 1em;
+    display:grid;
+    grid-template-rows: 1fr, 1fr;
+}
+
+.date-posted{
+    display:inline;
+}
+
+.interaction-bar{
+    float: right;
 }
