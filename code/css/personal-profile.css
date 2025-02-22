@@ -1,68 +1,85 @@
 .icon {
-    fill: var(--text-primary);
-    width: 1em;
-    height: 1em;
-    vertical-align: text-top;
-    margin: auto 0em auto 0.5em;
+  fill: var(--text-primary);
+  width: 1em;
+  height: 1em;
+  vertical-align: text-top;
+  margin: auto 0em auto 0.5em;
 }
 
 a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #interaction-button{
-    border: none;
-    font-size: medium;
-    background-color: var(--background-primary);
+  border: none;
+  font-size: medium;
+  background-color: var(--background-primary);
 }
 
 #interaction-button:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 body{
-    background-color: var(--backgorund-secondary);
-    padding: 2em;
-    overflow:hidden;
+  background-color: var(--backgorund-secondary);
+  padding: 2em;
+  overflow:hidden;
 }
 
 .personal-profile{
-    height: 100vh;
+  height: 100vh;
 }
 
 .all-posts{
-    height: 80vh;
-    padding: 2em 2em 1em 2em;
-    overflow-y: scroll;
-    background-color: var(--background-primary);
-}
-
-.blog-photo{
-    width: 30%;
-    height: auto;
+  height: 80vh;
+  padding: 2em 2em 1em 2em;
+  overflow-y: scroll;
+  background-color: var(--background-primary);
 }
 
 .singular-post{
-    padding: 1em 1em 1em 1em;
-    display:grid;
-    grid-template-rows: 1fr, 1fr;
+  padding: 1em 1em 1em 1em;
 }
 
 .date-posted{
-    display:inline;
+  display:inline;
 }
 
 .interaction-container{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .icon-text{
-    display: inline;
-    float:right;
-    white-space: nowrap;
+  display: inline;
+  float:right;
+  white-space: nowrap;
 }
 .interaction-item{
-    float:right;
+  float:right;
 }
 
+.main-blog-components {
+  display: grid;
+  gap: 2em;
+  grid-template-areas: 
+    'title title'
+    'content photo';
+  justify-content: left;
+  justify-items: left;
+  align-items: center;
+}
+
+.blog-title {
+  grid-area: title;
+}
+
+.blog-photo {
+  grid-area: photo;
+  width: 80%;
+  height: auto;
+}
+
+.blog-content {
+  grid-area: content;
+}
