@@ -22,17 +22,18 @@ a{
 
 body{
   background-color: var(--backgorund-secondary);
-  padding: 2em;
-  overflow:hidden;
+  padding: 1em 1em 1em 1em;
+  overflow: hidden;
 }
 
 .personal-profile{
   height: 100vh;
+  padding: 3em 0em 3em 0em;
 }
 
 .all-posts{
-  height: 80vh;
-  padding: 2em 2em 1em 2em;
+  height: 70vh;
+  padding: 2em 2em 2em 2em;
   overflow-y: scroll;
   background-color: var(--background-primary);
 }
