@@ -19,10 +19,8 @@ main {
 }
 
 .form-title {
-	font-weight: bold;
 	align-self: center;
 	padding: 1rem;
-	font-size: 1.5rem;
 }
 
 .form-group {
