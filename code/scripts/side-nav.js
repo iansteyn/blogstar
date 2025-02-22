@@ -19,17 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // COLLAPSE/EXPAND NAV
     // -------------------
-    // const navCollapseButton = document.getElementById("nav-collapse-button");
+    const navCollapseButton = document.getElementById("nav-collapse-button");
 
-    // navCollapseButton.addEventListener("onClick", () => {
-    //     console.log('button clicked');
-    //     // get all links
-    //     for (navLink of navLinks) {
-            
-    //     }
-    //     // toggle hide text from links (might have to surround them all in spans for this)
-    //     // toggle class: change collapse logo size
-    //     // toggle class: remove padding extra right padding from icons?
-    //     // swap arrow direction of button content
-    // });
+    navCollapseButton.addEventListener("click", () => {
+
+        for (navLink of navLinks) {
+            navLink.classList.toggle("collapsed");
+        }
+
+        // swap arrow direction and change tooltip
+        if (navCollapseButton.textContent === "<") {
+            navCollapseButton.textContent = ">";
+            navCollapseButton.title = "Expand Navigation";
+        }
+        else {
+            navCollapseButton.textContent = "<";
+            navCollapseButton.title = "Collapse Navigation";
+        }
+    });
 });
