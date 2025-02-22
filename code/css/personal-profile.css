@@ -20,12 +20,21 @@ a{
     cursor: pointer;
 }
 
-.personal-profile{
+body{
+    background-color: var(--backgorund-secondary);
     padding: 2em;
+}
+
+.all-posts{
+    padding: 2em;
+    background-color: var(--background-primary);
 }
 
 .blog-photo{
     width: 30%;
     height: auto;
-    display: block;
+}
+
+.singular-post{
+    padding: 2em 1em 2em 1em;
 }
