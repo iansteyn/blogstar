@@ -1,6 +1,7 @@
 body{
   background-color: var(--backgorund-secondary);
-  padding: 1em;
+  padding: clamp(0.5em, 2%, 1em); 
+  font-size: clamp(0.5em, 2%, 1em); 
   min-height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -29,13 +30,16 @@ body{
 .date-posted{
   display:inline;
   padding-bottom: 1em;
+  color: var(--text-primary);
 }
 
 .icon-text{
   display: inline;
   float:right;
+  color: var(--text-primary);
   white-space: nowrap;
 }
+
 .interaction-item{
   float:right;
 }
@@ -50,11 +54,12 @@ body{
 
 a{
   text-decoration: none;
+  color: var(--text-primary);
 }
 
 #interaction-button{
   border: none;
-  font-size: medium;
+  padding: 0;
   background-color: var(--background-primary);
 }
 
