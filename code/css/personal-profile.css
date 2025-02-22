@@ -7,7 +7,7 @@
 }
 
 a{
-    text-decoration: none;;
+    text-decoration: none;
 }
 
 #interaction-button{
@@ -23,10 +23,17 @@ a{
 body{
     background-color: var(--backgorund-secondary);
     padding: 2em;
+    overflow:hidden;
+}
+
+.personal-profile{
+    height: 100vh;
 }
 
 .all-posts{
-    padding: 2em;
+    height: 80%;
+    padding: 2em 2em 0em 2em;
+    overflow-y: scroll;
     background-color: var(--background-primary);
 }
 
@@ -36,5 +43,5 @@ body{
 }
 
 .singular-post{
-    padding: 2em 1em 2em 1em;
+    padding: 1em 1em 1em 1em;
 }
