@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 
   <title>
-    Our Site | About
+    About | Our Site
   </title>
 
   <link rel="stylesheet" href="../css/reset.css">
