@@ -22,19 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const navCollapseButton = document.getElementById("nav-collapse-button");
 
     navCollapseButton.addEventListener("click", () => {
-
-        for (navLink of navLinks) {
-            navLink.classList.toggle("collapsed");
+        if(sessionStorage.getItem("navCollapsed")) {
+            expandNav();
         }
-
-        // swap arrow direction and change tooltip
-        if (navCollapseButton.textContent === "<") {
-            navCollapseButton.textContent = ">";
-            navCollapseButton.title = "Expand Navigation";
-        }
-        else {
-            navCollapseButton.textContent = "<";
-            navCollapseButton.title = "Collapse Navigation";
+        else{
+            collapseNav();
         }
     });
+
+    function collapseNav() {
+        for (navLink of navLinks) {
+            navLink.classList.add("collapsed");
+        }
+        navCollapseButton.textContent = ">";
+        navCollapseButton.title = "Expand Navigation";
+        sessionStorage.setItem("navCollapsed", "true");
+    }
+
+    function expandNav() {
+        for (navLink of navLinks) {
+            navLink.classList.remove("collapsed");
+        }
+        navCollapseButton.textContent = "<";
+        navCollapseButton.title = "Collapse Navigation";
+        sessionStorage.removeItem("navCollapsed");
+    }
 });
+
+// TODO: make the navbar collapse remember its state when you go to a new page
+// window.addEventListener("DOMContentLoaded")
