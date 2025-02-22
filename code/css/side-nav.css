@@ -3,7 +3,7 @@
 Styles for the side navigation bar.
 */
 
-/* SIDE NAV and its GRID CELLS */
+/* SIDE NAV */
 #side-nav {
     color: var(--text-secondary);
     background-color: var(--accent-primary);
@@ -11,12 +11,40 @@ Styles for the side navigation bar.
     width:fit-content;
     height: 100%;
     min-height: 100vh;
+    max-height: 100vh;
     padding: 0 0 1em;
     box-sizing: border-box;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
 
     display: grid;
     grid-template-rows: auto auto auto 1fr auto;
     gap: 1em;
+}
+/* Scrollbar stuff */
+/* .side-nav::-webkit-scrollbar {
+    width: 0;
+}
+.side-nav:hover::-webkit-scrollbar {
+    width: auto;
+} */
+
+/* Optional: Style the scrollbar thumb */
+/* .side-nav::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+} */
+
+/* Hide scrollbar by default (Firefox) */
+/* .side-nav{
+    scrollbar-width: none;
+} */
+/* show scrollbar on hover (Firefox) by removing the scrollbar-width property */
+/* .side-nav:hover{
+    scrollbar-width: auto;
 }
 
 #logo-container {
@@ -25,7 +53,7 @@ Styles for the side navigation bar.
 
 #bottom-links {
     align-self: self-end;
-}
+} */
 
 /* LINKS */
 /* Normal */
