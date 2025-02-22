@@ -38,6 +38,10 @@ Styles for the side navigation bar.
     background-color: var(--accent-hover);
 }
 
+.nav-link.collapsed .link-text {
+    display: none;
+}
+
 .nav-link.current-page {
     background-color: var(--background-primary);
     color: var(--accent-primary);
