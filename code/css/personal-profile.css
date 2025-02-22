@@ -1,3 +1,45 @@
+body{
+  background-color: var(--backgorund-secondary);
+  padding: 1em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.profile-header{
+  padding-bottom: 1em;
+}
+
+.personal-profile{
+  min-height: 90vh;
+  padding: 1em 1em 1em 1em;
+}
+
+.all-posts{
+  min-height: 100vh;
+  padding: 2em;
+  overflow-y: scroll;
+  background-color: var(--background-primary);
+}
+
+.singular-post{
+  padding: 1em 0em;
+}
+
+.date-posted{
+  display:inline;
+  padding-bottom: 1em;
+}
+
+.icon-text{
+  display: inline;
+  float:right;
+  white-space: nowrap;
+}
+.interaction-item{
+  float:right;
+}
+
 .icon {
   fill: var(--text-primary);
   width: 1em;
@@ -20,39 +62,8 @@ a{
   cursor: pointer;
 }
 
-body{
-  background-color: var(--backgorund-secondary);
-  padding: 1em 1em 1em 1em;
-  overflow: hidden;
-}
-
-.personal-profile{
-  height: 100vh;
-  padding: 3em 0em 3em 0em;
-}
-
-.all-posts{
-  height: 70vh;
-  padding: 2em 2em 2em 2em;
-  overflow-y: scroll;
-  background-color: var(--background-primary);
-}
-
-.singular-post{
-  padding: 1em 1em 1em 1em;
-}
-
-.date-posted{
-  display:inline;
-}
-
-.icon-text{
-  display: inline;
-  float:right;
-  white-space: nowrap;
-}
-.interaction-item{
-  float:right;
+#interaction-container{
+  overflow: auto;
 }
 
 .main-blog-components {
@@ -63,6 +74,16 @@ body{
     'content photo';
   justify-items: left;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .main-blog-components {
+    grid-template-areas: 
+      'title'
+      'content'
+      'photo';
+    grid-template-columns: 1fr; 
+  }
 }
 
 .blog-title {
