@@ -34,10 +34,13 @@ h6{font-size: 0.67em;}
 body {
     display: grid;
     grid-template-columns: auto 1fr;
+    height: 100vh;
 }
 header {
     grid-column: 1;
 }
 main {
     grid-column: 2;
+    height: calc(90vh - 2em);
+    margin: 2em;
 }
