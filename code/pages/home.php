@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
 
   <title>
-    Our Site | Home
+    Home | Our Site
   </title>
 
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <script src="../scripts/side-nav.js" defer></script>
 </head>
 
 <body>
