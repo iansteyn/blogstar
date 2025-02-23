@@ -15,6 +15,7 @@
 .all-posts{
   border-radius: 2em;
   flex-grow: 1;
+  min-height: 80%;
   padding: 2em 2em 2em 2em;
   overflow-y: scroll;
   box-sizing: border-box;
