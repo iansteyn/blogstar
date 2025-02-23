@@ -70,6 +70,12 @@ a{
   margin: auto 0em auto 0.5em;
 }
 
+.icon-text{
+  display: inline;
+  margin-right: 1em;
+  color: var(--text-primary);
+}
+
 #interaction-button{
   border: none;
   padding: 0;
