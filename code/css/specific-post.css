@@ -1,0 +1,13 @@
+.post{
+  background-color: var(--background-secondary);
+  border-radius: 2em;
+  padding: 2em;
+  margin: 2em;
+  min-height: 80%;
+  box-sizing: border-box;
+}
+
+.blog{
+  padding: 1em 2em;
+  overflow-y: scroll;
+}
