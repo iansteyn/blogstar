@@ -103,7 +103,7 @@ Styles for the side navigation bar.
 .collapsed .icon {
     margin-right: 0em;
 }
-.collapsed .link-text {
+.collapsed .nav-link-text {
     display: none;
 }
 .collapsed:has(.icon-logo) {
