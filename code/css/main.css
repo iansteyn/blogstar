@@ -53,9 +53,12 @@ main {
 
 .panel {
     background-color: var(--background-secondary);
-    border-radius: 1em;
+    width: fit-content;
     padding: 1.5em;
-    /* TODO: choose one */
-    box-shadow: 0 0.25em 0.75em 0.1em rgba(44, 44, 44, 0.25);
-    /* box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25); */
+
+    border-radius: 0.5em; /* Joy's forms */
+    /* border-radius: 1em; */ /*Sammie's design */
+
+    box-shadow: 0 0.25em 0.75em 0.1em rgba(44, 44, 44, 0.25); /* Ian's design*/
+    /* box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25); */ /*Joy's forms*/
 }
