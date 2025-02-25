@@ -1,0 +1,13 @@
+
+.post-summary {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+
+.post-summary-img {
+    /* width: 14em;
+    height: 7em; */
+
+}
