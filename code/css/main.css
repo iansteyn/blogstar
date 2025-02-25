@@ -17,7 +17,6 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-primary);
-  background-color: var(--background-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,6 +37,7 @@ p{
 
 /* GENERAL PAGE LAYOUT STUFF */
 body {
+    background-color: var(--background-primary);
     display: grid;
     grid-template-columns: auto 1fr;
 }
@@ -47,6 +47,7 @@ header {
 main {
     grid-column-start: 2;
     min-height: 100vh;
+    box-sizing: border-box;
     padding: 2em;
 }
 
@@ -54,4 +55,7 @@ main {
     background-color: var(--background-secondary);
     border-radius: 1em;
     padding: 1.5em;
+    /* TODO: choose one */
+    box-shadow: 0 0.25em 0.75em 0.1em rgba(44, 44, 44, 0.25);
+    /* box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25); */
 }
