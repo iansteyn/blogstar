@@ -20,6 +20,9 @@
   </header>
   <main>
     <h1>Home</h1>
+    <div class="panel">
+        Some content
+    </div>
   </main>
 </body>
 
