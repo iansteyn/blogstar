@@ -8,6 +8,12 @@
   --background-secondary: #ffffff;
 }
 
+/* SPECIAL */
+.hidden {
+    display:none !important;
+}
+
+/* TEXT STUFF */
 body{
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-primary);
@@ -25,8 +31,9 @@ h4{font-size: 1em;}
 h5{font-size: 0.83em;}
 h6{font-size: 0.67em;}
 
-.hidden {
-    display:none !important;
+p{
+    font-size: 1em;
+    margin: 1em 0
 }
 
 /* GENERAL PAGE LAYOUT STUFF */
@@ -40,6 +47,7 @@ header {
 main {
     grid-column-start: 2;
     min-height: 100vh;
+    padding: 2em;
 }
 
 .panel {
