@@ -1,4 +1,3 @@
-/* Note from Ian: I think we could go a liiitle brighter with our colours, or at least with some of the trim */
 :root { 
   --text-primary: #4C566A;
   --text-secondary: #ffffff;
@@ -9,10 +8,15 @@
   --background-secondary: #ffffff;
 }
 
+/* SPECIAL */
+.hidden {
+    display:none !important;
+}
+
+/* TEXT STUFF */
 body{
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-primary);
-  background-color: var(--background-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,12 +30,14 @@ h4{font-size: 1em;}
 h5{font-size: 0.83em;}
 h6{font-size: 0.67em;}
 
-.hidden {
-    display:none !important;
+p{
+    font-size: 1em;
+    margin: 1em 0
 }
 
 /* GENERAL PAGE LAYOUT STUFF */
 body {
+    background-color: var(--background-primary);
     display: grid;
     grid-template-columns: auto 1fr;
 }
@@ -41,4 +47,18 @@ header {
 main {
     grid-column-start: 2;
     min-height: 100vh;
+    box-sizing: border-box;
+    padding: 2em;
+}
+
+.panel {
+    background-color: var(--background-secondary);
+    width: fit-content;
+    padding: 1.5em;
+
+    border-radius: 0.5em; /* Joy's forms */
+    /* border-radius: 1em; */ /*Sammie's design */
+
+    box-shadow: 0 0.25em 0.75em 0.1em rgba(44, 44, 44, 0.25); /* Ian's design*/
+    /* box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25); */ /*Joy's forms*/
 }
