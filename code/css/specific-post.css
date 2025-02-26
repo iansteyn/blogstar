@@ -16,8 +16,12 @@
 }
 
 .blog-text{
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   height: 100%;
+}
+
+.blog-text p{
+  margin-top: 1.5em;
 }
 
 .interaction-bar{
