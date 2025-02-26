@@ -1,23 +1,35 @@
-.post{
+.page-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.post-container{
   background-color: var(--background-secondary);
   border-radius: 1em;
   padding: 2em;
   max-height: 100%;
-  overflow-y: scroll;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  margin: 1em;
   /*TODO add box shadow*/
 }
 
-.blog{
+.blog-text{
   padding: 1em 2em;
   height: 100%;
 }
 
-.interaction-buttons{
+.interaction-bar{
+  display: flex;
   padding: 1em;
-  justify-self: center;
+  max-height: 2em;
+  justify-content: center;
+  gap: 2em;
+}
+
+.interaction-button:hover{
+  cursor: pointer
 }
 
 .button-icon{
@@ -29,20 +41,7 @@
 }
 
 .icon-text{
-  display: inline;
   margin-right: 1em;
+  color: var(--text-primary);
   white-space: nowrap;
-  color: var(--text-primary);
-}
-
-#interaction-button{
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  color: var(--text-primary);
-  background-color: var(--background-primary);
-}
-
-#interaction-button:hover{
-  cursor: pointer;
 }
