@@ -39,7 +39,7 @@
   <main>
     <div class = "page-container">
       <article class = "post-container">
-        <h1>Title</h1>
+        <h1>I took this photo in New Zealand :)</h1>
         <div class = "blog-text">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, imperdiet nec mattis a, laoreet at lectus. Donec semper et justo ut iaculis. Mauris gravida et est nec commodo. Pellentesque auctor dui id urna aliquam, eu malesuada arcu fringilla. Vestibulum et augue vel lacus ullamcorper pellentesque. Sed sagittis orci at lacus laoreet sollicitudin. In metus sem, accumsan id ultricies quis, gravida eleifend erat. Etiam pulvinar vel tortor sed eleifend. Mauris ante nulla, mollis nec justo sed, porta pellentesque mi. Proin volutpat euismod placerat.
@@ -63,6 +63,7 @@
             Proin scelerisque gravida lacinia. Aenean interdum leo ut lorem sagittis, tempor sagittis felis tempor. Vestibulum ac ante nec tortor convallis pellentesque non non ante. In porttitor sapien eu lectus maximus, a vestibulum mauris eleifend. Duis varius lacus at turpis suscipit tempor. Donec nec dictum ante. In tincidunt volutpat risus, pretium fringilla massa. Nulla sodales tincidunt lorem in fringilla. Nulla eget sem vel nisi dignissim viverra.
           </p>
         </div>
+        <img class = "blog-photo" src = "../photo/sunrise.jpg" alt = "A photo of a sunrise looking over a beach."></img>
       </article>
 
       <div class="interaction-bar">
