@@ -29,3 +29,16 @@ h6{font-size: 0.67em;}
 .hidden {
     display:none !important;
 }
+
+/* GENERAL PAGE LAYOUT STUFF */
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+header {
+    grid-column-start: 1;
+}
+main {
+    grid-column-start: 2;
+    min-height: 100vh;
+}

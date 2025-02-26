@@ -1,38 +1,26 @@
-/* TODO: remove temporary style resetters */
-html, body, nav, ul, li, div, span, p, input, a, form, label {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	border: 0;
-}
-
-html {
-	font-family: sans-serif;
-}
-
-main {
-	height: 100vh;
+.form-container {
+    padding: 1em;
+    height: 100%;
+    box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#login-form {
+.account-form {
 	display: flex;
 	flex-direction: column;
-	background-color: white;
-	border-radius: 8px;
-	box-shadow: 4px 4px 8px 4px rgba(44, 44, 44, 0.25);
+	align-items: center;
+	background-color: var(--background-secondary);
+	border-radius: 0.5em;
+	box-shadow: 0.25em 0.25em 0.5em 0.25em rgba(44, 44, 44, 0.25);
 	padding: 2rem;
 	gap: 1.5rem;
 }
 
 .form-title {
-	font-weight: bold;
 	align-self: center;
 	padding: 1rem;
-	font-size: 1.5rem;
 }
 
 .form-group {
@@ -46,43 +34,77 @@ form span {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 0.5rem;
 }
 
 form a {
 	text-decoration: none;
-	color: #548687;
+	color: var(--accent-primary);
+	font-weight: bold;
+}
+
+label {
 	font-weight: bold;
 }
 
 input {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"] {
 	width: 100%;
 	border: none;
-	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0.05em 0.05em 0.25em 0.05em rgba(0, 0, 0, 0.25);
 	padding: 0.5rem;
-	border-radius: 4px;
+	border-radius: 0.25em;
 }
 
-input:focus {
+input:focus,
+button[type="submit"]:focus {
 	outline: none;
-	box-shadow: 2px 2px 4px 2px #548687;
+	box-shadow: 0.125em 0.125em 0.25em 0.125em var(--accent-hover);
 }
 
 button[type="submit"] {
 	width: 100%;
-	background-color: #548687;
-	color: white;
+	background-color: var(--accent-primary);
+	color: var(--text-secondary);
 	border: none;
-	padding: 0.5rem;
-	border-radius: 4px;
+	padding: 0.75rem;
+	border-radius: 0.25em;
 	font-size: 1rem;
 	font-weight: bold;
 }
 
 button[type="submit"]:hover {
 	background-color: #72a7a7;
+	cursor: pointer;
+}
+
+input[type="file"] {
+	width: 100%;
+	padding: 0.125rem 0.125rem;
+	border-radius: 0.25em;
+}
+
+input[type="file"]::file-selector-button {
+	border: none;
+	padding: 0.5rem 1rem;
+	margin-right: 0.5rem;
+	border-radius: 0.25em;
+	cursor: pointer;
+	background-color: #D3D3D3;
+}
+
+input[type="file"]::file-selector-button:hover {
+	background-color: var(--background-primary);
 }
