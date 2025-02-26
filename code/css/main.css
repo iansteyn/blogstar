@@ -37,10 +37,9 @@ body {
     height: 100vh;
 }
 header {
-    grid-column: 1;
+    grid-column-start: 1;
 }
 main {
-    grid-column: 2;
-    height: calc(90vh - 2em);
-    margin: 2em;
+    grid-column-start: 2;
+    min-height: 100vh;
 }

@@ -1,15 +1,15 @@
-main {
-	min-height: 100vh;
+.form-container {
+    padding: 1em;
+    height: 100%;
+    box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: auto;
 }
 
 .account-form {
 	display: flex;
 	flex-direction: column;
-	overflow: auto;
 	align-items: center;
 	background-color: var(--background-secondary);
 	border-radius: 0.5em;
@@ -107,13 +107,4 @@ input[type="file"]::file-selector-button {
 
 input[type="file"]::file-selector-button:hover {
 	background-color: var(--background-primary);
-}
-
-@media (max-width: 768px) {
-	.account-form {
-		box-shadow: none;
-		border-radius: 0;
-		width: 100%;
-		height: 100vh;
-	}
 }
