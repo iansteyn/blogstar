@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <link rel="stylesheet" href="../css/create.css">
 </head>
 
 <body>
@@ -19,15 +20,15 @@
   </header>
   <main>
     <div class = "page-container">
-      <h1>Create your post<h1>
+      <h1 class = "page-title">Create your post<h1>
       <article class = "blog-container">
-      <form action="/specific-post.php">
-        <textarea class = "blog-title">Write your title here!</textarea>
-        <br>
-        <textarea class = "blog-text">Write your post here!</textarea>
-        <input type="submit" value="Post">
-        <input type="submit" value="Discard">
-      </form>
+        <form action="/specific-post.php">
+          <textarea class = "blog-title">Write your title here!</textarea>
+          <br>
+          <textarea class = "blog-text">Write your post here!</textarea>
+          <input type="submit" value="Post">
+          <input type="submit" value="Discard">
+        </form>
       </article>
     </div>
   </main>
