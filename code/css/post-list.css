@@ -22,10 +22,9 @@
     margin-bottom: 0.2em;
 }
 
-.author-username, time {
+.posting-info {
     font-style: italic;
 }
-
 .author-username {
     color: var(--accent-primary);
 }
