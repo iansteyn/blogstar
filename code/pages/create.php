@@ -22,7 +22,7 @@
     <div class = "page-container">
       <h1 class = "page-title">Create your post<h1>
       <article class = "blog-container">
-        <form action="/specific-post.php">
+        <form action="../html/specific-post.php">
           <textarea class = "blog-title">Write your title here!</textarea>
           <br>
           <textarea class = "blog-text">Write your post here!</textarea>
