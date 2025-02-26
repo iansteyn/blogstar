@@ -1,6 +1,17 @@
+/* TODO: 
+.post-list:first-child {
+    margin-top: none;
+}
+.post-list:last-child {
+    padding-bottom: none;
+} */
 
 /* LAYOUT */
 .post-summary {
+    margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: thin solid grey;
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
