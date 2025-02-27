@@ -83,7 +83,6 @@ main {
     grid-template-columns: 1fr auto;
     align-items:center;
 }
-
 .search-bar:has(input:focus) {
     border-color: var(--text-primary);
 }
