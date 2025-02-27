@@ -93,6 +93,10 @@ input[type="search"]::-webkit-search-cancel-button {
     margin-right: 0.1em;
     border: none;
     border-radius: 1em;
+    /* NOTE: I have no idea why the properties
+       below should be necessary, but they are. */
+    box-sizing: content-box;
+    height: 1em;
 }
 .search-button:hover {
     background: #00000015;
@@ -106,5 +110,4 @@ input[type="search"]::-webkit-search-cancel-button {
     fill: grey;
     width: 1em;
     height: 1em;
-    vertical-align: middle;
 }
