@@ -17,21 +17,21 @@
       <div class="interact-buttons">
         <button class="post-summary-button">
           <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-like-unfilled"></use></svg>
-          Like
+          <span class="button-text">Like</span>
         </button>
         <button class="post-summary-button">
           <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
-          Save
+          <span class="button-text">Save</span>
         </button>
       </div>
       <div class="modify-buttons">
         <button class="post-summary-button">
           <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-edit"></use></svg>
-          Edit
+          <span class="button-text">Edit</span>
         </button>
         <button class="post-summary-button">
           <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg>
-          Delete
+          <span class="button-text">Delete</span>
         </button>
       </div>
     </div>
