@@ -77,8 +77,8 @@ main {
 
 input[type="search"] {
     background-color: inherit;
-    margin: 0.4em 0.4em 0.4em 1em;
-    padding: 0;
+    margin-left: 1em;
+    padding: 0.4em 0.4em 0.4em 0;
     outline: none;
     border: none;
 }
