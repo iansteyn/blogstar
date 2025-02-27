@@ -51,3 +51,24 @@
     gap: 0.4em;
     justify-content: space-between;
 }
+
+.post-summary-button {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    /* border-radius: 1em; */
+
+    box-sizing: content-box;
+    height: 1em;
+}
+
+.button-icon {
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+}
+
+.post-summary-button:hover .button-icon {
+    fill: var(--accent-bright);
+}

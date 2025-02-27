@@ -15,18 +15,22 @@
     <div class="post-summary-button-group">
       <!-- TODO: I think these should be replaced by just the SVGs -->
       <div class="interact-buttons">
-        <button>
+        <button class="post-summary-button">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-like-unfilled"></use></svg>
           Like
         </button>
-        <button>
+        <button class="post-summary-button">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
           Save
         </button>
       </div>
-      <div class="change-buttons">
-        <button>
+      <div class="modify-buttons">
+        <button class="post-summary-button">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-edit"></use></svg>
           Edit
         </button>
-        <button>
+        <button class="post-summary-button">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg>
           Delete
         </button>
       </div>
