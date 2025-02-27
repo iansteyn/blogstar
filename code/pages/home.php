@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="../css/side-nav.css">
   <script src="../scripts/side-nav.js" defer></script>
 </head>
@@ -19,7 +20,10 @@
     <?php include "../html/side-nav.html" ?>
   </header>
   <main>
-    <h1>Home</h1>
+    <header class="page-header">
+        <h1>Home</h1>
+        <?php include "../html/search-bar.html" ?>
+    </header>
     <div class="panel">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, imperdiet nec mattis a, laoreet at lectus. Donec semper et justo ut iaculis. Mauris gravida et est nec commodo. Pellentesque auctor dui id urna aliquam, eu malesuada arcu fringilla. Vestibulum et augue vel lacus ullamcorper pellentesque. Sed sagittis orci at lacus laoreet sollicitudin. In metus sem, accumsan id ultricies quis, gravida eleifend erat. Etiam pulvinar vel tortor sed eleifend. Mauris ante nulla, mollis nec justo sed, porta pellentesque mi. Proin volutpat euismod placerat.
