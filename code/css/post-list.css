@@ -32,6 +32,14 @@
 .post-summary-title {
     margin-bottom: 0.2em;
 }
+.post-summary-title a, .blog-start a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+.post-summary-title a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
 
 .blog-start {
     margin-top: 1em;

@@ -1,19 +1,18 @@
 <article class="post-summary">
   <div class="post-summary-text">
     <h2 class="post-summary-title">
-      Post Title that is reasonably long I suppose
+      <a href="#">Post Title that is reasonably long I suppose</a> <!--TODO link to post page-->
     </h2>
     <?php include "posting-info.html" ?>
     <p class="blog-start">
-      Let's pretend this is the first twoish lines of a an article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...
+      <a href="#">Let's pretend this is the first twoish lines of a an article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...</a>
     </p>
   </div>
 
   <div class="post-summary-non-text">
-    <img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/>
+    <a href="#"><img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/></a>
 
     <div class="post-summary-button-group">
-      <!-- TODO: I think these should be replaced by just the SVGs -->
       <div class="interact-buttons">
         <button class="post-summary-button" title="Like">
           <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
