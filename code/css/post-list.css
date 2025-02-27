@@ -8,9 +8,9 @@
 
 /* LAYOUT */
 .post-summary {
-    margin-top: 1em;
-    padding-bottom: 1em;
-    border-bottom: thin solid grey;
+    margin-top: 1.5em;
+    padding-bottom: 0.8em;
+    border-bottom: medium solid #00000020;
 
     display: flex;
     flex-wrap: wrap;
@@ -32,6 +32,9 @@
 .post-summary-title {
     margin-bottom: 0.2em;
 }
+.blog-start {
+    margin-top: 1em;
+}
 .post-summary-title a, .blog-start a {
     color: var(--text-primary);
     text-decoration: none;
@@ -39,10 +42,6 @@
 .post-summary-title a:hover {
     color: var(--accent-primary);
     text-decoration: underline;
-}
-
-.blog-start {
-    margin-top: 1em;
 }
 
 /* NON-TEXT STUFF */
