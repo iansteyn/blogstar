@@ -1,0 +1,44 @@
+.blog-text{
+  padding: 0.5em 2em;
+  height: 100%;
+}
+
+.blog-text p{
+  margin-top: 1.5em;
+}
+
+.interaction-bar{
+  display: flex;
+  padding: 1em;
+  max-height: 2em;
+  justify-content: center;
+  gap: 2em;
+}
+
+.interaction-button:hover{
+  cursor: pointer
+}
+
+.button-icon{
+  fill: var(--text-primary);
+  width: 1em;
+  height: 1em;
+  vertical-align: text-top;
+  margin: auto 0em auto 0.5em;
+}
+
+.icon-text{
+  margin-right: 1em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.blog-photo{
+  width: 100%;
+  border-radius: 0.75em;
+}
+
+.breadcrumbs{
+  padding-bottom: 1em;
+}
+
