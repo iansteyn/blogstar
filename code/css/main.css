@@ -42,7 +42,7 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
 }
-header {
+body > header {
     grid-column-start: 1;
 }
 main {
@@ -66,11 +66,9 @@ main {
     border: thin solid lightgrey;
     border-radius: 4em;
     height:fit-content;
-    /* padding: 0.4em 1em; */
-    box-sizing: border-box;
 
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr auto;
     align-items:center;
 }
 .search-bar:has(input:focus) {
