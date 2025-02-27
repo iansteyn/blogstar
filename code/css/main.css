@@ -34,6 +34,14 @@ p{
     font-size: 1em;
 }
 
+/* LINKS (OUR DEFAULT) */
+a {
+    color: var(--accent-primary);
+}
+a:hover {
+    color: var(--accent-bright);
+}
+
 /* GENERAL PAGE LAYOUT STUFF */
 body {
     background-color: var(--background-primary);
@@ -65,7 +73,4 @@ main {
 /* POSTING INFO COMPONENT */
 .posting-info {
     font-style: italic;
-}
-.username {
-    color: var(--accent-primary);
 }
