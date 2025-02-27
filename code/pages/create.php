@@ -26,6 +26,11 @@
           <textarea class = "blog-title">Write your title here!</textarea>
           <br>
           <textarea class = "blog-text">Write your post here!</textarea>
+          <div class="form-group">
+            <label for="blog-photo">Upload a photo</label>
+            <input type="file" id="blog-photo" name="blog-photo"
+             nn />
+          </div>
           <input type="submit" value="Post">
           <input type="submit" value="Discard">
         </form>
