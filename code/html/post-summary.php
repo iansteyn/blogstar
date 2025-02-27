@@ -1,7 +1,7 @@
 <article class="post-summary">
   <div class="post-summary-text">
     <h2 class="post-summary-title">
-      <a href="specific-post.php">Post Title that is reasonably long I suppose</a> <!--TODO link to post page-->
+      <a href="specific-post.php">Post Title that is reasonably long I suppose</a>
     </h2>
     <?php include "posting-info.html" ?>
     <p class="blog-start">
