@@ -15,23 +15,27 @@
     <div class="post-summary-button-group">
       <!-- TODO: I think these should be replaced by just the SVGs -->
       <div class="interact-buttons">
-        <button class="post-summary-button">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-like-unfilled"></use></svg>
-          <span class="button-text">Like</span>
+        <button class="post-summary-button" title="Like">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-unfilled"></use>
+          </svg>
         </button>
-        <button class="post-summary-button">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
-          <span class="button-text">Save</span>
+        <button class="post-summary-button" title="Save">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-save-unfilled"></use>
+          </svg>
         </button>
       </div>
       <div class="modify-buttons">
-        <button class="post-summary-button">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-edit"></use></svg>
-          <span class="button-text">Edit</span>
+        <button class="post-summary-button" title="Edit">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-edit"></use>
+          </svg>
         </button>
-        <button class="post-summary-button">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg>
-          <span class="button-text">Delete</span>
+        <button class="post-summary-button" title="Delete">
+          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-delete"></use>
+          </svg>
         </button>
       </div>
     </div>

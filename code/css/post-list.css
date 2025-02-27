@@ -50,17 +50,20 @@
     display: flex;
     gap: 0.4em;
     justify-content: space-between;
+
+    font-size:0; /*necessary for removing browser-cause gap between buttons */
 }
 
 .post-summary-button {
-    background-color: none;
-    padding: 0;
+    background: none;
+    padding: 0.4rem;
     margin: 0;
     border: none;
-    /* border-radius: 1em; */
 
+    /* below properties fix weird button sizing issues */
     box-sizing: content-box;
-    height: 1em;
+    height: 1rem;
+    font-size: 1rem;
 }
 
 .button-icon {
@@ -68,14 +71,12 @@
     width: 1em;
     height: 1em;
 }
-.button-text {
-    display: none;
-}
 
+.post-summary-button:hover {
+    background-color: #00000010;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
 .post-summary-button:hover .button-icon {
     fill: var(--accent-bright);
-}
-.post-summary-button:hover .button-text{
-    display: inline;
-    color: var(--accent-primary);
 }
