@@ -28,10 +28,7 @@
               required />
           </div>
           <div class="form-group">
-            <span>
-              <label for="password">Password</label>
-              <a href="">Forgot password?</a> <!-- TODO: Password reset page (low priority) -->
-            </span>
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required />
           </div>
           <button type="submit">Log in</button>
