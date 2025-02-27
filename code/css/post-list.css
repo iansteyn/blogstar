@@ -1,10 +1,10 @@
-/* TODO: 
-.post-list:first-child {
-    margin-top: none;
+.post-list .post-summary:first-child {
+    margin-top: 0;
 }
-.post-list:last-child {
-    padding-bottom: none;
-} */
+.post-list .post-summary:last-child {
+    padding-bottom: 0;
+    border: none;
+}
 
 /* LAYOUT */
 .post-summary {
