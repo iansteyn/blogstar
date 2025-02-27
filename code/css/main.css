@@ -124,6 +124,66 @@ input[type="search"]::-webkit-search-cancel-button {
     height: 1em;
 }
 
+/* SPECIAL ICONS */
+
+/* from post-list: */
+.post-summary-button {
+    background: none;
+    padding: 0.4rem;
+    margin: 0;
+    border: none;
+
+    /* below properties fix weird button sizing issues */
+    box-sizing: content-box;
+    height: 1rem;
+    font-size: 1rem;
+}
+.post-summary-button:hover {
+    background-color: #00000010;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.button-icon {
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+}
+.post-summary-button:hover .button-icon {
+    fill: var(--accent-bright);
+}
+
+/* from side-nav */
+.icon {
+    fill: var(--text-secondary);
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+    margin-right: 0.5em;
+}
+
+.icon-logo {
+    display: block;
+    width: 4em;
+    height: 4em;
+    margin: 1em auto 0.75em;
+}
+
+/* from specific-post */
+.button-icon{
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+    margin: auto 0em auto 0.5em;
+}
+
+.icon-text{
+margin-right: 1em;
+color: var(--text-primary);
+white-space: nowrap;
+}
+
 /* REUSABLE ICON CLASSES */
 .icon-inline {
     fill: var(--text-primary);
@@ -146,4 +206,8 @@ input[type="search"]::-webkit-search-cancel-button {
     fill: var(--accent-bright)
 }
 
-/* SPECIAL ICONS */
+/* SPECIAL */
+/* icon-logo */
+
+/* MODIFIED */
+
