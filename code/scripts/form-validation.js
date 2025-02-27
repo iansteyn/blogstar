@@ -10,18 +10,12 @@ and registration forms on submit
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login-form");
     const registerForm = document.querySelector("#registration-form");
+    const forms = [loginForm, registerForm].filter(Boolean);
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", (e) => {
-            validateForm(e, loginForm);
-        });
-    }
-
-    if (registerForm) {
-        registerForm.addEventListener("submit", (e) => {
-            validateForm(e, registerForm);
-        });
-    }
+    forms.forEach((form) => {
+        form.addEventListener("submit", (e) => validateForm(e, form));
+        form.addEventListener("input", (e) => removeError(e.target));
+    })
 });
 
 // FORM VALIDITY CHECKING FUNCTION
@@ -135,5 +129,13 @@ function displayError(input, message) {
     div.style.maxWidth = "42ch";
     input.parentElement.appendChild(div);
     input.classList.add("validation-error");
+}
+
+function removeError(input) {
+    const error = input.parentElement.querySelector(".error-message");
+    if (error) {
+        error.remove();
+        input.classList.remove("validation-error");
+    }
 }
 
