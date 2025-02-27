@@ -58,3 +58,31 @@ main {
     border-radius: 0.75em;
     box-shadow: 0 0.25em 0.5em 0.2em rgba(44, 44, 44, 0.25);
 }
+
+/* SEARCH BAR */
+/* TODO: standardize inline icon styling a bit? */
+
+.search-bar {
+    background: var(--background-secondary);
+    border: thin solid grey;
+    border-radius: 4em;
+    height:fit-content;
+    padding: 0.2em 1em;
+    box-sizing: border-box;
+}
+
+input[type="search"] {
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+.search-icon {
+    fill: grey;
+    width: 0.9em;
+    height: 0.9em;
+    vertical-align: text-top;
+    margin-left: 0.5em;
+}
