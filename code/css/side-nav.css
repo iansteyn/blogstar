@@ -42,6 +42,7 @@ Styles for the side navigation bar.
     text-decoration: none;
 }
 .nav-link:hover {
+    color:inherit;
     background-color: var(--accent-hover);
 }
 
