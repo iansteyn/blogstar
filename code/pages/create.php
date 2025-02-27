@@ -28,12 +28,11 @@
           <textarea class = "blog-text" placeholder = "Write your text here!"></textarea>
           <div class="form-group">
             <label for="blog-photo">Upload a photo</label>
-            <input type="file" id="blog-photo" name="blog-photo"
-             nn />
+            <input type="file" id="blog-photo" name="blog-photo"/>
           </div>
           <input type="submit" value="Post">
-          <input type="submit" value="Discard">
         </form>
+        <button onClick = "discardPost()">Discard</button>
       </article>
     </div>
   </main>
