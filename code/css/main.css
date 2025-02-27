@@ -40,7 +40,6 @@ body {
     background-color: var(--background-primary);
     display: grid;
     grid-template-columns: auto 1fr;
-    height: 100vh;
 }
 header {
     grid-column-start: 1;
