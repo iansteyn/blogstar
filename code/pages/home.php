@@ -22,7 +22,7 @@
   <main>
     <header class="page-header">
         <h1>Home</h1>
-        <? include "../html/search-bar.html" ?>
+        <?php include "../html/search-bar.html" ?>
     </header>
     <div class="panel">
       <p>
