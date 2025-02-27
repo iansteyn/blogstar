@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// 
+// FORM VALIDITY CHECKING FUNCTION
 function validateForm(event, form) {
     let isValid = true;
     const email = form.querySelector("#email");
@@ -43,6 +43,39 @@ function validateForm(event, form) {
         isValid = false;
     }
 
+    if (form.id === "registration-form") {
+        const userId = form.querySelector("#user-id");
+        const confirmPassword = form.querySelector("#confirm-password");
+        const profilePicture = form.querySelector("#profile-picture");
+
+        if (!validateUserId(userId.value)) {
+            displayError(userId, "User id must be 5-20 characters and only " +
+                "contain letters, numbers, and underscores");
+            isValid = false;
+        }
+
+        if (!validatePassword(password.value)) {
+            displayError(password, "Password must be at least 8 characters and include " +
+                "an uppercase and lowercase letter, a number, and a special character");
+                isValid = false;
+        }
+
+        if (confirmPassword.value == null || confirmPassword.value == "") {
+            displayError(confirmPassword, "Password cannot be empty");
+            isValid = false;
+        } else if (confirmPassword.value !== password.value) {
+            displayError(confirmPassword, "Passwords must match");
+            isValid = false;
+        }
+
+        if (profilePicture.files.length == null || profilePicture.files.length == 0) {
+            displayError(profilePicture, "Profile picture cannot be empty");
+            isValid = false;
+        } else if (profilePicture.files.length > 0 && !validateProfilePicture(profilePicture.files[0])) {
+            displayError(profilePicture, "Profile picture must be a jpg, png, or gif less than 5 MB");
+            isValid = false;
+        }
+    }
 
     if (!isValid) {
         event.preventDefault();
@@ -99,7 +132,8 @@ function displayError(input, message) {
     div.textContent = message;
     div.className = "error-message";
     div.style.color = "red";
-    div.style.maxWidth = "40ch";
+    div.style.maxWidth = "42ch";
     input.parentElement.appendChild(div);
     input.classList.add("validation-error");
 }
+
