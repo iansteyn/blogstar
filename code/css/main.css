@@ -64,11 +64,14 @@ main {
 
 .search-bar {
     background: var(--background-secondary);
-    border: thin solid grey;
+    border: thin solid lightgrey;
     border-radius: 4em;
     height:fit-content;
     padding: 0.2em 1em;
     box-sizing: border-box;
+}
+.search-bar:has(input:focus) {
+    border-color: var(--text-primary);
 }
 
 input[type="search"] {
