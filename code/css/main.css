@@ -67,8 +67,12 @@ main {
     border: thin solid lightgrey;
     border-radius: 4em;
     height:fit-content;
-    padding: 0.2em 1em;
+    padding: 0.4em 1em;
     box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items:center;
 }
 .search-bar:has(input:focus) {
     border-color: var(--text-primary);
@@ -86,6 +90,9 @@ input[type="search"] {
     fill: grey;
     width: 0.9em;
     height: 0.9em;
-    vertical-align: text-top;
-    margin-left: 0.5em;
+    vertical-align: middle;
+    margin-left: 0.3em;
 }
+/* .search-icon:hover {
+    fill: var(--accent-primary);
+} */
