@@ -123,3 +123,27 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 1em;
     height: 1em;
 }
+
+/* REUSABLE ICON CLASSES */
+.icon-inline {
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+}
+
+.textless-button {
+    /* TODO: */
+}
+.textless-button:hover {
+    /* background-color: todo */
+    cursor: pointer;
+}
+.textless-button-icon {
+    fill: var(--accent-primary)
+}
+
+.textless-button-icon:hover {
+    fill: var(--accent-bright)
+}
+
+/* SPECIAL ICONS */
