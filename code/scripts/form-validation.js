@@ -26,7 +26,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 
 function validateForm(event, form) {
+    let isValid = true;
+    const email = form.querySelector("#email");
+    const password = form.querySelector("#password");
 
+    if (email.value == null || email.value == "") {
+        displayError(email, "Email cannot be empty");
+        isValid = false;
+    } else if (!validateEmail(email.value)) {
+        displayError(email, "Please enter a valid email");
+        isValid = false;
+    }
+
+    if (password.value == null || password.value == "") {
+        displayError(password, "Password cannot be empty");
+        isValid = false;
+    }
+
+
+    if (!isValid) {
+        event.preventDefault();
+    }
 }
 
 // HELPER FUNCTIONS
@@ -72,4 +92,14 @@ function validateProfilePicture(file) {
     const imageTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
     const maxFileSize = 5 * 1024 * 1024;
     return imageTypes.includes(file.type) && file.size <= maxFileSize;
+}
+
+function displayError(input, message) {
+    const div = document.createElement("div");
+    div.textContent = message;
+    div.className = "error-message";
+    div.style.color = "red";
+    div.style.maxWidth = "40ch";
+    input.parentElement.appendChild(div);
+    input.classList.add("validation-error");
 }
