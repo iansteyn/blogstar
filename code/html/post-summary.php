@@ -1,16 +1,16 @@
 <article class="post-summary">
   <div class="post-summary-text">
     <h2 class="post-summary-title">
-      <a href="#">Post Title that is reasonably long I suppose</a> <!--TODO link to post page-->
+      <a href="specific-post.php">Post Title that is reasonably long I suppose</a> <!--TODO link to post page-->
     </h2>
     <?php include "posting-info.html" ?>
     <p class="blog-start">
-      <a href="#">Let's pretend this is the first twoish lines of a an article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...</a>
+      <a href="specific-post.php">Let's pretend this is the first twoish lines of a an article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...</a>
     </p>
   </div>
 
   <div class="post-summary-non-text">
-    <a href="#"><img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/></a>
+    <a href="specific-post.php"><img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/></a>
 
     <div class="post-summary-button-group">
       <div class="interact-buttons">
