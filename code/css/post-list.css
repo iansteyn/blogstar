@@ -33,13 +33,6 @@
     margin-bottom: 0.2em;
 }
 
-.posting-info {
-    font-style: italic;
-}
-.author-username {
-    color: var(--accent-primary);
-}
-
 .blog-start {
     margin-top: 1em;
 }

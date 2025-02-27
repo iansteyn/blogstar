@@ -3,15 +3,7 @@
     <h2 class="post-summary-title">
       Post Title that is reasonably long I suppose
     </h2>
-    <div class="posting-info">
-      <a class="author-username" href="TODO" title="Author">
-        @sadiesmith
-      </a>
-      —
-      <time datetime="2025-01-04" title="Date posted">
-        Jan 4th, 2025
-      </time>
-    </div>
+    <?php include "posting-info.html" ?>
     <p class="blog-start">
       Let's pretend this is the first twoish lines of a an article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...
     </p>
