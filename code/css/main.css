@@ -7,6 +7,7 @@
   --accent-bright: #35bbbe;
   --background-primary: #e9e9e9;
   --background-secondary: #ffffff;
+  --low-opacity-darken: #00000010;
 }
 
 /* SPECIAL */
@@ -111,7 +112,7 @@ input[type="search"]::-webkit-search-cancel-button {
     height: 1em;
 }
 .search-button:hover {
-    background: #00000015;
+    background: var(--low-opacity-darken);
     cursor: pointer;
 }
 .search-button:hover .search-icon {
@@ -139,7 +140,7 @@ input[type="search"]::-webkit-search-cancel-button {
     font-size: 1rem;
 }
 .post-summary-button:hover {
-    background-color: #00000010;
+    background-color: var(--low-opacity-darken);
     border-radius: 0.5em;
     cursor: pointer;
 }
@@ -195,7 +196,7 @@ white-space: nowrap;
     /* TODO: */
 }
 .textless-button:hover {
-    /* background-color: todo */
+    background-color: var(--low-opacity-darken);
     cursor: pointer;
 }
 .textless-button-icon {
