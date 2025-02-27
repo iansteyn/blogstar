@@ -23,9 +23,9 @@
       <h1 class = "page-title">Create your post<h1>
       <article class = "blog-container">
         <form action="../pages/create.php">
-          <textarea class = "blog-title">Write your title here!</textarea>
+          <textarea class = "blog-title" placeholder = "Write your title here!"></textarea>
           <br>
-          <textarea class = "blog-text">Write your post here!</textarea>
+          <textarea class = "blog-text" placeholder = "Write your text here!"></textarea>
           <div class="form-group">
             <label for="blog-photo">Upload a photo</label>
             <input type="file" id="blog-photo" name="blog-photo"
