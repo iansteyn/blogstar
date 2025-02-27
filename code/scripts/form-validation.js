@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // FORM VALIDITY CHECKING FUNCTION
 function validateForm(event, form) {
+    clearErrors(form);
     let isValid = true;
     const email = form.querySelector("#email");
     const password = form.querySelector("#password");
@@ -139,3 +140,9 @@ function removeError(input) {
     }
 }
 
+function clearErrors(form) {
+    const errorMessages = form.querySelectorAll(".error-message");
+    const validationError = form.querySelectorAll(".validation-error");
+    errorMessages.forEach((message) => message.remove());
+    validationError.forEach((input) => input.classList.remove("validation-error"));
+}
