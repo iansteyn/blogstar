@@ -1,18 +1,23 @@
-/* Note from Ian: I think we could go a liiitle brighter with our colours, or at least with some of the trim */
 :root { 
   --text-primary: #4C566A;
   --text-secondary: #ffffff;
   --accent-primary: #548687;
   --accent-hover: #3D6B6C;
   --accent-dark: #2b4d49;
+  --accent-bright: #35bbbe;
   --background-primary: #e9e9e9;
   --background-secondary: #ffffff;
 }
 
+/* SPECIAL */
+.hidden {
+    display:none !important;
+}
+
+/* TEXT STUFF */
 body{
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-primary);
-  background-color: var(--background-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,19 +31,83 @@ h4{font-size: 1em;}
 h5{font-size: 0.83em;}
 h6{font-size: 0.67em;}
 
-.hidden {
-    display:none !important;
+p{
+    font-size: 1em;
+    margin: 1em 0
 }
 
 /* GENERAL PAGE LAYOUT STUFF */
 body {
+    background-color: var(--background-primary);
     display: grid;
     grid-template-columns: auto 1fr;
 }
-header {
+body > header {
     grid-column-start: 1;
 }
 main {
     grid-column-start: 2;
     min-height: 100vh;
+    box-sizing: border-box;
+    padding: 2em;
+}
+
+.panel {
+    background-color: var(--background-secondary);
+    width: fit-content;
+    padding: 1.5em;
+    border-radius: 0.75em;
+    box-shadow: 0 0.25em 0.5em 0.2em rgba(44, 44, 44, 0.25);
+}
+
+/* SEARCH BAR */
+.search-bar {
+    background: var(--background-secondary);
+    border: thin solid lightgrey;
+    border-radius: 4em;
+    height:fit-content;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items:center;
+}
+.search-bar:has(input:focus) {
+    border-color: var(--text-primary);
+}
+
+input[type="search"] {
+    background-color: inherit;
+    margin-left: 1em;
+    padding: 0.4em 0.4em 0.4em 0;
+    outline: none;
+    border: none;
+}
+/* Disable webkit/blink browsers search cancel button */
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+.search-button {
+    background: none;
+    padding: 0.4em;
+    margin-right: 0.1em;
+    border: none;
+    border-radius: 1em;
+    /* NOTE: I have no idea why the properties
+       below should be necessary, but they are. */
+    box-sizing: content-box;
+    height: 1em;
+}
+.search-button:hover {
+    background: #00000015;
+    cursor: pointer;
+}
+.search-button:hover .search-icon {
+    fill: var(--accent-bright);
+}
+
+.search-icon {
+    fill: grey;
+    width: 1em;
+    height: 1em;
 }

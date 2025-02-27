@@ -18,23 +18,25 @@
   </header>
   <main>
     <div class="form-container">
-      <form id="login-form" class="account-form" method="post" novalidate> <!-- TODO: Set up form action -->
-        <h1 class="form-title">Log in to your account</h1>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email"
-            required />
-        </div>
-        <div class="form-group">
-          <span>
-            <label for="password">Password</label>
-            <a href="">Forgot password?</a> <!-- TODO: Password reset page (low priority) -->
-          </span>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        </div>
-        <button type="submit">Log in</button>
-        <p>Don't have an account? <a href="register.php">Register an account</a></p>
-      </form>
+      <div class="panel">
+        <form id="login-form" class="account-form" method="post" novalidate> <!-- TODO: Set up form action -->
+          <h1 class="form-title">Log in to your account</h1>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email"
+              required />
+          </div>
+          <div class="form-group">
+            <span>
+              <label for="password">Password</label>
+              <a href="">Forgot password?</a> <!-- TODO: Password reset page (low priority) -->
+            </span>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          </div>
+          <button type="submit">Log in</button>
+          <div>Don't have an account? <a href="register.php">Register an account</a></div>
+        </form>
+      </div>
     </div>
   </main>
 </body>
