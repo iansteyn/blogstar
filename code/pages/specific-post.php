@@ -103,7 +103,7 @@
         Edit Comment
       </button>
       <!--TODO: add js for functionality-->
-      <button class="interaction-button" type="button">
+      <button class="interaction-button" id = "delete-comment-button" type="button">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../icons/icons.svg#icon-delete"></use> 
         </svg>
@@ -111,11 +111,11 @@
       </button>
     </div>
     <div class = "specific-comment-container">
-      <form method = "GET" action="../pages/create.php">
+      <form method = "GET">
         <label for="Comment">Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!"></textarea>
         <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
-        <button id = "discard-button" type="submit" value="Discard">Discard Comment</button>
+        <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
       </form>
     </div>
   </div>
