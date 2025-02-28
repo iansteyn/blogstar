@@ -26,6 +26,11 @@
         <div class="action-bar">
           <?php include "../html/search-bar.html" ?>
         </div>
+        <div class="user-list">
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+        </div>
       </section>
       <section class="panel search-topics" id="search-topics">
         <h2>Site Search Topics</h2>

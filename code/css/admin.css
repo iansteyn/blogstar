@@ -30,3 +30,20 @@
 .action-bar {
     margin: 1rem 0;
 }
+
+.user-list {
+    height: inherit;
+
+}
+
+.user-list>div:nth-child(even) {
+    background-color: #efefef;
+}
+
+.user-list>div:nth-child(odd) {
+    background-color: #e1e1e1;
+}
+
+.user-listing {
+    padding: 0.5rem;
+}
