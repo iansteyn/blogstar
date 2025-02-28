@@ -1,5 +1,7 @@
-deleteButton = getElementById("delete-post-button");
+const deleteButton = document.getElementById("delete-post-button");
 
-function deletePost(){
+deleteButton.addEventListener("click", ()=> deletePost());
     
+function deletePost(){
+    confirm("Are you sure you want to delete this post?");
 }
