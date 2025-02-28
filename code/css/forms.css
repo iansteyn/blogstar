@@ -24,15 +24,6 @@
 	gap: 0.5rem;
 }
 
-form span {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	gap: 0.5rem;
-}
-
 form a {
 	text-decoration: none;
 	color: var(--accent-primary);
@@ -101,4 +92,9 @@ input[type="file"]::file-selector-button {
 
 input[type="file"]::file-selector-button:hover {
 	background-color: var(--background-primary);
+}
+
+input.validation-error {
+	border: 0.15em red solid;
+	box-shadow: none;
 }

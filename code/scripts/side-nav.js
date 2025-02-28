@@ -5,6 +5,20 @@ Performs the following dynamic actions:
 - collapsing and expanding the navbar on button press
 -------------------------------------- */
 
+// TEMPORARY {{{{{{{
+// LOGOUT STUFF
+// -----------------------
+const logoutLink = document.getElementById("logout-link");
+logoutLink.addEventListener("click", ()=> logout());
+
+function logout() {
+    if(confirm("Are you sure you want to log out?")) {
+        window.location.href = "login.php";
+    }
+}
+
+// }}}}}}} 
+
 // HIGHLIGHT NAVLINK OF CURRENT PAGE
 // ---------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
