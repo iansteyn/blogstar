@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../css/forms.css" />
   <link rel="stylesheet" href="../css/side-nav.css">
   <script src="../scripts/side-nav.js" defer></script>
+  <script src="../scripts/form-validation.js" defer></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="login-form" class="account-form" method="post" novalidate> <!-- TODO: Set up form action -->
+        <form id="login-form" class="account-form" method="post" action="home.php" novalidate>
           <h1 class="form-title">Log in to your account</h1>
           <div class="form-group">
             <label for="email">Email</label>
@@ -27,10 +28,7 @@
               required />
           </div>
           <div class="form-group">
-            <span>
-              <label for="password">Password</label>
-              <a href="">Forgot password?</a> <!-- TODO: Password reset page (low priority) -->
-            </span>
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required />
           </div>
           <button type="submit">Log in</button>
