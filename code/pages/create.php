@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/create.css">
   <script src="../scripts/side-nav.js" defer></script>
+  <script src="../scripts/delete-post.js" defer></script>
 </head>
 
 <body>
@@ -22,11 +23,11 @@
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>
-    <form class = "panel create-panel" method = "GET" action="../pages/create.php">
+    <form class = "panel create-panel" id = "create-form" method = "GET" action="../pages/profile.php">
       <label for="blog-title">Title</label>
-      <textarea class = "blog-title" id = "blog-title" placeholder = "Write your title here!"></textarea>
+      <textarea class = "blog-title" id = "blog-title" placeholder = "Write your title here!" required></textarea>
       <label for="blog-text">Post</label>
-      <textarea class = "blog-text" id = "blog-text" placeholder = "Write your post here!"></textarea>
+      <textarea class = "blog-text" id = "blog-text" placeholder = "Write your post here!" required></textarea>
       <div class="form-group">
         <label for="blog-photo">Upload a photo</label>
         <input type="file" id="blog-photo" name="blog-photo"/>
