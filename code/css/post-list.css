@@ -10,7 +10,7 @@
 .post-summary {
     margin-top: 1.5em;
     padding-bottom: 0.8em;
-    border-bottom: medium solid #00000020;
+    border-bottom: medium solid var(--low-opacity-darken-20);
 
     display: flex;
     flex-wrap: wrap;
