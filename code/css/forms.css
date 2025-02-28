@@ -59,7 +59,7 @@ button[type="submit"]:focus {
 	box-shadow: 0.125em 0.125em 0.25em 0.125em var(--accent-hover);
 }
 
-button[type="submit"] {
+button[type="submit"], button[type="button"]{
 	width: 100%;
 	background-color: var(--accent-primary);
 	color: var(--text-secondary);

@@ -30,10 +30,10 @@
       <textarea class = "blog-text" id = "blog-text" placeholder = "Write your post here!" required></textarea>
       <div class="form-group">
         <label for="blog-photo">Upload a photo</label>
-        <input type="file" id="blog-photo" name="blog-photo"/>
+        <input type="file" id="blog-photo" name="blog-photo" required/>
       </div>
       <button id = "submit-post-button" type="submit" value="Post">Post</button>
-      <button id = "discard-post-button" type="submit" value="Discard">Discard</button>
+      <button id = "discard-post-button" type="button" value="Discard">Discard</button>
     </form>
   </main>
 </body>

@@ -15,4 +15,10 @@ function discardPost() {
     }
 }
 
+const submitPost = document.getElementById("submit-post-button");
+submitPost.addEventListener("click", ()=> submitPost());
+
+function submitPost() {
+  window.location.href = "profile.php";
+}
 
