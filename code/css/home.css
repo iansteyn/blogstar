@@ -7,3 +7,14 @@
 .home-page-header .search-bar {
     align-self: center;
 }
+
+/* TEMPORARY: Used while we don't have a better way to do it */
+#container-new {
+    border: medium solid green;
+}
+#container-popular {
+    border: medium solid red;
+}
+#container-popular {
+    border: medium solid blue;
+}
