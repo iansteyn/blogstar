@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
           <label for="edit-user-bio">Edit user bio</label>
-          <input type="textarea" id="edit-user-bio" maxlength="300" placeholder="Write something about yourself" rows="4" />
+          <textarea id="edit-user-bio" maxlength="300" placeholder="Write something about yourself" rows="4"></textarea>
         </div>
         <button type="submit">Update user settings</button>
       </form>
