@@ -58,33 +58,4 @@
     display: flex;
     gap: 0.4em;
     justify-content: space-between;
-
-    font-size:0; /*necessary for removing browser-cause gap between buttons */
-}
-
-.post-summary-button {
-    background: none;
-    padding: 0.4rem;
-    margin: 0;
-    border: none;
-
-    /* below properties fix weird button sizing issues */
-    box-sizing: content-box;
-    height: 1rem;
-    font-size: 1rem;
-}
-
-.button-icon {
-    fill: var(--text-primary);
-    width: 1em;
-    height: 1em;
-}
-
-.post-summary-button:hover {
-    background-color: #00000010;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-.post-summary-button:hover .button-icon {
-    fill: var(--accent-bright);
 }
