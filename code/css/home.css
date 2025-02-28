@@ -8,13 +8,17 @@
     align-self: center;
 }
 
+.tab.active {
+    background-color: orange;
+}
+
 /* TEMPORARY: Used while we don't have a better way to do it */
-.post-list-container.new {
+.post-list-container#new {
     border: medium solid green;
 }
-.post-list-container.popular {
+.post-list-container#popular {
     border: medium solid red;
 }
-.post-list-container.popular {
+.post-list-container#saved {
     border: medium solid blue;
 }
