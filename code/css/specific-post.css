@@ -35,4 +35,12 @@
     margin: auto 0em auto 0.5em;
 }
 
+.comments-title{
+    width: 100%;
+}
+
+.comments-container{
+    width: 100%;
+    box-sizing: border-box;
+}
 /* TODO: COMMENTS STYLING */

@@ -61,12 +61,6 @@
     </article>
 
     <div class="interaction-bar">
-      <button class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-comment"></use> 
-          </svg>
-          Comment
-      </button>
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -83,6 +77,13 @@
       </button>
     </div>
 
+    <div class="panel comments-container">
+    <header>
+      <h2 class="comments-title">
+        Comments
+      </h2>
+    </header>
+  </div>
   </main>
 </body>
 
