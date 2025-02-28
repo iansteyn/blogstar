@@ -26,33 +26,33 @@
         <div class="action-bar">
           <?php include "../html/search-bar.html" ?>
         </div>
-        <div class="user-list">
-          <div class="user-listing"><a href="profile.php">Sadie Smith</a></div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jae Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-        </div>
+        <ul class="user-list">
+          <li><a href="profile.php">Sadie Smith</a></div>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jae Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+          <li>Jane Doe</li>
+          <li>John Appleseed</li>
+        </ul>
       </section>
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
