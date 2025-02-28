@@ -1,0 +1,44 @@
+.dashboard-grid {
+    box-sizing:content-box;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1.75fr;
+    grid-template-areas: "user-search site-analytics";
+}
+
+.user-search {
+    grid-area: user-search;
+    width: inherit;
+}
+
+.search-topics {
+    grid-area: search-topics;
+    width: inherit;
+}
+
+.site-analytics {
+    grid-area: site-analytics;
+    width: inherit;
+}
+
+.action-bar {
+    margin: 1rem 0;
+}
+
+.user-list {
+    max-height: 100vh;
+    overflow: auto;
+    border-radius: 0.75em;
+}
+.user-list li {
+    padding: 0.5rem;
+}
+
+.user-list>li:nth-child(even) {
+    background-color: #efefef;
+}
+
+.user-list>li:nth-child(odd) {
+    background-color: #e1e1e1;
+}
+
