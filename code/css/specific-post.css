@@ -15,22 +15,15 @@
   gap: 2em;
 }
 
+.interaction-button {
+    white-space: nowrap;
+}
 .interaction-button:hover{
   cursor: pointer
 }
-
-.button-icon{
-  fill: var(--text-primary);
-  width: 1em;
-  height: 1em;
-  vertical-align: text-top;
-  margin: auto 0em auto 0.5em;
-}
-
-.icon-text{
-  margin-right: 1em;
-  color: var(--text-primary);
-  white-space: nowrap;
+.interaction-button .icon-inline {
+    vertical-align: text-top;
+    margin: auto 0em auto 0.5em;
 }
 
 .blog-photo{

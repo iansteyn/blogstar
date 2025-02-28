@@ -109,7 +109,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* from specific-post */
-.button-icon{
+/* .button-icon{
     fill: var(--text-primary);
     width: 1em;
     height: 1em;
@@ -121,7 +121,7 @@ input[type="search"]::-webkit-search-cancel-button {
 margin-right: 1em;
 color: var(--text-primary);
 white-space: nowrap;
-}
+} */
 
 /* REUSABLE ICON CLASSES */
 /* icons the size of text */
@@ -154,10 +154,4 @@ white-space: nowrap;
 .button-icon-only:hover .icon-inline{
     fill: var(--accent-bright)
 }
-
-/* SPECIAL */
-
-/* icon-logo */
-
-/* MODIFIED */
 

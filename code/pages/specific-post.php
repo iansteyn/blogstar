@@ -19,6 +19,7 @@
   <header>
     <?php include "../html/side-nav.html" ?>
   </header>
+
   <main>
     <h3 class = "breadcrumbs">Sadie Smith / Blog Post</h3>
     <article class = "panel">
@@ -48,36 +49,30 @@
       </div>
       <img class = "blog-photo" src = "../photo/sunrise.jpg" alt = "A photo of a sunrise looking over a beach."></img>
     </article>
+
     <div class="interaction-bar">
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="comment-icon" href="../icons/icons.svg#icon-comment"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-comment"></use> 
           </svg>
           Comment
-        </span>
       </button>
-
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="unlike-icon" href="../icons/icons.svg#icon-like-unfilled"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
           Unlike Post
-        </span>
       </button>
-
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="like-icon" href="../icons/icons.svg#icon-like-filled"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Like Post 
-        </span>
+          Like Post
       </button>
     </div>
+
   </main>
 </body>
 
