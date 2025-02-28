@@ -25,14 +25,36 @@
 }
 
 .interaction-button {
-    white-space: nowrap;
+    white-space: nowrap
+}
+
+.top-button{
+    margin-bottom:1em;
 }
 .interaction-button:hover{
-    cursor: pointer
+    cursor: pointer;
 }
 .interaction-button .icon-inline {
     vertical-align: text-top;
     margin: auto 0em auto 0.5em;
 }
 
-/* TODO: COMMENTS STYLING */
+.comments-title{
+    width: 100%;
+}
+
+.comments-container{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.specific-comment-container{
+    padding: 1em;
+    border-bottom: medium solid var(--low-opacity-darken-20);
+}
+
+.comment{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1em 0;
+}
