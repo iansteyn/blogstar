@@ -11,6 +11,7 @@
 .tab {
     color: var(--text-light);
     background-color:#00000000;
+    box-sizing: content-box;
     padding: 0.5em;
     border: none;
     border-top-left-radius: 0.75em;
@@ -28,6 +29,19 @@
     box-shadow: -0.3em -0.35em 0.4em 0.01em rgba(44, 44, 44, 0.10);
     
 }
+
+.tab .icon-inline {
+    color: var(--text-light);
+    vertical-align:text-top;
+    margin-right: 0.1em;
+}
+.tab:hover .icon-inline {
+    color: var(--accent-bright);
+}
+.tab.active .icon-inline{
+    color: var(--text-primary);
+}
+
 .subpage:first-child .post-list {
     border-top-left-radius: 0;
 }

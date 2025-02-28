@@ -27,12 +27,21 @@
         <?php include "../html/search-bar.html" ?>
     </header>
     <nav class="tab-group">
-      <button class="tab active" value="new">New</button>
-      <button class="tab" value="popular">Popular</button>
-      <button class="tab" value="saved">Saved</button>
+      <button class="tab active" value="recent">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-recent"></use></svg>
+        Recent
+      </button>
+      <button class="tab" value="popular">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-popular"></use></svg>
+        Popular
+      </button>
+      <button class="tab" value="saved">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
+        Saved
+      </button>
     </nav>
     <div class="subpage-group">
-      <div class="subpage" id="new">
+      <div class="subpage" id="recent">
         <?php include "../html/post-list.php" ?>
       </div>
       <div class="subpage hidden" id="popular">
