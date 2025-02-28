@@ -176,10 +176,10 @@ white-space: nowrap;
     height: 1em;
 }
 
-.textless-button-group {
+.button-group-icon-only {
     font-size:0; /*necessary for removing browser-caused gap between buttons */
 }
-.textless-button {
+.button-icon-only {
     background: none;
     padding: 0.4rem;
     margin: 0;
@@ -190,16 +190,16 @@ white-space: nowrap;
     height: 1rem;
     font-size: 1rem;
 }
-.textless-button:hover {
+.button-icon-only:hover {
     border-radius: 0.5em;
     background-color: var(--low-opacity-darken);
     cursor: pointer;
 }
-.textless-button-icon {
+/* .textless-button-icon {
     fill: var(--accent-primary)
-}
+} */
 
-.textless-button-icon:hover {
+.button-icon-only:hover .icon-inline{
     fill: var(--accent-bright)
 }
 
