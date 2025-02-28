@@ -104,12 +104,12 @@ password must have:
 - at least one lowercase letter: (?=.*[a-z])
 - at least one uppercase letter: (?=.*[A-Z])
 - at least one number: (?=.*\d)
-- at least one special character: (?=.*[@$!%*?&])
+- at least one special character: (?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~\\])
 - and be at least 8 characters: {8,}
-    - pattern for remaining characters: [A-Za-z\d@$!%*?&]
+    - pattern for remaining characters: [A-Za-z\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~\\]
 */
 function validatePassword(password) {
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~\\])[A-Za-z\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~\\]{8,}$/;
     return passwordPattern.test(password);
 }
 
