@@ -26,3 +26,7 @@
     grid-area: site-analytics;
     width: inherit;
 }
+
+.action-bar {
+    margin: 1rem 0;
+}
