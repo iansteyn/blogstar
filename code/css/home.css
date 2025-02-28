@@ -1,10 +1,9 @@
-.page-header {
-    margin-bottom: 1em;
+.home-page-header {
     display: flex;
     justify-content: space-between;
     gap: 1em;
 }
 
-.page-header .search-bar {
+.home-page-header .search-bar {
     align-self: center;
 }
