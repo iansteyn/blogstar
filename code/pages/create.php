@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/create.css">
   <script src="../scripts/side-nav.js" defer></script>
 </head>
@@ -21,15 +22,17 @@
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>
-    <form class = "panel create-panel" action="../pages/create.php">
-      <textarea class = "blog-title" placeholder = "Write your title here!"></textarea>
-      <textarea class = "blog-text" placeholder = "Write your post here!"></textarea>
+    <form class = "panel create-panel" method = "GET" action="../pages/create.php">
+      <label for="blog-title">Title</label>
+      <textarea class = "blog-title" id = "blog-title" placeholder = "Write your title here!"></textarea>
+      <label for="blog-text">Post</label>
+      <textarea class = "blog-text" id = "blog-text" placeholder = "Write your post here!"></textarea>
       <div class="form-group">
         <label for="blog-photo">Upload a photo</label>
         <input type="file" id="blog-photo" name="blog-photo"/>
       </div>
-      <input type="submit" value="Post">
-      <input type="submit" value="Discard">
+      <button id = "submit-button" type="submit" value="Post">Post</button>
+      <button id = "discard-button" type="submit" value="Discard">Discard</button>
     </form>
   </main>
 </body>
