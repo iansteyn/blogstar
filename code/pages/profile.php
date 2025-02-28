@@ -33,7 +33,7 @@
           <input type="password" id="update-password" placeholder="Update your password" />
         </div>
         <div class="form-group">
-          <label for="confirm-update-password">Update password</label>
+          <label for="confirm-update-password">Confirm password</label>
           <input type="password" id="confirm-update-password" placeholder="Confirm your updated password" />
         </div>
         <div class="form-group">
