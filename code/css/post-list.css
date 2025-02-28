@@ -33,7 +33,7 @@
     margin-bottom: 0.2em;
 }
 .blog-start {
-    margin-top: 1em;
+    margin: 1em 0 0;
 }
 .post-summary-title a, .blog-start a {
     color: var(--text-primary);
