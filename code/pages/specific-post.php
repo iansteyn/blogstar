@@ -83,7 +83,7 @@
           Like Post
       </button>
 
-      <button class="interaction-button" type="button">
+      <button id = "delete-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-delete"></use> 
           </svg>
