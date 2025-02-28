@@ -27,46 +27,29 @@
           <?php include "../html/search-bar.html" ?>
         </div>
         <div class="user-list">
-          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing"><a href="profile.php">Sadie Smith</a></div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jae Doe</div>
+          <div class="user-listing">John Appleseed</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
-          <div class="user-listing">Jane Doe</div>
-          <div class="user-listing">John Appleseed</div>
-          <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
         </div>
