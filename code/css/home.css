@@ -9,16 +9,23 @@
 }
 
 .tab.active {
-    background-color: orange;
+    padding: 0.5em;
+    border: none;
+    border-top-left-radius: 0.75em;
+    border-top-right-radius: 0.75em;
+    background-color: var(--background-secondary);
+}
+.subpage:first-child .post-list {
+    border-top-left-radius: 0;
 }
 
 /* TEMPORARY: Used while we don't have a better way to do it */
-.post-list-container#new {
-    border: medium solid green;
+#new a {
+    color: green;
 }
-.post-list-container#popular {
-    border: medium solid red;
+#popular a {
+    color: red;
 }
-.post-list-container#saved {
-    border: medium solid blue;
+#saved a {
+    color: blue;
 }
