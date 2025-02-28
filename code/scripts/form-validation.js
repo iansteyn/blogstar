@@ -6,17 +6,16 @@ and registration forms on submit
 - error messages are provided below input fields with issues
 -------------------------------------- */
 
-// EVENT HANDLER FOR FORM TYPE
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.querySelector("#login-form");
-    const registerForm = document.querySelector("#registration-form");
-    const forms = [loginForm, registerForm].filter(Boolean);
+// EVENT HANDLING FOR FORMS
+const loginForm = document.querySelector("#login-form");
+const registerForm = document.querySelector("#registration-form");
+const forms = [loginForm, registerForm].filter(Boolean);
 
-    forms.forEach((form) => {
-        form.addEventListener("submit", (e) => validateForm(e, form));
-        form.addEventListener("input", (e) => removeError(e.target));
-    })
-});
+forms.forEach((form) => {
+    form.addEventListener("submit", (e) => validateForm(e, form));
+    form.addEventListener("input", (e) => removeError(e.target));
+})
+
 
 // FORM VALIDITY CHECKING FUNCTION
 function validateForm(event, form) {
