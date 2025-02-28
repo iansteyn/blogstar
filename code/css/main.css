@@ -74,6 +74,14 @@ main {
     margin-bottom: 1em;
 }
 
+.breadcrumbs a {
+    font-style: italic;
+    text-decoration:none;
+}
+.breadcrumbs a:hover {
+    text-decoration:underline;
+}
+
 /* POSTING INFO COMPONENT */
 .posting-info {
     font-style: italic;

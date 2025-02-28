@@ -21,7 +21,12 @@
   </header>
 
   <main>
-    <h3 class = "breadcrumbs">Sadie Smith / Blog Post</h3>
+    <header class="page-header">
+      <span class="breadcrumbs">
+        <a href="profile.php">Sadie Smith's Profile</a>
+        &gt;
+        <a href="#">This blog post</a>
+    </header>
     <article class = "panel">
       <h1>I took this photo in New Zealand :)</h1>
       <div class = "blog-text">
