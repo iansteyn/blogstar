@@ -20,9 +20,18 @@
     <header class="page-header">
       <h1>Admin Dashboard</h1>
     </header>
-    <div class="panel">
+    <article class="dashboard-grid">
+      <section class="panel user-search" id="user-search">
 
-    </div>
+      </section>
+      <section class="panel search-topics" id="search-topics">
+
+      </section>
+      <section class="panel site-analytics" id="site-analytics">
+
+      </section>
+    </article>
+
   </main>
 </body>
 

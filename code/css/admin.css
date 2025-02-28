@@ -1,3 +1,28 @@
 .page-header {
     margin-bottom: 1em;
 }
+
+.dashboard-grid {
+    height: calc(100% - 4.5rem);
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1.75fr;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "user-search search-topics"
+                         "user-search site-analytics";
+}
+
+.user-search {
+    grid-area: user-search;
+    width: inherit;
+}
+
+.search-topics {
+    grid-area: search-topics;
+    width: inherit;
+}
+
+.site-analytics {
+    grid-area: site-analytics;
+    width: inherit;
+}
