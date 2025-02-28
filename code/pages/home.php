@@ -45,10 +45,10 @@
         <?php include "../html/post-list.php" ?>
       </div>
       <div class="subpage hidden" id="popular">
-        <?php include "../html/post-list.php" ?>
+        <?php include "../temporary/post-list-2.php" ?>
       </div>
       <div class="subpage hidden" id="saved">
-        <?php include "../html/post-list.php" ?>
+        <?php include "../temporary/post-list-3.php" ?>
       </div>
     </div>
   </main>
