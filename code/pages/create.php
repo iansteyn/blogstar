@@ -19,21 +19,19 @@
     <?php include "../html/side-nav.html" ?>
   </header>
   <main>
-    <div class = "page-container">
-      <h1 class = "page-title">Create your post<h1>
-      <article class = "blog-container">
-        <form action="../html/specific-post.php">
-          <textarea class = "blog-title">Write your title here!</textarea>
-          <br>
-          <textarea class = "blog-text">Write your post here!</textarea>
-          <div class="form-group">
-            <label for="blog-photo">Upload a photo</label>
-            <input type="file" id="blog-picture" name="profile-picture" required />
-          </div>
-          <input type="submit" value="Post">
-          <input type="submit" value="Discard">
-        </form>
-      </article>
+    <h1 class = "page-title">Create your post<h1>
+    <div class = "panel">
+      <form action="../pages/create.php">
+        <textarea class = "blog-title" placeholder = "Write your title here!"></textarea>
+        <br>
+        <textarea class = "blog-text" placeholder = "Write your title here!"></textarea>
+        <div class="form-group">
+          <label for="blog-photo">Upload a photo</label>
+          <input type="file" id="blog-photo" name="blog-photo"/>
+        </div>
+        <input type="submit" value="Post">
+        <input type="submit" value="Discard">
+      </form>
     </div>
   </main>
 </body>
