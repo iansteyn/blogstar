@@ -1,0 +1,90 @@
+.post-list .post-summary:first-child {
+    margin-top: 0;
+}
+.post-list .post-summary:last-child {
+    padding-bottom: 0;
+    border: none;
+}
+
+/* LAYOUT */
+.post-summary {
+    margin-top: 1.5em;
+    padding-bottom: 0.8em;
+    border-bottom: medium solid #00000020;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.post-summary-text {
+    flex: 1 0 60%;
+}
+
+.post-summary-non-text{
+    flex: 1 1 auto;
+}
+
+/* TEXT STUFF */
+.post-summary-title {
+    margin-bottom: 0.2em;
+}
+.blog-start {
+    margin-top: 1em;
+}
+.post-summary-title a, .blog-start a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+.post-summary-title a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* NON-TEXT STUFF */
+.post-summary-img {
+    width: 100%;
+    height: 7em;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+.post-summary-button-group {
+    margin-top: 0.4em;
+    width: 100%;
+    display: flex;
+    gap: 0.4em;
+    justify-content: space-between;
+
+    font-size:0; /*necessary for removing browser-cause gap between buttons */
+}
+
+.post-summary-button {
+    background: none;
+    padding: 0.4rem;
+    margin: 0;
+    border: none;
+
+    /* below properties fix weird button sizing issues */
+    box-sizing: content-box;
+    height: 1rem;
+    font-size: 1rem;
+}
+
+.button-icon {
+    fill: var(--text-primary);
+    width: 1em;
+    height: 1em;
+}
+
+.post-summary-button:hover {
+    background-color: #00000010;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+.post-summary-button:hover .button-icon {
+    fill: var(--accent-bright);
+}
