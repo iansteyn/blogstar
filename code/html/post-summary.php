@@ -12,27 +12,27 @@
   <div class="post-summary-non-text">
     <a href="specific-post.php"><img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/></a>
 
-    <div class="post-summary-button-group">
+    <div class="post-summary-button-group button-group-icon-only">
       <div class="interact-buttons">
-        <button class="post-summary-button" title="Like">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+        <button class="button-icon-only" title="Like">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-unfilled"></use>
           </svg>
         </button>
-        <button class="post-summary-button" title="Save">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+        <button class="button-icon-only" title="Save">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-save-unfilled"></use>
           </svg>
         </button>
       </div>
       <div class="modify-buttons">
-        <button class="post-summary-button" title="Edit">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+        <button class="button-icon-only" title="Edit">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-edit"></use>
           </svg>
         </button>
-        <button class="post-summary-button" title="Delete">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
+        <button class="button-icon-only" title="Delete">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-delete"></use>
           </svg>
         </button>
