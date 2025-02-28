@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/side-nav.css">
   <link rel="stylesheet" href="../css/specific-post.css">
   <script src="../scripts/side-nav.js" defer></script>
+  <script src="../scripts/delete-post.js" defer></script>
 </head>
 
 <body>
@@ -80,6 +81,13 @@
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
           Like Post
+      </button>
+
+      <button class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-delete"></use> 
+          </svg>
+          Delete
       </button>
     </div>
 
