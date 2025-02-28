@@ -26,9 +26,8 @@
 }
 
 .user-list {
-    /* height: inherit; */
-    /* max-height: 100%; */
-    /* overflow: auto; */
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .user-list>div:nth-child(even) {
