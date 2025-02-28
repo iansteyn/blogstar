@@ -126,24 +126,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* SPECIAL ICONS */
-
 /* from post-list: */
-.post-summary-button {
-    background: none;
-    padding: 0.4rem;
-    margin: 0;
-    border: none;
 
-    /* below properties fix weird button sizing issues */
-    box-sizing: content-box;
-    height: 1rem;
-    font-size: 1rem;
-}
-.post-summary-button:hover {
-    background-color: var(--low-opacity-darken);
-    border-radius: 0.5em;
-    cursor: pointer;
-}
 
 .button-icon {
     fill: var(--text-primary);
@@ -192,10 +176,22 @@ white-space: nowrap;
     height: 1em;
 }
 
+.textless-button-group {
+    font-size:0; /*necessary for removing browser-caused gap between buttons */
+}
 .textless-button {
-    /* TODO: */
+    background: none;
+    padding: 0.4rem;
+    margin: 0;
+    border: none;
+
+    /* below properties fix weird button sizing issues */
+    box-sizing: content-box;
+    height: 1rem;
+    font-size: 1rem;
 }
 .textless-button:hover {
+    border-radius: 0.5em;
     background-color: var(--low-opacity-darken);
     cursor: pointer;
 }
