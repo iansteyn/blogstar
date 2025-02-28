@@ -100,6 +100,8 @@ function validateUserId(userId) {
 /*
 regex pattern from:
 https://stackoverflow.com/a/21456918
+source for special character list:
+https://owasp.org/www-community/password-special-characters
 password must have:
 - at least one lowercase letter: (?=.*[a-z])
 - at least one uppercase letter: (?=.*[A-Z])
