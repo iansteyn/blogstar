@@ -31,15 +31,15 @@
 }
 
 .tab .icon-inline {
-    color: var(--text-light);
+    fill: var(--text-light);
     vertical-align:text-top;
-    margin-right: 0.1em;
+    margin-right: 0.15em;
 }
 .tab:hover .icon-inline {
-    color: var(--accent-bright);
+    fill: var(--accent-bright);
 }
 .tab.active .icon-inline{
-    color: var(--text-primary);
+    fill: var(--text-primary);
 }
 
 .subpage:first-child .post-list {
