@@ -41,6 +41,9 @@ Styles for the side navigation bar.
     height: 4em;
     margin: 1em auto 0.75em;
 }
+.logo-text.nav-link-text {
+    margin: 0;
+}
 
 /* LINKS */
 /* Normal */
@@ -48,6 +51,7 @@ Styles for the side navigation bar.
     color: inherit;
     display: block;
     padding: 0.3em 1em ;
+    white-space: nowrap;
     text-decoration: none;
 }
 .nav-link:hover {
