@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/post-list.css">
   <link rel="stylesheet" href="../css/side-nav.css">
   <script src="../scripts/side-nav.js" defer></script>
 </head>
@@ -24,11 +25,15 @@
       <section class="search">
         <?php include "../html/search-bar.html" ?>
       </section>
-      <section id="search-results" class="search-results">
-        <?php include "../html/post-summary.php" ?>
-        <?php include "../html/post-summary.php" ?>
-        <?php include "../html/post-summary.php" ?>
-      </section>
+      <ul id="search-results" class="search-results">
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include "../html/post-summary.php" ?></li>
+      </ul>
     </div>
   </main>
 </body>
