@@ -1,6 +1,7 @@
 :root { 
   --text-primary: #4C566A;
   --text-secondary: #ffffff;
+  --text-light: #757575;
   --accent-primary: #548687;
   --accent-hover: #3D6B6C;
   --accent-dark: #2b4d49;
@@ -88,6 +89,12 @@ main {
 .search-bar:has(input:focus) {
     border-color: var(--text-primary);
 }
+.search-bar .button-icon-only {
+    border-radius: 1em;
+}
+.search-bar .icon-inline {
+    fill: var(--text-light);
+}
 
 input[type="search"] {
     background-color: inherit;
@@ -99,44 +106,6 @@ input[type="search"] {
 /* Disable webkit/blink browsers search cancel button */
 input[type="search"]::-webkit-search-cancel-button {
     appearance: none;
-}
-
-.search-button {
-    background: none;
-    padding: 0.4em;
-    margin-right: 0.1em;
-    border: none;
-    border-radius: 1em;
-    /* NOTE: I have no idea why the properties
-       below should be necessary, but they are. */
-    box-sizing: content-box;
-    height: 1em;
-}
-.search-button:hover {
-    background: var(--low-opacity-darken);
-    cursor: pointer;
-}
-.search-button:hover .search-icon {
-    fill: var(--accent-bright);
-}
-
-.search-icon {
-    fill: grey;
-    width: 1em;
-    height: 1em;
-}
-
-/* SPECIAL ICONS */
-/* from post-list: */
-
-
-.button-icon {
-    fill: var(--text-primary);
-    width: 1em;
-    height: 1em;
-}
-.post-summary-button:hover .button-icon {
-    fill: var(--accent-bright);
 }
 
 /* from side-nav */
@@ -171,20 +140,23 @@ white-space: nowrap;
 }
 
 /* REUSABLE ICON CLASSES */
+/* icons the size of text */
 .icon-inline {
     fill: var(--text-primary);
     width: 1em;
     height: 1em;
 }
 
+/* icon-only buttons */
 .button-group-icon-only {
     font-size:0; /*necessary for removing browser-caused gap between buttons */
 }
 .button-icon-only {
     background: none;
-    padding: 0.4rem;
     margin: 0;
+    padding: 0.4rem;
     border: none;
+    border-radius: 0.5em;
 
     /* below properties fix weird button sizing issues */
     box-sizing: content-box;
@@ -192,19 +164,15 @@ white-space: nowrap;
     font-size: 1rem;
 }
 .button-icon-only:hover {
-    background-color: var(--low-opacity-darken);
-    border-radius: 0.5em;
+    background-color: var(--low-opacity-darken-10);
     cursor: pointer;
 }
-/* .textless-button-icon {
-    fill: var(--accent-primary)
-} */
-
 .button-icon-only:hover .icon-inline{
     fill: var(--accent-bright)
 }
 
 /* SPECIAL */
+
 /* icon-logo */
 
 /* MODIFIED */
