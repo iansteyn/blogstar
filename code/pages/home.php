@@ -26,19 +26,21 @@
         <h1>Home</h1>
         <?php include "../html/search-bar.html" ?>
     </header>
-    <nav class="tab-container">
+    <nav class="tab-group">
       <button class="tab active" value="new">New</button>
       <button class="tab" value="popular">Popular</button>
       <button class="tab" value="saved">Saved</button>
     </nav>
-    <div class="post-list-container" id="new">
-      <?php include "../html/post-list.php" ?>
-    </div>
-    <div class="post-list-container hidden" id="popular">
-      <?php include "../html/post-list.php" ?>
-    </div>
-    <div class="post-list-container hidden" id="saved">
-      <?php include "../html/post-list.php" ?>
+    <div class="subpage-group">
+      <div class="subpage" id="new">
+        <?php include "../html/post-list.php" ?>
+      </div>
+      <div class="subpage hidden" id="popular">
+        <?php include "../html/post-list.php" ?>
+      </div>
+      <div class="subpage hidden" id="saved">
+        <?php include "../html/post-list.php" ?>
+      </div>
     </div>
   </main>
 </body>

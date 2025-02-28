@@ -5,7 +5,7 @@ home or profile to be toggled.
 -------------------------------------- */
 
 const tabs = document.querySelectorAll(".tab");
-const subpages = document.querySelectorAll(".post-list-container");
+const subpages = document.querySelectorAll(".subpage");
 
 tabs.forEach((tab) => {
     tab.addEventListener("click", ()=> {
