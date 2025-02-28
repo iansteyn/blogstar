@@ -1,24 +1,31 @@
+/* MAIN BLOG STUFF */
+.blog-photo{
+    width: 100%;
+    border-radius: 0.75em;
+}
+
+.blog-panel {
+    padding: 2em;
+}
+
+/* BUTTONS */
 .interaction-bar{
-  display: flex;
-  padding: 1em;
-  max-height: 2em;
-  justify-content: center;
-  gap: 2em;
+    display: flex;
+    padding: 1em;
+    max-height: 2em;
+    justify-content: center;
+    gap: 2em;
 }
 
 .interaction-button {
     white-space: nowrap;
 }
 .interaction-button:hover{
-  cursor: pointer
+    cursor: pointer
 }
 .interaction-button .icon-inline {
     vertical-align: text-top;
     margin: auto 0em auto 0.5em;
 }
 
-.blog-photo{
-  width: 100%;
-  border-radius: 0.75em;
-}
-
+/* TODO: COMMENTS STYLING */

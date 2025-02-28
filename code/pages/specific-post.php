@@ -27,7 +27,7 @@
         &gt;
         <a href="#">This blog post</a>
     </header>
-    <article class = "panel">
+    <article class="panel blog-panel">
       <h1>I took this photo in New Zealand :)</h1>
       <div class = "blog-text">
         <p>
