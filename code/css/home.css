@@ -9,12 +9,12 @@
 }
 
 /* TEMPORARY: Used while we don't have a better way to do it */
-#container-new {
+.post-list-container.new {
     border: medium solid green;
 }
-#container-popular {
+.post-list-container.popular {
     border: medium solid red;
 }
-#container-popular {
+.post-list-container.popular {
     border: medium solid blue;
 }

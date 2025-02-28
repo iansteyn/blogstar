@@ -26,17 +26,17 @@
         <?php include "../html/search-bar.html" ?>
     </header>
     <nav class="tab-container">
-      <button class="tab" id="tab-new">New</button>
-      <button class="tab" id="tab-popular">Popular</button>
-      <button class="tab" id="tab-saved">Saved</button>
+      <button class="tab new">New</button>
+      <button class="tab popular">Popular</button>
+      <button class="tab saved">Saved</button>
     </nav>
-    <div id="container-new">
+    <div id="post-list-container new">
       <?php include "../html/post-list.php" ?>
     </div>
-    <div id="container-popular" class="hidden">
+    <div id="post-list-container popular" class="hidden">
       <?php include "../html/post-list.php" ?>
     </div>
-    <div id="container-saved" class="hidden">
+    <div id="post-list-container saved" class="hidden">
       <?php include "../html/post-list.php" ?>
     </div>
   </main>
