@@ -20,7 +20,7 @@
   padding-bottom: 1em;
 }
 
-#submit-button, #discard-button{
+#submit-post-button, #discard-post-button{
   width: min-content;
   font-size: smaller;
   padding: 0.5em;

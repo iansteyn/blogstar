@@ -23,7 +23,7 @@
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>
-    <form class = "panel create-panel" id = "create-form" method = "GET" action="../pages/profile.php">
+    <form class = "panel create-panel" id = "create-form" method = "GET">
       <label for="blog-title">Title</label>
       <textarea class = "blog-title" id = "blog-title" placeholder = "Write your title here!" required></textarea>
       <label for="blog-text">Post</label>
@@ -32,8 +32,8 @@
         <label for="blog-photo">Upload a photo</label>
         <input type="file" id="blog-photo" name="blog-photo"/>
       </div>
-      <button id = "submit-button" type="submit" value="Post">Post</button>
-      <button id = "discard-button" type="submit" value="Discard">Discard</button>
+      <button id = "submit-post-button" type="submit" value="Post">Post</button>
+      <button id = "discard-post-button" type="submit" value="Discard">Discard</button>
     </form>
   </main>
 </body>
