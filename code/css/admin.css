@@ -28,6 +28,7 @@
 .user-list {
     max-height: 100vh;
     overflow: auto;
+    border-radius: 0.75em;
 }
 .user-list li {
     padding: 0.5rem;
