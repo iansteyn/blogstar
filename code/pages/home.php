@@ -20,7 +20,7 @@
     <?php include "../html/side-nav.html" ?>
   </header>
   <main>
-    <header class="page-header">
+    <header class="page-header home-page-header">
         <h1>Home</h1>
         <?php include "../html/search-bar.html" ?>
     </header>

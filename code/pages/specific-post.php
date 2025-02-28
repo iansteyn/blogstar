@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 
   <title>
-    Blog Post
+    Blog Post | Our Site
   </title>
 
   <link rel="stylesheet" href="../css/reset.css">
@@ -16,32 +16,26 @@
 </head>
 
 <body>
-
-  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-
-    <symbol id="icon-comment" viewBox="0 0 24 24">
-      <path d="M20,0H4A4,4,0,0,0,0,4V16a4,4,0,0,0,4,4H6.9l4.451,3.763a1,1,0,0,0,1.292,0L17.1,20H20a4,4,0,0,0,4-4V4A4,4,0,0,0,20,0Zm2,16a2,2,0,0,1-2,2H17.1a2,2,0,0,0-1.291.473L12,21.69,8.193,18.473h0A2,2,0,0,0,6.9,18H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2H20a2,2,0,0,1,2,2Z"/>
-      <path d="M7,7h5a1,1,0,0,0,0-2H7A1,1,0,0,0,7,7Z"/>
-      <path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Z"/>
-      <path d="M17,13H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Z"/>
-    </symbol>
-
-    <symbol id="icon-like" viewBox="0 0 24 24">
-      <path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917Z"/>
-    </symbol>
-
-    <symbol id="icon-unlike" viewBox="0 0 24 24">
-      <path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/>
-    </symbol>
-  </svg>
   <header>
     <?php include "../html/side-nav.html" ?>
   </header>
+
   <main>
-    <h3 class = "breadcrumbs">Sadie Smith / Blog Post</h3>
-    <article class = "panel">
-      <h1>I took this photo in New Zealand :)</h1>
-      <div class = "blog-text">
+    <header class="page-header">
+      <span class="breadcrumbs">
+        <a href="profile.php">Sadie Smith's Profile</a>
+        &gt;
+        <a href="#">This blog post</a>
+    </header>
+    <article class="panel blog-panel">
+      <header>
+        <h1 class="blog-title">
+          I took this photo in New Zealand :)
+        </h1>
+        <?php include "../html/posting-info.html" ?>
+      </header>
+      <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
+      <div class="blog-text">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, imperdiet nec mattis a, laoreet at lectus. Donec semper et justo ut iaculis. Mauris gravida et est nec commodo. Pellentesque auctor dui id urna aliquam, eu malesuada arcu fringilla. Vestibulum et augue vel lacus ullamcorper pellentesque. Sed sagittis orci at lacus laoreet sollicitudin. In metus sem, accumsan id ultricies quis, gravida eleifend erat. Etiam pulvinar vel tortor sed eleifend. Mauris ante nulla, mollis nec justo sed, porta pellentesque mi. Proin volutpat euismod placerat.
         </p>
@@ -64,38 +58,31 @@
           Proin scelerisque gravida lacinia. Aenean interdum leo ut lorem sagittis, tempor sagittis felis tempor. Vestibulum ac ante nec tortor convallis pellentesque non non ante. In porttitor sapien eu lectus maximus, a vestibulum mauris eleifend. Duis varius lacus at turpis suscipit tempor. Donec nec dictum ante. In tincidunt volutpat risus, pretium fringilla massa. Nulla sodales tincidunt lorem in fringilla. Nulla eget sem vel nisi dignissim viverra.
         </p>
       </div>
-      <img class = "blog-photo" src = "../photo/sunrise.jpg" alt = "A photo of a sunrise looking over a beach."></img>
     </article>
+
     <div class="interaction-bar">
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="comment-icon" href="#icon-comment"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-comment"></use> 
           </svg>
           Comment
-        </span>
       </button>
-
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="unlike-icon" href="#icon-like"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
           Unlike Post
-        </span>
       </button>
-
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
-        <span class="icon-text">
-          <svg class="button-icon" preserveAspectRatio="xMidYMid meet">
-            <use class="like-icon" href="#icon-unlike"></use> 
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Like Post 
-        </span>
+          Like Post
       </button>
     </div>
+
   </main>
 </body>
 

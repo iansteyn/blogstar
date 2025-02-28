@@ -19,7 +19,9 @@
     <?php include "../html/side-nav.html" ?>
   </header>
   <main>
-    <h1>About</h1>
+    <header class="page-header">
+      <h1>About</h1>
+    </header>
   </main>
 </body>
 

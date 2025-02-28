@@ -1,44 +1,38 @@
-.blog-text{
-  padding: 0.5em 2em;
-  height: 100%;
+/* MAIN BLOG STUFF */
+.blog-panel {
+    padding: 2em;
 }
 
-.blog-text p{
-  margin-top: 1.5em;
-}
-
-.interaction-bar{
-  display: flex;
-  padding: 1em;
-  max-height: 2em;
-  justify-content: center;
-  gap: 2em;
-}
-
-.interaction-button:hover{
-  cursor: pointer
-}
-
-.button-icon{
-  fill: var(--text-primary);
-  width: 1em;
-  height: 1em;
-  vertical-align: text-top;
-  margin: auto 0em auto 0.5em;
-}
-
-.icon-text{
-  margin-right: 1em;
-  color: var(--text-primary);
-  white-space: nowrap;
+.blog-title {
+    margin-bottom: 0.2em;
 }
 
 .blog-photo{
-  width: 100%;
-  border-radius: 0.75em;
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    margin: 1em 0;
+    border-radius: 0.75em;
 }
 
-.breadcrumbs{
-  padding-bottom: 1em;
+/* BUTTONS */
+.interaction-bar{
+    display: flex;
+    padding: 1em;
+    max-height: 2em;
+    justify-content: center;
+    gap: 2em;
 }
 
+.interaction-button {
+    white-space: nowrap;
+}
+.interaction-button:hover{
+    cursor: pointer
+}
+.interaction-button .icon-inline {
+    vertical-align: text-top;
+    margin: auto 0em auto 0.5em;
+}
+
+/* TODO: COMMENTS STYLING */

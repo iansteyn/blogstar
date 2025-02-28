@@ -10,7 +10,7 @@
 .post-summary {
     margin-top: 1.5em;
     padding-bottom: 0.8em;
-    border-bottom: medium solid #00000020;
+    border-bottom: medium solid var(--low-opacity-darken-20);
 
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +33,7 @@
     margin-bottom: 0.2em;
 }
 .blog-start {
-    margin-top: 1em;
+    margin: 1em 0 0;
 }
 .post-summary-title a, .blog-start a {
     color: var(--text-primary);
@@ -58,33 +58,4 @@
     display: flex;
     gap: 0.4em;
     justify-content: space-between;
-
-    font-size:0; /*necessary for removing browser-cause gap between buttons */
-}
-
-.post-summary-button {
-    background: none;
-    padding: 0.4rem;
-    margin: 0;
-    border: none;
-
-    /* below properties fix weird button sizing issues */
-    box-sizing: content-box;
-    height: 1rem;
-    font-size: 1rem;
-}
-
-.button-icon {
-    fill: var(--text-primary);
-    width: 1em;
-    height: 1em;
-}
-
-.post-summary-button:hover {
-    background-color: #00000010;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-.post-summary-button:hover .button-icon {
-    fill: var(--accent-bright);
 }
