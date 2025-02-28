@@ -30,17 +30,50 @@
           <div class="user-listing">Sadie Smith</div>
           <div class="user-listing">Jane Doe</div>
           <div class="user-listing">John Appleseed</div>
-        </div>
-      </section>
-      <section class="panel search-topics" id="search-topics">
-        <h2>Site Search Topics</h2>
-        <div class="action-bar">
-          <!-- TODO: Add ability to add search topics -->
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
+          <div class="user-listing">Sadie Smith</div>
+          <div class="user-listing">Jane Doe</div>
+          <div class="user-listing">John Appleseed</div>
         </div>
       </section>
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
-        <canvas id="analytics" width="300" height="300"></canvas> <!-- temporary placeholder graphic -->
+        <canvas id="analytics" width="300" height="300"></canvas><!-- temporary placeholder graphic -->
       </section>
     </article>
   </main>

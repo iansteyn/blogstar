@@ -1,11 +1,9 @@
 .dashboard-grid {
-    height: calc(100% - 4.5rem);
+    box-sizing:content-box;
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 1fr 1.75fr;
-    grid-template-rows: 50% 50%;
-    grid-template-areas: "user-search search-topics"
-                         "user-search site-analytics";
+    grid-template-areas: "user-search site-analytics";
 }
 
 .user-search {
@@ -28,8 +26,9 @@
 }
 
 .user-list {
-    height: inherit;
-
+    /* height: inherit; */
+    /* max-height: 100%; */
+    /* overflow: auto; */
 }
 
 .user-list>div:nth-child(even) {
