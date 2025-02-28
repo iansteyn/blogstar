@@ -33,6 +33,15 @@ Styles for the side navigation bar.
     align-self: self-end;
 }
 
+/* LOGO */
+.icon-logo {
+    fill: var(--text-secondary);
+    display: block;
+    width: 4em;
+    height: 4em;
+    margin: 1em auto 0.75em;
+}
+
 /* LINKS */
 /* Normal */
 .nav-link {
@@ -45,13 +54,20 @@ Styles for the side navigation bar.
     color:inherit;
     background-color: var(--accent-hover);
 }
+.nav-link-text {
+    margin-left: 0.5em;
+}
+.nav-link .icon-inline {
+    fill: var(--text-secondary);
+    vertical-align: text-top;
+}
 
 /* Current page highlight */
 .nav-link.current-page {
     background-color: var(--background-primary);
     color: var(--accent-primary);
 }
-.nav-link.current-page .icon {
+.nav-link.current-page .icon-inline {
     fill: var(--accent-primary);
 }
 
@@ -59,7 +75,7 @@ Styles for the side navigation bar.
 .nav-link.no-access {
     color: var(--accent-dark);
 }
-.nav-link.no-access .icon {
+.nav-link.no-access .icon-inline {
     fill: var(--accent-dark);
 }
 
@@ -79,30 +95,9 @@ Styles for the side navigation bar.
     cursor: pointer;
 }
 
-/* ICONS */
-.icon {
-    fill: var(--text-secondary);
-    width: 1em;
-    height: 1em;
-    vertical-align: text-top;
-    margin-right: 0.5em;
-}
-
-.icon-logo {
-    display: block;
-    width: 4em;
-    height: 4em;
-    margin: 1em auto 0.75em;
-}
-
 /* COLLAPSED NAVBAR STATE */
-/* Collapsed navbar */
 .collapsed {
     text-align: center;
-    /* padding: 0.3em; */
-}
-.collapsed .icon {
-    margin-right: 0em;
 }
 .collapsed .nav-link-text {
     display: none;

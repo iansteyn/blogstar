@@ -108,22 +108,6 @@ input[type="search"]::-webkit-search-cancel-button {
     appearance: none;
 }
 
-/* from side-nav */
-.icon {
-    fill: var(--text-secondary);
-    width: 1em;
-    height: 1em;
-    vertical-align: text-top;
-    margin-right: 0.5em;
-}
-
-.icon-logo {
-    display: block;
-    width: 4em;
-    height: 4em;
-    margin: 1em auto 0.75em;
-}
-
 /* from specific-post */
 .button-icon{
     fill: var(--text-primary);
