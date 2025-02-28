@@ -45,14 +45,3 @@
 .subpage:first-child .post-list {
     border-top-left-radius: 0;
 }
-
-/* TEMPORARY: Used while we don't have a better way to do it */
-#new a {
-    color: green;
-}
-#popular a {
-    color: red;
-}
-#saved a {
-    color: blue;
-}
