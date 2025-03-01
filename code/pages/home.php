@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="../css/post-list.css" />
+  <link rel="stylesheet" href="../css/tabs.css" />
   <link rel="stylesheet" href="../css/side-nav.css">
   <script src="../scripts/side-nav.js" defer></script>
   <script src="../scripts/tabs.js" defer></script>
