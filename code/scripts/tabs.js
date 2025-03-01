@@ -8,16 +8,17 @@ const tabs = document.querySelectorAll(".tab");
 const subpages = document.querySelectorAll(".subpage");
 
 tabs.forEach((tab) => {
-    tab.addEventListener("click", ()=> {
-
-        for (let i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove("active");
-            subpages[i].classList.add("hidden");
-        }
-
-        tab.classList.add("active");
-        
-        const activeSubpage = document.getElementById(tab.value);
-        activeSubpage.classList.remove("hidden");
-    });
+    tab.addEventListener("click", ()=> showTab(tab));
 });
+
+function showTab(tab) {
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+        subpages[i].classList.add("hidden");
+    }
+
+    tab.classList.add("active");
+    
+    const activeSubpage = document.getElementById(tab.value);
+    activeSubpage.classList.remove("hidden");
+}
