@@ -7,7 +7,13 @@ home or profile to be toggled.
 const tabs = document.querySelectorAll(".tab");
 const subpages = document.querySelectorAll(".subpage");
 
+const currentURL = new URL(window.location.href)
+const currentTabValue = currentURL.searchParams.get("tab");
+
 tabs.forEach((tab) => {
+    if (tab.value == currentTabValue) {
+        showTab(tab);
+    }
     tab.addEventListener("click", ()=> showTab(tab));
 });
 
