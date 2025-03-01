@@ -16,6 +16,7 @@
 <body>
   <header>
     <?php include "../html/side-nav.html" ?>
+    <?php include "../html/user-bio.html" ?>
   </header>
   <main>
     <h1>My Profile</h1>
