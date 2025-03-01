@@ -12,13 +12,19 @@ tabs.forEach((tab) => {
 });
 
 function showTab(tab) {
+    // hide all tabs
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].classList.remove("active");
         subpages[i].classList.add("hidden");
     }
 
+    // show active tab
     tab.classList.add("active");
-    
     const activeSubpage = document.getElementById(tab.value);
     activeSubpage.classList.remove("hidden");
+
+    // update page URL
+    newURL = new URL(window.location.href);
+    newURL.searchParams.set("tab", tab.value);
+    window.history.replaceState({}, "", newURL);
 }
