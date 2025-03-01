@@ -1,4 +1,3 @@
-const submitButton = document.getElementById("submit-post-button");
 const discardButton = document.getElementById("discard-post-button");
 const createForm = document.getElementById("create-form");
 
