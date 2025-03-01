@@ -21,25 +21,29 @@
   <header>
     <?php include "../html/side-nav.html" ?>
   </header>
+
   <main>
-    <header class="page-header home-page-header">
+    <header>
+      <div class="page-header home-page-header">
         <h1>Home</h1>
         <?php include "../html/search-bar.html" ?>
+      </div>
+      <nav class="tab-group">
+        <button class="tab active" value="recent">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-recent"></use></svg>
+          Recent
+        </button>
+        <button class="tab" value="popular">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-popular"></use></svg>
+          Popular
+        </button>
+        <button class="tab" value="saved">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
+          Saved
+        </button>
+      </nav>
     </header>
-    <nav class="tab-group">
-      <button class="tab active" value="recent">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-recent"></use></svg>
-        Recent
-      </button>
-      <button class="tab" value="popular">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-popular"></use></svg>
-        Popular
-      </button>
-      <button class="tab" value="saved">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
-        Saved
-      </button>
-    </nav>
+
     <div class="subpage-group">
       <div class="subpage" id="recent">
         <?php include "../html/post-list.php" ?>
