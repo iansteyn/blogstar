@@ -62,12 +62,6 @@
     </article>
 
     <div class="interaction-bar">
-      <button class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-comment"></use> 
-          </svg>
-          Comment
-      </button>
       <!--TODO: add js for functionality-->
       <button class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -91,6 +85,40 @@
       </button>
     </div>
 
+    <div class="panel comments-container">
+    <header>
+      <h2 class="comments-title">
+        Comments
+      </h2>
+    </header>
+    <div class = "specific-comment-container">
+      <div class = "comment-text">
+        <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken?</p>
+      </div>
+
+      <button class="interaction-button top-button" type="button">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-create"></use> 
+        </svg>
+        Edit Comment
+      </button>
+      <!--TODO: add js for functionality-->
+      <button class="interaction-button" id = "delete-comment-button" type="button">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-delete"></use> 
+        </svg>
+        Delete Comment
+      </button>
+    </div>
+    <div class = "specific-comment-container">
+      <form method = "GET">
+        <label for="Comment">Comment</label>
+        <textarea class = "comment" id = "comment" placeholder = "Write your comment here!"></textarea>
+        <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
+        <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
+      </form>
+    </div>
+  </div>
   </main>
 </body>
 
