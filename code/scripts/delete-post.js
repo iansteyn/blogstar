@@ -6,19 +6,29 @@ function deletePost(){
 }
 
 /*--------------------------------------------------------------------------------------------------*/ 
-const discardPost = document.getElementById("discard-post-button");
-discardPost.addEventListener("click", ()=> discardPost());
 
-function discardPost() {
-    if(confirm("Are you sure you want to discard this post?")) {
-        window.location.href = "profile.php";
+document.addEventListener("DOMContentLoaded", () => {
+  const submitButton = document.getElementById("submit-post-button");
+  const discardButton = document.getElementById("discard-post-button");
+  const createForm = document.getElementById("create-form");
+
+  if (submitButton && createForm) {
+    createForm.addEventListener("submit", submitPost); 
+
+    if (discardButton) {
+      discardButton.addEventListener("click", discardPost);
     }
-}
+  }
+});
 
+const submitPost = (event) => {
+  event.preventDefault(); 
+  window.location.href = "profile.php"; 
+};
 
-
-const postSubmitForm = document.getElementById("create-post");
-submitPost.addEventListener("submit", ()=> submitPost());
-function submitPost() {
-  window.location.href = "profile.php";
-}
+const discardPost = () => {
+  const confirmDiscard = confirm("Are you sure you want to discard this post?");
+  if (confirmDiscard) {
+    window.location.href = "profile.php"; 
+  }
+};
