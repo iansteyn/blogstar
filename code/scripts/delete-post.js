@@ -2,13 +2,8 @@ const submitButton = document.getElementById("submit-post-button");
 const discardButton = document.getElementById("discard-post-button");
 const createForm = document.getElementById("create-form");
 
-if (submitButton && createForm) {
-    createForm.addEventListener("submit", submitPost); 
-
-    if (discardButton) {
-        discardButton.addEventListener("click", discardPost);
-    }
-}
+createForm.addEventListener("submit", submitPost); 
+discardButton.addEventListener("click", discardPost);
 
 // Helpers
 function submitPost(event) {
