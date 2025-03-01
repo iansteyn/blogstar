@@ -42,10 +42,10 @@
       <div class="subpage" id="posts">
         <?php include "../html/post-list.php" ?>
       </div>
-      <div class="subpage" id="saved">
+      <div class="subpage hidden" id="saved">
         <?php include "../temporary/post-list-3.php" ?>
       </div>
-      <div class="subpage" id="settings">
+      <div class="subpage hidden" id="settings">
         <form id="user-settings" class="panel account-form" method="get" action="#">
           <div class="form-group">
             <label for="update-user-id">Update user id</label>
