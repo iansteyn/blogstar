@@ -23,6 +23,20 @@
       <div class="page-header">
         <h1>My Profile</h1>
       </div>
+      <nav class="tab-group">
+        <button class="tab active" value="posts">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-post"></use></svg>
+          Posts
+        </button>
+        <button class="tab" value="saved">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
+          Saved
+        </button>
+        <button class="tab" value="settings">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-settings"></use></svg>
+          Settings
+        </button>
+      </nav>
     </header>
 
     <?php include "../html/post-list.php" ?>
