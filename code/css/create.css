@@ -5,13 +5,15 @@
 
 .blog-text{
   width: 100%;
-  height: 30em;
+  height: 23em;
   margin-bottom: 1em;
+  margin-top: 1em;
   box-sizing: border-box;
 }
 
 .blog-title{
   width: 100%;
+  margin-top: 1em;
   margin-bottom: 1em;
   box-sizing: border-box;
 }
