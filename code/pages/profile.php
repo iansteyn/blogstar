@@ -19,8 +19,12 @@
     <?php include "../html/side-nav.html" ?>
   </header>
   <main>
-    <h1>My Profile</h1>
-    <br> <!-- TODO remove -->
+    <header>
+      <div class="page-header">
+        <h1>My Profile</h1>
+      </div>
+    </header>
+
     <?php include "../html/post-list.php" ?>
     <div class="panel" id="user-settings-panel">
       <form id="user-settings" class="account-form" method="get" action="#">
