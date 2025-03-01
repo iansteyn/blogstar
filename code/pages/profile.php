@@ -21,9 +21,7 @@
   </header>
   <main>
     <header>
-      <div class="page-header">
-        <h1>My Profile</h1>
-      </div>
+      <h1 class="page-header">My Profile</h1>
       <nav class="tab-group">
         <button class="tab active" value="posts">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-post"></use></svg>
@@ -48,8 +46,8 @@
         <?php include "../temporary/post-list-3.php" ?>
       </div>
       <div class="subpage" id="settings">
-        <div class="panel" id="user-settings-panel">
-          <form id="user-settings" class="account-form" method="get" action="#">
+        
+          <form id="user-settings" class="panel account-form" method="get" action="#">
             <div class="form-group">
               <label for="update-user-id">Update user id</label>
               <input type="text" id="update-user-id" placeholder="Update your user id" />
@@ -72,7 +70,7 @@
             </div>
             <button type="submit">Update user settings</button>
           </form>
-        </div>
+        
       </div>
     </div>
   </main>
