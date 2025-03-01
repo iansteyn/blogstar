@@ -114,7 +114,7 @@
     <div class = "specific-comment-container">
       <form method = "GET">
         <label for="Comment">Comment</label>
-        <textarea class = "comment" id = "comment" placeholder = "Write your comment here!"></textarea>
+        <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
         <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
       </form>
