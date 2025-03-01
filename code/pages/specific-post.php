@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="../css/side-nav.css">
   <link rel="stylesheet" href="../css/specific-post.css">
   <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/delete-post.js" defer></script>
+  <script src="../scripts/comments.js" defer></script>
+  <script src="../scripts/post-interaction.js" defer></script>
 </head>
 
 <body>
