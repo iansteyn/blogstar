@@ -16,6 +16,13 @@ function deletePost(){
   }
 }
 
+const editPostButton = document.getElementById("edit-post-button");
+editPostButton.addEventListener("click", ()=> editPost());
+    
+function editPost(){
+  window.location.href = "create.php"; 
+}
+
 
 const likeButton = document.getElementById('like-button');
 const unlikeButton = document.getElementById('unlike-button');
