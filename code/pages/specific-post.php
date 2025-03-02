@@ -68,14 +68,14 @@
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Unlike Post
+          Unlike
       </button>
       <!-- Unlike Button (Initially hidden) -->
       <button class="interaction-button" id = "unlike-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
-          Like Post
+          Like
       </button>
 
       <button id = "delete-post-button" class="interaction-button" type="button">
@@ -91,6 +91,22 @@
           </svg>
           Edit
       </button>
+
+      <button id = "save-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-save-unfilled"></use> 
+          </svg>
+          Save
+      </button>
+      
+
+      <button id = "unsave-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-save-filled"></use> 
+          </svg>
+          Unsave
+      </button>
+
     </div>
 
     <div class="panel comments-container">
@@ -110,7 +126,7 @@
         </svg>
         Edit Comment
       </button>
-      <!--TODO: add js for functionality-->
+
       <button class="interaction-button" id = "delete-comment-button" type="button">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../icons/icons.svg#icon-delete"></use> 
