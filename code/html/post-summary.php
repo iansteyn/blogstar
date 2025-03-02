@@ -31,7 +31,7 @@
             <use href="../icons/icons.svg#icon-edit"></use>
           </svg>
         </button>
-        <button class="button-icon-only" title="Delete">
+        <button class="button-icon-only delete-post-button" title="Delete">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-delete"></use>
           </svg>
