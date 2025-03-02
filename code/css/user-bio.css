@@ -9,7 +9,7 @@
   position: sticky;
   top: 0;
 
-  box-shadow: 0 0.25em 0.5em 0.2em rgba(44, 44, 44, 0.25);
+  box-shadow: 0 0.25em 0.5em 0.2em var(--background-shadow);
 }
 
 .user-image{
