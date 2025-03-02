@@ -26,7 +26,7 @@
         </button>
       </div>
       <div class="modify-buttons">
-        <button class="button-icon-only" title="Edit">
+        <button class="button-icon-only edit-post-button" title="Edit">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-edit"></use>
           </svg>

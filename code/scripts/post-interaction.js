@@ -20,9 +20,13 @@ function deletePost(){
   }
 }
 
-const editPostButton = document.getElementById("edit-post-button");
-editPostButton.addEventListener("click", ()=> editPost());
-    
+// EDIT
+const editPostButtons = document.querySelectorAll(".edit-post-button");
+
+editPostButtons.forEach((button) => {
+    button.addEventListener("click", ()=> editPost());
+});
+
 function editPost(){
   window.location.href = "create.php"; 
 }
