@@ -22,9 +22,10 @@ function logout() {
 // HIGHLIGHT NAVLINK OF CURRENT PAGE
 // ---------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
+const currentPage = window.location.href.split("?")[0];
 
 for (navLink of navLinks) {
-    if ((navLink.href  === window.location.href) && (navLink.id != "nav-logo")) {
+    if ((navLink.href  === currentPage) && (navLink.id != "nav-logo")) {
         navLink.classList.add("current-page");
     }
 }
