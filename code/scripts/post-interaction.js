@@ -1,13 +1,17 @@
 /* post-interactions.js
 --------------------------------------
 Performs the following actions:
-- deleting of a post
-- confirmation pop up on delete
-- toggles the like and dislike button on a post
+- Deleting (with confirmation)
+- Editing (redirect)
+- like/unlike, save/unsave toggling
 -------------------------------------- */
 
-const deletePostButton = document.getElementById("delete-post-button");
-deletePostButton.addEventListener("click", ()=> deletePost());
+// DELETE
+const deletePostButtons = document.querySelectorAll(".delete-post-button");
+
+deletePostButtons.forEach((button) => {
+    button.addEventListener("click", ()=> deletePost());
+});
     
 function deletePost(){
   const confirmDelete = confirm("Are you sure you want to delete this post?");
@@ -16,13 +20,33 @@ function deletePost(){
   }
 }
 
-const editPostButton = document.getElementById("edit-post-button");
-editPostButton.addEventListener("click", ()=> editPost());
-    
+// EDIT
+const editPostButtons = document.querySelectorAll(".edit-post-button");
+
+editPostButtons.forEach((button) => {
+    button.addEventListener("click", ()=> editPost());
+});
+
 function editPost(){
   window.location.href = "create.php"; 
 }
 
+//LIKE and SAVE
+//TODO - apply like and save to all pages
+// const togglablePostButtons = document.querySelectorAll(".togglable-post-button");
+
+// togglablePostButtons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         button.classList.toggle("hidden");
+//         console.log("this is called");
+//     });
+// });
+
+// function toggleButton(button) {
+//     if (button.classList.contains("hidden")) {
+//         button.classList
+//     }
+// }
 
 const likeButton = document.getElementById('like-button');
 const unlikeButton = document.getElementById('unlike-button');
