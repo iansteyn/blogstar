@@ -1,24 +1,21 @@
-const submitButton = document.getElementById("submit-post-button");
 const discardButton = document.getElementById("discard-post-button");
 const createForm = document.getElementById("create-form");
 
-const submitPost = (event) => {
-  event.preventDefault(); 
-  window.location.href = "profile.php"; 
-};
+createForm.addEventListener("submit", submitPost); 
+discardButton.addEventListener("click", discardPost);
 
-const discardPost = () => {
-  const confirmDiscard = confirm("Are you sure you want to discard this post?");
-  if (confirmDiscard) {
+// Helpers
+function submitPost(event) {
+    event.preventDefault(); 
     window.location.href = "profile.php"; 
-  }
 };
 
-if (submitButton && createForm) {
-  createForm.addEventListener("submit", submitPost); 
+function discardPost() {
+    const confirmDiscard = confirm("Are you sure you want to discard this post?");
+    if (confirmDiscard) {
+        window.location.href = "profile.php"; 
+    }
+};
 
-  if (discardButton) {
-    discardButton.addEventListener("click", discardPost);
-  }
-}
+
 
