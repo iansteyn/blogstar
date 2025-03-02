@@ -3,6 +3,7 @@
 Performs the following actions:
 - deleting of a post
 - confirmation pop up on delete
+- toggles the like and dislike button on a post
 -------------------------------------- */
 
 const deletePostButton = document.getElementById("delete-post-button");
@@ -14,3 +15,17 @@ function deletePost(){
     window.location.href = "profile.php"; 
   }
 }
+
+
+const likeButton = document.getElementById('like-button');
+const unlikeButton = document.getElementById('unlike-button');
+
+unlikeButton.addEventListener('click', () => {
+  unlikeButton.style.display = 'none';
+  likeButton.style.display = 'inline-block';
+});
+
+likeButton.addEventListener('click', () => {
+  likeButton.style.display = 'none';
+  unlikeButton.style.display = 'inline-block';
+});

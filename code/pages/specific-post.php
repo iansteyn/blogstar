@@ -71,7 +71,7 @@
           Unlike Post
       </button>
       <!-- Unlike Button (Initially hidden) -->
-      <button class="interaction-button" id = "unline-button" type="button">
+      <button class="interaction-button" id = "unlike-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
