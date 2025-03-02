@@ -1,11 +1,7 @@
 <!-- icons.svg
 ==============
 This is an icon "spritesheet" - a bunch of vector icons defined in the same file.
-They can be accessed with their ids. Currently they are mostly being used in side-nav.html.
-
-- Source: Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
-- TODO: put this attribution on our about page 
-
+They can be accessed with their ids.
 NOTE: You must be running the site on a server for the icon requests to work properly
 -->
 
