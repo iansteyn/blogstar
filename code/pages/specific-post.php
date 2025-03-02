@@ -120,6 +120,9 @@
     </div>
   </div>
   </main>
+  <aside class="sidebar-profile">
+    <?php include "../html/user-bio.html" ?>
+  </aside>
 </body>
 
 </html>

@@ -1,15 +1,12 @@
 .sidebar-profile{
   background-color: var(--background-secondary);
   color: var(--text-primary);
-  
+
   max-width: 15em;
-  height: 100vh;
   padding: 1em;
-  box-sizing: border-box; 
-  
-  position: fixed; 
-  top: 0; 
-  right: 0; 
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
 }
 
 .user-image{
@@ -17,11 +14,11 @@
   height: auto;
   border-radius: 2%; 
   display: block;
-  margin: 0 auto 15px; 
+  margin: 0 auto 1.5em; 
 }
 
 .user-info{
-  text-align: center;
+  text-align: center; 
 }
 
 .user-name{
@@ -34,5 +31,6 @@
 }
 
 .user-bio{
-  text-align: left;
+  font-size: 0.75em;
+  text-align: left; 
 }

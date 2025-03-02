@@ -51,7 +51,7 @@ a:hover {
 body {
     background-color: var(--background-primary);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
 }
 body > header {
     grid-column-start: 1;

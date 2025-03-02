@@ -17,7 +17,6 @@
 <body>
   <header>
     <?php include "../html/side-nav.html" ?>
-    <?php include "../html/user-bio.html" ?>
   </header>
   <main>
     <h1>My Profile</h1>
@@ -49,6 +48,9 @@
       </form>
     </div>
   </main>
+  <aside class="sidebar-profile">
+    <?php include "../html/user-bio.html" ?>
+  </aside>
 </body>
 
 </html>
