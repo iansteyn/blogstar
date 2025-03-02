@@ -44,8 +44,7 @@
   margin-bottom:1em;
 }
 
-
-
+/* COMMENTS */
 .comments-title{
   width: 100%;
 }
@@ -58,6 +57,13 @@
 .specific-comment-container{
   padding: 1em;
   border-bottom: medium solid var(--low-opacity-darken-20);
+}
+
+.specific-comment-container header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .comment{
