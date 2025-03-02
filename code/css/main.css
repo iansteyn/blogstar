@@ -31,6 +31,8 @@
         --low-opacity-darken-10: #FFFFFF10;
         --low-opacity-darken-20: #FFFFFF20;
         --color-error: red;
+
+        scrollbar-color: #4A4A4A #333333;
     }
 }
 
