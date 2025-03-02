@@ -29,6 +29,7 @@
         <a href="profile.php">Sadie Smith's Profile</a>
         &gt;
         <a href="#">This blog post</a>
+      </span>
     </header>
     <article class="panel blog-panel">
       <header>
