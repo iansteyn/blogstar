@@ -84,6 +84,13 @@
           </svg>
           Delete
       </button>
+
+      <button id = "edit-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-edit"></use> 
+          </svg>
+          Edit
+      </button>
     </div>
 
     <div class="panel comments-container">
@@ -99,7 +106,7 @@
 
       <button class="interaction-button top-button" type="button">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-create"></use> 
+          <use href="../icons/icons.svg#icon-edit"></use> 
         </svg>
         Edit Comment
       </button>

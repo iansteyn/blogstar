@@ -25,7 +25,8 @@
 }
 
 .interaction-button {
-  white-space: nowrap
+  white-space: nowrap;
+  color: var(--text-primary);
 }
 
 .top-button{
@@ -36,7 +37,7 @@
 }
 .interaction-button .icon-inline {
   vertical-align: text-top;
-  margin: auto 0em auto 0.5em;
+  margin: auto 0em auto 0em;
 }
 
 .comments-title{
