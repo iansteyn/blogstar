@@ -1,3 +1,10 @@
+/* post-interactions.js
+--------------------------------------
+Performs the following actions:
+- deleting of a post
+- confirmation pop up on delete
+-------------------------------------- */
+
 const deletePostButton = document.getElementById("delete-post-button");
 deletePostButton.addEventListener("click", ()=> deletePost());
     

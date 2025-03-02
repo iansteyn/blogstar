@@ -1,3 +1,10 @@
+/* create-edit.js
+--------------------------------------
+Performs the following actions:
+- deleting of a postthats currently being written
+- "submitting" the post which is a redirect back to profile
+-------------------------------------- */
+
 const discardButton = document.getElementById("discard-post-button");
 const createForm = document.getElementById("create-form");
 
