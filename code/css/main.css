@@ -115,13 +115,18 @@ main {
 /* SEARCH BAR */
 .search-bar {
     background: var(--background-secondary);
-    border: thin solid lightgrey;
+    border: thin solid var(--background-shadow);
     border-radius: 4em;
     height:fit-content;
 
     display: grid;
     grid-template-columns: 1fr auto;
     align-items:center;
+}
+@media(prefers-color-scheme: dark) {
+    .search-bar {
+        border-color: var(--low-opacity-darken-20);
+    }
 }
 .search-bar:has(input:focus) {
     border-color: var(--text-primary);
