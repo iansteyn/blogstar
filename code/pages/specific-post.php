@@ -69,7 +69,7 @@
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Unlike
+          Liked
       </button>
       <!-- Like Button (Initially shown) -->
       <button class="interaction-button" id = "unlike-button" type="button">
@@ -92,7 +92,7 @@
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-save-filled"></use> 
           </svg>
-          Unsave
+          Saved
       </button>
 
       <button id = "edit-post-button" class="interaction-button" type="button">

@@ -44,6 +44,15 @@
   margin-bottom:1em;
 }
 
+#like-button, #unsave-post-button {
+    display: none;
+    background-color: var(--accent-bright);
+}
+
+#unlike-button, #save-post-button {
+    display: inline-block;
+}
+
 /* COMMENTS */
 .comments-title{
   width: 100%;
@@ -72,12 +81,3 @@
   margin: 1em 0;
 }
 
-#like-button, #unsave-post-button {
-  display: none;
-}
-  
-#unlike-button, #save-post-button {
-  display: inline-block;
-}
-
-  
