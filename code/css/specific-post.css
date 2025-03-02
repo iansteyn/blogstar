@@ -1,60 +1,68 @@
 /* MAIN BLOG STUFF */
 .blog-panel {
-    padding: 2em;
+  padding: 2em;
 }
 
 .blog-title {
-    margin-bottom: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .blog-photo{
-    width: 100%;
-    max-height: 50vh;
-    object-fit: cover;
-    margin: 1em 0;
-    border-radius: 0.75em;
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+  margin: 1em 0;
+  border-radius: 0.75em;
 }
 
 /* BUTTONS */
 .interaction-bar{
-    display: flex;
-    padding: 1em;
-    max-height: 2em;
-    justify-content: center;
-    gap: 2em;
+  display: flex;
+  padding: 1em;
+  max-height: 2em;
+  justify-content: center;
+  gap: 2em;
 }
 
 .interaction-button {
-    white-space: nowrap
+  white-space: nowrap
 }
 
 .top-button{
-    margin-bottom:1em;
+  margin-bottom:1em;
 }
 .interaction-button:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 .interaction-button .icon-inline {
-    vertical-align: text-top;
-    margin: auto 0em auto 0.5em;
+  vertical-align: text-top;
+  margin: auto 0em auto 0.5em;
 }
 
 .comments-title{
-    width: 100%;
+  width: 100%;
 }
 
 .comments-container{
-    width: 100%;
-    box-sizing: border-box;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .specific-comment-container{
-    padding: 1em;
-    border-bottom: medium solid var(--low-opacity-darken-20);
+  padding: 1em;
+  border-bottom: medium solid var(--low-opacity-darken-20);
 }
 
 .comment{
-    width: 100%;
-    box-sizing: border-box;
-    margin: 1em 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1em 0;
+}
+
+#like-button {
+  display: none;
+}
+  
+#unlike-button {
+  display: inline-block;
 }

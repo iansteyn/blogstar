@@ -63,17 +63,17 @@
     </article>
 
     <div class="interaction-bar">
-      <!--TODO: add js for functionality-->
-      <button class="interaction-button" type="button">
+      <!-- Like Button (Initially shown) -->
+      <button class="interaction-button" id = "like-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
+            <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
           Unlike Post
       </button>
-      <!--TODO: add js for functionality-->
-      <button class="interaction-button" type="button">
+      <!-- Unlike Button (Initially hidden) -->
+      <button class="interaction-button" id = "unline-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-filled"></use> 
+            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
           Like Post
       </button>
