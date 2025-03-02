@@ -42,7 +42,11 @@
     </header>
     <article class="panel">
       <section>
-        <h2>Welcome to Our Site!</h2>
+        <h2>
+          Welcome to
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-logo"></use></svg>
+          Our Site!
+        </h2>
         <p>
           Our site is a personal blogging website, where you can create and read longform text posts. There's lots of different ways to find posts: search by keyword, check out what's popular, and save your favorites! You can also engage with other bloggers by browsing their profiles and commenting on their posts.
         </p>
@@ -81,8 +85,13 @@
         <details>
           <summary><h3>What if I post something I didn't mean to?</h3></summary>
           <p>
-            You can edit or delete your posts by clicking on the <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../icons/icons.svg#icon-edit"></use></svg> <i>edit</i> or <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg> <i>delete</i> buttons on your profile page or on the post itself.
+            You can edit or delete your posts by clicking on the
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-edit"></use></svg>
+            <i>edit</i>
+            or
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg>
+            <i>delete</i>
+            buttons on your profile page or on the post itself.
           </p>
         </details>
         <details>
