@@ -31,6 +31,22 @@ function editPost(){
   window.location.href = "create.php"; 
 }
 
+//LIKE and SAVE
+//TODO - apply like and save to all pages
+// const togglablePostButtons = document.querySelectorAll(".togglable-post-button");
+
+// togglablePostButtons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         button.classList.toggle("hidden");
+//         console.log("this is called");
+//     });
+// });
+
+// function toggleButton(button) {
+//     if (button.classList.contains("hidden")) {
+//         button.classList
+//     }
+// }
 
 const likeButton = document.getElementById('like-button');
 const unlikeButton = document.getElementById('unlike-button');
