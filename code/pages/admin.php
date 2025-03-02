@@ -27,7 +27,7 @@
           <?php include "../html/search-bar.html" ?>
         </div>
         <ul class="user-list">
-          <li><a href="profile.php">Sadie Smith</a></div>
+          <li><a href="profile.php">Sadie Smith</a>
           <li>Jane Doe</li>
           <li>John Appleseed</li>
           <li>Jane Doe</li>

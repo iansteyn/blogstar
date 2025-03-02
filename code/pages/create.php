@@ -33,7 +33,7 @@
         <input type="file" id="blog-photo" name="blog-photo" required/>
       </div>
       <button id = "submit-post-button" type="submit" value="Post">Post</button>
-      <input id = "discard-post-button" type="button" value="Discard"></input>
+      <input id = "discard-post-button" type="button" value="Discard">
     </form>
   </main>
 </body>
