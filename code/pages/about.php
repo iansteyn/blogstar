@@ -21,6 +21,12 @@
     h2 {
       margin-bottom: 1rem;
     }
+    details summary { 
+      cursor: pointer;
+    }
+    details summary > * {
+      display: inline;
+    }
   </style>
 
   <script src="../scripts/side-nav.js" defer></script>
@@ -35,7 +41,6 @@
       <h1>About</h1>
     </header>
     <article class="panel">
-      <!-- about this website -->
       <section>
         <h2>Welcome to Our Site!</h2>
         <p>
@@ -58,23 +63,35 @@
         </ul>
         <h3>Code</h3>
         <p>
-          You can find the source code for this website at <a href="https://github.com/iansteyn/cosc-360-project" target="_blank">our GitHub repository</a>.
-        </p>
-        <p>
-          We used no front-end frameworks. It's pure HTML/CSS/JS, hand-crafted!
+          You can find the source code for this website at <a href="https://github.com/iansteyn/cosc-360-project" target="_blank">our GitHub repository</a>. We used no front-end frameworks. It's pure HTML/CSS/JS, hand-crafted!
         </p>
         <h3>Attribution</h3>
         <p>
           All icons are from the UIcon library by <a href="https://www.flaticon.com/uicons">Flaticon</a>.
         </p>
       </section>
-        <!-- <h3>Do I have to register an account?</h3>
-        <p>
-          You can browse posts without having an account, but you must register and log in to create your own posts and view the profiles of other users. Your personal information is kept secure, and we do not share it with anyone.
-        </p> -->
-      <!-- the team -->
-      <!-- github -->
-      <!-- attribution -->
+      <section>
+        <h2>FAQ</h2>
+        <details>
+          <summary><h3>Do I have to register an account?</h3></summary>
+          <p>
+            You can browse posts without having an account, but you must register and log in to create your own posts and view the profiles of other users. Your personal information is kept secure, and we do not share it with anyone.
+          </p>
+        </details>
+        <details>
+          <summary><h3>What if I post something I didn't mean to?</h3></summary>
+          <p>
+            You can edit or delete your posts by clicking on the <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href="../icons/icons.svg#icon-edit"></use></svg> <i>edit</i> or <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-delete"></use></svg> <i>delete</i> buttons on your profile page or on the post itself.
+          </p>
+        </details>
+        <details>
+          <summary><h3>How do I change my username/password/profile picture?</h3></summary>
+          <p>
+            See the <a href="profile.php?tab=settings">settings tab</a> on your profile page.
+          </p>
+        </details>
+      </section>
     </article>
   </main>
 </body>
