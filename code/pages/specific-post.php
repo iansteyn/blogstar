@@ -78,20 +78,6 @@
           Like
       </button>
 
-      <button id = "delete-post-button" class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-delete"></use> 
-          </svg>
-          Delete
-      </button>
-
-      <button id = "edit-post-button" class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-edit"></use> 
-          </svg>
-          Edit
-      </button>
-
       <!-- Save Button (Initially shown) -->
       <button id = "save-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -106,6 +92,20 @@
             <use href="../icons/icons.svg#icon-save-filled"></use> 
           </svg>
           Unsave
+      </button>
+
+      <button id = "edit-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-edit"></use> 
+          </svg>
+          Edit
+      </button>
+
+      <button id = "delete-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-delete"></use> 
+          </svg>
+          Delete
       </button>
 
     </div>
