@@ -60,7 +60,7 @@ button[type="submit"]:focus {
 	box-shadow: 0.125em 0.125em 0.25em 0.125em var(--accent-hover);
 }
 
-button[type="submit"] {
+button[type="submit"], input[type="button"]{
 	width: 100%;
 	background-color: var(--accent-primary);
 	color: var(--text-secondary);
@@ -71,7 +71,7 @@ button[type="submit"] {
 	font-weight: bold;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #72a7a7;
 	cursor: pointer;
 }

@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="../css/side-nav.css">
   <link rel="stylesheet" href="../css/specific-post.css">
   <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/delete-post.js" defer></script>
+  <script src="../scripts/comments.js" defer></script>
+  <script src="../scripts/post-interaction.js" defer></script>
 </head>
 
 <body>
@@ -113,7 +114,7 @@
     <div class = "specific-comment-container">
       <form method = "GET">
         <label for="Comment">Comment</label>
-        <textarea class = "comment" id = "comment" placeholder = "Write your comment here!"></textarea>
+        <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
         <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
       </form>
