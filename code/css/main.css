@@ -53,7 +53,7 @@ a:hover {
 body {
     background-color: var(--background-primary);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
 }
 body > header {
     grid-column-start: 1;
@@ -74,7 +74,7 @@ main {
 }
 
 .page-header {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 .breadcrumbs a {
