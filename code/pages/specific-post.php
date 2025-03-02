@@ -118,6 +118,7 @@
       </h2>
     </header>
     <div class = "specific-comment-container">
+      <?php include "../html/posting-info.html" ?>
       <div class = "comment-text">
         <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
       </div>
