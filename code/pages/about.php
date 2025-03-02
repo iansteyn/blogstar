@@ -44,7 +44,7 @@
       <section>
         <h2>Welcome to Our Site!</h2>
         <p>
-          Our site is a personal blogging website, where you can create and read longform text posts. There's lots of different ways to find posts: search by keyword, and check out what's popular, and save your favorites! You can also engage with other bloggers by browsing their profiles and commenting on their posts.
+          Our site is a personal blogging website, where you can create and read longform text posts. There's lots of different ways to find posts: search by keyword, check out what's popular, and save your favorites! You can also engage with other bloggers by browsing their profiles and commenting on their posts.
         </p>
         <p>
           This site was created as a term project for COSC 360 - Web Programming. We have learned a great deal in the process, and are very proud of what we have built.
