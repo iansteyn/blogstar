@@ -63,14 +63,14 @@
     </article>
 
     <div class="interaction-bar">
-      <!-- Like Button (Initially shown) -->
+      <!-- Unlike Button (Initially hidden) -->
       <button class="interaction-button" id = "like-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
           Unlike
       </button>
-      <!-- Unlike Button (Initially hidden) -->
+      <!-- Like Button (Initially shown) -->
       <button class="interaction-button" id = "unlike-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-unfilled"></use> 
@@ -92,6 +92,7 @@
           Edit
       </button>
 
+      <!-- Save Button (Initially shown) -->
       <button id = "save-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-save-unfilled"></use> 
@@ -99,7 +100,7 @@
           Save
       </button>
       
-
+      <!-- Unsave Button (Initially hidden) -->
       <button id = "unsave-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-save-filled"></use> 

@@ -29,3 +29,16 @@ likeButton.addEventListener('click', () => {
   likeButton.style.display = 'none';
   unlikeButton.style.display = 'inline-block';
 });
+
+const saveButton = document.getElementById('save-post-button');
+const unsaveButton = document.getElementById('unsave-post-button');
+
+unsaveButton.addEventListener('click', () => {
+  unsaveButton.style.display = 'none';
+  saveButton.style.display = 'inline-block';
+});
+
+saveButton.addEventListener('click', () => {
+  saveButton.style.display = 'none';
+  unsaveButton.style.display = 'inline-block';
+});

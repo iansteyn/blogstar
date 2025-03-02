@@ -67,3 +67,11 @@
 #unlike-button {
   display: inline-block;
 }
+
+#save-post-button {
+  display: inline-block;
+}
+  
+#unsave-post-button {
+  display: none;
+}
