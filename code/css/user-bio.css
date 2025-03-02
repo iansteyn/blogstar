@@ -1,48 +1,39 @@
 .sidebar-profile{
   background-color: var(--background-secondary);
-  max-width: 20%;
-  height: 100vh;
-  position: fixed;
-  text-align: center;
-  top: 0;
-  right: 0;
-  padding: 1em;
-  overflow: auto;
-  box-sizing: border-box;
-}
+  color: var(--text-primary);
 
-.background-box{
-  width: 75%;
-  height: auto;
-  border-radius: 1em;
-  background-color: var(--accent-primary);
-  margin: 0 auto;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
+  min-height: 100vh;
+  max-width: 15em;
+  padding: 1.5em;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+
+  box-shadow: 0 0.25em 0.5em 0.2em rgba(44, 44, 44, 0.25);
 }
 
 .user-image{
-  max-width: 90%;
-  max-height: auto;
-  margin: 0.5em;
-  border-radius: 1em;
+  width: 10em;
+  height: auto;
+  border-radius: 0.75em; 
+  display: block;
+  margin: 0 auto 1.5em; 
 }
 
-.user-bio{
-  text-align: left;
-  padding: 1em 0 1em 0;
-  word-wrap: break-word;
-  font-size: clamp(0.5rem, 0.75rem, 1.5rem); 
+.user-info{
+  text-align: center; 
 }
 
 .user-name{
-  padding: 1em 0 1em 0;
-  font-size: clamp(0.75rem, 2vw, 2rem); 
-  
+  font-size: 1.5em;
+  margin-bottom: 1em;
 }
 
 .follower-count{
-  word-wrap: break-word;
-  font-size: clamp(0.5rem, 0.75rem, 1.5rem); 
+  margin-bottom: 1em;
+}
+
+.user-bio{
+  font-size: 0.75em;
+  text-align: left; 
 }

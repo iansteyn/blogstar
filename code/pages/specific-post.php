@@ -121,6 +121,9 @@
     </div>
   </div>
   </main>
+  <aside>
+    <?php include "../html/user-bio.html" ?>
+  </aside>
 </body>
 
 </html>
