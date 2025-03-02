@@ -24,21 +24,27 @@
   gap: 2em;
 }
 
-.interaction-button {
-  white-space: nowrap;
-  color: var(--text-primary);
+.interaction-button[type="button"], .interaction-button[type="submit"] {
+    white-space: nowrap;
+    width: auto;
+    font-size:small;
+    padding: 0.5rem;
 }
+.interaction-button[type="button"]:hover, .interaction-button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+    cursor:pointer;
+}
+.interaction-button .icon-inline {
+    fill: var(--text-secondary);
+    vertical-align: text-top;
+    margin: auto 0em auto 0em;
+  }
 
 .top-button{
   margin-bottom:1em;
 }
-.interaction-button:hover{
-  cursor: pointer;
-}
-.interaction-button .icon-inline {
-  vertical-align: text-top;
-  margin: auto 0em auto 0em;
-}
+
+
 
 .comments-title{
   width: 100%;

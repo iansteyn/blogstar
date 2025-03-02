@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/specific-post.css">
   <script src="../scripts/side-nav.js" defer></script>
   <script src="../scripts/comments.js" defer></script>
@@ -140,16 +141,16 @@
         <label for="comment">Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-post"></use> 
-        </svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-post"></use> 
+          </svg>
           Post Comment
         </button>
 
         <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-delete"></use> 
-        </svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-delete"></use> 
+          </svg>
           Discard Comment
         </button>
       </form>
