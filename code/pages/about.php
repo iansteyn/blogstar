@@ -65,7 +65,7 @@
         </p>
         <h3>Attribution</h3>
         <p>
-          <!-- TODO -->
+          All icons are from the UIcon library by <a href="https://www.flaticon.com/uicons">Flaticon</a>.
         </p>
       </section>
         <!-- <h3>Do I have to register an account?</h3>
