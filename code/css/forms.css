@@ -109,3 +109,7 @@ input.validation-error {
 	border: 0.15em solid var(--color-error);
 	box-shadow: none;
 }
+
+#edit-user-bio {
+    padding: 0.5rem;
+}
