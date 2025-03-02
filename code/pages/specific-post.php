@@ -63,19 +63,42 @@
     </article>
 
     <div class="interaction-bar">
-      <!--TODO: add js for functionality-->
-      <button class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
-          </svg>
-          Unlike Post
-      </button>
-      <!--TODO: add js for functionality-->
-      <button class="interaction-button" type="button">
+      <!-- Unlike Button (Initially hidden) -->
+      <button class="interaction-button" id = "like-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Like Post
+          Unlike
+      </button>
+      <!-- Like Button (Initially shown) -->
+      <button class="interaction-button" id = "unlike-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
+          </svg>
+          Like
+      </button>
+
+      <!-- Save Button (Initially shown) -->
+      <button id = "save-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-save-unfilled"></use> 
+          </svg>
+          Save
+      </button>
+      
+      <!-- Unsave Button (Initially hidden) -->
+      <button id = "unsave-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-save-filled"></use> 
+          </svg>
+          Unsave
+      </button>
+
+      <button id = "edit-post-button" class="interaction-button" type="button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-edit"></use> 
+          </svg>
+          Edit
       </button>
 
       <button id = "delete-post-button" class="interaction-button" type="button">
@@ -84,6 +107,7 @@
           </svg>
           Delete
       </button>
+
     </div>
 
     <div class="panel comments-container">
@@ -94,16 +118,16 @@
     </header>
     <div class = "specific-comment-container">
       <div class = "comment-text">
-        <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken?</p>
+        <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
       </div>
 
       <button class="interaction-button top-button" type="button">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-create"></use> 
+          <use href="../icons/icons.svg#icon-edit"></use> 
         </svg>
         Edit Comment
       </button>
-      <!--TODO: add js for functionality-->
+
       <button class="interaction-button" id = "delete-comment-button" type="button">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../icons/icons.svg#icon-delete"></use> 
@@ -115,8 +139,19 @@
       <form method = "GET">
         <label for="Comment">Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
-        <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
-        <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
+        <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-post"></use> 
+        </svg>
+          Post Comment
+        </button>
+
+        <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-delete"></use> 
+        </svg>
+          Discard Comment
+        </button>
       </form>
     </div>
   </div>
