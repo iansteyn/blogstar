@@ -35,10 +35,10 @@
 }
 
 .user-list>li:nth-child(even) {
-    background-color: #efefef;
+    background-color: var(--low-opacity-darken-20);
 }
 
 .user-list>li:nth-child(odd) {
-    background-color: #e1e1e1;
+    background-color: var(--low-opacity-darken-10);
 }
 

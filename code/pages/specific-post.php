@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/side-nav.css">
+  <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/specific-post.css">
   <script src="../scripts/side-nav.js" defer></script>
   <script src="../scripts/comments.js" defer></script>
@@ -69,7 +70,7 @@
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-like-filled"></use> 
           </svg>
-          Unlike
+          Liked
       </button>
       <!-- Like Button (Initially shown) -->
       <button class="interaction-button" id = "unlike-button" type="button">
@@ -92,7 +93,7 @@
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../icons/icons.svg#icon-save-filled"></use> 
           </svg>
-          Unsave
+          Saved
       </button>
 
       <button id = "edit-post-button" class="interaction-button" type="button">
@@ -118,40 +119,42 @@
       </h2>
     </header>
     <div class = "specific-comment-container">
+      <header>
+        <?php include "../html/posting-info.html" ?>
+        <div class="button-group-icon-only">
+          <button class="button-icon-only" title="Edit">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href="../icons/icons.svg#icon-edit"></use>
+            </svg>
+          </button>
+          <button class="button-icon-only" id="delete-comment-button" title="Delete">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href="../icons/icons.svg#icon-delete"></use>
+            </svg>
+          </button>
+        </div>
+      </header>
       <div class = "comment-text">
         <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
       </div>
-
-      <button class="interaction-button top-button" type="button">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-edit"></use> 
-        </svg>
-        Edit Comment
-      </button>
-
-      <button class="interaction-button" id = "delete-comment-button" type="button">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-delete"></use> 
-        </svg>
-        Delete Comment
-      </button>
     </div>
+
     <div class = "specific-comment-container">
       <form method = "GET">
-        <label for="comment">Comment</label>
+        <label for="comment">Add a Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-post"></use> 
-        </svg>
-          Post Comment
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-comment"></use> 
+          </svg>
+          Post
         </button>
 
         <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../icons/icons.svg#icon-delete"></use> 
-        </svg>
-          Discard Comment
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../icons/icons.svg#icon-delete"></use> 
+          </svg>
+          Discard
         </button>
       </form>
     </div>
