@@ -118,7 +118,7 @@
     </header>
     <div class = "specific-comment-container">
       <div class = "comment-text">
-        <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken?</p>
+        <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
       </div>
 
       <button class="interaction-button top-button" type="button">
@@ -139,8 +139,19 @@
       <form method = "GET">
         <label for="Comment">Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
-        <button class = "top-button" id = "submit-button" type="submit" value="Post">Post Comment</button>
-        <button id = "discard-comment-button" type="button" value="Discard">Discard Comment</button>
+        <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-post"></use> 
+        </svg>
+          Post Comment
+        </button>
+
+        <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../icons/icons.svg#icon-delete"></use> 
+        </svg>
+          Discard Comment
+        </button>
       </form>
     </div>
   </div>

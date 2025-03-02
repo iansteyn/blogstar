@@ -60,18 +60,12 @@
   margin: 1em 0;
 }
 
-#like-button {
+#like-button, #unsave-post-button {
   display: none;
 }
   
-#unlike-button {
+#unlike-button, #save-post-button {
   display: inline-block;
 }
 
-#save-post-button {
-  display: inline-block;
-}
   
-#unsave-post-button {
-  display: none;
-}
