@@ -47,11 +47,20 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
+    color: var(--text-primary);
 	width: 100%;
 	border: none;
-    box-shadow: 0.05em 0.05em 0.25em 0.05em rgba(0, 0, 0, 0.25);
+    box-shadow: 0.05em 0.05em 0.25em 0.05em var(--background-shadow);
 	padding: 0.5rem;
 	border-radius: 0.25em;
+}
+@media(prefers-color-scheme: dark) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        background-color: var(--background-primary);
+    }
 }
 
 input:focus,
@@ -72,7 +81,7 @@ button[type="submit"], input[type="button"]{
 }
 
 button[type="submit"]:hover, input[type="button"]:hover {
-	background-color: #72a7a7;
+	background-color: var(--accent-hover);
 	cursor: pointer;
 }
 
@@ -83,12 +92,13 @@ input[type="file"] {
 }
 
 input[type="file"]::file-selector-button {
+    color: var(--text-primary);
+    background-color: var(--low-opacity-darken-20);
 	border: none;
 	padding: 0.5rem 1rem;
 	margin-right: 0.5rem;
 	border-radius: 0.25em;
 	cursor: pointer;
-	background-color: #D3D3D3;
 }
 
 input[type="file"]::file-selector-button:hover {
@@ -96,6 +106,6 @@ input[type="file"]::file-selector-button:hover {
 }
 
 input.validation-error {
-	border: 0.15em red solid;
+	border: 0.15em solid var(--color-error);
 	box-shadow: none;
 }
