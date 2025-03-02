@@ -28,6 +28,7 @@
         <a href="profile.php">Sadie Smith's Profile</a>
         &gt;
         <a href="#">This blog post</a>
+      </span>
     </header>
     <article class="panel blog-panel">
       <header>
@@ -137,7 +138,7 @@
     </div>
     <div class = "specific-comment-container">
       <form method = "GET">
-        <label for="Comment">Comment</label>
+        <label for="comment">Comment</label>
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
