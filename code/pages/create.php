@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/create.css">
   <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/delete-post.js" defer></script>
+  <script src="../scripts/create-edit.js" defer></script>
 </head>
 
 <body>
