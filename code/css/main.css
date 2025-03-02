@@ -39,6 +39,8 @@ p{
     margin: 1em 0;
 }
 
+i { font-style: italic; }
+
 /* LINKS (OUR DEFAULT) */
 a {
     color: var(--accent-primary);
