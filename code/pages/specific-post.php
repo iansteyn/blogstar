@@ -68,14 +68,14 @@
       <!-- Unlike Button (Initially hidden) -->
       <button class="interaction-button" id = "like-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-filled"></use> 
+            <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
           </svg>
           Liked
       </button>
       <!-- Like Button (Initially shown) -->
       <button class="interaction-button" id = "unlike-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-unfilled"></use> 
+            <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
           Like
       </button>
@@ -83,7 +83,7 @@
       <!-- Save Button (Initially shown) -->
       <button id = "save-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-save-unfilled"></use> 
+            <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
           </svg>
           Save
       </button>
@@ -91,21 +91,21 @@
       <!-- Unsave Button (Initially hidden) -->
       <button id = "unsave-post-button" class="interaction-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-save-filled"></use> 
+            <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
           </svg>
           Saved
       </button>
 
       <button class="interaction-button edit-post-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-edit"></use> 
+            <use href="../vector-icons/icons.svg#icon-edit"></use> 
           </svg>
           Edit
       </button>
 
       <button class="interaction-button delete-post-button" type="button">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-delete"></use> 
+            <use href="../vector-icons/icons.svg#icon-delete"></use> 
           </svg>
           Delete
       </button>
@@ -124,12 +124,12 @@
         <div class="button-group-icon-only">
           <button class="button-icon-only" title="Edit">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../icons/icons.svg#icon-edit"></use>
+              <use href="../vector-icons/icons.svg#icon-edit"></use>
             </svg>
           </button>
           <button class="button-icon-only" id="delete-comment-button" title="Delete">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../icons/icons.svg#icon-delete"></use>
+              <use href="../vector-icons/icons.svg#icon-delete"></use>
             </svg>
           </button>
         </div>
@@ -145,14 +145,14 @@
         <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
         <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-comment"></use> 
+            <use href="../vector-icons/icons.svg#icon-comment"></use> 
           </svg>
           Post
         </button>
 
         <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-delete"></use> 
+            <use href="../vector-icons/icons.svg#icon-delete"></use> 
           </svg>
           Discard
         </button>
