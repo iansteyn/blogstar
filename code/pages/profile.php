@@ -25,15 +25,15 @@
       <h1 class="page-header">My Profile</h1>
       <nav class="tab-group">
         <button class="tab active" value="posts">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-post"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
           Posts
         </button>
         <button class="tab" value="saved">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
           Saved
         </button>
         <button class="tab" value="settings">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-settings"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
           Settings
         </button>
       </nav>
