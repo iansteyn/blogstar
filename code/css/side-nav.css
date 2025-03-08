@@ -83,23 +83,6 @@ Styles for the side navigation bar.
     fill: var(--accent-dark);
 }
 
-/* BUTTON */
-.button-collapse {
-    color: inherit;
-    background-color: var(--accent-hover);
-    width: calc(100% - 1.5em);
-    height:fit-content;
-    margin: 0 0.75em;
-    padding: 0.2em 0.1em;
-    border: none;
-    border-radius:4em;
-    font-weight: bold;
-}
-.button-collapse:hover {
-    background-color: var(--accent-dark);
-    cursor: pointer;
-}
-
 /* COLLAPSED NAVBAR STATE */
 .collapsed {
     text-align: center;
@@ -117,7 +100,32 @@ Styles for the side navigation bar.
     margin-left: auto;
 }
 
+/* BUTTONS */
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.button-nav {
+    color: inherit;
+    background-color: var(--accent-hover);
+    width: calc(100% - 1.5em);
+    height:fit-content;
+    margin: 0 0.75em;
+    padding: 0.2em 0.1em;
+    border: none;
+    border-radius:4em;
+    font-weight: bold;
+}
+.button-nav:hover {
+    background-color: var(--accent-dark);
+    cursor: pointer;
+}
+
 /* THEME TOGGLE STUFF */
+
+
 .theme-toggle-container {
     position: relative;
     width: 100%;
@@ -137,4 +145,5 @@ Styles for the side navigation bar.
 
     display: flex;
     flex-direction: column;
+    gap: 0.2em;
 }

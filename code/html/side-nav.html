@@ -4,6 +4,7 @@ Main navigation component. Include it in a <header> tag at the start of the body
 -->
 
 <nav id="side-nav">
+
   <div id="logo-container">
     <a id="nav-logo" class="nav-link" href="home.php">
       <svg class="icon-logo" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-logo"></use></svg>
@@ -56,14 +57,17 @@ Main navigation component. Include it in a <header> tag at the start of the body
     </a>
   </div>
 
-  <button id="nav-collapse-button" class="button-collapse" title="Collapse Navigation"><</button>
-  <div class="theme-toggle-container">
-    <button id="theme-toggle" class="button-collapse" title="Toggle theme">O</button>
-    <div class="theme-toggle-menu">
-      <button>Default</button>
-      <button>Light</button>
-      <button>Dark</button>
+  <div class="nav-buttons">
+    <div class="theme-toggle-container">
+      <button id="theme-toggle" class="button-nav" title="Toggle theme">O</button>
+      <div class="theme-toggle-menu">
+        <button class="theme-button">Default</button>
+        <button class="theme-button">Light</button>
+        <button class="theme-button">Dark</button>
+      </div>
     </div>
+
+    <button id="nav-collapse-button" class="button-nav" title="Collapse Navigation"><</button>
   </div>
 
 </nav>
