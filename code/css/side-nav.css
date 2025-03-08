@@ -87,6 +87,7 @@ Styles for the side navigation bar.
 .button-collapse {
     color: inherit;
     background-color: var(--accent-hover);
+    width: calc(100% - 1.5em);
     height:fit-content;
     margin: 0 0.75em;
     padding: 0.2em 0.1em;
@@ -114,4 +115,26 @@ Styles for the side navigation bar.
     height: 1.5em;
     margin-right: auto;
     margin-left: auto;
+}
+
+/* THEME TOGGLE STUFF */
+.theme-toggle-container {
+    position: relative;
+    width: 100%;
+}
+
+.theme-toggle-menu {
+    background-color: var(--accent-bright);
+    box-shadow: 0.125em 0.125em 0.25em 0.125em var(--background-shadow);
+
+    margin: 0 0.75em;
+    padding: 0.2em;
+    border-radius: 0.75em;
+
+    position:absolute;
+    bottom: 1.5em;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
 }
