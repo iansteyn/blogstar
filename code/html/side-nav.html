@@ -59,11 +59,22 @@ Main navigation component. Include it in a <header> tag at the start of the body
 
   <div class="nav-buttons">
     <div class="theme-toggle-container">
-      <button id="theme-toggle" class="button-nav" title="Toggle theme">O</button>
+      <button id="theme-toggle" class="button-nav" title="Toggle theme">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-theme-default"></use></svg>
+      </button>
       <div class="theme-toggle-menu">
-        <button class="theme-button theme-button-selected">Default</button>
-        <button class="theme-button">Light</button>
-        <button class="theme-button">Dark</button>
+        <button class="theme-button theme-button-selected">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-theme-default"></use></svg>
+          <span class="nav-link-text">Default</span>
+        </button>
+        <button class="theme-button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-theme-light"></use></svg>
+          <span class="nav-link-text">Light</span>
+        </button>
+        <button class="theme-button">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-theme-dark"></use></svg>
+          <span class="nav-link-text">Dark</span>
+        </button>
       </div>
     </div>
 
