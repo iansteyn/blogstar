@@ -138,7 +138,7 @@ Styles for the side navigation bar.
     background-color: var(--accent-hover);
     box-shadow: 0 -0.1em 0.25em 0.125em var(--background-shadow);
 
-    width: calc(100% - 2.25em);
+    width: calc(100% - 2.3em);
     margin: 0 0.75em;
     padding: 0.2em;
     border: medium solid var(--text-secondary);
@@ -167,6 +167,10 @@ Styles for the side navigation bar.
     border-radius: 0.75em;
     box-sizing:content-box;
 }
+.theme-button:hover {
+    background-color: var(--accent-dark);
+    cursor: pointer;
+}
 
 .theme-button-selected {
     background-color: var(--accent-bright);
@@ -175,3 +179,4 @@ Styles for the side navigation bar.
 .theme-button .icon-inline {
     vertical-align: text-top;
 }
+
