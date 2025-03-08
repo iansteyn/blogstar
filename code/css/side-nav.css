@@ -87,7 +87,8 @@ Styles for the side navigation bar.
 .collapsed {
     text-align: center;
 }
-.collapsed .nav-link-text {
+.collapsed .nav-link-text,
+nav:has(.collapsed) .theme-button-text {
     display: none;
 }
 .collapsed:has(.icon-logo) {
@@ -98,6 +99,11 @@ Styles for the side navigation bar.
     height: 1.5em;
     margin-right: auto;
     margin-left: auto;
+}
+nav:has(.collapsed) .theme-toggle-menu {
+    width: auto;
+    margin: 0;
+    left: 0.25em;
 }
 
 /* NAV BUTTONS */
@@ -110,7 +116,7 @@ Styles for the side navigation bar.
 .button-nav {
     color: inherit;
     background-color: var(--accent-hover);
-    width: calc(100% - 1.5em);
+    width: calc(100% - 1.7em);
     height:1em;
     box-sizing: content-box;
     margin: 0 0.75em;
@@ -178,5 +184,8 @@ Styles for the side navigation bar.
 
 .theme-button .icon-inline {
     vertical-align: text-top;
+}
+.theme-button-text {
+    margin-left: 0.5em;
 }
 
