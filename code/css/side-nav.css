@@ -100,7 +100,7 @@ Styles for the side navigation bar.
     margin-left: auto;
 }
 
-/* BUTTONS */
+/* NAV BUTTONS */
 .nav-buttons {
     display: flex;
     flex-direction: column;
@@ -124,19 +124,18 @@ Styles for the side navigation bar.
 }
 
 /* THEME TOGGLE STUFF */
-
-
 .theme-toggle-container {
     position: relative;
     width: 100%;
 }
 
 .theme-toggle-menu {
-    background-color: var(--accent-bright);
-    box-shadow: 0.125em 0.125em 0.25em 0.125em var(--background-shadow);
+    background-color: var(--accent-hover);
+    box-shadow: 0 -0.1em 0.25em 0.125em var(--background-shadow);
 
     margin: 0 0.75em;
     padding: 0.2em;
+    border: medium solid var(--text-secondary);
     border-radius: 0.75em;
 
     position:absolute;
@@ -146,4 +145,18 @@ Styles for the side navigation bar.
     display: flex;
     flex-direction: column;
     gap: 0.2em;
+}
+
+.theme-button {
+    background: none;
+    background-color: inherit;
+    color: inherit;
+
+    margin: 0;
+    padding: 0.3em 0.5em;
+    border: none;
+    border-radius: 0.75em;
+}
+.theme-button-selected {
+    background-color: var(--accent-bright);
 }
