@@ -72,3 +72,27 @@ function expandNav() {
     sessionStorage.removeItem("navCollapsed");
 }
 // ---------------------------------------------------------
+
+// TOGGLE THEME MENU
+// ------------------
+const themeMenuButton = document.getElementById("theme-menu-button");
+const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
+
+themeMenuButton.addEventListener("click", ()=> {
+    // if (themeMenuButton.classList.contains("active")) {
+    //     deactivateThemeMenu();
+    // }
+    // else {
+    //     activateThemeMenu();
+    // }
+
+    themeSwitcherMenu.classList.toggle("hidden");
+});
+
+// function activateThemeMenu() {
+
+// }
+// function deactivateThemeMenu() {
+
+// }
+
