@@ -73,10 +73,11 @@ function expandNav() {
 }
 // ---------------------------------------------------------
 
-// TOGGLE THEME MENU
-// ------------------
+// THEME SWITCHING STUFF
+// ---------------------
 const themeMenuButton = document.getElementById("theme-menu-button");
 const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
+const themeButtons = document.querySelectorAll(".theme-button");
 
 themeMenuButton.addEventListener("click", (clickEvent)=> {
     if (themeMenuButton.classList.contains("theme-menu-button-active")) {
@@ -85,6 +86,17 @@ themeMenuButton.addEventListener("click", (clickEvent)=> {
     else {
         activateThemeMenu(clickEvent);
     }
+});
+
+themeButtons.forEach((button) => {
+    button.addEventListener("click", (clickEvent)=> {
+        clickEvent.stopPropagation();
+
+        themeButtons.forEach(singleButton => {
+            singleButton.classList.remove("theme-button-selected");
+        });
+        button.classList.add("theme-button-selected");
+    });
 });
 
 // Helpers
