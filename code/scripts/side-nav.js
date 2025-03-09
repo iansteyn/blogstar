@@ -1,9 +1,11 @@
 /* side-nav.js
---------------------------------------
+-------------------------------------------------------------------------
 Performs the following dynamic actions:
+- (temporarily) logout confirmation dialogue
 - highlighting link of current page
 - collapsing and expanding the navbar on button press
--------------------------------------- */
+- configuring theme menu and switching theme between default/light/dark
+------------------------------------------------------------------------ */
 
 // TEMPORARY {{{{{{{
 // LOGOUT STUFF
@@ -71,14 +73,29 @@ function expandNav() {
     navCollapseButton.title = "Collapse Navigation";
     sessionStorage.removeItem("navCollapsed");
 }
-// ---------------------------------------------------------
+// END collapse/expand nav --------------------------------------------------------
 
-// THEME SWITCHER STUFF
-// ---------------------
-
-// THEME SWITCHING MENU
+// THEME SWITCHING
+// ---------------
 const themeMenuButton = document.getElementById("theme-menu-button");
 const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
+const themeButtons = document.querySelectorAll(".theme-button");
+const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
+
+// LOAD current theme
+const currentTheme = sessionStorage.getItem("theme")
+if (currentTheme) {
+    loadTheme(currentTheme);
+}
+document.documentElement.classList.remove("hidden");
+
+// CONFIGURE theme-related buttons
+themeButtons.forEach((button) => {
+    button.addEventListener("click", (clickEvent)=> {
+        clickEvent.stopPropagation(); // stops menu from collapsing on click
+        loadTheme(button.value);
+    });
+});
 
 themeMenuButton.addEventListener("click", (clickEvent)=> {
     if (themeMenuButton.classList.contains("theme-menu-button-active")) {
@@ -89,6 +106,7 @@ themeMenuButton.addEventListener("click", (clickEvent)=> {
     }
 });
 
+// HELPERS
 function activateThemeMenu(clickEvent) {
     themeMenuButton.classList.add("theme-menu-button-active");
     themeSwitcherMenu.classList.remove("hidden");
@@ -102,26 +120,7 @@ function deactivateThemeMenu() {
     window.removeEventListener("click", deactivateThemeMenu);
 }
 
-// ACTUAL THEME SWITCHING
-const themeButtons = document.querySelectorAll(".theme-button");
-const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
-
-//LOAD current theme
-const currentTheme = sessionStorage.getItem("theme")
-if (currentTheme) {
-    loadTheme(currentTheme);
-}
-document.documentElement.classList.remove("hidden");
-
-themeButtons.forEach((button) => {
-    button.addEventListener("click", (clickEvent)=> {
-        clickEvent.stopPropagation(); // stops menu from collapsing on click
-        loadTheme(button.value);
-    });
-});
-
 function loadTheme(theme) {
-
     //highlight correct theme button
     for (let i = 0; i < themeButtons.length; i++) {
         themeIcons[i].classList.add("hidden");
@@ -142,4 +141,4 @@ function loadTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     sessionStorage.setItem("theme", theme);
 }
-
+// END theme switching -------------------------------------------------------------
