@@ -32,15 +32,15 @@
       </div>
       <nav class="tab-group">
         <button class="tab active" value="recent">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-recent"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-recent"></use></svg>
           Recent
         </button>
         <button class="tab" value="popular">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-popular"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-popular"></use></svg>
           Popular
         </button>
         <button class="tab" value="saved">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../icons/icons.svg#icon-save-unfilled"></use></svg>
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
           Saved
         </button>
       </nav>

@@ -16,24 +16,24 @@
       <div class="interact-buttons">
         <button class="button-icon-only" title="Like">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-like-unfilled"></use>
+            <use href="../vector-icons/icons.svg#icon-like-unfilled"></use>
           </svg>
         </button>
         <button class="button-icon-only" title="Save">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-save-unfilled"></use>
+            <use href="../vector-icons/icons.svg#icon-save-unfilled"></use>
           </svg>
         </button>
       </div>
       <div class="modify-buttons">
         <button class="button-icon-only" title="Edit">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-edit"></use>
+            <use href="../vector-icons/icons.svg#icon-edit"></use>
           </svg>
         </button>
         <button class="button-icon-only" title="Delete">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../icons/icons.svg#icon-delete"></use>
+            <use href="../vector-icons/icons.svg#icon-delete"></use>
           </svg>
         </button>
       </div>
