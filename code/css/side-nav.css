@@ -139,9 +139,12 @@ nav:has(.collapsed) .theme-switcher-menu {
     fill: var(--text-secondary);
 }
 
+.theme-menu-button-active {
+    background-color: var(--accent-dark);
+}
 
 .theme-switcher-menu {
-    background-color: var(--accent-hover);
+    background-color: var(--accent-dark);
     box-shadow: 0 -0.1em 0.25em 0.125em var(--background-shadow);
 
     width: calc(100% - 2.3em);
@@ -174,7 +177,7 @@ nav:has(.collapsed) .theme-switcher-menu {
     box-sizing:content-box;
 }
 .theme-button:hover {
-    background-color: var(--accent-dark);
+    background-color: var(--accent-hover);
     cursor: pointer;
 }
 .theme-button .icon-inline {
