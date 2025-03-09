@@ -78,21 +78,26 @@ function expandNav() {
 const themeMenuButton = document.getElementById("theme-menu-button");
 const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
 
-themeMenuButton.addEventListener("click", ()=> {
-    // if (themeMenuButton.classList.contains("active")) {
-    //     deactivateThemeMenu();
-    // }
-    // else {
-    //     activateThemeMenu();
-    // }
-
-    themeSwitcherMenu.classList.toggle("hidden");
+themeMenuButton.addEventListener("click", (clickEvent)=> {
+    if (themeMenuButton.classList.contains("theme-menu-button-active")) {
+        deactivateThemeMenu();
+    }
+    else {
+        activateThemeMenu(clickEvent);
+    }
 });
 
-// function activateThemeMenu() {
+// Helpers
+function activateThemeMenu(clickEvent) {
+    themeMenuButton.classList.add("theme-menu-button-active");
+    themeSwitcherMenu.classList.remove("hidden");
+    clickEvent.stopPropagation(); // Stops the window onclick event from also immediately firing
+    window.addEventListener("click", deactivateThemeMenu); // so user can click anywhere to close menu
+}
 
-// }
-// function deactivateThemeMenu() {
-
-// }
+function deactivateThemeMenu() {
+    themeMenuButton.classList.remove("theme-menu-button-active");
+    themeSwitcherMenu.classList.add("hidden");
+    window.removeEventListener("click", deactivateThemeMenu);
+}
 
