@@ -73,8 +73,10 @@ function expandNav() {
 }
 // ---------------------------------------------------------
 
-// THEME SWITCHING STUFF
+// THEME SWITCHER STUFF
 // ---------------------
+
+// THEME SWITCHING MENU
 const themeMenuButton = document.getElementById("theme-menu-button");
 const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
 
@@ -87,8 +89,6 @@ themeMenuButton.addEventListener("click", (clickEvent)=> {
     }
 });
 
-
-// Helpers
 function activateThemeMenu(clickEvent) {
     themeMenuButton.classList.add("theme-menu-button-active");
     themeSwitcherMenu.classList.remove("hidden");
@@ -102,29 +102,36 @@ function deactivateThemeMenu() {
     window.removeEventListener("click", deactivateThemeMenu);
 }
 
-// Actual theme switching
+// ACTUAL THEME SWITCHING
 const themeButtons = document.querySelectorAll(".theme-button");
 const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
 
 themeButtons.forEach((button) => {
     button.addEventListener("click", (clickEvent)=> {
-        clickEvent.stopPropagation();
-        setThemeIcon(button);
-        // loadTheme(button.value);
+        clickEvent.stopPropagation(); // stops menu from collapsing on click
+        loadTheme(button.value);
     });
 });
 
-function setThemeIcon(button) {
+function loadTheme(theme) {
+
+    //highlight correct theme button
     for (let i = 0; i < themeButtons.length; i++) {
-        themeButtons[i].classList.remove("theme-button-active");
         themeIcons[i].classList.add("hidden");
+
+        if (themeButtons[i].value == theme) {
+            themeButtons[i].classList.add("theme-button-active");
+        }
+        else {
+            themeButtons[i].classList.remove("theme-button-active");
+        }
     }
 
-    button.classList.add("theme-button-active");
-
-    const currentThemeIcon = document.getElementById(`icon-theme-${button.value}`);
+    // set icon on theme-menu-button
+    const currentThemeIcon = document.getElementById(`icon-theme-${theme}`);
     currentThemeIcon.classList.remove("hidden");
 
-    // document.documentElement.setAttribute("data-theme", "light");
+    // Actually switch theme!
+    document.documentElement.setAttribute("data-theme", theme);
 }
 
