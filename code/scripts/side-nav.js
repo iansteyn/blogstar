@@ -110,9 +110,8 @@ const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
 const currentTheme = sessionStorage.getItem("theme")
 if (currentTheme) {
     loadTheme(currentTheme);
-    document.documentElement.classList.remove("hidden");
-
 }
+document.documentElement.classList.remove("hidden");
 
 themeButtons.forEach((button) => {
     button.addEventListener("click", (clickEvent)=> {
