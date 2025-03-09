@@ -82,10 +82,10 @@ const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
 const themeButtons = document.querySelectorAll(".theme-button");
 const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
 
-// LOAD current theme
-const currentTheme = sessionStorage.getItem("theme")
-if (currentTheme) {
-    loadTheme(currentTheme);
+// LOAD stored theme
+const storedTheme = localStorage.getItem("theme")
+if (storedTheme) {
+    loadTheme(storedTheme);
 }
 document.documentElement.classList.remove("hidden");
 
@@ -139,6 +139,6 @@ function loadTheme(theme) {
 
     // Actually switch theme!
     document.documentElement.setAttribute("data-theme", theme);
-    sessionStorage.setItem("theme", theme);
+    localStorage.setItem("theme", theme);
 }
 // END theme switching -------------------------------------------------------------
