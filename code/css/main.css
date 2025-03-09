@@ -50,7 +50,7 @@ This is where we put styles that are shared by all (or most) pages.
     --low-opacity-darken-10: #FFFFFF10;
     --low-opacity-darken-20: #FFFFFF20;
     --color-error: red;
-    scrollbar-color: #4A4A4A #333333;
+    scrollbar-color: #9f9f9f #333333;
 }
 
 /* SPECIAL */

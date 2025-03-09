@@ -106,6 +106,12 @@ function deactivateThemeMenu() {
 const themeButtons = document.querySelectorAll(".theme-button");
 const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
 
+//LOAD current theme
+const currentTheme = sessionStorage.getItem("theme")
+if (currentTheme) {
+    loadTheme(currentTheme);
+}
+
 themeButtons.forEach((button) => {
     button.addEventListener("click", (clickEvent)=> {
         clickEvent.stopPropagation(); // stops menu from collapsing on click
@@ -133,5 +139,6 @@ function loadTheme(theme) {
 
     // Actually switch theme!
     document.documentElement.setAttribute("data-theme", theme);
+    sessionStorage.setItem("theme", theme);
 }
 
