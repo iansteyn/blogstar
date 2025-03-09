@@ -177,15 +177,21 @@ nav:has(.collapsed) .theme-toggle-menu {
     background-color: var(--accent-dark);
     cursor: pointer;
 }
-
-.theme-button-selected {
-    background-color: var(--accent-bright);
-}
-
 .theme-button .icon-inline {
     vertical-align: text-top;
 }
+
 .theme-button-text {
     margin-left: 0.5em;
 }
 
+.theme-button-selected {
+    background-color: var(--accent-bright);
+    color: var(--background-secondary);
+}
+.theme-button-selected:hover {
+    background-color: var(--accent-bright);
+}
+.theme-button-selected .icon-inline {
+    fill: var(--background-secondary);
+}
