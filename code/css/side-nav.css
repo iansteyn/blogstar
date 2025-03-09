@@ -188,13 +188,13 @@ nav:has(.collapsed) .theme-switcher-menu {
     margin-left: 0.5em;
 }
 
-.theme-button-selected {
+.theme-button-active {
     background-color: var(--accent-bright);
     color: var(--background-secondary);
 }
-.theme-button-selected:hover {
+.theme-button-active:hover {
     background-color: var(--accent-bright);
 }
-.theme-button-selected .icon-inline {
+.theme-button-active .icon-inline {
     fill: var(--background-secondary);
 }
