@@ -122,7 +122,9 @@ function setThemeIcon(button) {
 
     button.classList.add("theme-button-active");
 
-    const currentThemeIcon = document.getElementById(button.dataset.iconId);
+    const currentThemeIcon = document.getElementById(`icon-theme-${button.value}`);
     currentThemeIcon.classList.remove("hidden");
+
+    // document.documentElement.setAttribute("data-theme", "light");
 }
 
