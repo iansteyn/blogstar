@@ -77,7 +77,6 @@ function expandNav() {
 // ---------------------
 const themeMenuButton = document.getElementById("theme-menu-button");
 const themeSwitcherMenu = document.querySelector(".theme-switcher-menu");
-const themeButtons = document.querySelectorAll(".theme-button");
 
 themeMenuButton.addEventListener("click", (clickEvent)=> {
     if (themeMenuButton.classList.contains("theme-menu-button-active")) {
@@ -88,16 +87,6 @@ themeMenuButton.addEventListener("click", (clickEvent)=> {
     }
 });
 
-themeButtons.forEach((button) => {
-    button.addEventListener("click", (clickEvent)=> {
-        clickEvent.stopPropagation();
-
-        themeButtons.forEach(singleButton => {
-            singleButton.classList.remove("theme-button-selected");
-        });
-        button.classList.add("theme-button-selected");
-    });
-});
 
 // Helpers
 function activateThemeMenu(clickEvent) {
@@ -111,5 +100,29 @@ function deactivateThemeMenu() {
     themeMenuButton.classList.remove("theme-menu-button-active");
     themeSwitcherMenu.classList.add("hidden");
     window.removeEventListener("click", deactivateThemeMenu);
+}
+
+// Actual theme switching
+const themeButtons = document.querySelectorAll(".theme-button");
+const themeIcons = document.querySelectorAll("#theme-menu-button .icon-inline")
+
+themeButtons.forEach((button) => {
+    button.addEventListener("click", (clickEvent)=> {
+        clickEvent.stopPropagation();
+        setThemeIcon(button);
+        // loadTheme(button.value);
+    });
+});
+
+function setThemeIcon(button) {
+    for (let i = 0; i < themeButtons.length; i++) {
+        themeButtons[i].classList.remove("theme-button-active");
+        themeIcons[i].classList.add("hidden");
+    }
+
+    button.classList.add("theme-button-active");
+
+    const currentThemeIcon = document.getElementById(button.dataset.iconId);
+    currentThemeIcon.classList.remove("hidden");
 }
 
