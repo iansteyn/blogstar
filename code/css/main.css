@@ -35,6 +35,7 @@ This is where we put styles that are shared by all (or most) pages.
     --low-opacity-darken-10: #00000010;
     --low-opacity-darken-20: #00000020;
     --color-error: red;
+    scrollbar-color: #8b8b8b #fcfcfc;
 }
 :root[data-theme="dark"] {
     --text-primary: #c1c1c1;
