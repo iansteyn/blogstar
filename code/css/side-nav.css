@@ -100,7 +100,7 @@ nav:has(.collapsed) .theme-button-text {
     margin-right: auto;
     margin-left: auto;
 }
-nav:has(.collapsed) .theme-toggle-menu {
+nav:has(.collapsed) .theme-switcher-menu {
     width: auto;
     margin: 0;
     left: 0.25em;
@@ -131,16 +131,16 @@ nav:has(.collapsed) .theme-toggle-menu {
 }
 
 /* THEME TOGGLE STUFF */
-.theme-toggle-container {
+.theme-switcher-container {
     position: relative;
     width: 100%;
 }
-.theme-toggle-container .icon-inline {
+.theme-switcher-container .icon-inline {
     fill: var(--text-secondary);
 }
 
 
-.theme-toggle-menu {
+.theme-switcher-menu {
     background-color: var(--accent-hover);
     box-shadow: 0 -0.1em 0.25em 0.125em var(--background-shadow);
 
