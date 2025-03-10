@@ -32,13 +32,13 @@ function editPost(){
 }
 
 //LIKE and SAVE
-const likeButtons = document.querySelectorAll(".like-button");
+const likeAndSaveButtons = document.querySelectorAll(".togglable-interaction-button");
 
-likeButtons.forEach(likeButton => {
-    likeButton.addEventListener("click", ()=> toggleLikeButton(likeButton));
+likeAndSaveButtons.forEach(button => {
+    button.addEventListener("click", ()=> toggleButton(button));
 });
 
-function toggleLikeButton(button) {
+function toggleButton(button) {
     let otherButton;
 
     if (button.classList.contains('button-icon-only-active')) {
