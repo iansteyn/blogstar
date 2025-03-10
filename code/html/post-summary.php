@@ -14,17 +14,29 @@
 
     <div class="post-summary-button-group button-group-icon-only">
       <div class="interact-buttons">
-        <button class="button-icon-only" title="Like">
+        <button class="like-button button-icon-only" title="Like">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-like-unfilled"></use>
           </svg>
         </button>
-        <button class="button-icon-only" title="Save">
+        <button class="like-button button-icon-only button-icon-only-active hidden" title="Unlike">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-like-filled"></use>
+          </svg>
+        </button>
+    
+        <button class="save-button button-icon-only" title="Save">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-save-unfilled"></use>
           </svg>
         </button>
+        <button class="save-button button-icon-only button-icon-only-active hidden" title="Unsave">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-save-filled"></use>
+          </svg>
+        </button>
       </div>
+
       <div class="modify-buttons">
         <button class="button-icon-only edit-post-button" title="Edit">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
