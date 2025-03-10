@@ -38,19 +38,13 @@
     fill: var(--text-secondary);
     vertical-align: text-top;
     margin: auto 0em auto 0em;
-  }
-
-.top-button{
-  margin-bottom:1em;
 }
-
-#like-button, #unsave-post-button {
-    display: none;
+.interaction-button.togglable-post-button-active {
     background-color: var(--accent-bright);
 }
 
-#unlike-button, #save-post-button {
-    display: inline-block;
+.top-button{
+  margin-bottom:1em;
 }
 
 /* COMMENTS */
