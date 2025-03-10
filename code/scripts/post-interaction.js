@@ -32,6 +32,27 @@ function editPost(){
 }
 
 //LIKE and SAVE
+const likeButtons = document.querySelectorAll(".like-button");
+
+likeButtons.forEach(likeButton => {
+    likeButton.addEventListener("click", ()=> toggleLikeButton(likeButton));
+});
+
+function toggleLikeButton(button) {
+    let otherButton;
+
+    if (button.classList.contains('button-icon-only-active')) {
+        otherButton = button.previousElementSibling;
+    }
+    else {
+        otherButton = button.nextElementSibling;
+    }
+
+    button.classList.add('hidden');
+    otherButton.classList.remove('hidden');
+}
+
+
 //TODO - apply like and save to all pages
 // const togglablePostButtons = document.querySelectorAll(".togglable-post-button");
 
@@ -48,28 +69,28 @@ function editPost(){
 //     }
 // }
 
-const likeButton = document.getElementById('like-button');
-const unlikeButton = document.getElementById('unlike-button');
+// const likeButton = document.getElementById('like-button');
+// const unlikeButton = document.getElementById('unlike-button');
 
-unlikeButton.addEventListener('click', () => {
-  unlikeButton.style.display = 'none';
-  likeButton.style.display = 'inline-block';
-});
+// unlikeButton.addEventListener('click', () => {
+//   unlikeButton.style.display = 'none';
+//   likeButton.style.display = 'inline-block';
+// });
 
-likeButton.addEventListener('click', () => {
-  likeButton.style.display = 'none';
-  unlikeButton.style.display = 'inline-block';
-});
+// likeButton.addEventListener('click', () => {
+//   likeButton.style.display = 'none';
+//   unlikeButton.style.display = 'inline-block';
+// });
 
-const saveButton = document.getElementById('save-post-button');
-const unsaveButton = document.getElementById('unsave-post-button');
+// const saveButton = document.getElementById('save-post-button');
+// const unsaveButton = document.getElementById('unsave-post-button');
 
-unsaveButton.addEventListener('click', () => {
-  unsaveButton.style.display = 'none';
-  saveButton.style.display = 'inline-block';
-});
+// unsaveButton.addEventListener('click', () => {
+//   unsaveButton.style.display = 'none';
+//   saveButton.style.display = 'inline-block';
+// });
 
-saveButton.addEventListener('click', () => {
-  saveButton.style.display = 'none';
-  unsaveButton.style.display = 'inline-block';
-});
+// saveButton.addEventListener('click', () => {
+//   saveButton.style.display = 'none';
+//   unsaveButton.style.display = 'inline-block';
+// });
