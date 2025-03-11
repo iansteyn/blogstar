@@ -20,7 +20,7 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="registration-form" class="account-form" method="post" action="login.php" novalidate>
+        <form id="registration-form" class="account-form" method="post" action="login.php" enctype="multipart/form-data" novalidate>
           <h1 class="form-title">Register for an account</h1>
           <div class="form-group">
             <label for="user-id">User id</label>
@@ -40,7 +40,7 @@
           </div>
           <div class="form-group">
             <label for="profile-picture">Upload profile picture</label>
-            <input type="file" id="profile-picture" name="profile-picture" required />
+            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg, image/gif" required />
           </div>
           <button type="submit">Register</button>
           <div>Already have an account? <a href="login.php">Log in</a></div>
