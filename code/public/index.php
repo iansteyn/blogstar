@@ -1,5 +1,9 @@
 <?php
-echo "hello world, php works!"
-?>
+/* index.php
+------------
+This is the website's "root" (ie ourwebsiteurl.com directs to this page).
+Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
+*/
 
-<p><a href="pages/home.php">Go to home page</a></p>
+include __DIR__."/../app/routing/route.php";
+?>
