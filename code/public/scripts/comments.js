@@ -21,6 +21,6 @@ function deleteComment(){
 function discardComment(){
   const confirmDiscard = confirm("Are you sure you want to discard this comment?");
   if (confirmDiscard) {
-    window.location.href = "specific-post.php"; 
+    window.location.href = "specific-post"; 
   }
 }
