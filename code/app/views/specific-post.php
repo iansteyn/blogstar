@@ -26,7 +26,7 @@
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="profile.php">Sadie Smith's Profile</a>
+        <a href="profile">Sadie Smith's Profile</a>
         &gt;
         <a href="#">This blog post</a>
       </span>

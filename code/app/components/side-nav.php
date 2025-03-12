@@ -17,7 +17,7 @@ Main navigation component. Include it in a <header> tag at the start of the body
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-home"></use></svg>
       <span class="nav-link-text">Home</span>
     </a>
-    <a class="nav-link" href="profile.php"> <!-- TODO: remove no-access example once its dynamic -->
+    <a class="nav-link" href="profile"> <!-- TODO: remove no-access example once its dynamic -->
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-profile"></use></svg>
       <span class="nav-link-text">Profile</span>
     </a>

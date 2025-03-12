@@ -97,7 +97,7 @@
         <details>
           <summary><h3>How do I change my username/password/profile picture?</h3></summary>
           <p>
-            See the <a href="profile.php?tab=settings">settings tab</a> on your profile page.
+            See the <a href="profile?tab=settings">settings tab</a> on your profile page.
           </p>
         </details>
       </section>
