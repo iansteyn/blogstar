@@ -6,14 +6,14 @@ Main navigation component. Include it in a <header> tag at the start of the body
 <nav id="side-nav">
 
   <div id="logo-container">
-    <a id="nav-logo" class="nav-link" href="home.php">
+    <a id="nav-logo" class="nav-link" href="home">
       <svg class="icon-logo" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logo"></use></svg>
       <span class="nav-link-text logo-text">OUR SITE</span>
     </a>
   </div>
 
   <div id="top-links">
-    <a class="nav-link" href="home.php">
+    <a class="nav-link" href="home">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-home"></use></svg>
       <span class="nav-link-text">Home</span>
     </a>

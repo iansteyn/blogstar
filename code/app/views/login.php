@@ -20,7 +20,7 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="login-form" class="account-form" method="post" action="home.php" novalidate>
+        <form id="login-form" class="account-form" method="post" action="home" novalidate>
           <h1 class="form-title">Log in to your account</h1>
           <div class="form-group">
             <label for="email">Email</label>
