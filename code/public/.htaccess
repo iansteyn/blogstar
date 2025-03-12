@@ -2,7 +2,6 @@
 # See route.php for source
 
 RewriteEngine On
-RewriteBase /route/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
