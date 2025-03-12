@@ -29,7 +29,7 @@
     }
   </style>
 
-  <script src="../scripts/side-nav.js" defer></script>
+  <script src="/scripts/side-nav.js" defer></script>
 </head>
 
 <body>

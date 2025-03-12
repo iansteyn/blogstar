@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/forms.css" />
   <link rel="stylesheet" href="/css/side-nav.css">
-  <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/form-validation.js" defer></script>
+  <script src="/scripts/side-nav.js" defer></script>
+  <script src="/scripts/form-validation.js" defer></script>
 </head>
 
 <body>
