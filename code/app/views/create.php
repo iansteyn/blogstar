@@ -19,7 +19,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>

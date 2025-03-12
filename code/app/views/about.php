@@ -34,7 +34,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header class="page-header">

@@ -20,7 +20,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
 
   <main>
@@ -36,7 +36,7 @@
         <h1 class="blog-title">
           I took this photo in New Zealand :)
         </h1>
-        <?php include "../html/posting-info.html" ?>
+        <?php include __DIR__."/../components/posting-info.php" ?>
       </header>
       <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
       <div class="blog-text">
@@ -114,7 +114,7 @@
     </header>
     <div class = "specific-comment-container">
       <header>
-        <?php include "../html/posting-info.html" ?>
+        <?php include __DIR__."/../components/posting-info.php" ?>
         <div class="button-group-icon-only">
           <button class="button-icon-only" title="Edit">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -155,7 +155,7 @@
   </div>
   </main>
   <aside>
-    <?php include "../html/user-bio.html" ?>
+    <?php include __DIR__."/../components/user-bio.php" ?>
   </aside>
 </body>
 

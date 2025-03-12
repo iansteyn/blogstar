@@ -18,7 +18,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header>
@@ -41,7 +41,7 @@
 
     <div class="subpage-group">
       <div class="subpage" id="posts">
-        <?php include "../html/post-list.php" ?>
+        <?php include __DIR__."/../components/post-list.php" ?>
       </div>
       <div class="subpage hidden" id="saved">
         <?php include "../temporary/post-list-3.php" ?>
@@ -74,7 +74,7 @@
     </div>
   </main>
   <aside>
-    <?php include "../html/user-bio.html" ?>
+    <?php include __DIR__."/../components/user-bio.php" ?>
   </aside>
 </body>
 

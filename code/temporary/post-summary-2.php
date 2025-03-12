@@ -3,7 +3,7 @@
     <h2 class="post-summary-title">
       <a href="specific-post.php">Post Title that is reasonably long I suppose</a>
     </h2>
-    <?php include "../html/posting-info.html" ?>
+    <?php include __DIR__."/../components/posting-info.php" ?>
     <p class="blog-start">
       <a href="specific-post.php">Let's pretend this is the first twoish lines of a another article. Lorem impsum dolor sit amet, consectetur adipiscing eli Morbi ac odio elementum, eleifend elit cursus, mattis ante. Praesent mi eros, i...</a>
     </p>

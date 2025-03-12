@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -24,16 +24,16 @@
     </header>
     <div class="panel">
       <section class="search">
-        <?php include "../html/search-bar.html" ?>
+        <?php include __DIR__."/../components/search-bar.php" ?>
       </section>
       <ul id="search-results" class="search-results">
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
-        <li><?php include "../html/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
+        <li><?php include __DIR__."/../components/post-summary.php" ?></li>
       </ul>
     </div>
   </main>

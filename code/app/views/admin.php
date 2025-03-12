@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -24,7 +24,7 @@
       <section class="panel user-search" id="user-search">
         <h2>User List</h2>
         <div class="action-bar">
-          <?php include "../html/search-bar.html" ?>
+          <?php include __DIR__."/../components/search-bar.php" ?>
         </div>
         <ul class="user-list">
           <li><a href="profile">Sadie Smith</a></li>
