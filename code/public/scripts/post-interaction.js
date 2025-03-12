@@ -28,7 +28,7 @@ editPostButtons.forEach((button) => {
 });
 
 function editPost(){
-  window.location.href = "create.php"; 
+  window.location.href = "create"; 
 }
 
 //LIKE and SAVE
