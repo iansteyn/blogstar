@@ -25,7 +25,7 @@ Main navigation component. Include it in a <header> tag at the start of the body
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-create"></use></svg>
       <span class="nav-link-text">Create</span>
     </a>
-    <a class="nav-link" href="search.php">
+    <a class="nav-link" href="search">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-search"></use></svg>
       <span class="nav-link-text">Search</span>
     </a>
