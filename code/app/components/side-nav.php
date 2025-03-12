@@ -32,18 +32,18 @@ Main navigation component. Include it in a <header> tag at the start of the body
   </div>
 
   <div id="middle-links">
-    <a class="nav-link" href="admin.php">
+    <a class="nav-link" href="admin">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-admin"></use></svg>
       <span class="nav-link-text">Admin</span>
     </a>
   </div>
 
   <div id="bottom-links">
-    <a class="nav-link" href="login.php">
+    <a class="nav-link" href="login">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-login"></use></svg>
       <span class="nav-link-text">Login</span>
     </a>
-    <a class="nav-link" href="register.php">
+    <a class="nav-link" href="register">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-register"></use></svg>
       <span class="nav-link-text">Register</span>
     </a>
@@ -51,7 +51,7 @@ Main navigation component. Include it in a <header> tag at the start of the body
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logout"></use></svg>
       <span class="nav-link-text">Logout</span>
     </a>
-    <a class="nav-link" href="about.php">
+    <a class="nav-link" href="about">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-about"></use></svg>
       <span class="nav-link-text">About</span>
     </a>
