@@ -27,7 +27,7 @@
           <?php include __DIR__."/../components/search-bar.php" ?>
         </div>
         <ul class="user-list">
-          <li><a href="profile">Sadie Smith</a></li>
+          <li><a href="/profile">Sadie Smith</a></li>
           <li>Jane Doe</li>
           <li>John Appleseed</li>
           <li>Jane Doe</li>

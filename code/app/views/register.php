@@ -43,7 +43,7 @@
             <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg, image/gif" required />
           </div>
           <button type="submit">Register</button>
-          <div>Already have an account? <a href="login">Log in</a></div>
+          <div>Already have an account? <a href="/login">Log in</a></div>
         </form>
       </div>
     </div>
