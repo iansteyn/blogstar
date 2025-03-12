@@ -47,7 +47,7 @@
         <?php include "../temporary/post-list-3.php" ?>
       </div>
       <div class="subpage hidden" id="settings">
-        <form id="user-settings" class="panel account-form" method="get" action="#">
+        <form id="user-settings" class="panel account-form" method="post" action="#" enctype="multipart/form-data">
           <div class="form-group">
             <label for="update-user-id">Update user id</label>
             <input type="text" id="update-user-id" placeholder="Update your user id" />
