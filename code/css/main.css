@@ -198,7 +198,10 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: var(--low-opacity-darken-10);
     cursor: pointer;
 }
+.button-icon-only.togglable-post-button-active .icon-inline{
+    fill: var(--accent-primary);
+}
 .button-icon-only:hover .icon-inline{
-    fill: var(--accent-bright)
+    fill: var(--accent-bright);
 }
 

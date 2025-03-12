@@ -65,51 +65,45 @@
     </article>
 
     <div class="interaction-bar">
-      <!-- Unlike Button (Initially hidden) -->
-      <button class="interaction-button" id = "like-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
-          </svg>
-          Liked
+      <button class="interaction-button togglable-post-button" type="button" title="Like">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
+        </svg>
+        Like
       </button>
-      <!-- Like Button (Initially shown) -->
-      <button class="interaction-button" id = "unlike-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
-          </svg>
-          Like
+      <button class="interaction-button togglable-post-button togglable-post-button-active hidden" type="button" title="Unlike">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
+        </svg>
+        Liked
       </button>
 
-      <!-- Save Button (Initially shown) -->
-      <button id = "save-post-button" class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
-          </svg>
-          Save
+      <button class="interaction-button togglable-post-button" type="button" title="Save">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
+        </svg>
+        Save
       </button>
-      
-      <!-- Unsave Button (Initially hidden) -->
-      <button id = "unsave-post-button" class="interaction-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
-          </svg>
-          Saved
+      <button class="interaction-button togglable-post-button togglable-post-button-active hidden" type="button" title="Unsave">
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
+        </svg>
+        Saved
       </button>
 
       <button class="interaction-button edit-post-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-edit"></use> 
-          </svg>
-          Edit
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-edit"></use> 
+        </svg>
+        Edit
       </button>
 
       <button class="interaction-button delete-post-button" type="button">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-delete"></use> 
-          </svg>
-          Delete
+        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+          <use href="../vector-icons/icons.svg#icon-delete"></use> 
+        </svg>
+        Delete
       </button>
-
     </div>
 
     <div class="panel comments-container">

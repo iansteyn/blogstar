@@ -32,44 +32,22 @@ function editPost(){
 }
 
 //LIKE and SAVE
-//TODO - apply like and save to all pages
-// const togglablePostButtons = document.querySelectorAll(".togglable-post-button");
+const likeAndSaveButtons = document.querySelectorAll(".togglable-post-button");
 
-// togglablePostButtons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//         button.classList.toggle("hidden");
-//         console.log("this is called");
-//     });
-// });
-
-// function toggleButton(button) {
-//     if (button.classList.contains("hidden")) {
-//         button.classList
-//     }
-// }
-
-const likeButton = document.getElementById('like-button');
-const unlikeButton = document.getElementById('unlike-button');
-
-unlikeButton.addEventListener('click', () => {
-  unlikeButton.style.display = 'none';
-  likeButton.style.display = 'inline-block';
+likeAndSaveButtons.forEach(button => {
+    button.addEventListener("click", ()=> toggleButton(button));
 });
 
-likeButton.addEventListener('click', () => {
-  likeButton.style.display = 'none';
-  unlikeButton.style.display = 'inline-block';
-});
+function toggleButton(button) {
+    let otherButton;
 
-const saveButton = document.getElementById('save-post-button');
-const unsaveButton = document.getElementById('unsave-post-button');
+    if (button.classList.contains('togglable-post-button-active')) {
+        otherButton = button.previousElementSibling;
+    }
+    else {
+        otherButton = button.nextElementSibling;
+    }
 
-unsaveButton.addEventListener('click', () => {
-  unsaveButton.style.display = 'none';
-  saveButton.style.display = 'inline-block';
-});
-
-saveButton.addEventListener('click', () => {
-  saveButton.style.display = 'none';
-  unsaveButton.style.display = 'inline-block';
-});
+    button.classList.add('hidden');
+    otherButton.classList.remove('hidden');
+}
