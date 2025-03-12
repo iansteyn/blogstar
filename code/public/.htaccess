@@ -1,0 +1,9 @@
+# This file is required for URL routing
+# See route.php for source
+
+RewriteEngine On
+RewriteBase /route/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
