@@ -2,7 +2,14 @@
 # See route.php for source
 
 RewriteEngine On
+
+# Exclude the root URL from the redirect
+RewriteCond %{REQUEST_URI} !^/$
+
+# Remove trailing slashes from other URLs (if not a file or directory)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [R=301,L]
 
+# routing rules
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
