@@ -10,9 +10,10 @@ include __DIR__."/../app/routing/route.php";
 $route = new Route();
 
 // SIDE-NAV TOP
-$route->add('/', fn()=> 
-    require __DIR__ . '/../app/views/home.php'
-);
+$route->add('/', function() {
+    header('Location: /home');
+    exit;
+});
 $route->add('/home', fn()=>
     require __DIR__ . '/../app/views/home.php'
 );
