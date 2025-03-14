@@ -6,8 +6,10 @@ Here, we set-up URL routing, so that all of our pages can be viewed without need
 */
 
 include __DIR__."/../app/routing/route.php";
+include __DIR__."/../app/controllers/PagesController.php";
 
 $route = new Route();
+$pageController = new PagesController();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
@@ -15,7 +17,7 @@ $route->add('/', function() {
     exit;
 });
 $route->add('/home', fn()=>
-    require __DIR__ . '/../app/views/home.php'
+    $pageController->home()
 );
 $route->add('/profile', fn()=>
     require __DIR__ . '/../app/views/profile.php'
