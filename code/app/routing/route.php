@@ -1,4 +1,5 @@
 <?php
+// SOURCE:
 /**
  * @author		Jesse Boyer <contact@jream.com>
  * @copyright	Copyright (C), 2011-12 Jesse Boyer
@@ -9,6 +10,7 @@
  *
  * @internal	Inspired by Klein @ https://github.com/chriso/klein.php
  */
+// (But this has been modified by us)
 
 class Route
 {
@@ -44,20 +46,23 @@ class Route
 	* submit - Looks for a match for the URI and runs the related function
 	*/
 	public function submit()
-		//new version
-	{	$uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
-		//$uri = isset($_REQUEST['uri']) ? $_REQUEST['uri'] : '/';
+	{	
+        $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
 		$uri = trim($uri, $this->_trim);
+
+        $path = $path = parse_url($uri, PHP_URL_PATH);
+        $path = trim($path, $this->_trim);
+
 		$replacementValues = array();
 
 		# List through the stored URI's
 		foreach ($this->_listUri as $listKey => $listUri)
 		{
 			# See if there is a match
-			if (preg_match("#^$listUri$#", $uri))
+			if (preg_match("#^$listUri$#", $path))
 			{
 				# Replace the values
-				$realUri = explode('/', $uri);
+				$realUri = explode('/', $path);
 				$fakeUri = explode('/', $listUri);
 
 				# Gather the .+ values with the real values in the URI
