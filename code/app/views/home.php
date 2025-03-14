@@ -1,3 +1,5 @@
+<?php include __DIR__."/../helpers/view-helpers.php" ?>
+
 <!DOCTYPE html>
 <html lang="en" class="hidden">
 
@@ -31,15 +33,15 @@
         <?php include __DIR__."/../components/search-bar.php" ?>
       </div>
       <nav class="tab-group">
-        <button class="tab active" value="recent">
+        <button class="tab <?= isTabActive('recent', $activeTab) ?>" value="recent">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
           Recent
         </button>
-        <button class="tab" value="popular">
+        <button class="tab <?= isTabActive('popular', $activeTab) ?>" value="popular">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
           Popular
         </button>
-        <button class="tab" value="saved">
+        <button class="tab <?= isTabActive('saved', $activeTab) ?>" value="saved">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
           Saved
         </button>
