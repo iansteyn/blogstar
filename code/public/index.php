@@ -7,9 +7,12 @@ Here, we set-up URL routing, so that all of our pages can be viewed without need
 
 include __DIR__."/../app/routing/route.php";
 include __DIR__."/../app/controllers/PagesController.php";
+include __DIR__."/../app/controllers/UserController.php";
+
 
 $route = new Route();
 $pageController = new PagesController();
+$userController = new UserController();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
@@ -48,6 +51,11 @@ $route->add('/about', fn()=>
 // OTHER
 $route->add('/specific-post', fn()=>
     require __DIR__ . '/../app/views/specific-post.php'
+);
+
+// ACTIONS
+$route->add('/register-action', fn()=>
+    $userController->register()
 );
 
 // TODO add routing for error pages?
