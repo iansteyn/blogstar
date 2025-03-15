@@ -23,34 +23,34 @@ $route->add('/home', fn()=>
     $pageController->home()
 );
 $route->add('/profile', fn()=>
-    require __DIR__ . '/../app/views/profile.php'
+    require __DIR__ . '/../app/views/profile-view.php'
 );
 $route->add('/create', fn()=>
-    require __DIR__ . '/../app/views/create.php'
+    require __DIR__ . '/../app/views/create-view.php'
 );
 $route->add('/search', fn()=>
-    require __DIR__ . '/../app/views/search.php'
+    require __DIR__ . '/../app/views/search-view.php'
 );
 
 // SIDE-NAVE MIDDLE
 $route->add('/admin', fn()=>
-    require __DIR__ . '/../app/views/admin.php'
+    require __DIR__ . '/../app/views/admin-view.php'
 );
 
 // SIDE_NAV BOTTOM
 $route->add('/login', fn()=>
-    require __DIR__ . '/../app/views/login.php'
+    require __DIR__ . '/../app/views/login-view.php'
 );
 $route->add('/register', fn()=>
-    require __DIR__ . '/../app/views/register.php'
+    require __DIR__ . '/../app/views/register-view.php'
 );
 $route->add('/about', fn()=>
-    require __DIR__ . '/../app/views/about.php'
+    require __DIR__ . '/../app/views/about-view.php'
 );
 
 // OTHER
 $route->add('/specific-post', fn()=>
-    require __DIR__ . '/../app/views/specific-post.php'
+    require __DIR__ . '/../app/views/specific-post-view.php'
 );
 
 // ACTIONS

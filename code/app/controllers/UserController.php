@@ -4,7 +4,7 @@ class UserController {
     function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            require __DIR__.'/../views/home.php';
+            require __DIR__.'/../views/home-view.php';
         }
         // Otherwise, handle the submission:
         else {
