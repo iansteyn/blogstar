@@ -20,7 +20,7 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="registration-form" class="account-form" method="post" action="login" enctype="multipart/form-data" novalidate>
+        <form id="registration-form" class="account-form" method="post" enctype="multipart/form-data" novalidate>
           <h1 class="form-title">Register for an account</h1>
           <div class="form-group">
             <label for="user-id">User id</label>
