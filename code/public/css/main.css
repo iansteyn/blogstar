@@ -159,6 +159,7 @@ main {
 }
 
 input[type="search"] {
+    color: var(--text-primary);
     background-color: inherit;
     margin-left: 1em;
     padding: 0.4em 0.4em 0.4em 0;
