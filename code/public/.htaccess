@@ -1,14 +1,21 @@
-# This file is required for URL routing
-# See route.php for source
+# .htaccess
+# ---------
+# All requests to the server are first re-written by this file
+# This makes URL routing work properly.
+# (See route.php for original source, but this has been heavily modified since)
 
 RewriteEngine On
 
-# Exclude the root URL from the redirect
-RewriteCond %{REQUEST_URI} !^/$
+# Prevent trailing slash removal for existing files and directories
+# (otherwise content-type problems happen)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
 # Remove trailing slashes from other URLs (if not a file or directory)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index.php
 RewriteRule ^(.*)/$ /$1 [R=301,L]
 
 # routing rules
