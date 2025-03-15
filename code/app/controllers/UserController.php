@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__.'/../models/User.php';
+
 class UserController {
     function register() {
         // If form is not submitted, just display the page:
@@ -13,7 +15,7 @@ class UserController {
             $newUser = new User();
             $newUser->$username = $_POST['username'];
             $newUser->save(); //or something like that
-            
+
             //redirect to another page
             header('Location: /login');
             exit;
