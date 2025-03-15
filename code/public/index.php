@@ -42,7 +42,7 @@ $route->add('/login', fn()=>
     require __DIR__ . '/../app/views/login-view.php'
 );
 $route->add('/register', fn()=>
-    require __DIR__ . '/../app/views/register-view.php'
+    $userController->register()
 );
 $route->add('/about', fn()=>
     require __DIR__ . '/../app/views/about-view.php'
@@ -51,11 +51,6 @@ $route->add('/about', fn()=>
 // OTHER
 $route->add('/specific-post', fn()=>
     require __DIR__ . '/../app/views/specific-post-view.php'
-);
-
-// ACTIONS
-$route->add('/register-action', fn()=>
-    $userController->register()
 );
 
 // TODO add routing for error pages?
