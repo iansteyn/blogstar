@@ -7,20 +7,31 @@ class PostModel {
         $this->db = $db;
     }
 
-    function getPostById(int $postId): array {
+    public function getPostById(int $postId): array {
         //TODO get post object from db
         return [];
     }
 
-    function getRecentPosts(): array {
+    public function getRecentPosts(): array {
         //TODO return array of recent posts from db
         return [];
     }
 
-    function getPopularPosts(): array {
+    public function getPopularPosts(): array {
         //TODO return array of popular posts from db
         return [];
+    }
 
+    public function createPost(array $postData) {
+        //TODO
+    }
+
+    public function updatePost(array $postData) {
+        //TODO
+    }
+
+    public function deletePost(int $postId) {
+        //TODO
     }
 }
 
