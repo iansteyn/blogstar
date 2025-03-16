@@ -8,8 +8,15 @@ class PostModel {
     }
 
     public function getPostById(int $postId): array {
-        //TODO get post object from db
-        return [];
+        //XXX Temporary mock return value
+        return [
+            "postId" => "TODO should we even return this?",
+            "username" => "sadiesmith",
+            "title" => "Placeholder post title",
+            "textContent" => "Placeholder post text content",
+            "image" => "placeholder for image object",
+            "date" => "2015-01-01"
+        ];
     }
 
     public function getRecentPosts(): array {
