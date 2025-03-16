@@ -14,4 +14,20 @@ function isTabActive($tab, $activeTab) {
     return "";
 }
 
+function generatePostingInfo($userName, $date) {
+    //TODO: correctly format date
+    //TODO: correctly link to user page
+    return <<<HTML
+      <div class="posting-info">
+        <a class="username" href="/profile" title="Author">
+          $userName
+        </a>
+        —
+        <time datetime="2025-01-04" title="Date posted">
+          $date
+        </time>
+      </div>
+    HTML;
+}
+
 ?>
