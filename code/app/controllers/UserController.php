@@ -9,7 +9,7 @@ class UserController {
         $this->userModel = new UserModel($db);
     }
 
-    function register() {
+    public function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
@@ -28,6 +28,18 @@ class UserController {
             header('Location: /login');
             exit;
         }
+    }
+
+    public function login() {
+        //TODO
+    }
+
+    public function logout() {
+        //TODO
+    }
+
+    public function updateSettings() {
+        //TODO
     }
 }
 
