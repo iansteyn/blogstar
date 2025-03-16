@@ -1,5 +1,7 @@
-<?php include __DIR__."/../helpers/view-helpers.php" ?>
-<?= generateDocumentHead('About', ['about.css'], []); ?>
+<?php
+    include __DIR__."/../helpers/view-helpers.php";
+    echo generateDocumentHead('About', ['about.css'], []);
+?>
 
 <body>
   <header>
