@@ -27,7 +27,7 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
         $documentHead .= "<link rel='stylesheet' href='/css/$stylesheet'>";
     }
 
-    $documentHead .= '<link rel="icon" href=/vector-icons/favicon-light.svg>' .
+    $documentHead .= '<link rel="icon" type="image/svg+xml" href="/vector-icons/favicon-light.svg">' .
                      '<script src="/scripts/side-nav.js" defer></script>';
 
     foreach ($extraScripts as $script) {
