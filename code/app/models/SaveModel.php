@@ -9,6 +9,7 @@ class SaveModel {
 
     public function getSavedPosts(string $username): array {
         // TODO
+        return [];
     }
 
     public function addSave(string $username, int $postId) {
