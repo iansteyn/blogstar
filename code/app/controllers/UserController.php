@@ -1,8 +1,14 @@
 <?php
 
-include __DIR__.'/../models/User.php';
+include __DIR__.'/../models/UserModel.php';
 
 class UserController {
+    private $userModel;
+
+    public function __construct(PDO $db) {
+        $this->userModel = new UserModel($db);
+    }
+
     function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
