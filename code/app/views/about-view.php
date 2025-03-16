@@ -12,22 +12,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/side-nav.css">
 
-  <style>
-    .normal-list {
-      list-style: inside;
-      margin: 1em 0;
-      line-height: 1.2em;
-    }
-    h2 {
-      margin-bottom: 1rem;
-    }
-    details summary { 
-      cursor: pointer;
-    }
-    details summary > * {
-      display: inline;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/about.css">
 
   <script src="/scripts/side-nav.js" defer></script>
 </head>
