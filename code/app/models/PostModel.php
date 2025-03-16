@@ -1,7 +1,13 @@
 <?php
 
 class PostModel {
-    function getPostById($id): Post {
+    private $db;
+
+    public function __construct(PDO $db) {
+        $this->db = $db;
+    }
+
+    function getPostById(int $postId): Post {
         //TODO get post object from db
     }
 
