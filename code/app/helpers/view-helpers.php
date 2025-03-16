@@ -7,8 +7,8 @@
  * -----------------------------------------------------------------------------------
  */
 
-function generateDocumentHead(string $title, array $extraStylesheetLinks, array $extraScriptLinks) {
-    return <<<HTML
+function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts) {
+    $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
         <head>
@@ -21,14 +21,21 @@ function generateDocumentHead(string $title, array $extraStylesheetLinks, array 
           <link rel="stylesheet" href="/css/reset.css">
           <link rel="stylesheet" href="/css/main.css">
           <link rel="stylesheet" href="/css/side-nav.css">
-          $extraStylesheetLinks
-
-          <!-- TODO insert favicon -->
-
-          <script src="/scripts/side-nav.js" defer></script>
-          $extraScriptLinks
-        </head>
     HTML;
+
+    foreach ($extraStylesheets as $stylesheet) {
+        $documentHead .= "<link rel='stylesheet' href='/css/$stylesheet'>";
+    }
+
+    $documentHead .= '<!-- TODO insert favicon -->'.
+                     '<script src="/scripts/side-nav.js" defer></script>';
+
+    foreach ($extraScripts as $script) {
+        $documentHead .= "<script src='/scripts/$script' defer></script>";
+    }
+
+    $documentHead .= '</head>';
+    return $documentHead;
 }
 
 function isTabActive($tab, $activeTab) {
