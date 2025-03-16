@@ -5,14 +5,16 @@ This is the website's "root".
 Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
 */
 
-include __DIR__."/../app/routing/route.php";
-include __DIR__."/../app/controllers/PagesController.php";
-include __DIR__."/../app/controllers/UserController.php";
+include __DIR__.'/../db_init.php';
+$db = getDatabaseConnection();
 
-
-$route = new Route();
+include __DIR__.'/../app/controllers/PagesController.php';
+include __DIR__.'/../app/controllers/UserController.php';
 $pageController = new PagesController();
-$userController = new UserController();
+$userController = new UserController($db);
+
+include __DIR__.'/../app/routing/route.php';
+$route = new Route();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
