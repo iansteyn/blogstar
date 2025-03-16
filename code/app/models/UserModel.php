@@ -29,11 +29,29 @@ class UserModel {
 
     }
 
-    public function updateUser() {
+    /**
+     * Updates an existing user's data in the database
+     * 
+     * `$userData` is expected to have the following keys:
+     * ```
+     * 'username'
+     * 'email'
+     * 'password'
+     * 'image'
+     * 'bio'
+     * ```
+     * @param array $userData
+     * @return void
+     */
+    public function updateUser(array $userData) {
 
     }
 
-    public function getAllUsers() {
+    /**
+     * Returns an array of string usernames
+     * @return array
+     */
+    public function getAllUsernames(): array {
         //for admin dashboard stuff, for example
     }
 }
