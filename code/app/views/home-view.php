@@ -1,11 +1,11 @@
 <?php
-include __DIR__."/../helpers/view-helpers.php";
+    include __DIR__."/../helpers/view-helpers.php";
 
-echo generateDocumentHead(
-    'Home',
-    ['home.css', 'post-list.css', 'tabs.css'],
-    ['tabs.js', 'post-interaction.js']
-);
+    echo generateDocumentHead(
+        'Home',
+        ['home.css', 'post-list.css', 'tabs.css'],
+        ['tabs.js', 'post-interaction.js']
+    );
 ?>
 
 <body>
