@@ -7,22 +7,15 @@ class UserModel {
         $this->db = $db;
     }
 
-    public function getUserByUsername($username): User {
+    public function getUserByUsername($username): array {
         //not sure if it is best to return User object or associative array
+        return [];
     }
 
     /**
      * Creates a user in the database.
      * 
-     * `$userData` is expected to have the following keys:
-     * ```
-     * 'username'
-     * 'email'
-     * 'password'
-     * 'image'
-     * 'bio'
-     * ```
-     * @param array $userData
+     * @param array{username, email, password, image, bio} $userData
      * @return void
      */
     public function createUser(array $userData) {
@@ -32,15 +25,7 @@ class UserModel {
     /**
      * Updates an existing user's data in the database
      * 
-     * `$userData` is expected to have the following keys:
-     * ```
-     * 'username'
-     * 'email'
-     * 'password'
-     * 'image'
-     * 'bio'
-     * ```
-     * @param array $userData
+     * @param array{username, email, password, image, bio} $userData
      * @return void
      */
     public function updateUser(array $userData) {
@@ -53,6 +38,7 @@ class UserModel {
      */
     public function getAllUsernames(): array {
         //for admin dashboard stuff, for example
+        return [];
     }
 }
 
