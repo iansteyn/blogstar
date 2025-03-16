@@ -8,18 +8,18 @@
     Create Blog Post
   </title>
 
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/side-nav.css">
-  <link rel="stylesheet" href="../css/forms.css">
-  <link rel="stylesheet" href="../css/create.css">
-  <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/create-edit.js" defer></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/side-nav.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/create.css">
+  <script src="/scripts/side-nav.js" defer></script>
+  <script src="/scripts/create-edit.js" defer></script>
 </head>
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>

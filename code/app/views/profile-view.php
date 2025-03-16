@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <title>My Profile | Our Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/forms.css" />
-  <link rel="stylesheet" href="../css/tabs.css" />
-  <link rel="stylesheet" href="../css/post-list.css" />
-  <link rel="stylesheet" href="../css/side-nav.css" />
-  <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/tabs.js" defer></script>
-  <script src="../scripts/post-interaction.js" defer></script>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/forms.css" />
+  <link rel="stylesheet" href="/css/tabs.css" />
+  <link rel="stylesheet" href="/css/post-list.css" />
+  <link rel="stylesheet" href="/css/side-nav.css" />
+  <script src="/scripts/side-nav.js" defer></script>
+  <script src="/scripts/tabs.js" defer></script>
+  <script src="/scripts/post-interaction.js" defer></script>
 </head>
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header>
@@ -41,7 +41,7 @@
 
     <div class="subpage-group">
       <div class="subpage" id="posts">
-        <?php include "../html/post-list.php" ?>
+        <?php include __DIR__."/../components/post-list.php" ?>
       </div>
       <div class="subpage hidden" id="saved">
         <?php include "../temporary/post-list-3.php" ?>
@@ -74,7 +74,7 @@
     </div>
   </main>
   <aside>
-    <?php include "../html/user-bio.html" ?>
+    <?php include __DIR__."/../components/user-bio.php" ?>
   </aside>
 </body>
 

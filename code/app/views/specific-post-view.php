@@ -8,27 +8,27 @@
     Blog Post | Our Site
   </title>
 
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/side-nav.css">
-  <link rel="stylesheet" href="../css/forms.css">
-  <link rel="stylesheet" href="../css/specific-post.css">
-  <script src="../scripts/side-nav.js" defer></script>
-  <script src="../scripts/comments.js" defer></script>
-  <script src="../scripts/post-interaction.js" defer></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/side-nav.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/specific-post.css">
+  <script src="/scripts/side-nav.js" defer></script>
+  <script src="/scripts/comments.js" defer></script>
+  <script src="/scripts/post-interaction.js" defer></script>
 </head>
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
 
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="profile.php">Sadie Smith's Profile</a>
+        <a href="/profile">Sadie Smith's Profile</a>
         &gt;
-        <a href="#">This blog post</a>
+        <a href="/#">This blog post</a>
       </span>
     </header>
     <article class="panel blog-panel">
@@ -36,7 +36,7 @@
         <h1 class="blog-title">
           I took this photo in New Zealand :)
         </h1>
-        <?php include "../html/posting-info.html" ?>
+        <?php include __DIR__."/../components/posting-info.php" ?>
       </header>
       <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
       <div class="blog-text">
@@ -114,7 +114,7 @@
     </header>
     <div class = "specific-comment-container">
       <header>
-        <?php include "../html/posting-info.html" ?>
+        <?php include __DIR__."/../components/posting-info.php" ?>
         <div class="button-group-icon-only">
           <button class="button-icon-only" title="Edit">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -155,7 +155,7 @@
   </div>
   </main>
   <aside>
-    <?php include "../html/user-bio.html" ?>
+    <?php include __DIR__."/../components/user-bio.php" ?>
   </aside>
 </body>
 

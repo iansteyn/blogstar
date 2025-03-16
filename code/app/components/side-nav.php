@@ -1,4 +1,4 @@
-<!-- side-nav.html
+<!-- side-nav.php
 ==================
 Main navigation component. Include it in a <header> tag at the start of the body.
 -->
@@ -6,52 +6,52 @@ Main navigation component. Include it in a <header> tag at the start of the body
 <nav id="side-nav">
 
   <div id="logo-container">
-    <a id="nav-logo" class="nav-link" href="home.php">
+    <a id="nav-logo" class="nav-link" href="/home">
       <svg class="icon-logo" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logo"></use></svg>
       <span class="nav-link-text logo-text">OUR SITE</span>
     </a>
   </div>
 
   <div id="top-links">
-    <a class="nav-link" href="home.php">
+    <a class="nav-link" href="/home">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-home"></use></svg>
       <span class="nav-link-text">Home</span>
     </a>
-    <a class="nav-link" href="profile.php"> <!-- TODO: remove no-access example once its dynamic -->
+    <a class="nav-link" href="/profile"> <!-- TODO: remove no-access example once its dynamic -->
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-profile"></use></svg>
       <span class="nav-link-text">Profile</span>
     </a>
-    <a class="nav-link" href="create.php">
+    <a class="nav-link" href="/create">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-create"></use></svg>
       <span class="nav-link-text">Create</span>
     </a>
-    <a class="nav-link" href="search.php">
+    <a class="nav-link" href="/search">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-search"></use></svg>
       <span class="nav-link-text">Search</span>
     </a>
   </div>
 
   <div id="middle-links">
-    <a class="nav-link" href="admin.php">
+    <a class="nav-link" href="/admin">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-admin"></use></svg>
       <span class="nav-link-text">Admin</span>
     </a>
   </div>
 
   <div id="bottom-links">
-    <a class="nav-link" href="login.php">
+    <a class="nav-link" href="/login">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-login"></use></svg>
       <span class="nav-link-text">Login</span>
     </a>
-    <a class="nav-link" href="register.php">
+    <a class="nav-link" href="/register">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-register"></use></svg>
       <span class="nav-link-text">Register</span>
     </a>
-    <a class="nav-link" href="#" id="logout-link">
+    <a class="nav-link" href="/#" id="logout-link">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logout"></use></svg>
       <span class="nav-link-text">Logout</span>
     </a>
-    <a class="nav-link" href="about.php">
+    <a class="nav-link" href="/about">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-about"></use></svg>
       <span class="nav-link-text">About</span>
     </a>

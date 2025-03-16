@@ -16,7 +16,7 @@ deletePostButtons.forEach((button) => {
 function deletePost(){
   const confirmDelete = confirm("Are you sure you want to delete this post?");
   if (confirmDelete) {
-    window.location.href = "profile.php"; 
+    window.location.href = "profile"; 
   }
 }
 
@@ -28,7 +28,7 @@ editPostButtons.forEach((button) => {
 });
 
 function editPost(){
-  window.location.href = "create.php"; 
+  window.location.href = "create"; 
 }
 
 //LIKE and SAVE

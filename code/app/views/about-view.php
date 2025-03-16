@@ -8,9 +8,9 @@
     About | Our Site
   </title>
 
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/side-nav.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/side-nav.css">
 
   <style>
     .normal-list {
@@ -29,12 +29,12 @@
     }
   </style>
 
-  <script src="../scripts/side-nav.js" defer></script>
+  <script src="/scripts/side-nav.js" defer></script>
 </head>
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -97,7 +97,7 @@
         <details>
           <summary><h3>How do I change my username/password/profile picture?</h3></summary>
           <p>
-            See the <a href="profile.php?tab=settings">settings tab</a> on your profile page.
+            See the <a href="/profile?tab=settings">settings tab</a> on your profile page.
           </p>
         </details>
       </section>

@@ -1,5 +1,5 @@
 <div class="posting-info">
-  <a class="username" href="profile.php" title="Author">
+  <a class="username" href="/profile" title="Author">
     @sadiesmith
   </a>
   —
