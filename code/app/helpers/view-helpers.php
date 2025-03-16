@@ -7,7 +7,20 @@
  * -----------------------------------------------------------------------------------
  */
 
-function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts) {
+/**
+ * Generates the boilerplate and document head for view pages of our website.
+ * 
+ * Contains stuff that every page needs: the main, reset and side-nav stylesheet links,
+ * favicon link, side-nav script link.
+ * 
+ * @param string $title
+ * @param array $extraStylesheets
+ * A list of stylesheet filenames - eg `['home.css']`
+ * @param array $extraScripts
+ * A list of script filenames - eg `['post.js']`
+ * @return string doctype, opening `<html>` tag, and full `<head></head>` block
+ */
+function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
     $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
