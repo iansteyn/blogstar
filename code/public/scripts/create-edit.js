@@ -14,12 +14,12 @@ discardButton.addEventListener("click", discardPost);
 // Helpers
 function submitPost(event) {
     event.preventDefault(); 
-    window.location.href = "profile.php"; 
+    window.location.href = "profile"; 
 };
 
 function discardPost() {
     const confirmDiscard = confirm("Are you sure you want to discard this post?");
     if (confirmDiscard) {
-        window.location.href = "profile.php"; 
+        window.location.href = "profile"; 
     }
 };

@@ -5,16 +5,16 @@
   <meta charset="utf-8" />
   <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/admin.css" />
-  <link rel="stylesheet" href="../css/side-nav.css">
-  <script src="../scripts/side-nav.js" defer></script>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/side-nav.css">
+  <script src="/scripts/side-nav.js" defer></script>
 </head>
 
 <body>
   <header>
-    <?php include "../html/side-nav.html" ?>
+    <?php include __DIR__."/../components/side-nav.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -24,10 +24,10 @@
       <section class="panel user-search" id="user-search">
         <h2>User List</h2>
         <div class="action-bar">
-          <?php include "../html/search-bar.html" ?>
+          <?php include __DIR__."/../components/search-bar.php" ?>
         </div>
         <ul class="user-list">
-          <li><a href="profile.php">Sadie Smith</a></li>
+          <li><a href="/profile">Sadie Smith</a></li>
           <li>Jane Doe</li>
           <li>John Appleseed</li>
           <li>Jane Doe</li>
