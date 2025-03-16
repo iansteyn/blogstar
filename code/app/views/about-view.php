@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="hidden">
-
-<head>
-  <meta charset="UTF-8">
-
-  <title>
-    About | Our Site
-  </title>
-
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/side-nav.css">
-
-  <link rel="stylesheet" href="/css/about.css">
-
-  <script src="/scripts/side-nav.js" defer></script>
-</head>
+<?php include __DIR__."/../helpers/view-helpers.php" ?>
+<?= generateDocumentHead('About', ['about.css'], []); ?>
 
 <body>
   <header>
