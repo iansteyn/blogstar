@@ -16,11 +16,13 @@ class UserController {
         }
         // Otherwise, handle the submission:
         else {
-            // TODO use the data model to add a new user to the DB, using the values from the post request
-            //e.g.
-            $newUser = new User();
-            $newUser->$username = $_POST['username'];
-            $newUser->save(); //or something like that
+            $this->userModel->createUser([
+                'username'  => $_POST['username'],
+                'email'     => $_POST['email'],
+                'password'  => $_POST['password'],
+                'image'     => $_POST['image'],
+                'bio'       => 'This user has not added a bio yet.'
+            ]);
 
             //redirect to another page
             header('Location: /login');
