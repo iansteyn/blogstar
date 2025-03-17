@@ -7,14 +7,18 @@
  * -----------------------------------------------------------------------------------
  */
 
-function isTabActive($tab, $activeTab) {
+function isTabActive($tab, $activeTab): string {
     if($tab == $activeTab) {
         return "active";
     }
     return "";
 }
 
-function generatePostingInfo($userName, $date) {
+function hiddenIf($condition): string {
+    return $condition ? "hidden" : "";
+}
+
+function generatePostingInfo($userName, $date): string {
     //TODO: correctly format date
     //TODO: correctly link to user page
     return <<<HTML
