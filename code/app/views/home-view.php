@@ -1,4 +1,4 @@
-<?php include __DIR__."/../helpers/view-helpers.php" ?>
+<?php require_once __DIR__."/../helpers/view-helpers.php" ?>
 
 <!DOCTYPE html>
 <html lang="en" class="hidden">
@@ -23,7 +23,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav.php" ?>
+    <?php require_once __DIR__."/../components/side-nav.php" ?>
   </header>
 
   <main>
@@ -50,7 +50,16 @@
 
     <div class="subpage-group">
       <div class="subpage" id="recent">
-        <?php include __DIR__."/../components/post-list.php" ?>
+        <article class="panel post-list">
+          <?php
+            foreach ($recentPostsData as $postData) {
+                $isLiked = false; //TODO figure out how to properly get these booleans
+                $isSaved = false;
+                // Pass $postData, $isLiked, $isSaved to post-summary
+                include __DIR__."/../components/post-summary.php";
+            }
+          ?>
+        </article>
       </div>
       <div class="subpage hidden" id="popular">
         <?php include "../temporary/post-list-2.php" ?>
