@@ -10,7 +10,7 @@ $db = getDatabaseConnection();
 
 include __DIR__.'/../app/controllers/PagesController.php';
 include __DIR__.'/../app/controllers/UserController.php';
-$pageController = new PagesController();
+$pageController = new PagesController($db);
 $userController = new UserController($db);
 
 include __DIR__.'/../app/routing/route.php';
