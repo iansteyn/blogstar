@@ -3,7 +3,7 @@
 class PostModel {
     private $db;
 
-    public function __construct(PDO $db) {
+    public function __construct($db) {
         $this->db = $db;
     }
 
@@ -21,7 +21,12 @@ class PostModel {
 
     public function getRecentPosts(): array {
         //TODO return array of recent posts from db
-        return [];
+        // XXX Temporary mock return value
+        return [
+            $this->getPostById(1),
+            $this->getPostById(1),
+            $this->getPostById(1)
+        ];
     }
 
     public function getPopularPosts(): array {
