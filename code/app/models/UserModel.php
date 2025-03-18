@@ -1,14 +1,13 @@
 <?php
 
 class UserModel {
-    private $db;
+    private PDO $db;
 
-    public function __contruct($db) {
+    public function __construct(PDO $db) {
         $this->db = $db;
     }
 
     public function getUserByUsername($username): array {
-        //not sure if it is best to return User object or associative array
         return [];
     }
 
@@ -19,7 +18,16 @@ class UserModel {
      * @return void
      */
     public function createUser(array $userData) {
-
+        // still TODO: insert profile picture
+        $statement = $this->db->prepare(<<<SQL
+            INSERT INTO users(username, email, password, user_bio)
+            VALUES(?, ?, ?, ?);
+        SQL);
+        $statement->bindValue(1, $userData['username']);
+        $statement->bindValue(2, $userData['email']);
+        $statement->bindValue(3, $userData['password']);
+        $statement->bindValue(4, $userData['bio']);
+        $statement->execute();
     }
 
     /**
