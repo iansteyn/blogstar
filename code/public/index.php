@@ -5,7 +5,6 @@ This is the website's "root".
 Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
 */
 
-echo "Start of index.php<br>";
 include __DIR__.'/../db_connect.php';
 $db = getDatabaseConnection();
 
