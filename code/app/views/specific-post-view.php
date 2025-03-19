@@ -2,7 +2,7 @@
     include __DIR__."/../helpers/view-helpers.php";
 
     echo generateDocumentHead(
-        $postData['title'],
+        $postData['post_title'],
         ['forms.css', 'specific-post.css'],
         ['comments.js', 'post-interaction.js']
     );
@@ -24,15 +24,15 @@
     <article class="panel blog-panel">
       <header>
         <h1 class="blog-title">
-          <?= $postData['title'] ?>
+          <?= $postData['post_title'] ?>
         </h1>
-        <?= generatePostingInfo($postData['username'], $postData['date']) ?>
+        <?= generatePostingInfo($postData['username'], $postData['post_date']) ?>
       </header>
       <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
       <div class="blog-text">
-        <?php foreach ($postData['paragraphs'] as $paragraph) {
-            echo "<p>$paragraph</p>";
-        } ?>
+        <p>
+            <?= $postData['post_body'] ?>
+        </p>
       </div>
     </article>
 
