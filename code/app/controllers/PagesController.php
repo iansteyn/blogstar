@@ -1,7 +1,7 @@
 <?php
-require __DIR__.'/../models/PostModel.php';
-require __DIR__.'/../models/SaveModel.php';
-require __DIR__.'/../models/LikeModel.php';
+require_once __DIR__.'/../models/PostModel.php';
+require_once __DIR__.'/../models/SaveModel.php';
+require_once __DIR__.'/../models/LikeModel.php';
 class PagesController {
     private $postModel;
     private $saveModel;
@@ -16,7 +16,8 @@ class PagesController {
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
 
-        $this->postModel->getPostById(1);
+        var_dump($this->postModel->getPostById(4));
+        // var_dump($this->postModel->getRecentPosts());
 
         // $recentPostsData = $this->postModel->getRecentPosts();
         require __DIR__.'/../views/home-view.php';
