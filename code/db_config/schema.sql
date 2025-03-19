@@ -14,10 +14,10 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS posts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    title VARCHAR(150) NOT NULL,
-    post_content TEXT,
+    post_title VARCHAR(150) NOT NULL,
+    post_body TEXT,
     post_image VARCHAR(255),
-    date_posted DATE DEFAULT (CURRENT_DATE),
+    post_date DATE DEFAULT (CURRENT_DATE),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     post_id INT NOT NULL,
-    comment_context TEXT,
+    comment_body TEXT,
     comment_date DATE DEFAULT (CURRENT_DATE),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
