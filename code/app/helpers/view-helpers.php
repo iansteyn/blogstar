@@ -24,7 +24,7 @@ function generatePostingInfo($userName, $date): string {
     return <<<HTML
       <div class="posting-info">
         <a class="username" href="/profile" title="Author">
-          $userName
+          @$userName
         </a>
         —
         <time datetime="2025-01-04" title="Date posted">
