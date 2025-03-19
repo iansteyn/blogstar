@@ -1,25 +1,12 @@
-<?php require_once __DIR__."/../helpers/view-helpers.php" ?>
+<?php
+    include __DIR__."/../helpers/view-helpers.php";
 
-<!DOCTYPE html>
-<html lang="en" class="hidden">
-
-<head>
-  <meta charset="UTF-8">
-
-  <title>
-    Home | Our Site
-  </title>
-
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/post-list.css" />
-  <link rel="stylesheet" href="/css/tabs.css" />
-  <link rel="stylesheet" href="/css/side-nav.css">
-  <script src="/scripts/side-nav.js" defer></script>
-  <script src="/scripts/tabs.js" defer></script>
-  <script src="/scripts/post-interaction.js" defer></script>
-</head>
+    echo generateDocumentHead(
+        'Home',
+        ['home.css', 'post-list.css', 'tabs.css'],
+        ['tabs.js', 'post-interaction.js']
+    );
+?>
 
 <body>
   <header>

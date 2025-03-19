@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" class="hidden">
+<?php
+    include __DIR__."/../helpers/view-helpers.php";
 
-<head>
-  <meta charset="UTF-8">
-
-  <title>
-    Create Blog Post
-  </title>
-
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/side-nav.css">
-  <link rel="stylesheet" href="/css/forms.css">
-  <link rel="stylesheet" href="/css/create.css">
-  <script src="/scripts/side-nav.js" defer></script>
-  <script src="/scripts/create-edit.js" defer></script>
-</head>
+    echo generateDocumentHead(
+        'Create Post',
+        ['forms.css', 'create.css'],
+        ['create-edit.js']
+    );
+?>
 
 <body>
   <header>

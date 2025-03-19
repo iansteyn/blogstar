@@ -1,0 +1,14 @@
+.normal-list {
+    list-style: inside;
+    margin: 1em 0;
+    line-height: 1.2em;
+}
+h2 {
+    margin-bottom: 1rem;
+}
+details summary { 
+    cursor: pointer;
+}
+details summary > * {
+    display: inline;
+}

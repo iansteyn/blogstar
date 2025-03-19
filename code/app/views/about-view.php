@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" class="hidden">
-
-<head>
-  <meta charset="UTF-8">
-
-  <title>
-    About | Our Site
-  </title>
-
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/side-nav.css">
-
-  <style>
-    .normal-list {
-      list-style: inside;
-      margin: 1em 0;
-      line-height: 1.2em;
-    }
-    h2 {
-      margin-bottom: 1rem;
-    }
-    details summary { 
-      cursor: pointer;
-    }
-    details summary > * {
-      display: inline;
-    }
-  </style>
-
-  <script src="/scripts/side-nav.js" defer></script>
-</head>
+<?php
+    include __DIR__."/../helpers/view-helpers.php";
+    echo generateDocumentHead('About', ['about.css'], []);
+?>
 
 <body>
   <header>
