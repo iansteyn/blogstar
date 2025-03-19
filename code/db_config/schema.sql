@@ -54,14 +54,14 @@ VALUES
 ('Spooky', 'spooky@example.com', 'meowmeow789', 'Spooky is an oddball scaredy-cat who loves parading around with her favorite toy. Despite her timid nature, Spooky is obsessed with food and would choose a tasty treat over anything else in the world—even over Chris and Sammie. She often hides under the bed during thunderstorms but emerges triumphantly when she hears the sound of a food bag opening.'),
 ('Salem', 'salem@example.com', 'purrfect101', 'Salem is a mischievous and fearless cat who adores Sammie above all else. Known for his bold personality, Salem once defended Sammie when Chris tickled her by biting Chris’s feet. He fears nothing and is always ready to protect his favorite human. Salem enjoys exploring the house, causing playful trouble, and keeping a watchful eye on Sammie.');
 
-INSERT INTO posts (username, title, post_content, post_image)
+INSERT INTO posts (username, post_title, post_body, post_image)
 VALUES 
 ('sammie', 'My Latest Knitting Project', 'Just finished this cozy scarf! It’s perfect for the chilly weather. What do you think?', 'scarf_image.jpg'),
 ('chris', 'Conquered the Peak!', 'Finally made it to the top of this insane cliff. The view was worth every second of the climb!', 'cliff_view.jpg'),
 ('Spooky', 'The Best Day Ever!', 'Sammie gave me a whole plate of tuna today. I’m in heaven! 🐟', 'tuna_plate.jpg'),
 ('Salem', 'Guard Cat on Duty', 'Protected Sammie from Chris’s tickles again. Someone has to keep this household in order. 😼', 'salem_guard.jpg');
 
-INSERT INTO comments (username, post_id, comment_context)
+INSERT INTO comments (username, post_id, comment_body)
 VALUES 
 ('chris', 1, 'Looks amazing, Sammie! Can you knit me a climbing beanie next?'),
 ('Spooky', 1, 'I tried to play with the yarn, but Sammie said no. 😿'),
