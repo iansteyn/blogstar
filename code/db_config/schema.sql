@@ -61,7 +61,6 @@ VALUES
 ('Spooky', 'The Best Day Ever!', 'Sammie gave me a whole plate of tuna today. I’m in heaven! 🐟', 'tuna_plate.jpg'),
 ('Salem', 'Guard Cat on Duty', 'Protected Sammie from Chris’s tickles again. Someone has to keep this household in order. 😼', 'salem_guard.jpg');
 
--- Comments on Sammie's post
 INSERT INTO comments (username, post_id, comment_context)
 VALUES 
 ('chris', 1, 'Looks amazing, Sammie! Can you knit me a climbing beanie next?'),

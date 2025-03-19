@@ -10,8 +10,7 @@ function getDatabaseConnection() {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
-        die("Not connected :( " . $e->getMessage());
+        die("Database connection error :(" . $e->getMessage());
     }
 }
-#cosc-360-project.local/db_init.php
 ?>
