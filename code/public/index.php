@@ -53,7 +53,7 @@ $route->add('/about', fn()=>
 );
 
 // OTHER
-$route->add('/post/.+', fn($postId) =>
+$route->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
