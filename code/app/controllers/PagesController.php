@@ -16,7 +16,9 @@ class PagesController {
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
 
-        $recentPostsData = $this->postModel->getRecentPosts();
+        $this->postModel->getPostById(1);
+
+        // $recentPostsData = $this->postModel->getRecentPosts();
         require __DIR__.'/../views/home-view.php';
     }
 }

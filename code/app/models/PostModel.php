@@ -7,26 +7,25 @@ class PostModel {
         $this->db = $db;
     }
 
+    /**
+     * @param int $postId
+     * @return array{post_id, username, post_title, post_body, post_image, post_date}
+     */
     public function getPostById(int $postId): array {
-        //XXX Temporary mock return value
-        return [
-            "postId" => "TODO should we even return this?",
-            "username" => "sadiesmith",
-            "title" => "Placeholder post title",
-            "textContent" => "Placeholder post text content",
-            "image" => "placeholder for image object",
-            "date" => "2015-01-01"
-        ];
+        $statement = $this->db->prepare(<<<SQL
+            SELECT *
+            FROM posts
+            WHERE post_id = ?
+        SQL);
+        $statement->bindValue(1, $postId);
+
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function getRecentPosts(): array {
-        //TODO return array of recent posts from db
-        // XXX Temporary mock return value
-        return [
-            $this->getPostById(1),
-            $this->getPostById(1),
-            $this->getPostById(1)
-        ];
+
     }
 
     public function getPopularPosts(): array {
