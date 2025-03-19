@@ -5,7 +5,7 @@ include __DIR__.'/../models/UserModel.php';
 class UserController {
     private $userModel;
 
-    public function __construct($db) {
+    public function __construct(PDO $db) {
         $this->userModel = new UserModel($db);
     }
 
@@ -17,10 +17,10 @@ class UserController {
         // Otherwise, handle the submission:
         else {
             $this->userModel->createUser([
-                'username'  => $_POST['username'],
+                'username'  => $_POST['user-id'],
                 'email'     => $_POST['email'],
                 'password'  => $_POST['password'],
-                'image'     => $_POST['image'],
+                // 'image'     => $_POST['profile-picture'],
                 'bio'       => 'This user has not added a bio yet.'
             ]);
 
