@@ -10,8 +10,10 @@ $db = getDatabaseConnection();
 
 include __DIR__.'/../app/controllers/PagesController.php';
 include __DIR__.'/../app/controllers/UserController.php';
+include __DIR__.'/../app/controllers/PostController.php';
 $pageController = new PagesController($db);
 $userController = new UserController($db);
+$postController = new PostController($db);
 
 include __DIR__.'/../app/routing/route.php';
 $route = new Route();
@@ -51,8 +53,8 @@ $route->add('/about', fn()=>
 );
 
 // OTHER
-$route->add('/specific-post', fn()=>
-    require __DIR__ . '/../app/views/specific-post-view.php'
+$route->add('/post/.+', fn($postId) =>
+    $postController->blogPost($postId)
 );
 
 // TODO add routing for error pages?
