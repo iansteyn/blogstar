@@ -25,8 +25,20 @@ class PostModel {
         return $result ? $result : null;
     }
 
+    /**
+     * @return array
+     * Array of postData arrays, each with keys {post_id, username, post_title, post_body, post_image, post_date},
+     * ordered by most recent post_date first.
+     */
     public function getRecentPosts(): array {
+        $statement = $this->db->query(<<<sql
+            SELECT *
+            FROM posts
+            ORDER BY post_date DESC
+        sql);
 
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 
     public function getPopularPosts(): array {
