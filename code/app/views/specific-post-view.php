@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" class="hidden">
+<?php
+    include __DIR__."/../helpers/view-helpers.php";
 
-<head>
-  <meta charset="UTF-8">
-
-  <title>
-    Blog Post | Our Site
-  </title>
-
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/side-nav.css">
-  <link rel="stylesheet" href="/css/forms.css">
-  <link rel="stylesheet" href="/css/specific-post.css">
-  <script src="/scripts/side-nav.js" defer></script>
-  <script src="/scripts/comments.js" defer></script>
-  <script src="/scripts/post-interaction.js" defer></script>
-</head>
+    echo generateDocumentHead(
+        'A Blog Post',
+        ['forms.css', 'specific-post.css'],
+        ['comments.js', 'post-interaction.js']
+    );
+?>
 
 <body>
   <header>

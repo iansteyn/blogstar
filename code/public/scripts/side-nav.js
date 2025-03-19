@@ -140,5 +140,30 @@ function loadTheme(theme) {
     // Actually switch theme!
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+    setFavicon(theme);
 }
+
+//switch favicon
+function setFavicon(theme) {
+    const faviconLink = document.querySelector('[rel="icon"]');
+
+    if (faviconLink) {
+        let faviconTheme;
+
+        // console.log(window.matchMedia('(prefers-color-scheme: no-preference').matches);
+    
+        if (theme == 'default' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            faviconTheme = 'dark';
+        }
+        else if (theme == 'default') {
+            faviconTheme = 'light';
+        }
+        else {
+            faviconTheme = theme;
+        }
+
+        faviconLink.setAttribute('href', `/vector-icons/favicon-${faviconTheme}.svg`)
+    }
+}
+
 // END theme switching -------------------------------------------------------------
