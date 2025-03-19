@@ -10,18 +10,19 @@ class PostModel {
     /**
      * @param int $postId
      * @return array{post_id, username, post_title, post_body, post_image, post_date}
+     * Array representing data of a single post, or null if no post with that id exists.
      */
-    public function getPostById(int $postId): array {
-        $statement = $this->db->prepare(<<<SQL
+    public function getPostById(int $postId): ?array {
+        $statement = $this->db->prepare(<<<sql
             SELECT *
             FROM posts
-            WHERE post_id = ?
-        SQL);
-        $statement->bindValue(1, $postId);
-
+            WHERE post_id = :postId
+        sql);
+        $statement->bindValue(":postId", $postId);
         $statement->execute();
+
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $result ? $result : null;
     }
 
     public function getRecentPosts(): array {
