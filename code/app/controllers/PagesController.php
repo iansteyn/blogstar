@@ -16,10 +16,10 @@ class PagesController {
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
 
-        var_dump($this->postModel->getPostById(4));
+        // var_dump($this->postModel->getPostById(4));
         // var_dump($this->postModel->getRecentPosts());
 
-        // $recentPostsData = $this->postModel->getRecentPosts();
+        $recentPostsData = $this->postModel->getRecentPosts();
         require __DIR__.'/../views/home-view.php';
     }
 }

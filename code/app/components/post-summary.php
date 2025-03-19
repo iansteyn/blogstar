@@ -10,6 +10,7 @@ post-summary.php expects the following variables:
 // - link to actual post properly
     // See concept of 'slug urls'
 // - photo
+// - limit post_body to first X amount of characters
 
 require_once __DIR__."/../helpers/view-helpers.php"
 ?>
@@ -17,11 +18,11 @@ require_once __DIR__."/../helpers/view-helpers.php"
 <article class="post-summary">
   <div class="post-summary-text">
     <h2 class="post-summary-title">
-      <a href="/specific-post"><?= $postData['title'] ?></a>
+      <a href="/specific-post"><?= $postData['post_title'] ?></a>
     </h2>
-    <?= generatePostingInfo($postData['username'], $postData['date']) ?>
+    <?= generatePostingInfo($postData['username'], $postData['post_date']) ?>
     <p class="blog-start">
-      <a href="/specific-post"><?= $postData['textContent'] ?></a>
+      <a href="/specific-post"><?= $postData['post_body'] ?></a>
     </p>
   </div>
 
