@@ -1,5 +1,5 @@
 <?php
-    include __DIR__."/../helpers/view-helpers.php";
+    require_once __DIR__."/../helpers/view-helpers.php";
 
     echo generateDocumentHead(
         'Log in',
