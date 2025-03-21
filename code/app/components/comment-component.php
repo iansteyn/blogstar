@@ -1,6 +1,6 @@
 <div class = "specific-comment-container">
   <header>
-    <?= generatePostingInfo("sadiesmith", "2015-07-08")?>
+    <?= generatePostingInfo("sadiesmith", "2015-07-08 13:53:03")?>
     <div class="button-group-icon-only">
       <button class="button-icon-only" title="Edit">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
