@@ -18,17 +18,19 @@ function hiddenIf($condition): string {
     return $condition ? "hidden" : "";
 }
 
-function generatePostingInfo($userName, $date): string {
-    //TODO: correctly format date
-    //TODO: correctly link to user page
+function generatePostingInfo(string $username, $sqlDateTime): string {
+    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDateTime);
+    $formattedDate = $dateTime->format('F j, Y');
+    $htmlDateTime = $dateTime->format('Y-m-d\TH:i');
+
     return <<<HTML
       <div class="posting-info">
         <a class="username" href="/profile" title="Author">
-          @$userName
+          @$username
         </a>
         —
-        <time datetime="2025-01-04" title="Date posted">
-          $date
+        <time datetime='$htmlDateTime' title="Date posted">
+          $formattedDate
         </time>
       </div>
     HTML;
