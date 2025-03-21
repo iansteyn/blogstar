@@ -17,8 +17,8 @@ class PostController {
     public function blogPost($postId) {
 
         $postData = $this->postModel->getPostById($postId);
-        $isLiked = false;
-        $isSaved = false;
+        $postData['is_liked'] = true;
+        $postData['is_saved'] = false;
 
         require __DIR__.'/../views/specific-post-view.php';
     }

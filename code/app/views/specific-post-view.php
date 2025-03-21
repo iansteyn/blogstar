@@ -37,26 +37,26 @@
     </article>
 
     <div class="interaction-bar">
-      <button class="<?= hiddenIf($isLiked) ?> interaction-button togglable-post-button" type="button" title="Like">
+      <button class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button" type="button" title="Like">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
         </svg>
         Like
       </button>
-      <button class="<?= hiddenIf(!$isLiked) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unlike">
+      <button class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unlike">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
         </svg>
         Liked
       </button>
 
-      <button class="<?= hiddenIf($isSaved) ?> interaction-button togglable-post-button" type="button" title="Save">
+      <button class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button" type="button" title="Save">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
         </svg>
         Save
       </button>
-      <button class="<?= hiddenIf(!$isSaved) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unsave">
+      <button class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unsave">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
         </svg>
