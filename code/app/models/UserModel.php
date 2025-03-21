@@ -13,7 +13,7 @@ class UserModel {
             FROM users 
             WHERE username = :username
         sql);
-        $statement->bindParam(':username', $username, PDO::PARAM_STR);
+        $statement->bindValue(':username', $username);
         $statement->execute();
         
         return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
