@@ -14,6 +14,7 @@ post-summary.php expects the following variables:
 require_once __DIR__."/../helpers/view-helpers.php";
 
 $blogPostLink = "blog-post/".$postData['post_id'];
+$postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 ?>
 
 <article class="post-summary">
@@ -28,7 +29,7 @@ $blogPostLink = "blog-post/".$postData['post_id'];
 
     <p class="blog-start">
       <a href=<?= $blogPostLink ?>>
-        <?= $postData['post_body'] ?>
+        <?= $postBodyExcerpt ?>
       </a>
     </p>
   </div>
