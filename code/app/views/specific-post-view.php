@@ -31,7 +31,7 @@
       <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
       <div class="blog-text">
         <p>
-            <?= $postData['post_body'] ?>
+            <?= nl2br($postData['post_body']) ?>
         </p>
       </div>
     </article>
