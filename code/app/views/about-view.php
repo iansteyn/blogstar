@@ -1,11 +1,11 @@
 <?php
-    include __DIR__."/../helpers/view-helpers.php";
+    require_once __DIR__."/../helpers/view-helpers.php";
     echo generateDocumentHead('About', ['about.css'], []);
 ?>
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav.php" ?>
+    <?php include __DIR__."/../components/side-nav-component.php" ?>
   </header>
   <main>
     <header class="page-header">

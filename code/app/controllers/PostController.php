@@ -2,7 +2,8 @@
 require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
-class PagesController {
+
+class PostController {
     private $postModel;
     private $saveModel;
     private $likeModel;
@@ -13,14 +14,14 @@ class PagesController {
         $this->likeModel = new likeModel($db);
     }
 
-    public function home() {
-        $activeTab = $_GET['tab'] ?? "recent";
+    public function blogPost($postId) {
 
-        // var_dump($this->postModel->getPostById(4));
-        // var_dump($this->postModel->getRecentPosts());
+        $postData = $this->postModel->getPostById($postId);
+        $postData['is_liked'] = true;
+        $postData['is_saved'] = false;
 
-        $recentPostsData = $this->postModel->getRecentPosts();
-        require __DIR__.'/../views/home-view.php';
+        // This view uses: $postData
+        require __DIR__.'/../views/specific-post-view.php';
     }
 }
 

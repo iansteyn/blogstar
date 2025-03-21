@@ -1,4 +1,4 @@
-<!-- side-nav.php
+<!-- side-nav-component.php
 ==================
 Main navigation component. Include it in a <header> tag at the start of the body.
 -->
