@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS posts (
     post_title VARCHAR(150) NOT NULL,
     post_body TEXT,
     post_image VARCHAR(255),
-    post_date DATE DEFAULT (CURRENT_DATE),
+    post_date DATETIME DEFAULT (CURRENT_DATE),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS comments (
     username VARCHAR(50) NOT NULL,
     post_id INT NOT NULL,
     comment_body TEXT,
-    comment_date DATE DEFAULT (CURRENT_DATE),
+    comment_date DATETIME DEFAULT (CURRENT_DATE),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
 );
