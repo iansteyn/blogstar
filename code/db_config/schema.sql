@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     profile_picture VARCHAR(255),
     user_bio TEXT,
-    date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    date_registered DATETIME DEFAULT (CURRENT_TIMESTAMP),
     role ENUM('registered', 'admin') DEFAULT 'registered'
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS posts (
     post_title VARCHAR(150) NOT NULL,
     post_body TEXT,
     post_image VARCHAR(255),
-    post_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    post_date DATETIME DEFAULT (CURRENT_TIMESTAMP),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS comments (
     username VARCHAR(50) NOT NULL,
     post_id INT NOT NULL,
     comment_body TEXT,
-    comment_date DATETIME DEFAULT (CURRENT_DATE),
+    comment_date DATETIME DEFAULT (CURRENT_TIMESTAMP),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
 );
