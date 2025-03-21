@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav.php" ?>
+    <?php include __DIR__."/../components/side-nav-component.php" ?>
   </header>
   <main>
     <header>
@@ -66,7 +66,7 @@
     </div>
   </main>
   <aside>
-    <?php include __DIR__."/../components/user-bio.php" ?>
+    <?php include __DIR__."/../components/user-bio-component.php" ?>
   </aside>
 </body>
 

@@ -5,7 +5,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav.php" ?>
+    <?php include __DIR__."/../components/side-nav-component.php" ?>
   </header>
   <main>
     <header class="page-header">

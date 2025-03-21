@@ -10,14 +10,14 @@
 
 <body>
   <header>
-    <?php require_once __DIR__."/../components/side-nav.php" ?>
+    <?php require_once __DIR__."/../components/side-nav-component.php" ?>
   </header>
 
   <main>
     <header>
       <div class="page-header home-page-header">
         <h1>Home</h1>
-        <?php include __DIR__."/../components/search-bar.php" ?>
+        <?php include __DIR__."/../components/search-bar-component.php" ?>
       </div>
       <nav class="tab-group">
         <button class="tab <?= isTabActive('recent', $activeTab) ?>" value="recent">
@@ -43,7 +43,7 @@
                 $isLiked = false; //TODO figure out how to properly get these booleans
                 $isSaved = false;
                 // Pass $postData, $isLiked, $isSaved to post-summary
-                include __DIR__."/../components/post-summary.php";
+                include __DIR__."/../components/post-summary-component.php";
             }
           ?>
         </article>

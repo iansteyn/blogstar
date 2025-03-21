@@ -1,6 +1,6 @@
 <?php 
 /*
-post-summary.php expects the following variables:
+post-summary-component.php expects the following variables:
 - array $postData
 - bool $isLiked
 - bool $isSaved
