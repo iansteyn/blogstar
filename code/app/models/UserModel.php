@@ -7,12 +7,16 @@ class UserModel {
         $this->db = $db;
     }
 
-    public function getUserByUsername($username): array {
-        $statement = $this->db->prepare("SELECT username FROM users WHERE username = :username");
+    public function getUserByUsername($username): ?array{
+        $statement = $this->db->prepare(<<<sql
+            SELECT * 
+            FROM users 
+            WHERE username = :username
+        sql);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->execute();
         
-        return $statement->fetch(PDO::FETCH_ASSOC) ?: [];
+        return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
     }
     
 
