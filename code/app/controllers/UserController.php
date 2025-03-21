@@ -9,6 +9,12 @@ class UserController {
         $this->userModel = new UserModel($db);
     }
 
+    // change route in index and add method from pages controller, get it to display and then get the user model and call it in this model
+    function profile() {
+        $activeTab = $_GET['tab'] ?? "recent";
+        require __DIR__.'/../views/profile-view.php';
+    }
+
     public function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
