@@ -1,5 +1,5 @@
 <?php
-/** view-helpers.php
+/* view-helpers.php
  * ----------------------------------------------------------------------------------
  * Contains utility functions for views, ie logic that doesn't belong in controllers
  * but warrants being put into a function for reusability.
@@ -7,6 +7,16 @@
  * -----------------------------------------------------------------------------------
  */
 
+
+// function sanitizeData(array|mixed $data): array {
+//     foreach($data element)
+// }
+
+/**
+ * @param string $tab
+ * @param string $activeTab
+ * @return string "active" if $tab matches $activeTab, empty otherwise
+ */
 function isTabActive($tab, $activeTab): string {
     if($tab == $activeTab) {
         return "active";
