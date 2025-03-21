@@ -41,7 +41,7 @@ $route->add('/admin', fn()=>
 
 // SIDE_NAV BOTTOM
 $route->add('/login', fn()=>
-    require __DIR__ . '/../app/views/login-view.php'
+    $userController->login()
 );
 $route->add('/register', fn()=>
     $userController->register()
