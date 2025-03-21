@@ -1,11 +1,16 @@
 <?php
-    require_once __DIR__."/../helpers/view-helpers.php";
+/**
+ * This view expects the following variables:
+ * @var array $postData
+ * with keys: post_id, username, post_title, post_body, post_image, is_liked, is_saved
+ */
+require_once __DIR__."/../helpers/view-helpers.php";
 
-    echo generateDocumentHead(
-        $postData['post_title'],
-        ['forms.css', 'specific-post.css'],
-        ['comments.js', 'post-interaction.js']
-    );
+echo generateDocumentHead(
+    $postData['post_title'],
+    ['forms.css', 'specific-post.css'],
+    ['comments.js', 'post-interaction.js']
+);
 ?>
 
 <body>

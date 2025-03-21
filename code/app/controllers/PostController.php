@@ -20,6 +20,7 @@ class PostController {
         $postData['is_liked'] = true;
         $postData['is_saved'] = false;
 
+        // This view uses: $postData
         require __DIR__.'/../views/specific-post-view.php';
     }
 }
