@@ -40,9 +40,9 @@
         <article class="panel post-list">
           <?php
             foreach ($recentPostsData as $postData) {
-                $isLiked = false; //TODO figure out how to properly get these booleans
-                $isSaved = false;
-                // Pass $postData, $isLiked, $isSaved to post-summary
+                $postData['is_liked'] = false; //TODO figure out how to properly get these booleans
+                $postData['is_saved'] = false;
+                // Pass $postData to post-summary
                 include __DIR__."/../components/post-summary-component.php";
             }
           ?>

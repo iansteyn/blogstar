@@ -1,9 +1,7 @@
 <?php 
-/*
-post-summary-component.php expects the following variables:
-- array $postData
-- bool $isLiked
-- bool $isSaved
+/** 
+ * post-summary-component.php expects the following variables:
+ * @var array $postData with keys: post_id, username, post_title, post_body, post_image, is_liked, is_saved
 */
 
 require_once __DIR__."/../helpers/view-helpers.php";
@@ -36,23 +34,23 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 
     <div class="post-summary-button-group button-group-icon-only">
       <div class="interact-buttons">
-        <button title="Like" class="<?= hiddenIf($isLiked) ?> togglable-post-button button-icon-only">
+        <button title="Like" class="<?= hiddenIf($postData['is_liked']) ?> togglable-post-button button-icon-only">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-like-unfilled"></use>
           </svg>
         </button>
-        <button title="Unlike" class="<?= hiddenIf(!$isLiked) ?> togglable-post-button togglable-post-button-active button-icon-only">
+        <button title="Unlike" class="<?= hiddenIf( ! $postData['is_liked']) ?> togglable-post-button togglable-post-button-active button-icon-only">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-like-filled"></use>
           </svg>
         </button>
         
-        <button title="Save" class="<?= hiddenIf($isSaved) ?> togglable-post-button button-icon-only">
+        <button title="Save" class="<?= hiddenIf($postData['is_saved']) ?> togglable-post-button button-icon-only">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-save-unfilled"></use>
           </svg>
         </button>
-        <button title="Unsave" class="<?= hiddenIf(!$isSaved) ?> togglable-post-button togglable-post-button-active button-icon-only hidden">
+        <button title="Unsave" class="<?= hiddenIf( ! $postData['is_saved']) ?> togglable-post-button togglable-post-button-active button-icon-only hidden">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-save-filled"></use>
           </svg>
