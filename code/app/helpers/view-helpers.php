@@ -35,6 +35,7 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
           <link rel="stylesheet" href="/css/reset.css">
           <link rel="stylesheet" href="/css/main.css">
           <link rel="stylesheet" href="/css/side-nav.css">
+          <link rel="stylesheet" href="/css/user-bio.css">
     HTML;
 
     foreach ($extraStylesheets as $stylesheet) {
