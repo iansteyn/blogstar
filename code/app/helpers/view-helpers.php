@@ -8,9 +8,25 @@
  */
 
 
-// function sanitizeData(array|mixed $data): array {
-//     foreach($data element)
-// }
+/**
+ * Properly escapes data for display in view. 
+ * @param mixed $data can be an array or a single value (string, int etc)
+ * @return mixed a properly escaped copy of `$data`
+ */
+function sanitizeData(mixed $data): mixed {
+    $sanitizedData = null;
+
+    if (is_array($data)) {
+        $sanitizedData = [];
+        foreach($data as $key => $value) {
+            $sanitizedData[$key] = htmlspecialchars($value);
+        }
+    } else {
+        $sanitizedData = htmlspecialchars($data);
+    }
+
+    return $sanitizedData;
+}
 
 /**
  * @param string $tab
