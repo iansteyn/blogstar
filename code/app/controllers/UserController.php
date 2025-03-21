@@ -12,7 +12,6 @@ class UserController {
     // change route in index and add method from pages controller, get it to display and then get the user model and call it in this model
     function profile() {
         $userData = $this->userModel->getUserByUsername("Spooky");
-        var_dump($userData); 
         require __DIR__.'/../views/profile-view.php';
     }
     

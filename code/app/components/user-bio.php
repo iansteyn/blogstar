@@ -7,10 +7,10 @@ require_once __DIR__."/../helpers/view-helpers.php";
 ?>
   <body>
     <div class="sidebar-profile">
-    <img class="user-image" src="<?= htmlspecialchars($profilePicture) ?>" alt="Profile picture of <?= htmlspecialchars($username) ?>">
+    <img class="user-image" src="<?= htmlspecialchars($profilePicture)?>" alt="Profile picture of <?= htmlspecialchars($username) ?>">
         <div class="user-info">
-            <h2 class="user-name"><?= htmlspecialchars($username) ?></h2>
-            <p class="user-bio"><?= nl2br(htmlspecialchars($bio)) ?></p>
+            <h2 class="user-name"><?= htmlspecialchars($username)?></h2>
+            <p class="user-bio"><?= nl2br(htmlspecialchars($bio))?></p>
         </div>
     </div>
 
