@@ -6,11 +6,6 @@ post-summary-component.php expects the following variables:
 - bool $isSaved
 */
 
-//TODO
-    // See concept of 'slug urls'
-// - photo
-// - limit post_body to first X amount of characters
-
 require_once __DIR__."/../helpers/view-helpers.php";
 
 $blogPostLink = "blog-post/".$postData['post_id'];
