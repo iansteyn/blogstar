@@ -7,6 +7,35 @@
  * -----------------------------------------------------------------------------------
  */
 
+function isTabActive($tab, $activeTab): string {
+    if($tab == $activeTab) {
+        return "active";
+    }
+    return "";
+}
+
+function hiddenIf($condition): string {
+    return $condition ? "hidden" : "";
+}
+
+function generatePostingInfo(string $username, $sqlDateTime): string {
+    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDateTime);
+    $formattedDate = $dateTime->format('F j, Y');
+    $htmlDateTime = $dateTime->format('Y-m-d\TH:i');
+
+    return <<<HTML
+      <div class="posting-info">
+        <a class="username" href="/profile" title="Author">
+          @$username
+        </a>
+        —
+        <time datetime='$htmlDateTime' title="Date posted">
+          $formattedDate
+        </time>
+      </div>
+    HTML;
+}
+
 /**
  * Generates the boilerplate and document head for view pages of our website.
  * 
@@ -50,13 +79,6 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
 
     $documentHead .= '</head>';
     return $documentHead;
-}
-
-function isTabActive($tab, $activeTab) {
-    if($tab == $activeTab) {
-        return "active";
-    }
-    return "";
 }
 
 ?>
