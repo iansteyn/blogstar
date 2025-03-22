@@ -1,5 +1,4 @@
 <?php
-
 include __DIR__.'/../models/UserModel.php';
 
 class UserController {
@@ -24,7 +23,7 @@ class UserController {
         // Otherwise, handle the submission:
         else {
             $this->userModel->createUser([
-                'username'  => $_POST['user-id'],
+                'username'  => $_POST['username'],
                 'email'     => $_POST['email'],
                 'password'  => $_POST['password'],
                 // 'image'     => $_POST['profile-picture'],
@@ -38,11 +37,48 @@ class UserController {
     }
 
     public function login() {
-        //TODO
+        // If form is not submitted, display the page:
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            require __DIR__.'/../views/login-view.php';
+        }
+        // Otherwise, handle the submission:
+        else {
+            if (!isset($_POST['email']) || empty($_POST['email'])) {
+                header('Location: /login');
+            }
+            if (!isset($_POST['password']) || empty($_POST['password'])) {
+                header('Location: /login');
+            }
+
+            $email = htmlspecialchars($_POST['email']);
+            $password = $_POST['password'];  //TODO: Hash passwords
+            $user = $this->userModel->validateUserLogin($email, $password);
+
+            if ($user) {
+                // Store user session data
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['profile_picture'] = $user['profile_picture'];
+                $_SESSION['role'] = $user['role'];
+
+                // Redirect to the home page
+                header('Location: /home');
+                exit;
+            }
+            else {
+                $_SESSION['invalid_login'] = 'Email or password is invalid.';
+                header('Location: /login');
+                exit;
+            }
+        }
     }
 
     public function logout() {
-        //TODO
+        // Remove all session variables and destroy the session
+        session_unset();
+        session_destroy();
+        header('Location: /login');
+        exit;
     }
 
     public function updateSettings() {
