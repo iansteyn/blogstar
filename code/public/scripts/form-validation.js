@@ -127,7 +127,7 @@ function displayError(input, message) {
     const div = document.createElement("div");
     div.textContent = message;
     div.className = "error-message";
-    div.style.color = "red";
+    div.style.color = "var(--color-error)";
     div.style.maxWidth = "42ch";
     input.parentElement.appendChild(div);
     input.classList.add("validation-error");
