@@ -52,7 +52,7 @@ class UserModel {
     /**
      * @param string $email 
      * @param string $password
-     * @return array  
+     * @return
      * Array representing an existing user matching the passed email and password, or null
      * if there is not a match.
      */
@@ -61,13 +61,15 @@ class UserModel {
             SELECT * 
             FROM users
             WHERE email = :email
-            AND password = :password
         SQL);
         $statement->bindValue(':email', $email);
-        $statement->bindValue(':password', $password);
         $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
+        if ($result && $result['password'] === $password) {
+            return $result;
+        }
+        return null;
     }
 }
 
