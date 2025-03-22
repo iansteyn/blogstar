@@ -18,8 +18,8 @@
         <form id="registration-form" class="account-form" method="post" enctype="multipart/form-data" novalidate>
           <h1 class="form-title">Register for an account</h1>
           <div class="form-group">
-            <label for="user-id">User id</label>
-            <input type="text" id="user-id" name="user-id" placeholder="Enter your user id" required />
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>

@@ -113,3 +113,8 @@ input.validation-error {
 #edit-user-bio {
     padding: 0.5rem;
 }
+
+.invalid-login {
+	color: var(--color-error);
+	margin: -1.25rem 0;
+}

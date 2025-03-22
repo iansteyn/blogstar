@@ -38,12 +38,12 @@ function validateForm(event, form) {
     }
 
     if (form.id === "registration-form") {
-        const userId = form.querySelector("#user-id");
+        const username = form.querySelector("#username");
         const confirmPassword = form.querySelector("#confirm-password");
         const profilePicture = form.querySelector("#profile-picture");
 
-        if (!validateUserId(userId.value)) {
-            displayError(userId, "User id must be 5-20 characters and only " +
+        if (!validateUsername(username.value)) {
+            displayError(username, "Username must be 5-20 characters and only " +
                 "contain letters, numbers, and underscores");
             isValid = false;
         }
@@ -88,12 +88,12 @@ function validateEmail(email) {
 }
 
 /*
-user id must be 5-20 characters and can contain
+username must be 5-20 characters and can contain
 upper and lowercase letters, numbers, and underscores
 */
-function validateUserId(userId) {
-    const userIdPattern = /^[a-zA-Z0-9_]{5,20}$/;
-    return userIdPattern.test(userId);
+function validateUsername(username) {
+    const usernamePattern = /^[a-zA-Z0-9_]{5,20}$/;
+    return usernamePattern.test(username);
 }
 
 /*
@@ -127,7 +127,7 @@ function displayError(input, message) {
     const div = document.createElement("div");
     div.textContent = message;
     div.className = "error-message";
-    div.style.color = "red";
+    div.style.color = "var(--color-error)";
     div.style.maxWidth = "42ch";
     input.parentElement.appendChild(div);
     input.classList.add("validation-error");
