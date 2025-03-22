@@ -14,7 +14,7 @@
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>
-    <form class = "panel create-panel" id = "create-form" method="post" enctype="multipart/form-data">
+    <form class = "panel create-panel" id = "create-form" method="post" action = "/create" enctype="multipart/form-data">
       <label for="blog-title">Title</label>
       <textarea class = "blog-title" id = "blog-title" placeholder = "Write your title here!" required></textarea>
       <label for="blog-text">Post</label>
