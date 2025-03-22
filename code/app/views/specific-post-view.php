@@ -10,7 +10,7 @@ $postData = sanitizeData($postData);
 
 echo generateDocumentHead(
     $postData['post_title'],
-    ['forms.css', 'specific-post.css'],
+    ['forms.css', 'specific-post.css', 'user-bio.css'],
     ['comments.js', 'post-interaction.js']
 );
 ?>

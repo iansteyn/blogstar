@@ -3,7 +3,7 @@
 
     echo generateDocumentHead(
         'My Profile',
-        ['forms.css', 'tabs.css', 'post-list.css'],
+        ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
         ['tabs.js', 'post-interaction.js']
     );
 ?>
