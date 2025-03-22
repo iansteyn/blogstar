@@ -33,20 +33,24 @@ class PostController {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/create-view.php';
+            return;
+        }
+        if (!isset($_FILES['post-image']) || $_FILES['post-image']['error'] !== UPLOAD_ERR_OK) {
+            throw new Exception("An image is required.");
         }
         // Otherwise, handle the submission:
-        else {
+        
             //ammend this to hard-coded as needed
             $this->postModel->createPost([
                 'username'   => "spooky",
                 'post_title' => $_POST['post-title'],
                 'post_body'  => $_POST['post-body'],
-                'post_image' => "../photo/sadie-smith.jpg"
+                'post_image' => $_FILES['post-image']
 
             ]);
             header('Location: /profile');
             exit;
-        }
+        
     }
 }
 
