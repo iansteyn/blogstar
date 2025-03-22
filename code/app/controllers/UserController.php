@@ -61,9 +61,13 @@ class UserController {
                 $_SESSION['profile_picture'] = $user['profile_picture'];
                 $_SESSION['role'] = $user['role'];
 
-                // Redirect to the home page
-                header('Location: /home');
-                exit;
+                if ($_SESSION['role'] === 'admin') {
+                    header('Location: /admin');
+                    exit;
+                } else {
+                    header('Location: /home');
+                    exit;
+                }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
