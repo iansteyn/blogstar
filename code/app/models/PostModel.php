@@ -47,23 +47,18 @@ class PostModel {
     }
 
     public function createPost(array $postData) {
-        // If form is not submitted, just display the page
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            require __DIR__.'/../views/create-view.php';
-        }else{
+        //write out all details of the post
             $statement = $this->db->prepare(<<<SQL
-                INSERT INTO posts(post_title, post_body, post_image)
-                VALUES(?, ?, ?);
-                SQL);
+                INSERT INTO posts(username, post_title, post_body, post_image)
+                VALUES (?, ?, ?, ?);
+            SQL);
 
-            $statement->bindValue(1, $postData['post_title']);
-            $statement->bindValue(2, $postData['post_body']);
-            $statement->bindValue(3, $postData['post_image']);
+            $statement->bindValue(1, $postData['username']);    
+            $statement->bindValue(2, $postData['post_title']);
+            $statement->bindValue(3, $postData['post_body']);
+            $statement->bindValue(4, $postData['post_image']);
+            
             $statement->execute();
-
-            header('Location: /profile');
-            exit;
-        } 
     }
 
     public function updatePost(array $postData) {
