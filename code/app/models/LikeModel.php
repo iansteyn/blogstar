@@ -26,6 +26,19 @@ class LikeModel {
         $statement->bindValue(":postId", $postId);
         $statement->execute();
     }
+
+    public function getNumLikes(int $postId) {
+        $statement = $this->db->prepare(<<<sql
+            SELECT COUNT(post_id)
+            FROM likes
+            WHERE post_id = :postId;
+        sql);
+        $statement->bindValue(":postId", $postId);
+
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result ? $result[0] : 0;
+    }
 }
 
 ?>
