@@ -1,5 +1,4 @@
 <?php
-session_start();
 /**
  * This view expects the following variables:
  * @var array $postData
