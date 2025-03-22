@@ -27,7 +27,7 @@ $route->add('/home', fn()=>
     $pageController->home()
 );
 $route->add('/profile', fn()=>
-    require __DIR__ . '/../app/views/profile-view.php'
+    $userController->profile()
 );
 $route->add('/create', fn()=>
     require __DIR__ . '/../app/views/create-view.php'

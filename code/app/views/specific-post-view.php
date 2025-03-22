@@ -3,6 +3,7 @@
  * This view expects the following variables:
  * @var array $postData
  * with keys: post_id, username, post_title, post_body, post_image, is_liked, is_saved
+ * @var  array $userData
  */
 require_once __DIR__."/../helpers/view-helpers.php";
 
@@ -89,7 +90,7 @@ echo generateDocumentHead(
             Comments
         </h2>
       </header>
-      
+
       <?php include __DIR__."/../components/comment-component.php" ?>
 
       <div class = "specific-comment-container">
@@ -115,7 +116,10 @@ echo generateDocumentHead(
   </main>
 
   <aside>
-    <?php include __DIR__."/../components/user-bio-component.php" ?>
+    <?php
+        // This component uses: $userData
+        include __DIR__."/../components/user-bio-component.php"
+    ?>
   </aside>
 </body>
 
