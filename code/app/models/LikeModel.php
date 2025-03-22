@@ -18,7 +18,13 @@ class LikeModel {
     }
 
     public function removeLike(string $username, int $postId) {
-        //TODO
+        $statement = $this->db->prepare(<<<sql
+            DELETE FROM likes
+            WHERE username = :username AND post_id = :postId;
+        sql);
+        $statement->bindValue(":username", $username);
+        $statement->bindValue(":postId", $postId);
+        $statement->execute();
     }
 }
 
