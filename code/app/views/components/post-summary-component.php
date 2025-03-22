@@ -4,7 +4,7 @@
  * @var array $postData with keys: post_id, username, post_title, post_body, post_image, is_liked, is_saved
 */
 
-require_once __DIR__."/../helpers/view-helpers.php";
+require_once __DIR__."/../../helpers/view-helpers.php";
 $postData = sanitizeData($postData);
 
 $blogPostLink = "blog-post/".$postData['post_id'];

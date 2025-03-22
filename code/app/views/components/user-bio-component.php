@@ -3,7 +3,7 @@
 user-bio-component.php expects the following variable:
 - array $userData with keys username, user_bio, profile_picture
 */
-require_once __DIR__."/../helpers/view-helpers.php";
+require_once __DIR__."/../../helpers/view-helpers.php";
 $userData = sanitizeData($userData);
 ?>
 
