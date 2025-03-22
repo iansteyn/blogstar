@@ -61,6 +61,11 @@ $route->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
+// ROUTES THAT DO NOT LEAD TO DISPLAY
+$route->add('/like/.+', fn($postId) =>
+    $postController->toggleLike($postId)
+);
+
 // TODO add routing for error pages?
 
 $route->submit();
