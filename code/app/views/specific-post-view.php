@@ -17,7 +17,7 @@ echo generateDocumentHead(
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav-component.php" ?>
+    <?php include __DIR__."/components/side-nav-component.php" ?>
   </header>
 
   <main>
@@ -92,7 +92,7 @@ echo generateDocumentHead(
         </h2>
       </header>
 
-      <?php include __DIR__."/../components/comment-component.php" ?>
+      <?php include __DIR__."/components/comment-component.php" ?>
 
       <div class = "specific-comment-container">
         <form method = "GET">
@@ -119,7 +119,7 @@ echo generateDocumentHead(
   <aside>
     <?php
         // This component uses: $userData
-        include __DIR__."/../components/user-bio-component.php"
+        include __DIR__."/components/user-bio-component.php"
     ?>
   </aside>
 </body>

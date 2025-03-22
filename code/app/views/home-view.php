@@ -15,14 +15,14 @@
 
 <body>
   <header>
-    <?php require_once __DIR__."/../components/side-nav-component.php" ?>
+    <?php require_once __DIR__."/components/side-nav-component.php" ?>
   </header>
 
   <main>
     <header>
       <div class="page-header home-page-header">
         <h1>Home</h1>
-        <?php include __DIR__."/../components/search-bar-component.php" ?>
+        <?php include __DIR__."/components/search-bar-component.php" ?>
       </div>
       <nav class="tab-group">
         <button class="tab <?= isTabActive('recent', $activeTab) ?>" value="recent">
@@ -48,7 +48,7 @@
                 $postData['is_liked'] = false; //TODO figure out how to properly get these booleans
                 $postData['is_saved'] = false;
                 // Pass $postData to post-summary
-                include __DIR__."/../components/post-summary-component.php";
+                include __DIR__."/components/post-summary-component.php";
             }
           ?>
         </article>

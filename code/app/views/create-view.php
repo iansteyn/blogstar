@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav-component.php" ?>
+    <?php include __DIR__."/components/side-nav-component.php" ?>
   </header>
   <main>
     <h1 class = "page-title">Create your post</h1>
