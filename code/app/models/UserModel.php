@@ -7,9 +7,18 @@ class UserModel {
         $this->db = $db;
     }
 
-    public function getUserByUsername($username): array {
-        return [];
+    public function getUserByUsername($username): ?array{
+        $statement = $this->db->prepare(<<<sql
+            SELECT * 
+            FROM users 
+            WHERE username = :username
+        sql);
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        
+        return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
     }
+    
 
     /**
      * Creates a user in the database.
