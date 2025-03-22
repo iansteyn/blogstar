@@ -15,11 +15,12 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="login-form" class="account-form" method="post" action="home" novalidate>
+        <form id="login-form" class="account-form" method="post" action="#" novalidate>
           <h1 class="form-title">Log in to your account</h1>
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" 
+            autocomplete="email" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
