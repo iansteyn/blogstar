@@ -3,6 +3,7 @@ require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../helpers/controller-helpers.php';
 
 class PostController {
     private $postModel;
@@ -57,10 +58,15 @@ class PostController {
         $isLiked = $this->likeModel->doesUserLikePost($username, $postId);
 
         if ($isLiked) {
-            $this->likeModel->removeLike($username, $postId);
+            $success = $this->likeModel->removeLike($username, $postId);
+        } else {
+            $success = $this->likeModel->addLike($username, $postId);
         }
-        else {
-            $this->likeModel->addLike($username, $postId);
+
+        if ($success) {
+            sendJsonResponse(['success' => $success]);
+        } else {
+            sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle like.']);
         }
     }
 }
