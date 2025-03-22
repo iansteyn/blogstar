@@ -51,6 +51,9 @@ $route->add('/register', fn()=>
 $route->add('/about', fn()=>
     require __DIR__ . '/../app/views/about-view.php'
 );
+$route->add('/logout', fn()=>
+    $userController->logout()
+);
 
 // OTHER
 $route->add('/blog-post/.+', fn($postId) =>
