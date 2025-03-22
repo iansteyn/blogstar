@@ -48,17 +48,19 @@ class PostModel {
 
     public function createPost(array $postData) {
         //write out all details of the post
-            $statement = $this->db->prepare(<<<SQL
-                INSERT INTO posts(username, post_title, post_body, post_image)
-                VALUES (?, ?, ?, ?);
-            SQL);
+        $imageBlob = file_get_contents($postData['post_image']['tmp_name']);
 
-            $statement->bindValue(1, $postData['username']);    
-            $statement->bindValue(2, $postData['post_title']);
-            $statement->bindValue(3, $postData['post_body']);
-            $statement->bindValue(4, $postData['post_image']);
-            
-            $statement->execute();
+        $statement = $this->db->prepare(<<<SQL
+            INSERT INTO posts(username, post_title, post_body, post_image)
+            VALUES (?, ?, ?, ?);
+        SQL);
+
+        $statement->bindValue(1, $postData['username']);    
+        $statement->bindValue(2, $postData['post_title']);
+        $statement->bindValue(3, $postData['post_body']);
+        $statement->bindValue(4, $imageBlob);
+        
+        $statement->execute();
     }
 
     public function updatePost(array $postData) {
