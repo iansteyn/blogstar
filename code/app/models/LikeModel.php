@@ -8,7 +8,13 @@ class LikeModel {
     }
 
     public function addLike(string $username, int $postId) {
-        //TODO
+        $statement = $this->db->prepare(<<<sql
+            INSERT INTO likes(username, post_id)
+            VALUES (:username, :postId);
+        sql);
+        $statement->bindValue(":username", $username);
+        $statement->bindValue(":postId", $postId);
+        $statement->execute();
     }
 
     public function removeLike(string $username, int $postId) {
