@@ -48,6 +48,27 @@ class UserModel {
         //for admin dashboard stuff, for example
         return [];
     }
+
+    /**
+     * @param string $email 
+     * @param string $password
+     * @return array  
+     * Array representing an existing user matching the passed email and password, or null
+     * if there is not a match.
+     */
+    public function validateUserLogin(string $email, string $password): ?array {
+        $statement = $this->db->prepare(<<<SQL
+            SELECT * 
+            FROM users
+            WHERE email = :email
+            AND password = :password
+        SQL);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':password', $password);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
+    }
 }
 
 ?>
