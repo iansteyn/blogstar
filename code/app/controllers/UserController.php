@@ -68,7 +68,11 @@ class UserController {
     }
 
     public function logout() {
-        //TODO
+        // Remove all session variables and destroy the session
+        session_unset();
+        session_destroy();
+        header('Location: /login');
+        exit;
     }
 
     public function updateSettings() {
