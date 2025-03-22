@@ -4,14 +4,14 @@
 
     echo generateDocumentHead(
         'My Profile',
-        ['forms.css', 'tabs.css', 'post-list.css'],
+        ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
         ['tabs.js', 'post-interaction.js']
     );
 ?>
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav-component.php" ?>
+    <?php include __DIR__."/components/side-nav-component.php" ?>
   </header>
   <main>
     <header>
@@ -34,7 +34,7 @@
 
     <div class="subpage-group">
       <div class="subpage" id="posts">
-        <?php include __DIR__."/../components/post-list.php" ?>
+        <?php include __DIR__."/components/post-list.php" ?>
       </div>
       <div class="subpage hidden" id="saved">
         <?php include "../temporary/post-list-3.php" ?>
@@ -67,7 +67,7 @@
     </div>
   </main>
   <aside>
-    <?php include __DIR__."/../components/user-bio-component.php" ?>
+    <?php include __DIR__."/components/user-bio-component.php" ?>
   </aside>
 </body>
 
