@@ -27,6 +27,18 @@ class LikeModel {
         $statement->execute();
     }
 
+    public function doesUserLikePost(string $username, int $postId): bool {
+        $statement = $this->db->prepare(<<<sql
+            SELECT username
+            FROM likes
+            WHERE username = ? AND post_id = ?;
+        sql);
+        $statement->execute([$username, $postId]);
+
+        $result = $statement->fetch();
+        return boolval($result);
+    }
+
     public function getNumLikes(int $postId) {
         $statement = $this->db->prepare(<<<sql
             SELECT COUNT(post_id)
