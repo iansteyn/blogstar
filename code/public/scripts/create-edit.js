@@ -6,16 +6,8 @@ Performs the following actions:
 -------------------------------------- */
 
 const discardButton = document.getElementById("discard-post-button");
-const createForm = document.getElementById("create-form");
 
-createForm.addEventListener("submit", submitPost); 
 discardButton.addEventListener("click", discardPost);
-
-// Helpers
-function submitPost(event) {
-    event.preventDefault(); 
-    window.location.href = "profile"; 
-};
 
 function discardPost() {
     const confirmDiscard = confirm("Are you sure you want to discard this post?");

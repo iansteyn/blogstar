@@ -30,7 +30,7 @@ $route->add('/profile', fn()=>
     $userController->profile()
 );
 $route->add('/create', fn()=>
-    require __DIR__ . '/../app/views/create-view.php'
+    $postController->create()
 );
 $route->add('/search', fn()=>
     require __DIR__ . '/../app/views/search-view.php'
