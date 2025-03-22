@@ -48,6 +48,21 @@ class PostController {
             exit;
         }
     }
+
+    /**
+     * Toggles whether the current user likes the given post or not
+     */
+    public function toggleLike(int $postId) {
+        $username = $_SESSION['username'];
+        $isLiked = $this->likeModel->doesUserLikePost($username, $postId);
+
+        if ($isLiked) {
+            $this->likeModel->removeLike($username, $postId);
+        }
+        else {
+            $this->likeModel->addLike($username, $postId);
+        }
+    }
 }
 
 ?>
