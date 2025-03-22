@@ -12,6 +12,11 @@ class SaveModel {
         return [];
     }
 
+    /**
+     * @param string $username
+     * @param int $postId
+     * @return bool true if save was successfully added to DB
+     */
     public function addSave(string $username, int $postId) {
         $statement = $this->db->prepare(<<<sql
             INSERT INTO saves(username, post_id)
@@ -19,9 +24,14 @@ class SaveModel {
         sql);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":postId", $postId);
-        $statement->execute();
+        return $statement->execute();
     }
 
+    /**
+     * @param string $username
+     * @param int $postId
+     * @return bool true if save was successfully removed from DB
+     */
     public function removeSave(string $username, int $postId) {
         $statement = $this->db->prepare(<<<sql
             DELETE FROM saves
@@ -29,7 +39,7 @@ class SaveModel {
         sql);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":postId", $postId);
-        $statement->execute();
+        return $statement->execute();
     }
 
     public function getNumSaves(int $postId) {

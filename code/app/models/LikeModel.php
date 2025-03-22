@@ -7,24 +7,34 @@ class LikeModel {
         $this->db = $db;
     }
 
-    public function addLike(string $username, int $postId) {
+    /**
+     * @param string $username
+     * @param int $postId
+     * @return bool true if like was successfully added to DB
+     */
+    public function addLike(string $username, int $postId):bool {
         $statement = $this->db->prepare(<<<sql
             INSERT INTO likes(username, post_id)
             VALUES (:username, :postId);
         sql);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":postId", $postId);
-        $statement->execute();
+        return $statement->execute();
     }
 
-    public function removeLike(string $username, int $postId) {
+    /**
+     * @param string $username
+     * @param int $postId
+     * @return bool true if like was successfully removed from DB
+     */
+    public function removeLike(string $username, int $postId): bool {
         $statement = $this->db->prepare(<<<sql
             DELETE FROM likes
             WHERE username = :username AND post_id = :postId;
         sql);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":postId", $postId);
-        $statement->execute();
+        return $statement->execute();
     }
 
     public function doesUserLikePost(string $username, int $postId): bool {
