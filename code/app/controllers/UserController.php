@@ -1,5 +1,6 @@
 <?php
 include __DIR__.'/../models/UserModel.php';
+include __DIR__.'/../authentication/AuthService.php';
 
 class UserController {
     private $userModel;
@@ -87,6 +88,11 @@ class UserController {
 
     public function updateSettings() {
         //TODO
+    }
+
+    public function admin() {
+        AuthService::requireAuth(['admin']);
+        require __DIR__.'/../views/admin-view.php';
     }
 }
 
