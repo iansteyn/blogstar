@@ -12,9 +12,11 @@ $db = getDatabaseConnection();
 include __DIR__.'/../app/controllers/PagesController.php';
 include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
+include __DIR__.'/../app/controllers/AdminController.php';
 $pageController = new PagesController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
+$adminController = new AdminController($db);
 
 include __DIR__.'/../app/routing/route.php';
 $route = new Route();
@@ -39,7 +41,7 @@ $route->add('/search', fn()=>
 
 // SIDE-NAVE MIDDLE
 $route->add('/admin', fn()=>
-    $userController->admin()
+    $adminController->admin()
 );
 
 // SIDE_NAV BOTTOM

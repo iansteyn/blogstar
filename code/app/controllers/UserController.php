@@ -91,10 +91,6 @@ class UserController {
         //TODO
     }
 
-    public function admin() {
-        AuthService::requireAuth(['admin']);
-        require __DIR__.'/../views/admin-view.php';
-    }
 }
 
 ?>
