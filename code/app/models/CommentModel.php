@@ -20,9 +20,17 @@
         return $results ? $results : [];
     }
 
-        public function createComment($commentData) {
-            //TODO
-        }
+    public function createComment($commentData) {
+        $statement = $this->db->prepare(<<<SQL
+            INSERT INTO comments (username, post_id, comment_body)
+            VALUES (:username, :post_id, :comment_body);
+        SQL);
+    
+        $statement->bindValue(':username', $commentData['username']);
+        $statement->bindValue(':post_id', $commentData['post_id']);
+        $statement->bindValue(':comment_body', $commentData['comment_body']);
+        $statement->execute();
+    }
 
         public function updateComment($commentData) {
             //TODO
