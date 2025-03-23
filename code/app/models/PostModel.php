@@ -20,10 +20,14 @@ class PostModel {
             WHERE post_id = :postId
         sql);
         $statement->bindValue(":postId", $postId);
-        $statement->execute();
 
+        $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-        $result['post_image'] = addImageMimeType($result['post_image']);
+
+        if (!empty($result)) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+
         return $result ? $result : null;
     }
 
