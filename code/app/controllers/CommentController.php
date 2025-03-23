@@ -11,18 +11,19 @@ class CommentController {
         $this->userModel = new UserModel($db);
     }
 
-    public function create() {
+    public function create($postId) {
         AuthService::requireAuth(['registered', 'admin']);
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             header('Location: /home');
             exit;
         }
-        $postId = filter_input(INPUT_POST, 'post_id', FILTER_VALIDATE_INT);
+    
+    
         $commentBody = trim($_POST['comment-body'] ?? '');
     
         $this->commentModel->createComment([
-            'username' => $_SESSION['username'], 
-            'post_id' => $postId, 
+            'username'     => $_SESSION['username'], 
+            'post_id'      => $postId, 
             'comment_body' => $commentBody
         ]);
     
