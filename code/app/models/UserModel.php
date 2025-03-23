@@ -28,13 +28,14 @@ class UserModel {
      */
     public function createUser(array $userData) {
         // still TODO: insert profile picture
+        $hashedPassword = password_hash($userData['password'], PASSWORD_DEFAULT);
         $statement = $this->db->prepare(<<<SQL
             INSERT INTO users(username, email, password, user_bio)
             VALUES(?, ?, ?, ?);
         SQL);
         $statement->bindValue(1, $userData['username']);
         $statement->bindValue(2, $userData['email']);
-        $statement->bindValue(3, $userData['password']);
+        $statement->bindValue(3, $hashedPassword);
         $statement->bindValue(4, $userData['bio']);
         $statement->execute();
     }
