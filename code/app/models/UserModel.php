@@ -28,14 +28,16 @@ class UserModel {
      */
     public function createUser(array $userData) {
         // still TODO: insert profile picture
+        $imageBlob = file_get_contents($userData['image']['tmp_name']);
         $statement = $this->db->prepare(<<<SQL
-            INSERT INTO users(username, email, password, user_bio)
+            INSERT INTO users(username, email, password, profile_picture, user_bio)
             VALUES(?, ?, ?, ?);
         SQL);
         $statement->bindValue(1, $userData['username']);
         $statement->bindValue(2, $userData['email']);
         $statement->bindValue(3, $userData['password']);
-        $statement->bindValue(4, $userData['bio']);
+        $statement->bindValue(4, $imageBlob); 
+        $statement->bindValue(5, $userData['bio']);
         $statement->execute();
     }
 
