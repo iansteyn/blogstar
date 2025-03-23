@@ -44,26 +44,50 @@ echo generateDocumentHead(
     </article>
 
     <div class="interaction-bar">
-      <button class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button" type="button" title="Like">
+      <button
+        title="Like"
+        class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
+        type="button"
+        data-toggleType="like"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
         </svg>
         Like
       </button>
-      <button class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unlike">
+      <button
+        title="Unlike"
+        class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active"
+        type="button"
+        data-toggleType="like"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
         </svg>
         Liked
       </button>
 
-      <button class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button" type="button" title="Save">
+      <button
+        title="Save"
+        class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
+        type="button"
+        data-toggleType="save"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
         </svg>
         Save
       </button>
-      <button class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active" type="button" title="Unsave">
+      <button
+        title="Unsave"
+        class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active"
+        type="button"
+        data-toggleType="save"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
         </svg>
