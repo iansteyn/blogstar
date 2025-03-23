@@ -138,8 +138,7 @@ echo generateDocumentHead(
       <?php endif; ?>
 
       <div class = "specific-comment-container">
-        <form method = "POST" action = "/comment/create">
-          <input type = "hidden" name = "post_id" value = "<?= $postData['post_id'] ?>">
+        <form method = "POST" action = "/comment/<?= $postId ?>">
           <label for = "comment">Add a Comment</label>
           <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
           <button class = "interaction-button" id="submit-button" type="submit" value="Post">
