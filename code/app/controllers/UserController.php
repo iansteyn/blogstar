@@ -54,7 +54,7 @@ class UserController {
             }
 
             $email = htmlspecialchars($_POST['email']);
-            $password = $_POST['password'];  //TODO: Hash passwords
+            $password = $_POST['password'];
             $user = $this->userModel->validateUserLogin($email, $password);
 
             if ($user) {
