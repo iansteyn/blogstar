@@ -1,6 +1,15 @@
+<?php
+/*
+    comment-component expects the following variable:
+        array $comment with keys: username, comment_date, comment_body
+*/
+  require_once __DIR__."/../../helpers/view-helpers.php";
+  $comment = sanitizeData($comment);
+?>
+
 <div class = "specific-comment-container">
   <header>
-    <?= generatePostingInfo("sadiesmith", "2015-07-08 13:53:03")?>
+    <?= generatePostingInfo($comment['username'], $comment['comment_date'])?>
     <div class="button-group-icon-only">
       <button class="button-icon-only" title="Edit">
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -15,6 +24,6 @@
     </div>
   </header>
   <div class = "comment-text">
-    <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
+    <p><?= nl2br($comment['comment_body']) ?></p>  
   </div>
 </div>

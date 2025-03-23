@@ -12,10 +12,12 @@ $db = getDatabaseConnection();
 include __DIR__.'/../app/controllers/PagesController.php';
 include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
+include __DIR__.'/../app/controllers/CommentController.php';
 include __DIR__.'/../app/controllers/AdminController.php';
 $pageController = new PagesController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
+$commentController = new commentController($db);
 $adminController = new AdminController($db);
 
 include __DIR__.'/../app/routing/route.php';
@@ -69,6 +71,9 @@ $route->add('/like/.+', fn($postId) =>
 );
 $route->add('/save/.+', fn($postId) =>
     $postController->toggleSave($postId)
+);
+$route->add('/comment/.+', fn($postId) =>
+    $commentController->create($postId)
 );
 
 // TODO add routing for error pages?
