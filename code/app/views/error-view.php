@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../helpers/view-helpers.php";
-    echo generateDocumentHead('404 Not Found', ['forms.css'], []);
+    echo generateDocumentHead('404 Not Found', [], []);
 ?>
 
 <body>
