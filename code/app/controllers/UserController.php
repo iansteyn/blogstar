@@ -21,11 +21,7 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
         }
-        if (!isset($_FILES['profile-picture']) || $_FILES['profile-picture']['error'] !== UPLOAD_ERR_OK) {
-            throw new Exception("An image is required.");
-        }
 
-    
         $this->userModel->createUser([
             'username'  => $_POST['username'],
             'email'     => $_POST['email'],

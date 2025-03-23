@@ -35,9 +35,6 @@ class PostController {
             require __DIR__.'/../views/create-view.php';
             return;
         }
-        if (!isset($_FILES['post-image']) || $_FILES['post-image']['error'] !== UPLOAD_ERR_OK) {
-            throw new Exception("An image is required.");
-        }
         // Otherwise, handle the submission:
         
             //ammend this to hard-coded as needed
