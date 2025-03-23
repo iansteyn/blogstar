@@ -7,9 +7,18 @@
         }
 
         public function getComments($postId): array {
-            //TODO
-            return [];
-        }
+            $statement = $this->db->prepare(<<<sql
+            SELECT *
+            FROM comments
+            WHERE post_id = :postId
+            ORDER BY comment_date DESC
+        sql);
+        $statement->bindValue(":postId", $postId);
+        $statement->execute();
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results ? $results : [];
+    }
 
         public function createComment($commentData) {
             //TODO
