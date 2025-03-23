@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS likes (
 CREATE TABLE IF NOT EXISTS saves (
     username VARCHAR(50) NOT NULL,
     post_id INT NOT NULL,
-    save_date DATETIME DEFAULT(CURRENT_TIMESTAMP)
+    save_date DATETIME DEFAULT(CURRENT_TIMESTAMP),
     PRIMARY KEY (username, post_id),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
