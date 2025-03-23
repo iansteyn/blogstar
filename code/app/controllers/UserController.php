@@ -61,7 +61,7 @@ class UserController {
                 // Store user session data
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
-                $_SESSION['profile_picture'] = $user['profile_picture'];
+                $_SESSION['profile-picture'] = $user['profile-picture'];
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
