@@ -20,20 +20,22 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
         }
+        if (!isset($_FILES['user-image']) || $_FILES['user-image']['error'] !== UPLOAD_ERR_OK) {
+            throw new Exception("An image is required.");
+        }
         // Otherwise, handle the submission:
-        else {
+        
             $this->userModel->createUser([
                 'username'  => $_POST['username'],
                 'email'     => $_POST['email'],
                 'password'  => $_POST['password'],
-                // 'image'     => $_POST['profile-picture'],
+                'image'     => $_FILES['user-image'],
                 'bio'       => 'This user has not added a bio yet.'
             ]);
 
             //redirect to another page
             header('Location: /login');
             exit;
-        }
     }
 
     public function login() {
