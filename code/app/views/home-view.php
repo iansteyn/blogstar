@@ -3,6 +3,7 @@
  * This view expects the following variables:
  * @var string $activeTab
  * @var array $recentPostsData with array values, each with keys: post_id, username, post_title, post_body, post_image, is_liked, is_saved
+ * @var array $savedPostsData -- same type as above
  */
     require_once __DIR__."/../helpers/view-helpers.php";
 
@@ -52,10 +53,19 @@
         </article>
       </div>
       <div class="subpage hidden" id="popular">
-        <?php include "../temporary/post-list-2.php" ?>
+        <article class="panel post-list">
+          <p>Nothing to see here just yet</p>
+        </article>
       </div>
       <div class="subpage hidden" id="saved">
-        <?php include "../temporary/post-list-3.php" ?>
+       <article class="panel post-list">
+          <?php
+            foreach ($savedPostsData as $postData) {
+                // This component uses: $postData
+                include __DIR__."/components/post-summary-component.php";
+            }
+          ?>
+        </article>
       </div>
     </div>
   </main>
