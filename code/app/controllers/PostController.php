@@ -31,6 +31,12 @@ class PostController {
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
+        if (!empty($userData['profile_picture'])) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->buffer($userData['profile_picture']);
+            $userData['profile_picture'] = 'data:' . $mimeType . ';base64,' . base64_encode($userData['profile_picture']);
+        }
+
         // This view uses: $postData, $userData
         require __DIR__.'/../views/specific-post-view.php';
     }
