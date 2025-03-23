@@ -63,6 +63,14 @@ $route->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
+// ROUTES THAT DO NOT LEAD TO DISPLAY
+$route->add('/like/.+', fn($postId) =>
+    $postController->toggleLike($postId)
+);
+$route->add('/save/.+', fn($postId) =>
+    $postController->toggleSave($postId)
+);
+
 // TODO add routing for error pages?
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'

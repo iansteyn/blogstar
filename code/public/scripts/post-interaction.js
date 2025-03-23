@@ -35,10 +35,38 @@ function editPost(){
 const likeAndSaveButtons = document.querySelectorAll(".togglable-post-button");
 
 likeAndSaveButtons.forEach(button => {
-    button.addEventListener("click", ()=> toggleButton(button));
+    button.addEventListener("click", ()=> handleButtonClick(button));
 });
 
-function toggleButton(button) {
+// This is AJAX!
+function handleButtonClick(button) {
+    const postId = button.dataset.postId;
+    const resource = button.dataset.resource;
+
+    // Send a request to the server
+    fetch(`/${resource}/${postId}`, {
+        method: 'POST',
+    })
+
+    // Recieve response from server
+    .then(response => response.json())
+
+    // perform action based on response
+    .then(data => {
+        if (data.success) {
+            toggleButtonVisually(button);
+        } else {
+            console.error('Like toggle failed:', data.message);
+        }
+    })
+
+    // catch and log network errors
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function toggleButtonVisually(button) {
     let otherButton;
 
     if (button.classList.contains('togglable-post-button-active')) {

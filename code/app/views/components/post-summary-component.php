@@ -37,23 +37,43 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 
     <div class="post-summary-button-group button-group-icon-only">
       <div class="interact-buttons">
-        <button title="Like" class="<?= hiddenIf($postData['is_liked']) ?> togglable-post-button button-icon-only">
+        <button
+          title="Like"
+          class="<?= hiddenIf($postData['is_liked']) ?> togglable-post-button button-icon-only"
+          data-resource="like"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-like-unfilled"></use>
           </svg>
         </button>
-        <button title="Unlike" class="<?= hiddenIf( ! $postData['is_liked']) ?> togglable-post-button togglable-post-button-active button-icon-only">
+        <button
+          title="Unlike"
+          class="<?= hiddenIf( ! $postData['is_liked']) ?> togglable-post-button togglable-post-button-active button-icon-only"
+          data-resource="like"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-like-filled"></use>
           </svg>
         </button>
         
-        <button title="Save" class="<?= hiddenIf($postData['is_saved']) ?> togglable-post-button button-icon-only">
+        <button
+          title="Save"
+          class="<?= hiddenIf($postData['is_saved']) ?> togglable-post-button button-icon-only"
+          data-resource="save"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-save-unfilled"></use>
           </svg>
         </button>
-        <button title="Unsave" class="<?= hiddenIf( ! $postData['is_saved']) ?> togglable-post-button togglable-post-button-active button-icon-only hidden">
+        <button
+          title="Unsave"
+          class="<?= hiddenIf( ! $postData['is_saved']) ?> togglable-post-button togglable-post-button-active button-icon-only"
+          data-resource="save"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-save-filled"></use>
           </svg>
@@ -61,12 +81,20 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
       </div>
 
       <div class="modify-buttons">
-        <button title="Edit" class="button-icon-only edit-post-button">
+        <button
+          title="Edit"
+          class="button-icon-only edit-post-button"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-edit"></use>
           </svg>
         </button>
-        <button title="Delete" class="button-icon-only delete-post-button">
+        <button
+          title="Delete"
+          class="button-icon-only delete-post-button"
+          data-post-id="<?= $postData['post_id']?>"
+        >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
             <use href="../vector-icons/icons.svg#icon-delete"></use>
           </svg>
