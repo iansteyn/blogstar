@@ -72,8 +72,8 @@ $route->add('/like/.+', fn($postId) =>
 $route->add('/save/.+', fn($postId) =>
     $postController->toggleSave($postId)
 );
-$route->add('/comment/create', fn() =>
-    $commentController->create()
+$route->add('/comment/.+', fn($postId) =>
+    $commentController->create($postId)
 );
 
 // TODO add routing for error pages?
