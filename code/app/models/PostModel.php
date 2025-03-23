@@ -41,9 +41,25 @@ class PostModel {
         return $results;
     }
 
-    public function getPopularPosts(): array {
-        //TODO return array of popular posts from db
-        return [];
+    /**
+     * @return array
+     * Array of postData arrays for posts saved by this user,
+     * each with keys {post_id, username, post_title, post_body, post_image, post_date},
+     * ordered by most recent save_date first.
+     */
+    public function getSavedPosts($username): array {
+        $statement = $this->db->prepare(<<<sql
+            SELECT *
+            FROM posts
+                JOIN saves
+                ON posts.post_id = saves.post_id
+            WHERE saves.username = ?
+            ORDER BY save_date DESC
+        sql);
+        $statement->execute([$username]);
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 
     public function createPost(array $postData) {
