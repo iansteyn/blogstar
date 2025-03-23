@@ -20,8 +20,8 @@ class PostController {
 
     public function blogPost($postId) {
         $postData = $this->postModel->getPostById($postId);
-        $postData['is_liked'] = $this->likeModel->doesUserLikePost($_SESSION['username'], $postId);;
-        $postData['is_saved'] = $this->likeModel->doesUserLikePost($_SESSION['username'], $postId);;
+        $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);;
+        $postData['is_saved'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);;
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
@@ -54,7 +54,7 @@ class PostController {
      */
     public function toggleLike(int $postId) {
         $username = $_SESSION['username'];
-        $isLiked = $this->likeModel->doesUserLikePost($username, $postId);
+        $isLiked = $this->likeModel->userHasLikedPost($username, $postId);
 
         if ($isLiked) {
             $success = $this->likeModel->removeLike($username, $postId);

@@ -37,7 +37,7 @@ class LikeModel {
         return $statement->execute();
     }
 
-    public function doesUserLikePost(string $username, int $postId): bool {
+    public function userHasLikedPost(string $username, int $postId): bool {
         $statement = $this->db->prepare(<<<sql
             SELECT username
             FROM likes
