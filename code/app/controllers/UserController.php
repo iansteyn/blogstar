@@ -53,7 +53,7 @@ class UserController {
                 header('Location: /login');
             }
 
-            $email = htmlspecialchars($_POST['email']);
+            $email = sanitizeData($_POST['email']);
             $password = $_POST['password'];
             $user = $this->userModel->validateUserLogin($email, $password);
 
