@@ -48,14 +48,6 @@ function hiddenIf($condition): string {
     return $condition ? "hidden" : "";
 }
 
-function generatePostSummaryImages($postData){
-  if (!empty($postData['post_image'])) {
-      $finfo = new finfo(FILEINFO_MIME_TYPE);
-      $mimeType = $finfo->buffer($postData['post_image']);
-      return 'data:' . $mimeType . ';base64,' . base64_encode($postData['post_image']);
-  }
-}
-
 function generatePostingInfo(string $username, $sqlDateTime): string {
     $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDateTime);
     $formattedDate = $dateTime->format('F j, Y');
