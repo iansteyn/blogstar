@@ -21,11 +21,22 @@
 }
 
 .post-summary-text {
-    flex: 1 0 60%;
+    flex: 1 1 60%;
 }
 
 .post-summary-non-text{
     flex: 1 1 auto;
+    min-width: 25%;
+    width: 25%
+}
+
+@media (max-width: 550px) {
+    .post-summary-text,
+    .post-summary-non-text {
+        flex-basis: 100%; /* Force full width */
+        width: 100%; /* Force full width */
+        max-width: 100%; /* force full width */
+    }
 }
 
 /* TEXT STUFF */

@@ -1,4 +1,5 @@
 <?php
+
 include __DIR__.'/../models/UserModel.php';
 include __DIR__.'/../authentication/AuthService.php';
 
@@ -9,10 +10,11 @@ class UserController {
         $this->userModel = new UserModel($db);
     }
 
-    // change route in index and add method from pages controller, get it to display and then get the user model and call it in this model
     function profile() {
-        $userData = $this->userModel->getUserByUsername("Spooky");
+        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
         AuthService::requireAuth(['registered','admin']);
+
+        // This view uses: $userData
         require __DIR__.'/../views/profile-view.php';
     }
     
@@ -22,20 +24,18 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
         }
-        // Otherwise, handle the submission:
-        else {
-            $this->userModel->createUser([
-                'username'  => $_POST['username'],
-                'email'     => $_POST['email'],
-                'password'  => $_POST['password'],
-                // 'image'     => $_POST['profile-picture'],
-                'bio'       => 'This user has not added a bio yet.'
-            ]);
 
-            //redirect to another page
-            header('Location: /login');
-            exit;
-        }
+        $this->userModel->createUser([
+            'username'  => $_POST['username'],
+            'email'     => $_POST['email'],
+            'password'  => $_POST['password'],
+            'image'     => $_FILES['profile-picture'],
+            'bio'       => 'This user has not added a bio yet.'
+        ]);
+
+        //redirect to another page
+        header('Location: /login');
+        exit;
     }
 
     public function login() {

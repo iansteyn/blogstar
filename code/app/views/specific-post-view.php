@@ -35,7 +35,9 @@ echo generateDocumentHead(
         </h1>
         <?= generatePostingInfo($postData['username'], $postData['post_date']) ?>
       </header>
-      <img class="blog-photo" src="../photo/sunrise.jpg" alt="A photo of a sunrise looking over a beach.">
+      <?php if (!empty($postData['post_image'])): ?>
+        <img class="blog-photo" src="<?= $postData['post_image'] ?>" alt="A photo associated with the blog post.">
+      <?php endif; ?>
       <div class="blog-text">
         <p>
             <?= nl2br($postData['post_body']) ?>
