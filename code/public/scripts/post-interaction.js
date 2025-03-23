@@ -42,7 +42,6 @@ likeAndSaveButtons.forEach(button => {
 function handleButtonClick(button) {
     const postId = button.dataset.postId;
     const resource = button.dataset.resource;
-    console.log(resource);
 
     // Send a request to the server
     fetch(`/${resource}/${postId}`, {
