@@ -11,17 +11,23 @@ class CommentController {
         $this->userModel = new UserModel($db);
     }
 
-    //Handles creating a new comment.
     public function create() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->commentModel->createComment([
-                'post_id' => $_POST['post_id'],
-                'username' => $_SESSION['username'], 
-                'comment_body' => $_POST['comment_body']
-            ]);
-            header('Location: /blog-post/' . $_POST['post_id']);
+        AuthService::requireAuth(['registered', 'admin']);
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            header('Location: /home');
             exit;
         }
+        $postId = filter_input(INPUT_POST, 'post_id', FILTER_VALIDATE_INT);
+        $commentBody = trim($_POST['comment-body'] ?? '');
+    
+        $this->commentModel->createComment([
+            'username' => $_SESSION['username'], 
+            'post_id' => $postId, 
+            'comment_body' => $commentBody
+        ]);
+    
+        header('Location: /blog-post/' . $postId);
+        exit;
     }
 
     //Handles deleting a comment.
