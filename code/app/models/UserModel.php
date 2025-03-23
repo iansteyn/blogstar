@@ -34,17 +34,19 @@ class UserModel {
      * @return void
      */
     public function createUser(array $userData) {
-        // still TODO: insert profile picture
+        $hashedPassword = password_hash($userData['password'], PASSWORD_DEFAULT);
         $imageBlob = file_get_contents($userData['image']['tmp_name']);
+
         $statement = $this->db->prepare(<<<SQL
             INSERT INTO users(username, email, password, profile_picture, user_bio)
             VALUES(?, ?, ?, ?, ?);
         SQL);
         $statement->bindValue(1, $userData['username']);
         $statement->bindValue(2, $userData['email']);
-        $statement->bindValue(3, $userData['password']);
+        $statement->bindValue(3, $hashedPassword);
         $statement->bindValue(4, $imageBlob); 
         $statement->bindValue(5, $userData['bio']);
+
         $statement->execute();
     }
 
@@ -84,7 +86,7 @@ class UserModel {
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if ($result && $result['password'] === $password) {
+        if ($result && password_verify($password, $result['password'])) {
             return $result;
         }
         return null;
