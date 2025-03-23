@@ -21,7 +21,7 @@ class PostController {
     public function blogPost($postId) {
         $postData = $this->postModel->getPostById($postId);
         $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);;
-        $postData['is_saved'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);;
+        $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);;
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
@@ -66,6 +66,26 @@ class PostController {
             sendJsonResponse(['success' => $success]);
         } else {
             sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle like.']);
+        }
+    }
+
+    /**
+     * Toggles whether the current user saves the given post or not
+     */
+    public function toggleSave(int $postId) {
+        $username = $_SESSION['username'];
+        $isSaved = $this->saveModel->userHasSavedPost($username, $postId);
+
+        if ($isSaved) {
+            $success = $this->saveModel->removeSave($username, $postId);
+        } else {
+            $success = $this->saveModel->addSave($username, $postId);
+        }
+
+        if ($success) {
+            sendJsonResponse(['success' => $success]);
+        } else {
+            sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle save.']);
         }
     }
 }
