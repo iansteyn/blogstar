@@ -48,7 +48,7 @@ echo generateDocumentHead(
         title="Like"
         class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
         type="button"
-        data-toggleType="like"
+        data-resource="like"
         data-postId="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -60,7 +60,7 @@ echo generateDocumentHead(
         title="Unlike"
         class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active"
         type="button"
-        data-toggleType="like"
+        data-resource="like"
         data-postId="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -73,7 +73,7 @@ echo generateDocumentHead(
         title="Save"
         class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
         type="button"
-        data-toggleType="save"
+        data-resource="save"
         data-postId="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
@@ -85,7 +85,7 @@ echo generateDocumentHead(
         title="Unsave"
         class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active"
         type="button"
-        data-toggleType="save"
+        data-resource="save"
         data-postId="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
