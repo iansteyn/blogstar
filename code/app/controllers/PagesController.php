@@ -26,7 +26,6 @@ class PagesController {
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
         $recentPostsData = $this->postModel->getRecentPosts();
-        $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
 
         if (isset($_SESSION['username'])) {
             $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
