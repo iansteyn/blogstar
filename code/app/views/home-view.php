@@ -60,9 +60,14 @@
       <div class="subpage hidden" id="saved">
        <article class="panel post-list">
           <?php
-            foreach ($savedPostsData as $postData) {
-                // This component uses: $postData
-                include __DIR__."/components/post-summary-component.php";
+            if (empty($savedPostsData)) {
+                echo "<p>You have no saved posts yet! <a href='/home?tab=popular'>See what's popular.</a></p>";
+            }
+            else {
+                foreach ($savedPostsData as $postData) {
+                    // This component uses: $postData
+                    include __DIR__."/components/post-summary-component.php";
+                }
             }
           ?>
         </article>
