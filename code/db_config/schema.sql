@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50) PRIMARY KEY,
     email VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    profile_picture VARCHAR(255),
+    profile_picture MEDIUMBLOB NOT NULL,
     user_bio TEXT,
     date_registered DATETIME DEFAULT(CURRENT_TIMESTAMP),
     role ENUM('registered', 'admin') DEFAULT 'registered'
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS posts (
     username VARCHAR(50) NOT NULL,
     post_title VARCHAR(150) NOT NULL,
     post_body TEXT,
-    post_image VARCHAR(255),
+    post_image MEDIUMBLOB NOT NULL,
     post_date DATETIME DEFAULT(CURRENT_TIMESTAMP),
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
@@ -59,12 +59,12 @@ VALUES
 
 INSERT INTO posts (username, post_title, post_body, post_image)
 VALUES 
-('joy', 'Farm Life Adventures', 'Spent another amazing day on the farm today! The animals were all super active, and I even helped with feeding the chickens. It’s hard work, but it’s also so rewarding. I’m learning a lot every day, and I think I’m becoming more confident in my ability to help out. The quiet moments on the farm are the best, especially when the sun is setting. 🌅', 'farm_sunset.jpg'),
+('joy', 'Farm Life Adventures', 'Spent another amazing day on the farm today! The animals were all super active, and I even helped with feeding the chickens. It’s hard work, but it’s also so rewarding. I’m learning a lot every day, and I think I’m becoming more confident in my ability to help out. The quiet moments on the farm are the best, especially when the sun is setting. 🌅', 'ring.png'),
 ('ian', 'Weekend Hiking Trip', 'Had a great weekend hiking trip to a new trail I found last month. It was a bit challenging, but the views were absolutely worth it. I’ve always believed that a good hike is the perfect way to clear your mind, and it’s also great cardio for those long coding sessions. 😊', 'hiking_trail.jpg'),
-('sammie', 'Cozy Blankets for Chilly Days', 'I’m currently working on knitting a new blanket to keep me warm this winter. There’s nothing like wrapping yourself in something you made yourself. I can’t wait to finish it and start using it. Anyone have any suggestions for color combinations? I’m thinking of something with blues and purples to mimic the sky at sunset. 🌅', 'blanket_image.jpg'),
-('chris', 'Rock Climbing in the Rain', 'The weather was a little crazy this weekend, but I decided to go rock climbing in the rain anyway. It made the climb a bit more challenging, but it was definitely worth it for the rush of adrenaline. Sometimes, you just have to embrace the elements and make the best of it. Who’s with me for the next rainy climb? 🌧️', 'rain_climb.jpg'),
-('spooky', 'Napping in the Sun', 'It’s been one of those days where all I want to do is nap in the sun. 😻 Sammie was working on her knitting project, so I took advantage of the nice weather and found the coziest spot by the window. The sun feels so good on my fur, and I think I deserve a long nap after the tuna feast yesterday. 💤', 'sun_nap.jpg'),
-('salem', 'Playtime with the Yarn', 'Today, I found Sammie’s yarn stash and decided to make it my own personal playground. Who knew yarn could be so much fun to bat around? I even managed to knock a few things off the counter while I was at it. It’s all about creating chaos and having fun. 😼', 'salem_yarn.jpg');
+('sammie', 'Cozy Blankets for Chilly Days', 'I’m currently working on knitting a new blanket to keep me warm this winter. There’s nothing like wrapping yourself in something you made yourself. I can’t wait to finish it and start using it. Anyone have any suggestions for color combinations? I’m thinking of something with blues and purples to mimic the sky at sunset. 🌅', 'knit.png'),
+('chris', 'Rock Climbing in the Rain', 'The weather was a little crazy this weekend, but I decided to go rock climbing in the rain anyway. It made the climb a bit more challenging, but it was definitely worth it for the rush of adrenaline. Sometimes, you just have to embrace the elements and make the best of it. Who’s with me for the next rainy climb? 🌧️', 'minions.jpg'),
+('spooky', 'Napping in the Sun', 'It’s been one of those days where all I want to do is nap in the sun. 😻 Sammie was working on her knitting project, so I took advantage of the nice weather and found the coziest spot by the window. The sun feels so good on my fur, and I think I deserve a long nap after the tuna feast yesterday. 💤', 'sadie-smith.jpg'),
+('salem', 'Playtime with the Yarn', 'Today, I found Sammie’s yarn stash and decided to make it my own personal playground. Who knew yarn could be so much fun to bat around? I even managed to knock a few things off the counter while I was at it. It’s all about creating chaos and having fun. 😼', 'knit.jpg');
 
 INSERT INTO comments (username, post_id, comment_body)
 VALUES 

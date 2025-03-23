@@ -30,7 +30,9 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 
   <div class="post-summary-non-text">
     <a href=<?= $blogPostLink ?>>
-        <img class="post-summary-img" src="../photo/knit.png" alt="Blog post photo"/>
+      <?php if (!empty($postData['post_image'])): ?>
+        <img class="post-summary-img" src="<?= $postData['post_image'] ?>" alt="Photo associated with this blog post"/>
+      <?php endif; ?>
     </a>
 
     <div class="post-summary-button-group button-group-icon-only">
