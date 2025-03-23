@@ -45,9 +45,7 @@
         <article class="panel post-list">
           <?php
             foreach ($recentPostsData as $postData) {
-                $postData['is_liked'] = false; //TODO figure out how to properly get these booleans
-                $postData['is_saved'] = false;
-                // Pass $postData to post-summary
+                // This component uses: $postData
                 include __DIR__."/components/post-summary-component.php";
             }
           ?>

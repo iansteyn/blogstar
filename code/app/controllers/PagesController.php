@@ -15,11 +15,14 @@ class PagesController {
 
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
-
-        // var_dump($this->postModel->getPostById(4));
-        // var_dump($this->postModel->getRecentPosts());
-
         $recentPostsData = $this->postModel->getRecentPosts();
+
+        foreach ($recentPostsData as &$postData) {
+            $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postData['post_id']);
+            $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postData['post_id']);
+        }
+
+        // This view uses: $activeTab, $recentPostsData
         require __DIR__.'/../views/home-view.php';
     }
 }
