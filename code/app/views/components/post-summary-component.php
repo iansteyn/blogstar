@@ -68,7 +68,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
         </button>
         <button
           title="Unsave"
-          class="<?= hiddenIf( ! $postData['is_saved']) ?> togglable-post-button togglable-post-button-active button-icon-only hidden"
+          class="<?= hiddenIf( ! $postData['is_saved']) ?> togglable-post-button togglable-post-button-active button-icon-only"
           data-resource="save"
           data-post-id="<?= $postData['post_id']?>"
         >
