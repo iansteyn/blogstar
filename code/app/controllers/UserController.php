@@ -24,18 +24,19 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
         }
-
-        $this->userModel->createUser([
-            'username'  => $_POST['username'],
-            'email'     => $_POST['email'],
-            'password'  => $_POST['password'],
-            'image'     => $_FILES['profile-picture'],
-            'bio'       => 'This user has not added a bio yet.'
-        ]);
-
-        //redirect to another page
-        header('Location: /login');
-        exit;
+        else {
+            $this->userModel->createUser([
+                'username'  => $_POST['username'],
+                'email'     => $_POST['email'],
+                'password'  => $_POST['password'],
+                'image'     => $_FILES['profile-picture'],
+                'bio'       => 'This user has not added a bio yet.'
+            ]);
+    
+            //redirect to another page
+            header('Location: /login');
+            exit;
+        }
     }
 
     public function login() {
