@@ -70,9 +70,9 @@ class UserModel {
     /**
      * @param string $email 
      * @param string $password
-     * @return
-     * Array representing an existing user matching the passed email and password, or null
-     * if there is not a match.
+     * @return array 
+     * Array representing an existing user matching the passed 
+     * email and password, or null if there is not a match.
      */
     public function validateUserLogin(string $email, string $password): ?array {
         $statement = $this->db->prepare(<<<SQL

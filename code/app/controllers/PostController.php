@@ -3,6 +3,7 @@ require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
+include_once __DIR__.'/../authentication/AuthService.php';
 
 class PostController {
     private $postModel;
@@ -30,8 +31,10 @@ class PostController {
     }
 
     public function create() {
+        AuthService::requireAuth(['registered','admin']);
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+
             require __DIR__.'/../views/create-view.php';
             return;
         }

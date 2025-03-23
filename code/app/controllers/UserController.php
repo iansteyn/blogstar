@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__.'/../models/UserModel.php';
+
+include __DIR__.'/../models/UserModel.php';
+include __DIR__.'/../authentication/AuthService.php';
 
 class UserController {
     private $userModel;
@@ -10,6 +12,7 @@ class UserController {
 
     function profile() {
         $userData = $this->userModel->getUserByUsername($_SESSION['username']);
+        AuthService::requireAuth(['registered','admin']);
 
         // This view uses: $userData
         require __DIR__.'/../views/profile-view.php';
@@ -60,9 +63,13 @@ class UserController {
                 $_SESSION['profile_picture'] = $user['profile_picture'];
                 $_SESSION['role'] = $user['role'];
 
-                // Redirect to the home page
-                header('Location: /home');
-                exit;
+                if ($_SESSION['role'] === 'admin') {
+                    header('Location: /admin');
+                    exit;
+                } else {
+                    header('Location: /home');
+                    exit;
+                }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
@@ -83,6 +90,7 @@ class UserController {
     public function updateSettings() {
         //TODO
     }
+
 }
 
 ?>
