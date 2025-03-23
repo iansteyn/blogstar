@@ -23,6 +23,12 @@ class PostController {
         $postData['is_liked'] = true;
         $postData['is_saved'] = false;
 
+        if (!empty($postData['post_image'])) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->buffer($postData['post_image']);
+            $postData['post_image'] ='data:'.$mimeType.';base64,'.base64_encode($postData['post_image']);
+        }
+
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
         // This view uses: $postData, $userData
