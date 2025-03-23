@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../models/UserModel.php';
 
 class UserController {
     private $userModel;
@@ -10,12 +10,6 @@ class UserController {
 
     function profile() {
         $userData = $this->userModel->getUserByUsername($_SESSION['username']);
-
-        if (!empty($userData['profile_picture'])) {
-            $finfo = new finfo(FILEINFO_MIME_TYPE);
-            $mimeType = $finfo->buffer($userData['profile_picture']);
-            $userData['profile_picture'] = 'data:' . $mimeType . ';base64,' . base64_encode($userData['profile_picture']);
-        }
 
         // This view uses: $userData
         require __DIR__.'/../views/profile-view.php';
