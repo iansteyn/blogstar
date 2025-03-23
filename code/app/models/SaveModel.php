@@ -42,6 +42,18 @@ class SaveModel {
         return $statement->execute();
     }
 
+    public function userHasSavedPost(string $username, int $postId): bool {
+        $statement = $this->db->prepare(<<<sql
+            SELECT username
+            FROM saves
+            WHERE username = ? AND post_id = ?;
+        sql);
+        $statement->execute([$username, $postId]);
+
+        $result = $statement->fetch();
+        return boolval($result);
+    }
+
     public function getNumSaves(int $postId) {
         $statement = $this->db->prepare(<<<sql
             SELECT COUNT(post_id)
