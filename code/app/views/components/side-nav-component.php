@@ -47,7 +47,7 @@ Main navigation component. Include it in a <header> tag at the start of the body
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-register"></use></svg>
       <span class="nav-link-text">Register</span>
     </a>
-    <a class="nav-link" href="/#" id="logout-link">
+    <a class="nav-link" href="/logout" id="logout-link">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logout"></use></svg>
       <span class="nav-link-text">Logout</span>
     </a>

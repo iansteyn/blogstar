@@ -1,4 +1,5 @@
 <?php
+session_start();
 /* index.php
 ------------
 This is the website's "root".
@@ -43,13 +44,16 @@ $route->add('/admin', fn()=>
 
 // SIDE_NAV BOTTOM
 $route->add('/login', fn()=>
-    require __DIR__ . '/../app/views/login-view.php'
+    $userController->login()
 );
 $route->add('/register', fn()=>
     $userController->register()
 );
 $route->add('/about', fn()=>
     require __DIR__ . '/../app/views/about-view.php'
+);
+$route->add('/logout', fn()=>
+    $userController->logout()
 );
 
 // OTHER

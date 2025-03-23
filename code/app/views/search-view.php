@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/../components/side-nav-component.php" ?>
+    <?php include __DIR__."/components/side-nav-component.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -18,16 +18,16 @@
     </header>
     <div class="panel">
       <section class="search">
-        <?php include __DIR__."/../components/search-bar-component.php" ?>
+        <?php include __DIR__."/components/search-bar-component.php" ?>
       </section>
       <ul id="search-results" class="search-results">
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/../components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
+        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
       </ul>
     </div>
   </main>
