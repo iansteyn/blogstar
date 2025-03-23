@@ -3,6 +3,7 @@ require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../models/CommentModel.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
 require_once __DIR__.'/../authentication/AuthService.php';
 
@@ -28,6 +29,8 @@ class PostController {
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
+        // getting the comments for the specific post
+        $comments = $this->commentModel->getComments($postId);
         // This view uses: $postData, $userData
         require __DIR__.'/../views/specific-post-view.php';
     }
