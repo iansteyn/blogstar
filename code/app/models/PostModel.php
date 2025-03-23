@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'/../helpers/model-helpers.php';
 
 class PostModel {
     private $db;
@@ -22,6 +23,7 @@ class PostModel {
         $statement->execute();
 
         $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $result['post_image'] = addImageMimeType($result['post_image']);
         return $result ? $result : null;
     }
 
@@ -38,6 +40,10 @@ class PostModel {
         sql);
 
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
         return $results;
     }
 
