@@ -14,18 +14,22 @@
  * @return mixed a properly escaped copy of `$data`
  */
 function sanitizeData(mixed $data): mixed {
-    $sanitizedData = null;
+  $sanitizedData = null;
 
-    if (is_array($data)) {
-        $sanitizedData = [];
-        foreach($data as $key => $value) {
-            $sanitizedData[$key] = htmlspecialchars($value);
-        }
-    } else {
-        $sanitizedData = htmlspecialchars($data);
-    }
+  if (is_array($data)) {
+      $sanitizedData = [];
+      foreach ($data as $key => $value) {
+          if ($key == 'post_image' || $key == 'profile_picture') {
+              $sanitizedData[$key] = $value;
+          } else {
+              $sanitizedData[$key] = htmlspecialchars($value);
+          }
+      }
+  } else {
+      $sanitizedData = htmlspecialchars($data);
+  }
 
-    return $sanitizedData;
+  return $sanitizedData;
 }
 
 /**
