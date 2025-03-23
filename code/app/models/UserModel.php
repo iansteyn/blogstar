@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'/../helpers/model-helpers.php';
 
 class UserModel {
     private PDO $db;
@@ -15,8 +16,14 @@ class UserModel {
         sql);
         $statement->bindValue(':username', $username);
         $statement->execute();
-        
-        return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($result)) {
+            $result['profile_picture'] = addImageMimeType($result['profile_picture']);
+        }
+
+        return $result ?: null;
     }
     
 
