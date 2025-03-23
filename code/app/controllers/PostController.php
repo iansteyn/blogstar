@@ -48,7 +48,7 @@ class PostController {
         
             //ammend this to hard-coded as needed
             $this->postModel->createPost([
-                'username'   => "spooky",
+                'username'   => $_SESSION['username'],
                 'post_title' => $_POST['post-title'],
                 'post_body'  => $_POST['post-body'],
                 'post_image' => $_FILES['post-image']
