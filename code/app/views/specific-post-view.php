@@ -128,22 +128,29 @@ echo generateDocumentHead(
         </h2>
       </header>
 
-      <?php include __DIR__."/components/comment-component.php" ?>
+      <?php if (empty($comments)): ?>
+        <p>No comments yet. Be the first to comment!</p>
+      <?php else: ?>
+        <?php foreach ($comments as $comment): ?>
+          <?php $comment = sanitizeData($comment);?>
+          <?php include __DIR__."/components/comment-component.php"; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
 
       <div class = "specific-comment-container">
-        <form method = "GET">
-          <label for="comment">Add a Comment</label>
-          <textarea class = "comment" id = "comment" placeholder = "Write your comment here!" required></textarea>
-          <button class = "interaction-button" id = "submit-button" type="submit" value="Post">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="../vector-icons/icons.svg#icon-comment"></use> 
+        <form method = "POST" action = "/comment/<?= $postId ?>">
+          <label for = "comment">Add a Comment</label>
+          <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
+          <button class = "interaction-button" id="submit-button" type="submit" value="Post">
+            <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href = "../vector-icons/icons.svg#icon-comment"></use>
             </svg>
             Post
           </button>
 
-          <button class = "interaction-button" id = "discard-comment-button" type="button" value="Discard">
+          <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-delete"></use> 
+              <use href="../vector-icons/icons.svg#icon-delete"></use>
             </svg>
             Discard
           </button>
