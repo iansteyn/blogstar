@@ -138,17 +138,18 @@ echo generateDocumentHead(
       <?php endif; ?>
 
       <div class = "specific-comment-container">
-        <form method = "GET">
-          <label for="comment">Add a Comment</label>
-          <textarea class = "comment" id="comment" placeholder="Write your comment here!" required></textarea>
+        <form method = "POST" action = "/comment/create">
+          <input type = "hidden" name = "post_id" value = "<?= $postData['post_id'] ?>">
+          <label for = "comment">Add a Comment</label>
+          <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
           <button class = "interaction-button" id="submit-button" type="submit" value="Post">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-comment"></use>
+            <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href = "../vector-icons/icons.svg#icon-comment"></use>
             </svg>
             Post
           </button>
 
-          <button class = "interaction-button" id="discard-comment-button" type="button" value="Discard">
+          <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
               <use href="../vector-icons/icons.svg#icon-delete"></use>
             </svg>
