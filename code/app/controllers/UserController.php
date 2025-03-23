@@ -12,6 +12,7 @@ class UserController {
     // change route in index and add method from pages controller, get it to display and then get the user model and call it in this model
     function profile() {
         $userData = $this->userModel->getUserByUsername("Spooky");
+        AuthService::requireAuth(['registered','admin']);
         require __DIR__.'/../views/profile-view.php';
     }
     
