@@ -3,6 +3,8 @@ require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../helpers/controller-helpers.php';
+require_once __DIR__.'/../authentication/AuthService.php';
 
 class PostController {
     private $postModel;
@@ -18,10 +20,9 @@ class PostController {
     }
 
     public function blogPost($postId) {
-
         $postData = $this->postModel->getPostById($postId);
-        $postData['is_liked'] = true;
-        $postData['is_saved'] = false;
+        $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);
+        $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
@@ -30,22 +31,65 @@ class PostController {
     }
 
     public function create() {
+        AuthService::requireAuth(['registered','admin']);
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+
             require __DIR__.'/../views/create-view.php';
+            return;
         }
         // Otherwise, handle the submission:
-        else {
+        
             //ammend this to hard-coded as needed
             $this->postModel->createPost([
-                'username'   => "spooky",
+                'username'   => $_SESSION['username'],
                 'post_title' => $_POST['post-title'],
                 'post_body'  => $_POST['post-body'],
-                'post_image' => "../photo/sadie-smith.jpg"
+                'post_image' => $_FILES['post-image']
 
             ]);
             header('Location: /profile');
             exit;
+        
+    }
+
+    /**
+     * Toggles whether the current user likes the given post or not
+     */
+    public function toggleLike(int $postId) {
+        $username = $_SESSION['username'];
+        $isLiked = $this->likeModel->userHasLikedPost($username, $postId);
+
+        if ($isLiked) {
+            $success = $this->likeModel->removeLike($username, $postId);
+        } else {
+            $success = $this->likeModel->addLike($username, $postId);
+        }
+
+        if ($success) {
+            sendJsonResponse(['success' => $success]);
+        } else {
+            sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle like.']);
+        }
+    }
+
+    /**
+     * Toggles whether the current user saves the given post or not
+     */
+    public function toggleSave(int $postId) {
+        $username = $_SESSION['username'];
+        $isSaved = $this->saveModel->userHasSavedPost($username, $postId);
+
+        if ($isSaved) {
+            $success = $this->saveModel->removeSave($username, $postId);
+        } else {
+            $success = $this->saveModel->addSave($username, $postId);
+        }
+
+        if ($success) {
+            sendJsonResponse(['success' => $success]);
+        } else {
+            sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle save.']);
         }
     }
 }

@@ -7,17 +7,15 @@ Performs the following dynamic actions:
 - configuring theme menu and switching theme between default/light/dark
 ------------------------------------------------------------------------ */
 
-// TEMPORARY {{{{{{{
-// LOGOUT STUFF
+// LOGOUT
 // -----------------------
 const logoutLink = document.getElementById("logout-link");
-logoutLink.addEventListener("click", ()=> logout());
-
-function logout() {
+logoutLink.addEventListener("click", function(event) {
+    event.preventDefault();
     if(confirm("Are you sure you want to log out?")) {
-        window.location.href = "login";
+        window.location.href = "logout";
     }
-}
+});
 
 // }}}}}}} 
 

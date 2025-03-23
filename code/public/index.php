@@ -12,9 +12,11 @@ $db = getDatabaseConnection();
 include __DIR__.'/../app/controllers/PagesController.php';
 include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
+include __DIR__.'/../app/controllers/AdminController.php';
 $pageController = new PagesController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
+$adminController = new AdminController($db);
 
 include __DIR__.'/../app/routing/route.php';
 $route = new Route();
@@ -39,7 +41,7 @@ $route->add('/search', fn()=>
 
 // SIDE-NAVE MIDDLE
 $route->add('/admin', fn()=>
-    require __DIR__ . '/../app/views/admin-view.php'
+    $adminController->admin()
 );
 
 // SIDE_NAV BOTTOM
@@ -61,7 +63,18 @@ $route->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
+// ROUTES THAT DO NOT LEAD TO DISPLAY
+$route->add('/like/.+', fn($postId) =>
+    $postController->toggleLike($postId)
+);
+$route->add('/save/.+', fn($postId) =>
+    $postController->toggleSave($postId)
+);
+
 // TODO add routing for error pages?
+$route->add('/error', fn()=>
+    require __DIR__ . '/../app/views/error-view.php'
+);
 
 $route->submit();
 ?>
