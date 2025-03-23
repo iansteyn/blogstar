@@ -11,6 +11,11 @@ class UserController {
     // change route in index and add method from pages controller, get it to display and then get the user model and call it in this model
     function profile() {
         $userData = $this->userModel->getUserByUsername("Spooky");
+        if (!empty($userData['profile_picture'])) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->buffer($userData['profile_picture']);
+            $userData['profile_picture'] = 'data:' . $mimeType . ';base64,' . base64_encode($userData['profile_picture']);
+        }
         require __DIR__.'/../views/profile-view.php';
     }
     
@@ -20,22 +25,22 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             require __DIR__.'/../views/register-view.php';
         }
-        if (!isset($_FILES['user-image']) || $_FILES['user-image']['error'] !== UPLOAD_ERR_OK) {
+        if (!isset($_FILES['profile-picture']) || $_FILES['profile-picture']['error'] !== UPLOAD_ERR_OK) {
             throw new Exception("An image is required.");
         }
-        // Otherwise, handle the submission:
-        
-            $this->userModel->createUser([
-                'username'  => $_POST['username'],
-                'email'     => $_POST['email'],
-                'password'  => $_POST['password'],
-                'image'     => $_FILES['user-image'],
-                'bio'       => 'This user has not added a bio yet.'
-            ]);
 
-            //redirect to another page
-            header('Location: /login');
-            exit;
+    
+        $this->userModel->createUser([
+            'username'  => $_POST['username'],
+            'email'     => $_POST['email'],
+            'password'  => $_POST['password'],
+            'image'     => $_FILES['profile-picture'],
+            'bio'       => 'This user has not added a bio yet.'
+        ]);
+
+        //redirect to another page
+        header('Location: /login');
+        exit;
     }
 
     public function login() {
