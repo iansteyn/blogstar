@@ -1,3 +1,12 @@
+<?php
+/*
+    comment-component expects the following variable:
+        array $comment with keys: username, comment_date, comment_body
+*/
+  require_once __DIR__."/../../helpers/view-helpers.php";
+  $comment = sanitizeData($comment);
+?>
+
 <div class = "specific-comment-container">
   <header>
     <?= generatePostingInfo("sadiesmith", "2015-07-08 13:53:03")?>
