@@ -39,7 +39,7 @@ $route->add('/search', fn()=>
 
 // SIDE-NAVE MIDDLE
 $route->add('/admin', fn()=>
-    require __DIR__ . '/../app/views/admin-view.php'
+    $userController->admin()
 );
 
 // SIDE_NAV BOTTOM
@@ -62,6 +62,9 @@ $route->add('/blog-post/.+', fn($postId) =>
 );
 
 // TODO add routing for error pages?
+$route->add('/error', fn()=>
+    require __DIR__ . '/../app/views/error-view.php'
+);
 
 $route->submit();
 ?>
