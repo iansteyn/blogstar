@@ -76,7 +76,7 @@ class UserModel {
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if ($result && $result['password'] === $password) {
+        if ($result && password_verify($password, $result['password'])) {
             return $result;
         }
         return null;
