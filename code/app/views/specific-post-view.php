@@ -94,14 +94,24 @@ echo generateDocumentHead(
         Saved
       </button>
 
-      <button class="interaction-button edit-post-button" type="button">
+      <button
+        Title="Edit"
+        class="interaction-button edit-post-button"
+        type="button"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-edit"></use> 
         </svg>
         Edit
       </button>
 
-      <button class="interaction-button delete-post-button" type="button">
+      <button
+        Title="Delete"
+        class="interaction-button delete-post-button"
+        type="button"
+        data-postId="<?= $postData['post_id']?>"
+      >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-delete"></use> 
         </svg>
