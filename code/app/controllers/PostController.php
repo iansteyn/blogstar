@@ -9,12 +9,14 @@ class PostController {
     private $userModel;
     private $saveModel;
     private $likeModel;
+    private $commentModel;
 
     public function __construct($db) {
         $this->postModel = new PostModel($db);
         $this->userModel = new UserModel($db);
         $this->saveModel = new saveModel($db);
         $this->likeModel = new likeModel($db);
+        $this->commentModel = new CommentModel($db);
     }
 
     public function blogPost($postId) {
