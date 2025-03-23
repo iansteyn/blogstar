@@ -12,7 +12,6 @@ class CommentController {
     }
 
     //Handles creating a new comment.
-    
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->commentModel->createComment([
@@ -26,13 +25,11 @@ class CommentController {
     }
 
     //Handles deleting a comment.
-    
     public function delete($commentId) {
         
     }
 
     //Handles editing a comment.
-     
     public function edit($commentId) {
         
     }
