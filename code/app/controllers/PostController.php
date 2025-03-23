@@ -20,8 +20,8 @@ class PostController {
 
     public function blogPost($postId) {
         $postData = $this->postModel->getPostById($postId);
-        $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);;
-        $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);;
+        $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);
+        $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
