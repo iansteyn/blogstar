@@ -26,15 +26,27 @@ class PagesController {
     public function home() {
         $activeTab = $_GET['tab'] ?? "recent";
         $recentPostsData = $this->postModel->getRecentPosts();
-        $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
 
-        foreach ($recentPostsData as &$postData) {
-            $this->setLikeAndSaveStatus($postData);
+        if (isset($_SESSION['username'])) {
+            $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
+
+            foreach ($recentPostsData as &$postData) {
+                $this->setLikeAndSaveStatus($postData);
+            }
+            foreach ($savedPostsData as &$postData) {
+                $this->setLikeAndSaveStatus($postData);
+            }
+            unset($postData); //required to remove the &reference binding
         }
-        foreach ($savedPostsData as &$postData) {
-            $this->setLikeAndSaveStatus($postData);
+        else {
+            $savedPostsData = [];
+
+            foreach ($recentPostsData as &$postData) {
+                $postData['is_liked'] = false;
+                $postData['is_saved'] = false;
+            }
+            unset($postData);
         }
-        unset($postData); //required to remove the &reference binding
 
         // This view uses: $activeTab, $recentPostsData, $savedPostsData
         require __DIR__.'/../views/home-view.php';
