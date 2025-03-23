@@ -65,6 +65,9 @@ $route->add('/blog-post/.+', fn($postId) =>
 $route->add('/like/.+', fn($postId) =>
     $postController->toggleLike($postId)
 );
+$route->add('/save/.+', fn($postId) =>
+    $postController->toggleSave($postId)
+);
 
 // TODO add routing for error pages?
 
