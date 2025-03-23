@@ -31,7 +31,7 @@ class UserModel {
         $imageBlob = file_get_contents($userData['image']['tmp_name']);
         $statement = $this->db->prepare(<<<SQL
             INSERT INTO users(username, email, password, profile_picture, user_bio)
-            VALUES(?, ?, ?, ?);
+            VALUES(?, ?, ?, ?, ?);
         SQL);
         $statement->bindValue(1, $userData['username']);
         $statement->bindValue(2, $userData['email']);
