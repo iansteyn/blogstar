@@ -19,10 +19,9 @@ class PostController {
     }
 
     public function blogPost($postId) {
-
         $postData = $this->postModel->getPostById($postId);
-        $postData['is_liked'] = true;
-        $postData['is_saved'] = false;
+        $postData['is_liked'] = $this->likeModel->doesUserLikePost($_SESSION['username'], $postId);;
+        $postData['is_saved'] = $this->likeModel->doesUserLikePost($_SESSION['username'], $postId);;
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
