@@ -24,6 +24,6 @@
     </div>
   </header>
   <div class = "comment-text">
-    <p>Hi Sadie, that is a really beautiful photo of New Zealand. Where exactly was it taken? I'm going there in the fall!</p>
+    <p><?= nl2br($comment['comment_body']) ?></p>  
   </div>
 </div>
