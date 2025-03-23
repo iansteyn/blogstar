@@ -49,7 +49,7 @@ echo generateDocumentHead(
         class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
         type="button"
         data-resource="like"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
@@ -61,7 +61,7 @@ echo generateDocumentHead(
         class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active"
         type="button"
         data-resource="like"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
@@ -74,7 +74,7 @@ echo generateDocumentHead(
         class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
         type="button"
         data-resource="save"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
@@ -86,7 +86,7 @@ echo generateDocumentHead(
         class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active"
         type="button"
         data-resource="save"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
@@ -98,7 +98,7 @@ echo generateDocumentHead(
         Title="Edit"
         class="interaction-button edit-post-button"
         type="button"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-edit"></use> 
@@ -110,7 +110,7 @@ echo generateDocumentHead(
         Title="Delete"
         class="interaction-button delete-post-button"
         type="button"
-        data-postId="<?= $postData['post_id']?>"
+        data-post-id="<?= $postData['post_id']?>"
       >
         <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
           <use href="../vector-icons/icons.svg#icon-delete"></use> 
