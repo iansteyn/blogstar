@@ -26,9 +26,9 @@ function deleteComment(event) {
     }
 }
 
-function discardComment(){
+function discardComment() {
   const confirmDiscard = confirm("Are you sure you want to discard this comment?");
   if (confirmDiscard) {
-    window.location.href = "specific-post"; 
+      document.getElementById("comment").value = "";
   }
 }
