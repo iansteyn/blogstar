@@ -142,18 +142,20 @@ echo generateDocumentHead(
         </h2>
       </header>
 
-      <?php if (empty($comments)): ?>
-        <p>No comments yet. Be the first to comment!</p>
-      <?php else: ?>
-        <?php foreach ($comments as $comment): ?>
-          <?php $comment = sanitizeData($comment);?>
-          <?php include __DIR__."/components/comment-component.php"; ?>
-        <?php endforeach; ?>
-      <?php endif; ?>
+      <?php
+        if (empty($comments)) {
+            echo "<p>No comments yet. Be the first to comment!</p>";
+        }
+        else {
+            foreach ($comments as $comment) {
+                include __DIR__."/components/comment-component.php";
+            }
+        }
+      ?>
 
       <div class = "specific-comment-container">
-        <form method = "POST" action = "/comment/create/<?= $postId ?>">
-          <label for = "comment">Add a Comment</label>
+        <form method="POST" action="/comment/create/<?= $postId ?>">
+          <label for="comment">Add a Comment</label>
           <?php if ( ! $isLoggedIn):?>
             <p>You must <a href="/login">log in</a> to comment on this post.</p>
           <?php else: ?>
