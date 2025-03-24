@@ -63,8 +63,8 @@ $route->add('/profile/settings', fn()=>
 $route->add('/profile/.+/posts', fn($username)=>
     $profileController->posts($username)
 );
-$route->add('/profile/.+', fn($username)=>
-    $profileController->posts($username)
+$route->add('/profile/.+/saved', fn($username)=>
+    $profileController->saved($username)
 );
 
 $route->add('/create', fn()=>
