@@ -58,8 +58,8 @@ class HomeController {
         require __DIR__.'/../views/home-view.php';
     }
 
-    //TODO: require auth for this one -- and pass isLoggedIn variable in to hide the tab
     public function saved() {
+        AuthService::requireAuth(['registered', 'admin']);
         $activeTab = "saved";
         $postDataList = [];
         $isLoggedIn = AuthService::isLoggedIn();
