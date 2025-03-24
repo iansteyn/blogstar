@@ -15,12 +15,14 @@ include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
 include __DIR__.'/../app/controllers/CommentController.php';
 include __DIR__.'/../app/controllers/AdminController.php';
+include __DIR__.'/../app/controllers/SearchController.php';
 $homeController = new HomeController($db);
-$profileController = new profileController($db);
+$profileController = new ProfileController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
 $commentController = new commentController($db);
 $adminController = new AdminController($db);
+$searchController = new SearchController($db);
 
 include __DIR__.'/../app/routing/route.php';
 $route = new Route();
@@ -52,7 +54,7 @@ $route->add('/create', fn()=>
     $postController->create()
 );
 $route->add('/search', fn()=>
-    require __DIR__ . '/../app/views/search-view.php'
+    $searchController->search()
 );
 
 // SIDE-NAVE MIDDLE
