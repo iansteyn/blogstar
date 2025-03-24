@@ -9,7 +9,7 @@
     echo generateDocumentHead(
         'Home',
         ['home.css', 'post-list.css', 'tabs.css'],
-        ['tabs.js', 'post-interaction.js']
+        ['post-interaction.js']
     );
 ?>
 
