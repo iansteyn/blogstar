@@ -60,10 +60,10 @@ $route->add('/profile/saved', fn()=>
 $route->add('/profile/settings', fn()=>
     $profileController->settings()
 );
-$route->add('/profile/+./posts', fn($username)=>
+$route->add('/profile/.+/posts', fn($username)=>
     $profileController->posts($username)
 );
-$route->add('/profile/+.', fn($username)=>
+$route->add('/profile/.+', fn($username)=>
     $profileController->posts($username)
 );
 
@@ -113,10 +113,10 @@ $route->add('/comment/.+', fn($postId) =>
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
-$route->add('/.+', function() {
-    header('Location: /error');
-    exit;
-});
+// $route->add('/.+', function() {
+//     header('Location: /error');
+//     exit;
+// });
 
 $route->submit();
 ?>
