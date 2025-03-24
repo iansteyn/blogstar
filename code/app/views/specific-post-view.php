@@ -135,7 +135,7 @@ echo generateDocumentHead(
       </div>
     <?php endif; ?>
 
-    <div class="panel comments-container">
+    <article class="panel comments-container">
       <header>
         <h2 class="comments-title">
             Comments
@@ -177,7 +177,7 @@ echo generateDocumentHead(
           <?php endif; ?>
         </form>
       </div>
-    </div>
+    </article>
   </main>
 
   <aside>
