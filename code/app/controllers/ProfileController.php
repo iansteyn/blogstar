@@ -11,10 +11,13 @@ class ProfileController {
     }
 
     function profile() {
-        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
         AuthService::requireAuth(['registered','admin']);
 
-        // This view uses: $userData
+        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $userData, $isLoggedIn, $isAdmin
         require __DIR__.'/../views/profile-view.php';
     }
 }

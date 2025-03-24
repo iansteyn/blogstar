@@ -33,7 +33,6 @@ class HomeController {
     }
 
     public function recent() {
-        $isLoggedIn = AuthService::isLoggedIn();
         $activeTab = "recent";
         $postDataList = $this->postModel->getRecentPosts();
 
@@ -42,7 +41,35 @@ class HomeController {
         }
         unset($postData);
 
-        // if (isset($_SESSION['username'])) {
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
+        require __DIR__.'/../views/home-view.php';
+    }
+
+    public function popular() {
+        $activeTab = "popular";
+        $postDataList = [];
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
+        require __DIR__.'/../views/home-view.php';
+    }
+
+    //TODO: require auth for this one -- and pass isLoggedIn variable in to hide the tab
+    public function saved() {
+        $activeTab = "saved";
+        $postDataList = [];
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
+        require __DIR__.'/../views/home-view.php';
+    }
+
+    // if (isset($_SESSION['username'])) {
         //     $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
 
             
@@ -60,25 +87,6 @@ class HomeController {
         //     }
         //     unset($postData);
         // }
-
-        // This view uses: $activeTab, $recentPostsData, $savedPostsData
-        require __DIR__.'/../views/home-view.php';
-    }
-
-    public function popular() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $activeTab = "popular";
-        $postDataList = [];
-        require __DIR__.'/../views/home-view.php';
-    }
-
-    //TODO: require auth for this one -- and pass isLoggedIn variable in to hide the tab
-    public function saved() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $activeTab = "saved";
-        $postDataList = [];
-        require __DIR__.'/../views/home-view.php';
-    }
 }
 
 ?>

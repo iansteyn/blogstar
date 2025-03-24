@@ -33,7 +33,11 @@ class PostController {
 
         // getting the comments for the specific post
         $comments = $this->commentModel->getComments($postId);
-        // This view uses: $postData, $userData
+
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $postData, $userData, $comments, $isLoggedIn, $isAdmin
         require __DIR__.'/../views/specific-post-view.php';
     }
 

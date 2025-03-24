@@ -13,6 +13,10 @@ class UserController {
     public function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // this view uses: $isLoggedIn, $isAdmin
             require __DIR__.'/../views/register-view.php';
         }
         else {
@@ -33,6 +37,10 @@ class UserController {
     public function login() {
         // If form is not submitted, display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // this view uses: $isLoggedIn, $isAdmin
             require __DIR__.'/../views/login-view.php';
         }
         // Otherwise, handle the submission:
