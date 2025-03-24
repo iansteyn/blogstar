@@ -112,3 +112,31 @@ VALUES
 ('joy', 6, 'You’re quite the troublemaker, Salem! But at least you had fun with it. 😄'),
 ('chris', 6, 'Haha, Salem, you’re a little chaos machine! But I’m glad you’re having fun with the yarn. Keep causing trouble!'),
 ('ian_42', 6, 'Sounds like you had a blast, Salem! You’re really getting into the spirit of things. Maybe I need to take some notes from you on how to have fun!');
+
+INSERT INTO saves (username, post_id)
+VALUES
+('ian_42', 2),
+('ian_42', 3),
+('ian_42', 4),
+('sammie', 1),
+('sammie', 2),
+('joy', 5),
+('joy', 6),
+('chris', 1),
+('chris', 3),
+('chris', 4),
+('chris', 6),
+('spooky', 6),
+('salem', 5);
+
+INSERT INTO likes (post_id, username)
+VALUES
+(4, 'ian_42'),
+(4, 'joy'),
+(4, 'salem'),
+(4, 'spooky'),
+(3, 'chris'),
+(3, 'sammie'),
+(3, 'joy'),
+(2, 'ian_42'),
+(1, 'sammie');
