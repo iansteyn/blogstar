@@ -154,20 +154,25 @@ echo generateDocumentHead(
       <div class = "specific-comment-container">
         <form method = "POST" action = "/comment/create/<?= $postId ?>">
           <label for = "comment">Add a Comment</label>
-          <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
-          <button class = "interaction-button" id="submit-button" type="submit" value="Post">
-            <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href = "../vector-icons/icons.svg#icon-comment"></use>
-            </svg>
-            Post
-          </button>
+          <?php if ( ! $isLoggedIn):?>
+            <p>You must <a href="/login">log in</a> to comment on this post.</p>
+          <?php else: ?>
+            <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
 
-          <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-delete"></use>
-            </svg>
-            Discard
-          </button>
+            <button class = "interaction-button" id="submit-button" type="submit" value="Post">
+                <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href = "../vector-icons/icons.svg#icon-comment"></use>
+                </svg>
+                Post
+            </button>
+
+            <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
+                <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="../vector-icons/icons.svg#icon-delete"></use>
+                </svg>
+                Discard
+            </button>
+          <?php endif; ?>
         </form>
       </div>
     </div>
