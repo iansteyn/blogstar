@@ -17,15 +17,21 @@
       <h1 class="page-header"><?= $userData['username']?>'s Profile</h1>
       <nav class="tab-group">
         <form method="get">
-          <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
+          <button
+            class="tab <?= isTabActive('posts', $activeTab) ?>"
+            formaction="/profile/posts/<?= $userData['username'] ?>">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
             Posts
           </button>
-          <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/profile/saved">
+          <button
+            class="tab <?= isTabActive('saved', $activeTab) ?>"
+            formaction="/profile/saved/<?= $userData['username'] ?>">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </button>
-          <button class="tab <?= isTabActive('settings', $activeTab) ?>" formaction="/profile/settings">
+          <button
+            class="tab <?= isTabActive('settings', $activeTab) ?>"
+            formaction="/profile/settings">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
             Settings
           </button>

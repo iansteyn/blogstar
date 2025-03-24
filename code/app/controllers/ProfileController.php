@@ -24,7 +24,7 @@ class ProfileController {
     function posts(?string $username = null) {
         AuthService::requireAuth(['registered','admin']);
 
-        if ($username == $_SESSION['username']) {
+        if (AuthService::isCurrentUser($username)) {
             Header('Location: /profile');
             exit;
         }
@@ -47,14 +47,21 @@ class ProfileController {
         require __DIR__.'/../views/profile-view.php';
     }
 
-    public function saved() {
+    public function saved(?string $username = null) {
         AuthService::requireAuth(['registered', 'admin']);
+
+        if (AuthService::isCurrentUser($username)) {
+            Header('Location: /profile/saved');
+            exit;
+        }
+
+        $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $activeTab = "saved";
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
-        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
-        $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
+        $userData = $this->userModel->getUserByUsername($username);
+        $postDataList = $this->postModel->getSavedPosts($username);
 
         foreach ($postDataList as &$postData) {
             $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
