@@ -15,15 +15,21 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="registration-form" class="account-form" method="post" enctype="multipart/form-data" novalidate>
+        <form id="registration-form" class="account-form" method="post" enctype="multipart/form-data" autocomplete="on" novalidate>
           <h1 class="form-title">Register for an account</h1>
+          <?php
+            if (isset($_SESSION['invalid_registration'])) {
+              echo '<p class="invalid-login">' . $_SESSION['invalid_registration'] . '</p>';
+              unset($_SESSION['invalid_registration']);
+            }
+          ?>
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            <input type="text" id="username" name="username" placeholder="Enter your username" autocomplete="off" required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
+            <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="username" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>

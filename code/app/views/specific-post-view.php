@@ -29,15 +29,18 @@ echo generateDocumentHead(
       </span>
     </header>
     <article class="panel blog-panel">
+      <!-- title -->
       <header>
         <h1 class="blog-title">
           <?= $postData['post_title'] ?>
         </h1>
         <?= generatePostingInfo($postData['username'], $postData['post_date']) ?>
       </header>
+      <!-- image -->
       <?php if (!empty($postData['post_image'])): ?>
         <img class="blog-photo" src="<?= $postData['post_image'] ?>" alt="A photo associated with the blog post.">
       <?php endif; ?>
+      <!-- post itself -->
       <div class="blog-text">
         <p>
             <?= nl2br($postData['post_body']) ?>
@@ -46,6 +49,7 @@ echo generateDocumentHead(
     </article>
 
     <div class="interaction-bar">
+      <!-- like -->
       <button
         title="Like"
         class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
@@ -70,7 +74,8 @@ echo generateDocumentHead(
         </svg>
         Liked
       </button>
-
+      
+      <!-- save -->
       <button
         title="Save"
         class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
@@ -95,30 +100,37 @@ echo generateDocumentHead(
         </svg>
         Saved
       </button>
+      <?php if ($postData['belongs_to_current_user']): ?>
+        <!-- edit (if it is your own post) -->
+        <button
+          Title="Edit"
+          class="interaction-button edit-post-button"
+          type="button"
+          data-post-id="<?= $postData['post_id']?>"
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-edit"></use> 
+          </svg>
+          Edit
+        </button>
+      <?php endif; ?>
 
-      <button
-        Title="Edit"
-        class="interaction-button edit-post-button"
-        type="button"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-edit"></use> 
-        </svg>
-        Edit
-      </button>
-
-      <button
-        Title="Delete"
-        class="interaction-button delete-post-button"
-        type="button"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-delete"></use> 
-        </svg>
-        Delete
-      </button>
+      <?php if ($postData['belongs_to_current_user'] || $_SESSION['role'] === 'Admin'): ?>
+        <!-- delete (if it is your own post) -->
+        <form method = "POST" action = "/post/delete/<?= $postId?>">
+          <button
+            Title="Delete"
+            class="interaction-button delete-post-button"
+            type="submit"
+            data-post-id="<?= $postData['post_id']?>"
+          >
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href="../vector-icons/icons.svg#icon-delete"></use> 
+            </svg>
+            Delete
+          </button>
+        </form>
+      <?php endif; ?>
     </div>
 
     <div class="panel comments-container">
@@ -138,7 +150,7 @@ echo generateDocumentHead(
       <?php endif; ?>
 
       <div class = "specific-comment-container">
-        <form method = "POST" action = "/comment/<?= $postId ?>">
+        <form method = "POST" action = "/comment/create/<?= $postId ?>">
           <label for = "comment">Add a Comment</label>
           <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
           <button class = "interaction-button" id="submit-button" type="submit" value="Post">

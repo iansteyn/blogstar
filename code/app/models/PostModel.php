@@ -162,7 +162,12 @@ class PostModel {
     }
 
     public function deletePost(int $postId) {
-        //TODO
+        $statement = $this->db->prepare(<<<SQL
+            DELETE FROM posts
+            WHERE post_id = :postId
+        SQL);
+        $statement->bindValue(':postId', $postId);
+        $statement->execute();
     }
 }
 

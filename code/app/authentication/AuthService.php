@@ -35,6 +35,10 @@ class AuthService {
   public static function isAdmin(): bool {
     return (AuthService::isLoggedIn() and $_SESSION['role'] == 'admin');
   }
+
+  public static function belongsToCurrentUser(string $username): bool {
+    return isset($_SESSION['username']) && $_SESSION['username'] === $username;
+  } 
 }
 
 ?>

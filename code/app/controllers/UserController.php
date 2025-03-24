@@ -20,17 +20,27 @@ class UserController {
             require __DIR__.'/../views/register-view.php';
         }
         else {
-            $this->userModel->createUser([
-                'username'  => $_POST['username'],
-                'email'     => $_POST['email'],
-                'password'  => $_POST['password'],
-                'image'     => $_FILES['profile-picture'],
-                'bio'       => 'This user has not added a bio yet.'
-            ]);
-    
-            //redirect to another page
-            header('Location: /login');
-            exit;
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $userExists = $this->userModel->checkUserExists($username, $email);
+
+            if (!$userExists) {
+                $this->userModel->createUser([
+                    'username'  => $_POST['username'],
+                    'email'     => $_POST['email'],
+                    'password'  => $_POST['password'],
+                    'image'     => $_FILES['profile-picture'],
+                    'bio'       => 'This user has not added a bio yet.'
+                ]);
+        
+                //redirect to another page
+                header('Location: /login');
+                exit;
+            } else {
+                $_SESSION['invalid_registration'] = 'Username or email is already registered.';
+                header('Location: /register');
+                exit;
+            }
         }
     }
 
@@ -52,15 +62,15 @@ class UserController {
                 header('Location: /login');
             }
 
-            $email = htmlspecialchars($_POST['email']);
-            $password = $_POST['password'];  //TODO: Hash passwords
+            $email = $_POST['email'];
+            $password = $_POST['password'];
             $user = $this->userModel->validateUserLogin($email, $password);
 
             if ($user) {
                 // Store user session data
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
-                $_SESSION['profile_picture'] = $user['profile_picture'];
+                $_SESSION['profile-picture'] = $user['profile-picture'];
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
