@@ -23,6 +23,7 @@ class HomeController {
         $postDataList = $this->postModel->getRecentPosts();
 
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -38,6 +39,7 @@ class HomeController {
         $postDataList = $this->postModel->getPopularPosts();
 
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -55,6 +57,7 @@ class HomeController {
         $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
 
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);

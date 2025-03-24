@@ -60,11 +60,11 @@ $route->add('/profile/saved', fn()=>
 $route->add('/profile/settings', fn()=>
     $profileController->settings()
 );
-$route->add('/profile/.+/posts', fn($username)=>
+$route->add('/profile/posts/.+', fn($username)=>
     $profileController->posts($username)
 );
-$route->add('/profile/.+', fn($username)=>
-    $profileController->posts($username)
+$route->add('/profile/saved/.+', fn($username)=>
+    $profileController->saved($username)
 );
 
 $route->add('/create', fn()=>
@@ -110,9 +110,6 @@ $route->add('/comment/create/.+', fn($postId) =>
 );
 $route->add('/comment/delete/.+', fn($commentId) =>
     $commentController->delete($commentId)
-);
-$route->add('/post/create/.+', fn($postId) =>
-    $postController->create($postId)
 );
 $route->add('/post/delete/.+', fn($postId) =>
     $postController->delete($postId)

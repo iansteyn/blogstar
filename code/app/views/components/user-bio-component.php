@@ -10,7 +10,14 @@ $userData = sanitizeData($userData);
 <div class="sidebar-profile">
     <img class="user-image" src="<?= $userData['profile_picture'] ?>" alt="Profile picture of <?= $userData['username'] ?>">
     <div class="user-info">
-        <h2 class="user-name"><?= $userData['username'] ?></h2>
-        <p class="user-bio"><?= nl2br($userData['user_bio']) ?></p>
+        <h3 class="user-name">
+          About
+          <a href="/profile/posts/<?= $userData['username'] ?>">
+            <i>@<?= $userData['username'] ?></i>
+          </a>
+        </h3>
+        <p class="user-bio">
+          <?= nl2br($userData['user_bio']) ?>
+        </p>
     </div>
 </div>

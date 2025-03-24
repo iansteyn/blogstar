@@ -22,7 +22,11 @@
     <header>
       <div class="page-header home-page-header">
         <h1>Home</h1>
-        <?php include __DIR__."/components/search-bar-component.php" ?>
+        <?php
+            $searchAction = '/search';
+            // this component uses: $searchAction
+            include __DIR__."/components/search-bar-component.php";
+        ?>
       </div>
       <nav class="tab-group">
         <form method="get">

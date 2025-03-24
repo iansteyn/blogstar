@@ -1,11 +1,20 @@
 <?php
-    require_once __DIR__."/../helpers/view-helpers.php";
+/**
+ * profile-view.php
+ * This view expects the following variables:
+ * @var array $userData with keys: 'username', 'profile_picture', 'user_bio', 'is_current_user'
+ * @var array $postDataList - list of posts with all the usual keys
+ * @var string $activeTab
+ * @var bool $isAdmin
+ * @var bool $isLoggedIn
+ */
+require_once __DIR__."/../helpers/view-helpers.php";
 
-    echo generateDocumentHead(
-        'My Profile',
-        ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
-        ['post-interaction.js']
-    );
+echo generateDocumentHead(
+    'My Profile',
+    ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
+    ['post-interaction.js']
+);
 ?>
 
 <body>
@@ -14,21 +23,31 @@
   </header>
   <main>
     <header>
-      <h1 class="page-header"><?= $userData['username']?>'s Profile</h1>
+      <h1 class="page-header">
+        <?= $userData['is_current_user'] ? 'My profile' : "<i>@{$userData['username']}</i>" ?>
+      </h1>
       <nav class="tab-group">
         <form method="get">
-          <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
+          <button
+            class="tab <?= isTabActive('posts', $activeTab) ?>"
+            formaction="/profile/posts/<?= $userData['username'] ?>">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
             Posts
           </button>
-          <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/profile/saved">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+          <button
+            class="tab <?= isTabActive('saved', $activeTab) ?>"
+            formaction="/profile/saved/<?= $userData['username'] ?>">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </button>
-          <button class="tab <?= isTabActive('settings', $activeTab) ?>" formaction="/profile/settings">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
-            Settings
-          </button>
+          <?php if ($userData['is_current_user']): ?>
+            <button
+              class="tab <?= isTabActive('settings', $activeTab) ?>"
+              formaction="/profile/settings">
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
+              Settings
+            </button>
+          <?php endif; ?>
         </form>
       </nav>
     </header>
@@ -37,9 +56,12 @@
         <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
             <?php
             if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-                echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
-            }
-            else {
+                if ($userData['is_current_user']) {
+                    echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+                } else {
+                    echo "<p>@{$userData['username']} has no saved posts.</p>";
+                }
+            } else {
                 foreach ($postDataList as $postData) {
                     // This component uses: $postData
                     include __DIR__."/components/post-summary-component.php";

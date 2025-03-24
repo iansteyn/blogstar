@@ -31,13 +31,13 @@ class PostController {
 
         $postData = $this->postModel->getPostById($postId);
         $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
-        $postData['belongs_to_current_user'] = AuthService::belongsToCurrentUser($postData['username']);
+        $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
         $comments = $this->commentModel->getComments($postId);
       
         foreach ($comments as &$comment) {
-            $comment['belongs_to_current_user'] = AuthService::belongsToCurrentUser($comment['username']);
+            $comment['belongs_to_current_user'] = AuthService::isCurrentUser($comment['username']);
         }
         unset($comment);
 

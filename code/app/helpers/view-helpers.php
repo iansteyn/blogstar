@@ -55,7 +55,7 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
 
     return <<<HTML
       <div class="posting-info">
-        <a class="username" href="/profile/$username" title="Author">
+        <a class="username" href="/profile/posts/$username" title="Author">
           @$username
         </a>
         —

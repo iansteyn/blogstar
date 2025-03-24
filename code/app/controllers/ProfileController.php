@@ -24,33 +24,51 @@ class ProfileController {
     function posts(?string $username = null) {
         AuthService::requireAuth(['registered','admin']);
 
+        if (AuthService::isCurrentUser($username)) {
+            Header('Location: /profile');
+            exit;
+        }
+
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
-        $activeTab = "posts";
         $userData = $this->userModel->getUserByUsername($username);
+        $userData['is_current_user'] = AuthService::isCurrentUser($username);
+
+        $activeTab = "posts";
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
         $postDataList = $this->postModel->getUserPosts($username);
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
 
-        // This view uses: $userData, $isLoggedIn, $isAdmin
+        // This view uses: $userData, $activeTab, $isLoggedIn, $isAdmin
         require __DIR__.'/../views/profile-view.php';
     }
 
-    public function saved() {
+    public function saved(?string $username = null) {
         AuthService::requireAuth(['registered', 'admin']);
+
+        if (AuthService::isCurrentUser($username)) {
+            Header('Location: /profile/saved');
+            exit;
+        }
+
+        $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
+
+        $userData = $this->userModel->getUserByUsername($username);
+        $userData['is_current_user'] = AuthService::isCurrentUser($username);
 
         $activeTab = "saved";
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
-        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
-        $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
 
+        $postDataList = $this->postModel->getSavedPosts($username);
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -66,6 +84,7 @@ class ProfileController {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
         $userData = $this->userModel->getUserByUsername($_SESSION['username']);
+        $userData['is_current_user'] = true;
 
         // This view uses: $activeTab, $userData, $isAdmin, $isLoggedIn
         require __DIR__.'/../views/profile-view.php';

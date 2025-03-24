@@ -18,10 +18,10 @@
 /* BUTTONS */
 .interaction-bar{
   display: flex;
-  padding: 1em;
+  margin: 1em;
   max-height: 2em;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
 }
 
 .interaction-button[type="button"], .interaction-button[type="submit"] {
@@ -44,22 +44,23 @@
 }
 
 .top-button{
-  margin-bottom:1em;
+    margin-bottom:1em;
 }
 
 /* COMMENTS */
 .comments-title{
-  width: 100%;
+    width: 100%;
 }
 
 .comments-container{
-  width: 100%;
-  box-sizing: border-box;
+    margin-top: 1em;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .specific-comment-container{
-  padding: 1em;
-  border-bottom: medium solid var(--low-opacity-darken-20);
+    padding: 1em;
+    border-bottom: medium solid var(--low-opacity-darken-20);
 }
 
 .specific-comment-container header {
@@ -70,9 +71,9 @@
 }
 
 .comment{
-  width: 100%;
-  box-sizing: border-box;
-  margin: 1em 0;
-  padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1em 0;
+    padding: 0.5rem;
 }
 
