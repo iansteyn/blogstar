@@ -49,6 +49,7 @@
         </article>
     <?php else: ?>
         <form id="user-settings" class="panel account-form" method="post" action="#" enctype="multipart/form-data">
+          <p>Note: full user settings functionality will be added in Milestone 4</p>
           <div class="form-group">
             <label for="update-password">Update password</label>
             <input type="password" id="update-password" placeholder="Update your password" />
