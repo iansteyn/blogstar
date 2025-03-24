@@ -22,18 +22,12 @@ class PostController {
         $this->commentModel = new CommentModel($db);
     }
 
+    /**
+     * Gets data for this postId, and gives it to the view.
+     */
     public function blogPost($postId) {
         $postData = $this->postModel->getPostById($postId);
-
-        if (isset($_SESSION['username'])) {
-            $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);
-            $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);
-        }
-        else {
-            $postData['is_liked'] = false;
-            $postData['is_saved'] = false;
-        }
-        
+        $postData = $this->setLikeAndSaveStatus($postData);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
 
@@ -104,6 +98,24 @@ class PostController {
         } else {
             sendJsonResponse(['success' => $success, 'message' => 'Failed to toggle save.']);
         }
+    }
+
+    //HELPERS
+    /**
+     * Adds or 'is_liked' and 'is_saved' boolean values to given post data array.
+     * @param array $postData
+     * @return array a copy of `$postData` with the added keys
+     */
+    private function setLikeAndSaveStatus(array $postData): array {
+        if (isset($_SESSION['username'])) {
+            $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postData['post_id']);
+            $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postData['post_id']);
+        }
+        else {
+            $postData['is_liked'] = false;
+            $postData['is_saved'] = false;
+        }
+        return $postData;
     }
 }
 
