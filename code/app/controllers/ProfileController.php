@@ -24,6 +24,11 @@ class ProfileController {
     function posts(?string $username = null) {
         AuthService::requireAuth(['registered','admin']);
 
+        if ($username == $_SESSION['username']) {
+            Header('Location: /profile');
+            exit;
+        }
+
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $activeTab = "posts";
