@@ -72,6 +72,28 @@ class PostController {
         
     }
 
+    public function delete($postId) {
+        AuthService::requireAuth(['registered', 'admin']);
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            header('Location: /home');
+            exit;
+        }
+    
+        $post = $this->postModel->getPostById($postId);
+        if (!$post) {
+            header('Location: /home');
+            exit;
+        }
+        if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
+            header('Location: /home');
+            exit;
+        }
+    
+        $this->postModel->deletePost($postId);
+        header('Location: /profile');
+        exit;
+    }
+
     /**
      * Toggles whether the current user likes the given post or not
      */
