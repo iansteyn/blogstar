@@ -33,31 +33,22 @@
       </nav>
     </header>
 
-    <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
-        <?php
-        if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-            echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
-        }
-        else {
-            foreach ($postDataList as $postData) {
-                // This component uses: $postData
-                include __DIR__."/components/post-summary-component.php";
+    <?php if ($activeTab != 'settings'): ?>
+        <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
+            <?php
+            if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
+                echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
             }
-        }
-        ?>
-    </article>
-
-
-      <!-- <div class="subpage hidden" id="saved">
-      </div> -->
-
-
-      <!-- <div class="subpage hidden" id="settings">
+            else {
+                foreach ($postDataList as $postData) {
+                    // This component uses: $postData
+                    include __DIR__."/components/post-summary-component.php";
+                }
+            }
+            ?>
+        </article>
+    <?php else: ?>
         <form id="user-settings" class="panel account-form" method="post" action="#" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="update-user-id">Update user id</label>
-            <input type="text" id="update-user-id" placeholder="Update your user id" />
-          </div>
           <div class="form-group">
             <label for="update-password">Update password</label>
             <input type="password" id="update-password" placeholder="Update your password" />
@@ -76,8 +67,7 @@
           </div>
           <button type="submit">Update user settings</button>
         </form>
-      </div>
-    </div> -->
+    <?php endif; ?>
   </main>
 
   <aside>

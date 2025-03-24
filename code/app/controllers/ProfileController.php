@@ -55,14 +55,19 @@ class ProfileController {
         }
         unset($postData);
 
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
-
-        // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
+        // This view uses: $userData, $activeTab, $postDataList, $isAdmin, $isLoggedIn
         require __DIR__.'/../views/profile-view.php';
     }
 
     function settings() {
+        AuthService::requireAuth(['registered', 'admin']);
 
+        $activeTab = "settings";
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
+
+        // This view uses: $activeTab, $userData, $isAdmin, $isLoggedIn
+        require __DIR__.'/../views/profile-view.php';
     }
 }
