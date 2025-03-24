@@ -37,12 +37,12 @@ $route->add('/home', fn()=>
 $route->add('/home/recent', fn()=>
     $homeController->recent()
 );
-// $route->add('/home/popular', fn()=>
-//     $homeController->popular()
-// );
-// $route->add('/home/saved', fn()=>
-//     $homeController->saved()
-// );
+$route->add('/home/popular', fn()=>
+    $homeController->popular()
+);
+$route->add('/home/saved', fn()=>
+    $homeController->saved()
+);
 
 
 $route->add('/profile', fn()=>
