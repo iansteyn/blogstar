@@ -2,6 +2,10 @@
     display: flex;
     flex-wrap: nowrap;
 }
+.tab-group form {
+    display: flex;
+    flex-wrap: nowrap;
+}
 
 .tab {
     color: var(--text-light);
