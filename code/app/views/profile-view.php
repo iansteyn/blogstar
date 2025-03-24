@@ -6,8 +6,6 @@
         ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
         ['post-interaction.js']
     );
-
-    $activeTab = 'posts'; // TODO remove
 ?>
 
 <body>
@@ -19,15 +17,15 @@
       <h1 class="page-header">My Profile</h1>
       <nav class="tab-group">
         <form method="get">
-          <button class="tab active" formaction="/profile/posts">
+          <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
             Posts
           </button>
-          <button class="tab" value="saved" formaction="/profile/saved">
+          <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/profile/saved">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </button>
-          <button class="tab" value="settings" formaction="/profile/settings">
+          <button class="tab <?= isTabActive('settings', $activeTab) ?>" formaction="/profile/settings">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
             Settings
           </button>

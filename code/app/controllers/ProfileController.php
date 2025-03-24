@@ -26,6 +26,7 @@ class ProfileController {
 
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
+        $activeTab = "posts";
         $userData = $this->userModel->getUserByUsername($username);
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
