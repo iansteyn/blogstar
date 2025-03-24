@@ -28,6 +28,13 @@ class AuthService {
   public static function isLoggedIn(): bool {
     return (isset($_SESSION['username']) and ! empty($_SESSION['username']));
   }
+
+  /**
+   * @return bool true if client is logged in and admin, false otherwise
+   */
+  public static function isAdmin(): bool {
+    return (AuthService::isLoggedIn() and $_SESSION['role'] == 'admin');
+  }
 }
 
 ?>
