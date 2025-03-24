@@ -28,6 +28,10 @@ class AuthService {
   public static function isLoggedIn(): bool {
     return (isset($_SESSION['username']) and ! empty($_SESSION['username']));
   }
+
+  public static function belongsToCurrentUser(string $username): bool {
+    return isset($_SESSION['username']) && $_SESSION['username'] === $username;
+  } 
 }
 
 ?>

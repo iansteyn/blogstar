@@ -31,9 +31,23 @@ class CommentController {
         exit;
     }
 
-    //Handles deleting a comment.
     public function delete($commentId) {
-        
+        AuthService::requireAuth(['registered', 'admin']);
+    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        header('Location: /home');
+        exit;
+    }
+
+    $comment = $this->commentModel->getCommentById($commentId);
+
+    if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
+        header('Location: /home');
+        exit;
+    }
+    $this->commentModel->deleteComment($commentId);
+    header('Location: /blog-post/' . $comment['post_id']);
+    exit;
+
     }
 
     //Handles editing a comment.
