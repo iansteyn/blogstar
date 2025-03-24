@@ -25,17 +25,27 @@ class UserController {
             require __DIR__.'/../views/register-view.php';
         }
         else {
-            $this->userModel->createUser([
-                'username'  => $_POST['username'],
-                'email'     => $_POST['email'],
-                'password'  => $_POST['password'],
-                'image'     => $_FILES['profile-picture'],
-                'bio'       => 'This user has not added a bio yet.'
-            ]);
-    
-            //redirect to another page
-            header('Location: /login');
-            exit;
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $userExists = $this->userModel->checkUserExists($username, $email);
+
+            if (!$userExists) {
+                $this->userModel->createUser([
+                    'username'  => $_POST['username'],
+                    'email'     => $_POST['email'],
+                    'password'  => $_POST['password'],
+                    'image'     => $_FILES['profile-picture'],
+                    'bio'       => 'This user has not added a bio yet.'
+                ]);
+        
+                //redirect to another page
+                header('Location: /login');
+                exit;
+            } else {
+                $_SESSION['invalid_registration'] = 'Username or email is already registered.';
+                header('Location: /register');
+                exit;
+            }
         }
     }
 
