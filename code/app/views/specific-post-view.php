@@ -48,90 +48,92 @@ echo generateDocumentHead(
       </div>
     </article>
 
-    <div class="interaction-bar">
-      <!-- like -->
-      <button
-        title="Like"
-        class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
-        type="button"
-        data-resource="like"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
-        </svg>
-        Like
-      </button>
-      <button
-        title="Unlike"
-        class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active"
-        type="button"
-        data-resource="like"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
-        </svg>
-        Liked
-      </button>
-      
-      <!-- save -->
-      <button
-        title="Save"
-        class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
-        type="button"
-        data-resource="save"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
-        </svg>
-        Save
-      </button>
-      <button
-        title="Unsave"
-        class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active"
-        type="button"
-        data-resource="save"
-        data-post-id="<?= $postData['post_id']?>"
-      >
-        <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-          <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
-        </svg>
-        Saved
-      </button>
-      <?php if ($postData['belongs_to_current_user']): ?>
-        <!-- edit (if it is your own post) -->
+    <?php if ($isLoggedIn): ?>
+      <div class="interaction-bar">
+        <!-- like -->
         <button
-          Title="Edit"
-          class="interaction-button edit-post-button"
+          title="Like"
+          class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
           type="button"
+          data-resource="like"
           data-post-id="<?= $postData['post_id']?>"
         >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-edit"></use> 
+            <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
-          Edit
+          Like
         </button>
-      <?php endif; ?>
-
-      <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
-        <!-- delete (if it is your own post) -->
-        <form method = "POST" action = "/post/delete/<?= $postId?>">
+        <button
+          title="Unlike"
+          class="<?= hiddenIf( ! $postData['is_liked']) ?> interaction-button togglable-post-button togglable-post-button-active"
+          type="button"
+          data-resource="like"
+          data-post-id="<?= $postData['post_id']?>"
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
+          </svg>
+          Liked
+        </button>
+        
+        <!-- save -->
+        <button
+          title="Save"
+          class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
+          type="button"
+          data-resource="save"
+          data-post-id="<?= $postData['post_id']?>"
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
+          </svg>
+          Save
+        </button>
+        <button
+          title="Unsave"
+          class="<?= hiddenIf( ! $postData['is_saved']) ?> interaction-button togglable-post-button togglable-post-button-active"
+          type="button"
+          data-resource="save"
+          data-post-id="<?= $postData['post_id']?>"
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
+          </svg>
+          Saved
+        </button>
+        <?php if ($postData['belongs_to_current_user']): ?>
+          <!-- edit (if it is your own post) -->
           <button
-            Title="Delete"
-            class="interaction-button delete-post-button"
-            type="submit"
+            Title="Edit"
+            class="interaction-button edit-post-button"
+            type="button"
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-delete"></use> 
+              <use href="../vector-icons/icons.svg#icon-edit"></use> 
             </svg>
-            Delete
+            Edit
           </button>
-        </form>
-      <?php endif; ?>
-    </div>
+        <?php endif; ?>
+
+        <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
+          <!-- delete (if it is your own post) -->
+          <form method = "POST" action = "/post/delete/<?= $postId?>">
+            <button
+              Title="Delete"
+              class="interaction-button delete-post-button"
+              type="submit"
+              data-post-id="<?= $postData['post_id']?>"
+            >
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="../vector-icons/icons.svg#icon-delete"></use> 
+              </svg>
+              Delete
+            </button>
+          </form>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
 
     <div class="panel comments-container">
       <header>
