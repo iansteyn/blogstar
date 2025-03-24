@@ -113,6 +113,10 @@ $route->add('/comment/.+', fn($postId) =>
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
+$route->add('/.+', function() {
+    header('Location: /error');
+    exit;
+});
 
 $route->submit();
 ?>
