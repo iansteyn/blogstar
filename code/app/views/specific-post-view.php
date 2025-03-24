@@ -29,15 +29,18 @@ echo generateDocumentHead(
       </span>
     </header>
     <article class="panel blog-panel">
+      <!-- title -->
       <header>
         <h1 class="blog-title">
           <?= $postData['post_title'] ?>
         </h1>
         <?= generatePostingInfo($postData['username'], $postData['post_date']) ?>
       </header>
+      <!-- image -->
       <?php if (!empty($postData['post_image'])): ?>
         <img class="blog-photo" src="<?= $postData['post_image'] ?>" alt="A photo associated with the blog post.">
       <?php endif; ?>
+      <!-- post itself -->
       <div class="blog-text">
         <p>
             <?= nl2br($postData['post_body']) ?>
@@ -46,6 +49,7 @@ echo generateDocumentHead(
     </article>
 
     <div class="interaction-bar">
+      <!-- like -->
       <button
         title="Like"
         class="<?= hiddenIf($postData['is_liked']) ?> interaction-button togglable-post-button"
@@ -70,7 +74,8 @@ echo generateDocumentHead(
         </svg>
         Liked
       </button>
-
+      
+      <!-- save -->
       <button
         title="Save"
         class="<?= hiddenIf($postData['is_saved']) ?> interaction-button togglable-post-button"
@@ -96,6 +101,7 @@ echo generateDocumentHead(
         Saved
       </button>
 
+      <!-- edit (if it is your own post) -->
       <button
         Title="Edit"
         class="interaction-button edit-post-button"
@@ -108,6 +114,7 @@ echo generateDocumentHead(
         Edit
       </button>
 
+      <!-- delete (if it is your own post) -->
       <button
         Title="Delete"
         class="interaction-button delete-post-button"
