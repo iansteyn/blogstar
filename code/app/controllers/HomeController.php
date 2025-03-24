@@ -50,7 +50,13 @@ class HomeController {
 
     public function popular() {
         $activeTab = "popular";
-        $postDataList = [];
+        $postDataList = $this->postModel->getPopularPosts();
+
+        foreach ($postDataList as &$postData) {
+            $postData = $this->setLikeAndSaveStatus($postData);
+        }
+        unset($postData);
+
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
