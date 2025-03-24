@@ -24,7 +24,7 @@ echo generateDocumentHead(
   <main>
     <header>
       <h1 class="page-header">
-        <?= $userData['is_current_user'] ? 'My profile' : '@'.$userData['username'] ?>
+        <?= $userData['is_current_user'] ? 'My profile' : "<i>@{$userData['username']}</i>" ?>
       </h1>
       <nav class="tab-group">
         <form method="get">
