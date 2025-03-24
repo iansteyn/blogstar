@@ -6,17 +6,17 @@ This is the website's "root".
 Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
 */
 
-include __DIR__.'/../db_config/db_connect.php';
+require_once __DIR__.'/../db_config/db_connect.php';
 $db = getDatabaseConnection();
 
-include __DIR__.'/../app/controllers/HomeController.php';
-include __DIR__.'/../app/controllers/ProfileController.php';
-include __DIR__.'/../app/controllers/UserController.php';
-include __DIR__.'/../app/controllers/PostController.php';
-include __DIR__.'/../app/controllers/CommentController.php';
-include __DIR__.'/../app/controllers/AdminController.php';
-include __DIR__.'/../app/controllers/SearchController.php';
-include __DIR__.'/../app/controllers/AboutController.php';
+require_once __DIR__.'/../app/controllers/HomeController.php';
+require_once __DIR__.'/../app/controllers/ProfileController.php';
+require_once __DIR__.'/../app/controllers/UserController.php';
+require_once __DIR__.'/../app/controllers/PostController.php';
+require_once __DIR__.'/../app/controllers/CommentController.php';
+require_once __DIR__.'/../app/controllers/AdminController.php';
+require_once __DIR__.'/../app/controllers/SearchController.php';
+require_once __DIR__.'/../app/controllers/AboutController.php';
 $homeController = new HomeController($db);
 $profileController = new ProfileController($db);
 $userController = new UserController($db);
@@ -26,7 +26,7 @@ $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
 
-include __DIR__.'/../app/routing/route.php';
+require_once __DIR__.'/../app/routing/route.php';
 $route = new Route();
 
 // SIDE-NAV TOP
