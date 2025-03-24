@@ -21,6 +21,10 @@ class AuthService {
       }
     }
   }
+
+  public static function belongsToCurrentUser(string $username): bool {
+    return isset($_SESSION['username']) && $_SESSION['username'] === $username;
+  } 
 }
 
 ?>
