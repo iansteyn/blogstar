@@ -40,8 +40,25 @@ class ProfileController {
         require __DIR__.'/../views/profile-view.php';
     }
 
-    function saved() {
+    public function saved() {
+        AuthService::requireAuth(['registered', 'admin']);
 
+        $activeTab = "saved";
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
+        $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
+
+        foreach ($postDataList as &$postData) {
+            $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
+        }
+        unset($postData);
+
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
+
+        // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
+        require __DIR__.'/../views/profile-view.php';
     }
 
     function settings() {
