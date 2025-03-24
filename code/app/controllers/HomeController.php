@@ -2,6 +2,8 @@
 require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
+require_once __DIR__.'/../authentication/AuthService.php';
+
 class HomeController {
     private $postModel;
     private $saveModel;
@@ -31,6 +33,7 @@ class HomeController {
     }
 
     public function recent() {
+        $isLoggedIn = AuthService::isLoggedIn();
         $activeTab = "recent";
         $postDataList = $this->postModel->getRecentPosts();
 
@@ -63,6 +66,7 @@ class HomeController {
     }
 
     public function popular() {
+        $isLoggedIn = AuthService::isLoggedIn();
         $activeTab = "popular";
         $postDataList = [];
         require __DIR__.'/../views/home-view.php';
@@ -70,6 +74,7 @@ class HomeController {
 
     //TODO: require auth for this one -- and pass isLoggedIn variable in to hide the tab
     public function saved() {
+        $isLoggedIn = AuthService::isLoggedIn();
         $activeTab = "saved";
         $postDataList = [];
         require __DIR__.'/../views/home-view.php';
