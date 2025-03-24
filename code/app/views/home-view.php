@@ -48,7 +48,7 @@
       <div class="subpage">
        <article class="panel post-list">
           <?php
-            if ($activeTab == 'saved' and empty($postDataList)) {
+            if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
                 echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
             }
             else {
