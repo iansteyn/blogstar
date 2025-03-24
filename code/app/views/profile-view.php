@@ -18,15 +18,15 @@
       <nav class="tab-group">
         <form method="get">
           <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
             Posts
           </button>
           <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/profile/saved">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </button>
           <button class="tab <?= isTabActive('settings', $activeTab) ?>" formaction="/profile/settings">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
             Settings
           </button>
         </form>

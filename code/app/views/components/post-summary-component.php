@@ -45,7 +45,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-like-unfilled"></use>
+              <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
             </svg>
           </button>
           <button
@@ -55,7 +55,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-like-filled"></use>
+              <use href="/../vector-icons/icons.svg#icon-like-filled"></use>
             </svg>
           </button>
           
@@ -66,7 +66,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-save-unfilled"></use>
+              <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use>
             </svg>
           </button>
           <button
@@ -76,7 +76,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-save-filled"></use>
+              <use href="/../vector-icons/icons.svg#icon-save-filled"></use>
             </svg>
           </button>
         </div>
@@ -89,7 +89,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
               data-post-id="<?= $postData['post_id']?>"
             >
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="../vector-icons/icons.svg#icon-edit"></use>
+                <use href="/../vector-icons/icons.svg#icon-edit"></use>
               </svg>
             </button>
             <button
@@ -98,7 +98,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
               data-post-id="<?= $postData['post_id']?>"
             >
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="../vector-icons/icons.svg#icon-delete"></use>
+                <use href="/../vector-icons/icons.svg#icon-delete"></use>
               </svg>
             </button>
           </div>

@@ -17,7 +17,7 @@
   />
   <button type="submit" class="button-icon-only">
     <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-      <use href="../vector-icons/icons.svg#icon-search"></use>
+      <use href="/../vector-icons/icons.svg#icon-search"></use>
     </svg>
   </button>
 </form>

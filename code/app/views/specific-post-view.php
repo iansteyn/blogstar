@@ -59,7 +59,7 @@ echo generateDocumentHead(
           data-post-id="<?= $postData['post_id']?>"
         >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-like-unfilled"></use> 
+            <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use> 
           </svg>
           Like
         </button>
@@ -71,7 +71,7 @@ echo generateDocumentHead(
           data-post-id="<?= $postData['post_id']?>"
         >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-like-filled"></use> 
+            <use href="/../vector-icons/icons.svg#icon-like-filled"></use> 
           </svg>
           Liked
         </button>
@@ -85,7 +85,7 @@ echo generateDocumentHead(
           data-post-id="<?= $postData['post_id']?>"
         >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-save-unfilled"></use> 
+            <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use> 
           </svg>
           Save
         </button>
@@ -97,7 +97,7 @@ echo generateDocumentHead(
           data-post-id="<?= $postData['post_id']?>"
         >
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-save-filled"></use> 
+            <use href="/../vector-icons/icons.svg#icon-save-filled"></use> 
           </svg>
           Saved
         </button>
@@ -110,7 +110,7 @@ echo generateDocumentHead(
             data-post-id="<?= $postData['post_id']?>"
           >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-edit"></use> 
+              <use href="/../vector-icons/icons.svg#icon-edit"></use> 
             </svg>
             Edit
           </button>
@@ -126,7 +126,7 @@ echo generateDocumentHead(
               data-post-id="<?= $postData['post_id']?>"
             >
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="../vector-icons/icons.svg#icon-delete"></use> 
+                <use href="/../vector-icons/icons.svg#icon-delete"></use> 
               </svg>
               Delete
             </button>
@@ -163,14 +163,14 @@ echo generateDocumentHead(
 
             <button class = "interaction-button" id="submit-button" type="submit" value="Post">
                 <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href = "../vector-icons/icons.svg#icon-comment"></use>
+                <use href = "/../vector-icons/icons.svg#icon-comment"></use>
                 </svg>
                 Post
             </button>
 
             <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
                 <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="../vector-icons/icons.svg#icon-delete"></use>
+                <use href="/../vector-icons/icons.svg#icon-delete"></use>
                 </svg>
                 Discard
             </button>
