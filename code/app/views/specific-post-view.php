@@ -117,17 +117,19 @@ echo generateDocumentHead(
 
       <?php if ($postData['belongs_to_current_user'] || $_SESSION['role'] === 'Admin'): ?>
         <!-- delete (if it is your own post) -->
-        <button
-          Title="Delete"
-          class="interaction-button delete-post-button"
-          type="button"
-          data-post-id="<?= $postData['post_id']?>"
-        >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-delete"></use> 
-          </svg>
-          Delete
-        </button>
+        <form method = "POST" action = "/post/delete/<?= $postId?>">
+          <button
+            Title="Delete"
+            class="interaction-button delete-post-button"
+            type="submit"
+            data-post-id="<?= $postData['post_id']?>"
+          >
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+              <use href="../vector-icons/icons.svg#icon-delete"></use> 
+            </svg>
+            Delete
+          </button>
+        </form>
       <?php endif; ?>
     </div>
 
