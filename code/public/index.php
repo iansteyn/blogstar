@@ -10,11 +10,13 @@ include __DIR__.'/../db_config/db_connect.php';
 $db = getDatabaseConnection();
 
 include __DIR__.'/../app/controllers/HomeController.php';
+include __DIR__.'/../app/controllers/ProfileController.php';
 include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
 include __DIR__.'/../app/controllers/CommentController.php';
 include __DIR__.'/../app/controllers/AdminController.php';
-$pageController = new HomeController($db);
+$homeController = new HomeController($db);
+$profileController = new profileController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
 $commentController = new commentController($db);
@@ -29,10 +31,10 @@ $route->add('/', function() {
     exit;
 });
 $route->add('/home', fn()=>
-    $pageController->home()
+    $homeController->home()
 );
 $route->add('/profile', fn()=>
-    $userController->profile()
+    $profileController->profile()
 );
 $route->add('/create', fn()=>
     $postController->create()
