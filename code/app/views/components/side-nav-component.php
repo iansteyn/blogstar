@@ -1,7 +1,11 @@
-<!-- side-nav-component.php
-==================
-Main navigation component. Include it in a <header> tag at the start of the body.
--->
+<?php
+/** side-nav-component
+ * This component expects the following variables:
+ * @var bool $isLoggedIn
+ * @var bool $isAdmin
+ */
+require_once __DIR__."/../../helpers/view-helpers.php";
+?>
 
 <nav id="side-nav">
 
@@ -17,11 +21,11 @@ Main navigation component. Include it in a <header> tag at the start of the body
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-home"></use></svg>
       <span class="nav-link-text">Home</span>
     </a>
-    <a class="nav-link" href="/profile"> <!-- TODO: remove no-access example once its dynamic -->
+    <a class="<?= hiddenIf(!$isLoggedIn) ?> nav-link" href="/profile">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-profile"></use></svg>
       <span class="nav-link-text">Profile</span>
     </a>
-    <a class="nav-link" href="/create">
+    <a class="<?= hiddenIf(!$isLoggedIn) ?> nav-link" href="/create">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-create"></use></svg>
       <span class="nav-link-text">Create</span>
     </a>
@@ -32,22 +36,22 @@ Main navigation component. Include it in a <header> tag at the start of the body
   </div>
 
   <div id="middle-links">
-    <a class="nav-link" href="/admin">
+    <a class="<?= hiddenIf(!$isAdmin) ?> nav-link" href="/admin">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-admin"></use></svg>
       <span class="nav-link-text">Admin</span>
     </a>
   </div>
 
   <div id="bottom-links">
-    <a class="nav-link" href="/login">
+    <a class="<?= hiddenIf($isLoggedIn) ?> nav-link" href="/login">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-login"></use></svg>
       <span class="nav-link-text">Login</span>
     </a>
-    <a class="nav-link" href="/register">
+    <a class="<?= hiddenIf($isLoggedIn) ?> nav-link" href="/register">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-register"></use></svg>
       <span class="nav-link-text">Register</span>
     </a>
-    <a class="nav-link" href="/logout" id="logout-link">
+    <a class="<?= hiddenIf(!$isLoggedIn) ?> nav-link" href="/logout" id="logout-link">
       <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-logout"></use></svg>
       <span class="nav-link-text">Logout</span>
     </a>
