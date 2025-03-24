@@ -113,7 +113,9 @@ echo generateDocumentHead(
           </svg>
           Edit
         </button>
+      <?php endif; ?>
 
+      <?php if ($postData['belongs_to_current_user'] || $_SESSION['role'] === 'Admin'): ?>
         <!-- delete (if it is your own post) -->
         <button
           Title="Delete"
