@@ -11,14 +11,7 @@
   <header>
     <?= generatePostingInfo($comment['username'], $comment['comment_date'])?>
     <div class="button-group-icon-only">
-      <?php if ($_SESSION['username'] === $comment['username']): ?>
-        <button class="button-icon-only" title="Edit">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="../vector-icons/icons.svg#icon-edit"></use>
-          </svg>
-        </button>
-      <?php endif; ?>
-      <?php if ($_SESSION['username'] === $comment['username'] || $_SESSION['role'] === 'admin'): ?>
+      <?php if ($postData['belongs_to_current_user'] || $_SESSION['role'] === 'admin'): ?>
         <form method="POST" action="/comment/delete/<?= $comment['comment_id'] ?>">
           <button class="button-icon-only delete-comment-button" title="Delete">
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
