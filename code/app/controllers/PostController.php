@@ -25,6 +25,8 @@ class PostController {
     public function blogPost($postId) {
         $postData = $this->postModel->getPostById($postId);
 
+        $postData['belongs_to_current_user'] = AuthService::belongsToCurrentUser($postData['username']);
+
         if (isset($_SESSION['username'])) {
             $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);
             $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);
@@ -39,6 +41,10 @@ class PostController {
 
         // getting the comments for the specific post
         $comments = $this->commentModel->getComments($postId);
+        foreach ($comments as &$comment) {
+            $comment['belongs_to_current_user'] = AuthService::belongsToCurrentUser($comment['username']);
+        }
+        unset($comment);
         // This view uses: $postData, $userData
         require __DIR__.'/../views/specific-post-view.php';
     }
