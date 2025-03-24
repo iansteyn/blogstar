@@ -56,7 +56,7 @@ class PostModel {
      * Array of postData arrays, each with keys {post_id, username, post_title, post_body, post_image, post_date},
      * ordered by most liked first (but only includes posts from the last week)
      */
-    public function getPopularPosts() {
+    public function getPopularPosts(): array {
         $statement = $this->db->query(<<<sql
             SELECT
                 posts.post_id AS post_id,
@@ -106,6 +106,29 @@ class PostModel {
                 saves.username = ?
             ORDER BY
                 save_date DESC
+        sql);
+        $statement->execute([$username]);
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
+        return $results;
+    }
+
+    /**
+     * @return array
+     * Array of postData arrays for a specific user,
+     * each with keys {post_id, username, post_title, post_body, post_image, post_date},
+     * ordered by most recent post_date first.
+     */
+    public function getUserPosts(string $username): array {
+        $statement = $this->db->prepare(<<<sql
+            SELECT *
+            FROM posts
+            WHERE username = ?
+            ORDER BY post_date DESC
         sql);
         $statement->execute([$username]);
 
