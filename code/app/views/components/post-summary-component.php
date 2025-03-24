@@ -81,8 +81,8 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
           </button>
         </div>
 
-        <?php if ($postData['belongs_to_current_user']): ?>
-          <div class="modify-buttons">
+        <div class="modify-buttons">
+          <?php if ($postData['belongs_to_current_user']): ?>
             <button
               title="Edit"
               class="button-icon-only edit-post-button"
@@ -92,6 +92,8 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
                 <use href="/../vector-icons/icons.svg#icon-edit"></use>
               </svg>
             </button>
+          <?php endif; ?>
+          <?php if ($postData['belongs_to_current_user'] or $isAdmin): ?>
             <button
               title="Delete"
               class="button-icon-only delete-post-button"
@@ -101,9 +103,11 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
                 <use href="/../vector-icons/icons.svg#icon-delete"></use>
               </svg>
             </button>
-          </div>
-        <?php endif; ?>
+          <?php endif; ?>
+        </div>
+
       </div>
     <?php endif; ?>
+
   </div>
 </article>
