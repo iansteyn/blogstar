@@ -81,26 +81,28 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
           </button>
         </div>
 
-        <div class="modify-buttons">
-          <button
-            title="Edit"
-            class="button-icon-only edit-post-button"
-            data-post-id="<?= $postData['post_id']?>"
-          >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-edit"></use>
-            </svg>
-          </button>
-          <button
-            title="Delete"
-            class="button-icon-only delete-post-button"
-            data-post-id="<?= $postData['post_id']?>"
-          >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="../vector-icons/icons.svg#icon-delete"></use>
-            </svg>
-          </button>
-        </div>
+        <?php if ($postData['belongs_to_current_user']): ?>
+          <div class="modify-buttons">
+            <button
+              title="Edit"
+              class="button-icon-only edit-post-button"
+              data-post-id="<?= $postData['post_id']?>"
+            >
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="../vector-icons/icons.svg#icon-edit"></use>
+              </svg>
+            </button>
+            <button
+              title="Delete"
+              class="button-icon-only delete-post-button"
+              data-post-id="<?= $postData['post_id']?>"
+            >
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="../vector-icons/icons.svg#icon-delete"></use>
+              </svg>
+            </button>
+          </div>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
   </div>

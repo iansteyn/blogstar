@@ -33,6 +33,7 @@ class ProfileController {
 
         $postDataList = $this->postModel->getUserPosts($username);
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -51,6 +52,7 @@ class ProfileController {
         $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
 
         foreach ($postDataList as &$postData) {
+            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
