@@ -9,12 +9,12 @@ Here, we set-up URL routing, so that all of our pages can be viewed without need
 include __DIR__.'/../db_config/db_connect.php';
 $db = getDatabaseConnection();
 
-include __DIR__.'/../app/controllers/PagesController.php';
+include __DIR__.'/../app/controllers/HomeController.php';
 include __DIR__.'/../app/controllers/UserController.php';
 include __DIR__.'/../app/controllers/PostController.php';
 include __DIR__.'/../app/controllers/CommentController.php';
 include __DIR__.'/../app/controllers/AdminController.php';
-$pageController = new PagesController($db);
+$pageController = new HomeController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
 $commentController = new commentController($db);

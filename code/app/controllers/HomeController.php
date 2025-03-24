@@ -2,7 +2,7 @@
 require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
-class PagesController {
+class HomeController {
     private $postModel;
     private $saveModel;
     private $likeModel;
