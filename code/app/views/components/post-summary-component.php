@@ -7,7 +7,7 @@
 require_once __DIR__."/../../helpers/view-helpers.php";
 $postData = sanitizeData($postData);
 
-$blogPostLink = "blog-post/".$postData['post_id'];
+$blogPostLink = "/blog-post/".$postData['post_id'];
 $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 ?>
 

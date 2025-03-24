@@ -25,7 +25,7 @@
         <?php include __DIR__."/components/search-bar-component.php" ?>
       </div>
       <nav class="tab-group">
-        <form method="post">
+        <form method="get">
           <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/home/recent">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
             Recent
