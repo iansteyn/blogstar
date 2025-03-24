@@ -13,7 +13,7 @@ const logoutLink = document.getElementById("logout-link");
 logoutLink.addEventListener("click", function(event) {
     event.preventDefault();
     if(confirm("Are you sure you want to log out?")) {
-        window.location.href = "logout";
+        window.location.href = "/logout";
     }
 });
 
@@ -23,10 +23,26 @@ logoutLink.addEventListener("click", function(event) {
 // ---------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
 const currentPage = window.location.href.split("?")[0];
+const currentPagePath = new URL(currentPage).pathname;
 
-for (navLink of navLinks) {
-    if ((navLink.href  === currentPage) && (navLink.id != "nav-logo")) {
-        navLink.classList.add("current-page");
+if (['/home/recent', '/home/popular', '/home/saved'].includes(currentPagePath)) {
+    const homeLink = document.querySelectorAll(".nav-link[href='/home']")[1];
+    homeLink.classList.add("current-page");
+}
+else if (['/profile/posts', '/profile/saved', '/profile/settings'].includes(currentPagePath)) {
+    const profileLink = document.querySelector(".nav-link[href='/profile']");
+    console.log(profileLink);
+    profileLink.classList.add("current-page");
+}
+else if ('/post/create' == currentPagePath) {
+    const createLink = document.querySelector(".nav-link[href='/create']");
+    createLink.classList.add("current-page");
+}
+else {
+    for (navLink of navLinks) {
+        if ((navLink.href  == currentPage) && (navLink.id != "nav-logo")) {
+            navLink.classList.add("current-page");
+        }
     }
 }
 

@@ -22,30 +22,26 @@ class PostController {
         $this->commentModel = new CommentModel($db);
     }
 
+    /**
+     * Gets data for this postId, and gives it to the view.
+     */
     public function blogPost($postId) {
-        $postData = $this->postModel->getPostById($postId);
+        $isLoggedIn = AuthService::isLoggedIn();
+        $isAdmin = AuthService::isAdmin();
 
+        $postData = $this->postModel->getPostById($postId);
+        $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         $postData['belongs_to_current_user'] = AuthService::belongsToCurrentUser($postData['username']);
 
-        if (isset($_SESSION['username'])) {
-            $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postId);
-            $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postId);
-        }
-        else {
-            $postData['is_liked'] = false;
-            $postData['is_saved'] = false;
-        }
-        
-
         $userData = $this->userModel->getUserByUsername($postData['username']);
-
-        // getting the comments for the specific post
         $comments = $this->commentModel->getComments($postId);
+      
         foreach ($comments as &$comment) {
             $comment['belongs_to_current_user'] = AuthService::belongsToCurrentUser($comment['username']);
         }
         unset($comment);
-        // This view uses: $postData, $userData
+
+        // This view uses: $postData, $userData, $comments, $isLoggedIn, $isAdmin
         require __DIR__.'/../views/specific-post-view.php';
     }
 
@@ -54,21 +50,25 @@ class PostController {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // This view uses: $isLoggedIn, $isAdmin
             require __DIR__.'/../views/create-view.php';
             return;
         }
         // Otherwise, handle the submission:
         
-            //ammend this to hard-coded as needed
-            $this->postModel->createPost([
-                'username'   => $_SESSION['username'],
-                'post_title' => $_POST['post-title'],
-                'post_body'  => $_POST['post-body'],
-                'post_image' => $_FILES['post-image']
+        //ammend this to hard-coded as needed
+        $this->postModel->createPost([
+            'username'   => $_SESSION['username'],
+            'post_title' => $_POST['post-title'],
+            'post_body'  => $_POST['post-body'],
+            'post_image' => $_FILES['post-image']
 
-            ]);
-            header('Location: /profile');
-            exit;
+        ]);
+        header('Location: /profile');
+        exit;
         
     }
 

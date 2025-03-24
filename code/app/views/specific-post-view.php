@@ -23,9 +23,9 @@ echo generateDocumentHead(
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="/profile">Sadie Smith's Profile</a>
+        <a href="/profile/<?= $userData['username'] ?>"><?= $userData['username'] ?>'s Profile</a>
         &gt;
-        <a href="/#">This blog post</a>
+        <a href="/#"><?= $postData['post_title'] ?></a>
       </span>
     </header>
     <article class="panel blog-panel">

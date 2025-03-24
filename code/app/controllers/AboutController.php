@@ -1,16 +1,13 @@
 <?php
 require_once __DIR__.'/../authentication/AuthService.php';
 
-class AdminController {
-    public function admin() {
-        AuthService::requireAuth(['admin']);
-
+class AboutController {
+    public function about() {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
         // This view uses: $isLoggedIn, $isAdmin
-        require __DIR__.'/../views/admin-view.php';
+        require_once __DIR__."/../views/about-view.php";
     }
 }
-
 ?>

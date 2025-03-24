@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__.'/../models/UserModel.php';
-include __DIR__.'/../authentication/AuthService.php';
+require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../authentication/AuthService.php';
 
 class UserController {
     private $userModel;
@@ -10,18 +10,13 @@ class UserController {
         $this->userModel = new UserModel($db);
     }
 
-    function profile() {
-        $userData = $this->userModel->getUserByUsername($_SESSION['username']);
-        AuthService::requireAuth(['registered','admin']);
-
-        // This view uses: $userData
-        require __DIR__.'/../views/profile-view.php';
-    }
-    
-
     public function register() {
         // If form is not submitted, just display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // this view uses: $isLoggedIn, $isAdmin
             require __DIR__.'/../views/register-view.php';
         }
         else {
@@ -52,6 +47,10 @@ class UserController {
     public function login() {
         // If form is not submitted, display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // this view uses: $isLoggedIn, $isAdmin
             require __DIR__.'/../views/login-view.php';
         }
         // Otherwise, handle the submission:

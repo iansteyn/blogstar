@@ -6,21 +6,27 @@ This is the website's "root".
 Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
 */
 
-include __DIR__.'/../db_config/db_connect.php';
+require_once __DIR__.'/../db_config/db_connect.php';
 $db = getDatabaseConnection();
 
-include __DIR__.'/../app/controllers/PagesController.php';
-include __DIR__.'/../app/controllers/UserController.php';
-include __DIR__.'/../app/controllers/PostController.php';
-include __DIR__.'/../app/controllers/CommentController.php';
-include __DIR__.'/../app/controllers/AdminController.php';
-$pageController = new PagesController($db);
+require_once __DIR__.'/../app/controllers/HomeController.php';
+require_once __DIR__.'/../app/controllers/ProfileController.php';
+require_once __DIR__.'/../app/controllers/UserController.php';
+require_once __DIR__.'/../app/controllers/PostController.php';
+require_once __DIR__.'/../app/controllers/CommentController.php';
+require_once __DIR__.'/../app/controllers/AdminController.php';
+require_once __DIR__.'/../app/controllers/SearchController.php';
+require_once __DIR__.'/../app/controllers/AboutController.php';
+$homeController = new HomeController($db);
+$profileController = new ProfileController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
 $commentController = new commentController($db);
 $adminController = new AdminController($db);
+$searchController = new SearchController($db);
+$aboutController = new AboutController();
 
-include __DIR__.'/../app/routing/route.php';
+require_once __DIR__.'/../app/routing/route.php';
 $route = new Route();
 
 // SIDE-NAV TOP
@@ -28,17 +34,44 @@ $route->add('/', function() {
     header('Location: /home');
     exit;
 });
+
 $route->add('/home', fn()=>
-    $pageController->home()
+    $homeController->recent()
 );
+$route->add('/home/recent', fn()=>
+    $homeController->recent()
+);
+$route->add('/home/popular', fn()=>
+    $homeController->popular()
+);
+$route->add('/home/saved', fn()=>
+    $homeController->saved()
+);
+
 $route->add('/profile', fn()=>
-    $userController->profile()
+    $profileController->posts()
 );
+$route->add('/profile/posts', fn()=>
+    $profileController->posts()
+);
+$route->add('/profile/saved', fn()=>
+    $profileController->saved()
+);
+$route->add('/profile/settings', fn()=>
+    $profileController->settings()
+);
+$route->add('/profile/.+/posts', fn($username)=>
+    $profileController->posts($username)
+);
+$route->add('/profile/.+', fn($username)=>
+    $profileController->posts($username)
+);
+
 $route->add('/create', fn()=>
     $postController->create()
 );
 $route->add('/search', fn()=>
-    require __DIR__ . '/../app/views/search-view.php'
+    $searchController->search()
 );
 
 // SIDE-NAVE MIDDLE
@@ -54,7 +87,7 @@ $route->add('/register', fn()=>
     $userController->register()
 );
 $route->add('/about', fn()=>
-    require __DIR__ . '/../app/views/about-view.php'
+    $aboutController->about()
 );
 $route->add('/logout', fn()=>
     $userController->logout()
@@ -89,6 +122,10 @@ $route->add('/post/delete/.+', fn($postId) =>
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
+// $route->add('/.+', function() {
+//     header('Location: /error');
+//     exit;
+// });
 
 $route->submit();
 ?>

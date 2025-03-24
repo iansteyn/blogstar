@@ -9,6 +9,7 @@ Styles for the side navigation bar.
     background-color: var(--accent-primary);
 
     width:fit-content;
+    min-width: 7.5em;
     height: 100%;
     min-height: 100vh;
     max-height: 100vh;
@@ -23,6 +24,9 @@ Styles for the side navigation bar.
     display: grid;
     grid-template-rows: auto auto auto 1fr auto;
     gap: 1em;
+}
+#side-nav:has(.collapsed) {
+    min-width: 0;
 }
 
 #logo-container {

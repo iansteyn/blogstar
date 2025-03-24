@@ -53,6 +53,39 @@ class PostModel {
 
     /**
      * @return array
+     * Array of postData arrays, each with keys {post_id, username, post_title, post_body, post_image, post_date},
+     * ordered by most liked first (but only includes posts from the last week)
+     */
+    public function getPopularPosts(): array {
+        $statement = $this->db->query(<<<sql
+            SELECT
+                posts.post_id AS post_id,
+                posts.username AS username,
+                post_title,
+                post_body,
+                post_image,
+                post_date
+            FROM posts
+                JOIN likes
+                ON posts.post_id = likes.post_id
+            WHERE
+                post_date >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
+            GROUP BY
+                posts.post_id
+            ORDER BY
+                COUNT(likes.post_id) DESC, post_date DESC
+        sql);
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
+        return $results;
+    }
+
+    /**
+     * @return array
      * Array of postData arrays for posts saved by this user,
      * each with keys {post_id, username, post_title, post_body, post_image, post_date},
      * ordered by most recent save_date first.
@@ -77,6 +110,33 @@ class PostModel {
         $statement->execute([$username]);
 
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
+        return $results;
+    }
+
+    /**
+     * @return array
+     * Array of postData arrays for a specific user,
+     * each with keys {post_id, username, post_title, post_body, post_image, post_date},
+     * ordered by most recent post_date first.
+     */
+    public function getUserPosts(string $username): array {
+        $statement = $this->db->prepare(<<<sql
+            SELECT *
+            FROM posts
+            WHERE username = ?
+            ORDER BY post_date DESC
+        sql);
+        $statement->execute([$username]);
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
         return $results;
     }
 

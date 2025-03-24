@@ -20,15 +20,7 @@
       <section class="search">
         <?php include __DIR__."/components/search-bar-component.php" ?>
       </section>
-      <ul id="search-results" class="search-results">
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-        <li><?php include __DIR__."/components/post-summary-component.php" ?></li>
-      </ul>
+      <p>Note: full search functionality is coming in milestone 4</p>
     </div>
   </main>
 </body>

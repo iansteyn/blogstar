@@ -4,7 +4,7 @@
     echo generateDocumentHead(
         'My Profile',
         ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
-        ['tabs.js', 'post-interaction.js']
+        ['post-interaction.js']
     );
 ?>
 
@@ -14,36 +14,42 @@
   </header>
   <main>
     <header>
-      <h1 class="page-header">My Profile</h1>
+      <h1 class="page-header"><?= $userData['username']?>'s Profile</h1>
       <nav class="tab-group">
-        <button class="tab active" value="posts">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
-          Posts
-        </button>
-        <button class="tab" value="saved">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
-          Saved
-        </button>
-        <button class="tab" value="settings">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
-          Settings
-        </button>
+        <form method="get">
+          <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-post"></use></svg>
+            Posts
+          </button>
+          <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/profile/saved">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+            Saved
+          </button>
+          <button class="tab <?= isTabActive('settings', $activeTab) ?>" formaction="/profile/settings">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="../vector-icons/icons.svg#icon-settings"></use></svg>
+            Settings
+          </button>
+        </form>
       </nav>
     </header>
 
-    <div class="subpage-group">
-      <div class="subpage" id="posts">
-        <?php include __DIR__."/components/post-list.php" ?>
-      </div>
-      <div class="subpage hidden" id="saved">
-        <?php include "../temporary/post-list-3.php" ?>
-      </div>
-      <div class="subpage hidden" id="settings">
+    <?php if ($activeTab != 'settings'): ?>
+        <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
+            <?php
+            if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
+                echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+            }
+            else {
+                foreach ($postDataList as $postData) {
+                    // This component uses: $postData
+                    include __DIR__."/components/post-summary-component.php";
+                }
+            }
+            ?>
+        </article>
+    <?php else: ?>
         <form id="user-settings" class="panel account-form" method="post" action="#" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="update-user-id">Update user id</label>
-            <input type="text" id="update-user-id" placeholder="Update your user id" />
-          </div>
+          <p>Note: full user settings functionality will be added in Milestone 4</p>
           <div class="form-group">
             <label for="update-password">Update password</label>
             <input type="password" id="update-password" placeholder="Update your password" />
@@ -62,11 +68,14 @@
           </div>
           <button type="submit">Update user settings</button>
         </form>
-      </div>
-    </div>
+    <?php endif; ?>
   </main>
+
   <aside>
-    <?php include __DIR__."/components/user-bio-component.php" ?>
+    <?php
+        // this component uses: $userData
+        include __DIR__."/components/user-bio-component.php"
+    ?>
   </aside>
 </body>
 
