@@ -8,14 +8,22 @@ Performs the following actions:
 - confirmation pop up on discarding comment
 -------------------------------------- */
 
-const deleteCommentButton = document.getElementById("delete-comment-button");
-deleteCommentButton.addEventListener("click", ()=> deleteComment());
+const deleteCommentButtons = document.querySelectorAll(".delete-comment-button");
+deleteCommentButtons.forEach(button => {
+    button.addEventListener("click", (event) => deleteComment(event));
+});
 
 const discardCommentButton = document.getElementById("discard-comment-button");
-discardCommentButton.addEventListener("click", ()=> discardComment());
+if (discardCommentButton) {
+    discardCommentButton.addEventListener("click", () => discardComment());
+}
 
-function deleteComment(){
-  confirm("Are you sure you want to delete this comment?");
+function deleteComment(event) {
+    event.preventDefault();
+    const confirmDelete = confirm("Are you sure you want to delete this comment?");
+    if (confirmDelete) {
+        event.target.closest("form").submit();
+    }
 }
 
 function discardComment(){
