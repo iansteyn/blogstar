@@ -48,10 +48,25 @@ $route->add('/home/saved', fn()=>
     $homeController->saved()
 );
 
-
 $route->add('/profile', fn()=>
-    $profileController->profile()
+    $profileController->posts()
 );
+$route->add('/profile/posts', fn()=>
+    $profileController->posts()
+);
+$route->add('/profile/saved', fn()=>
+    $profileController->saved()
+);
+$route->add('/profile/settings', fn()=>
+    $profileController->settings()
+);
+$route->add('/profile/+./posts', fn($username)=>
+    $profileController->posts($username)
+);
+$route->add('/profile/+.', fn($username)=>
+    $profileController->posts($username)
+);
+
 $route->add('/create', fn()=>
     $postController->create()
 );
