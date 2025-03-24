@@ -30,11 +30,11 @@ class ProfileController {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
-        // $postDataList = $this->postModel->getUserPosts($username);
-        // foreach ($postDataList as &$postData) {
-        //     $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
-        // }
-        // unset($postData);
+        $postDataList = $this->postModel->getUserPosts($username);
+        foreach ($postDataList as &$postData) {
+            $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
+        }
+        unset($postData);
 
         // This view uses: $userData, $isLoggedIn, $isAdmin
         require __DIR__.'/../views/profile-view.php';
