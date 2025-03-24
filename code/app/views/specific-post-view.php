@@ -23,7 +23,7 @@ echo generateDocumentHead(
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="/profile/<?= $userData['username'] ?>"><?= $userData['username'] ?>'s Profile</a>
+        <a href="/profile/posts/<?= $userData['username'] ?>">@<?= $userData['username'] ?>'s profile</a>
         &gt;
         <a href="/#"><?= $postData['post_title'] ?></a>
       </span>
