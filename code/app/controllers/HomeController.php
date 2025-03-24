@@ -60,33 +60,21 @@ class HomeController {
 
     public function saved() {
         AuthService::requireAuth(['registered', 'admin']);
+
         $activeTab = "saved";
-        $postDataList = [];
+        $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
+
+        foreach ($postDataList as &$postData) {
+            $postData = $this->setLikeAndSaveStatus($postData);
+        }
+        unset($postData);
+
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
         // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
         require __DIR__.'/../views/home-view.php';
     }
-
-    // if (isset($_SESSION['username'])) {
-        //     $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
-
-            
-        //     foreach ($savedPostsData as &$postData) {
-        //         $this->setLikeAndSaveStatus($postData);
-        //     }
-        //     unset($postData); //required to remove the &reference binding
-        // }
-        // else {
-        //     $savedPostsData = [];
-
-        //     foreach ($recentPostsData as &$postData) {
-        //         $postData['is_liked'] = false;
-        //         $postData['is_saved'] = false;
-        //     }
-        //     unset($postData);
-        // }
 }
 
 ?>
