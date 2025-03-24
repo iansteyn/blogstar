@@ -14,7 +14,7 @@
   </header>
   <main>
     <header>
-      <h1 class="page-header">My Profile</h1>
+      <h1 class="page-header"><?= $userData['username']?>'s Profile</h1>
       <nav class="tab-group">
         <form method="get">
           <button class="tab <?= isTabActive('posts', $activeTab) ?>" formaction="/profile/posts">
