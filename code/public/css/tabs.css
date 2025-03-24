@@ -36,6 +36,6 @@
     fill: var(--text-primary);
 }
 
-.subpage:first-child .post-list {
+.left-most-subpage {
     border-top-left-radius: 0;
 }

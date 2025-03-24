@@ -26,16 +26,16 @@
       </div>
       <nav class="tab-group">
         <form method="post">
-          <button class="tab <?= isTabActive('recent', $activeTab) ?>" value="recent" formaction="/home/recent">
+          <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/home/recent">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
             Recent
           </button>
-          <button class="tab <?= isTabActive('popular', $activeTab) ?>" value="popular" formaction="/home/popular">
+          <button class="tab <?= isTabActive('popular', $activeTab) ?>" formaction="/home/popular">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
             Popular
           </button>
           <?php if ($isLoggedIn): ?>
-            <button class="tab <?= isTabActive('saved', $activeTab) ?>" value="saved" formaction="/home/saved">
+            <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/home/saved">
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
               Saved
             </button>
@@ -44,23 +44,19 @@
       </nav>
     </header>
 
-    <div class="subpage-group">
-      <div class="subpage">
-       <article class="panel post-list">
-          <?php
-            if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-                echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+    <article class="panel post-list <?= ($activeTab == 'recent') ? "left-most-subpage" : "" ?> ">
+        <?php
+        if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
+            echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+        }
+        else {
+            foreach ($postDataList as $postData) {
+                // This component uses: $postData
+                include __DIR__."/components/post-summary-component.php";
             }
-            else {
-                foreach ($postDataList as $postData) {
-                    // This component uses: $postData
-                    include __DIR__."/components/post-summary-component.php";
-                }
-            }
-          ?>
-        </article>
-      </div>
-    </div>
+        }
+        ?>
+    </article>
 
   </main>
 </body>
