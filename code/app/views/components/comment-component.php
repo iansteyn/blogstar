@@ -19,7 +19,7 @@
         </button>
       <?php endif; ?>
       <?php if ($_SESSION['username'] === $comment['username'] || $_SESSION['role'] === 'admin'): ?>
-        <form method="POST" action="/comment/delete/<?= $comment['comment_id'] ?>">
+        <form method="POST" action="comment/delete/<?= $comment['comment_id'] ?>">
           <button class="button-icon-only" id="delete-comment-button" title="Delete">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
               <use href="../vector-icons/icons.svg#icon-delete"></use>
