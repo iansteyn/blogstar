@@ -26,6 +26,28 @@ class UserModel {
         return $result ?: null;
     }
     
+    /**
+     * Check if a user already exists with the username or email
+     * 
+     * @param string $username
+     * @param string $email
+     * @return bool true if the username or email exists, false otherwise
+     */
+    public function checkUserExists($username, $email): bool {
+        $statement = $this->db->prepare(<<<SQL
+            SELECT COUNT(*)
+            FROM users
+            WHERE username = ? OR email = ?
+        SQL);
+        $statement->execute([$username, $email]);
+        $result = $statement->fetchColumn();
+
+        if ($result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Creates a user in the database.
