@@ -75,7 +75,7 @@ $route->add('/save/.+', fn($postId) =>
 $route->add('/comment/create/.+', fn($postId) =>
     $commentController->create($postId)
 );
-$route->add('comment/delete/.+', fn($commentId) =>
+$route->add('/comment/delete/.+', fn($commentId) =>
     $commentController->delete($commentId)
 );
 
