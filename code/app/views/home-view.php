@@ -34,10 +34,12 @@
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
             Popular
           </button>
-          <button class="tab <?= isTabActive('saved', $activeTab) ?>" value="saved" formaction="/home/saved">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
-            Saved
-          </button>
+          <?php if ($isLoggedIn): ?>
+            <button class="tab <?= isTabActive('saved', $activeTab) ?>" value="saved" formaction="/home/saved">
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+              Saved
+            </button>
+          <?php endif; ?>
         </form>
       </nav>
     </header>
