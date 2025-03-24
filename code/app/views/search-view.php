@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <?php include __DIR__."/components/side-nav-component.php" ?>
+    <?php require_once __DIR__."/components/side-nav-component.php" ?>
   </header>
   <main>
     <header class="page-header">
@@ -18,7 +18,11 @@
     </header>
     <div class="panel">
       <section class="search">
-        <?php include __DIR__."/components/search-bar-component.php" ?>
+        <?php
+            $searchAction = '/search';
+            // this component uses: $searchAction
+            include __DIR__."/components/search-bar-component.php";
+        ?>
       </section>
       <p>Note: full search functionality is coming in milestone 4</p>
     </div>
