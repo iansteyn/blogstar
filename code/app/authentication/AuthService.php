@@ -22,6 +22,13 @@ class AuthService {
     }
   }
 
+  /**
+   * @return bool true if client is logged in, false otherwise
+   */
+  public static function isLoggedIn(): bool {
+    return (isset($_SESSION['username']) and ! empty($_SESSION['username']));
+  }
+
   public static function belongsToCurrentUser(string $username): bool {
     return isset($_SESSION['username']) && $_SESSION['username'] === $username;
   } 
