@@ -30,9 +30,21 @@ $route->add('/', function() {
     header('Location: /home');
     exit;
 });
+
 $route->add('/home', fn()=>
-    $homeController->home()
+    $homeController->recent()
 );
+$route->add('/home/recent', fn()=>
+    $homeController->recent()
+);
+// $route->add('/home/popular', fn()=>
+//     $homeController->popular()
+// );
+// $route->add('/home/saved', fn()=>
+//     $homeController->saved()
+// );
+
+
 $route->add('/profile', fn()=>
     $profileController->profile()
 );
