@@ -115,7 +115,7 @@ echo generateDocumentHead(
         </button>
       <?php endif; ?>
 
-      <?php if ($postData['belongs_to_current_user'] || $_SESSION['role'] === 'Admin'): ?>
+      <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
         <!-- delete (if it is your own post) -->
         <form method = "POST" action = "/post/delete/<?= $postId?>">
           <button
