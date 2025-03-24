@@ -18,9 +18,16 @@ class HomeController {
      * @param array &$postData post data array passed by reference
      * @return void
      */
-    private function setLikeAndSaveStatus(array &$postData): void {
-        $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postData['post_id']);
-        $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postData['post_id']);
+    private function setLikeAndSaveStatus(array $postData): array {
+        if (isset($_SESSION['username'])) {
+            $postData['is_liked'] = $this->likeModel->userHasLikedPost($_SESSION['username'], $postData['post_id']);
+            $postData['is_saved'] = $this->saveModel->userHasSavedPost($_SESSION['username'], $postData['post_id']);
+        }
+        else {
+            $postData['is_liked'] = false;
+            $postData['is_saved'] = false;
+        }
+        return $postData;
     }
 
     public function recent() {
@@ -28,8 +35,9 @@ class HomeController {
         $postDataList = $this->postModel->getRecentPosts();
 
         foreach ($postDataList as &$postData) {
-            $this->setLikeAndSaveStatus($postData);
+            $postData = $this->setLikeAndSaveStatus($postData);
         }
+        unset($postData);
 
         // if (isset($_SESSION['username'])) {
         //     $savedPostsData = $this->postModel->getSavedPosts($_SESSION['username']);
