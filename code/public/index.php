@@ -72,10 +72,10 @@ $route->add('/like/.+', fn($postId) =>
 $route->add('/save/.+', fn($postId) =>
     $postController->toggleSave($postId)
 );
-$route->add('/comment/.+', fn($postId) =>
+$route->add('/comment/create/.+', fn($postId) =>
     $commentController->create($postId)
 );
-$route->add('/comment/delete/.+', fn($commentId) =>
+$route->add('comment/delete/.+', fn($commentId) =>
     $commentController->delete($commentId)
 );
 
