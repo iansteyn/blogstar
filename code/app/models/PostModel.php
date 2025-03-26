@@ -140,6 +140,41 @@ class PostModel {
         return $results;
     }
 
+    /**
+     * @param array $keywords Array of strings, any of which can match the title
+     * @return array a list of posts with all the normal keys, ordered by number of matches first
+     */
+    public function getSearchedPosts(array $keywords = ['weekend', 'hik']): array {
+
+        // PREPARE SQL STATEMENT
+        $matchCalculationParts = array_fill(0, count($keywords), 'IF(post_title LIKE ?, 1, 0)');
+        $whereClauseParts = array_fill(0, count($keywords), 'post_title LIKE ?');
+
+        $matchCalculation = implode(' + ', $matchCalculationParts);
+        $whereClause = implode(' OR ', $whereClauseParts);
+
+        $statement =$this->db->prepare(<<<sql
+            SELECT *, ($matchCalculation) AS num_matches
+            FROM posts
+            WHERE $whereClause
+            ORDER BY num_matches DESC, post_date DESC
+        sql);
+
+        // BIND VALUES AND EXECUTE STATEMENT
+        $values = [];
+        foreach ($keywords as $keyword) {
+            $values[] = "%$keyword%";
+        }
+
+        // Note: values must be bound twice; once for matchCalculation and once for whereClause
+        $valuesTwice = array_merge($values, $values); 
+        $statement->execute($valuesTwice); 
+
+        // GET RESULT
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function createPost(array $postData) {
         //write out all details of the post
         $imageBlob = file_get_contents($postData['post_image']['tmp_name']);
