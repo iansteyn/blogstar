@@ -42,15 +42,20 @@ echo generateDocumentHead(
             Press "Enter" or click the search icon to submit your query.
         </div>
       <?php else: ?>
-        <h3 class='search-message'>
-          <?= empty($postDataList) ? ':( No' :  'Showing' ?>
-          results for "<?= $searchValue ?>"
-        </h3>
+        <div class='search-message result-message'>
+          <h3>
+            <?= empty($postDataList) ? ':( No' :  'Showing' ?>
+            results for "<?= $searchValue ?>"
+          </h3>
+          <a class='clear-link' href='/search'>
+            Clear
+          </a>
+        </div>
         <?php
-            foreach ($postDataList as $postData) {
-                // This component uses: $postData
-                include __DIR__."/components/post-summary-component.php";
-            }
+          foreach ($postDataList as $postData) {
+            // This component uses: $postData
+            include __DIR__."/components/post-summary-component.php";
+          }
         ?>
       <?php endif; ?>
     </div>

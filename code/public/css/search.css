@@ -13,4 +13,14 @@ Search BAR styes are in main.css
 
 .search-message {
     margin-top: 1.5em;
+    display: flex;
+    justify-content:space-between;
+}
+
+.clear-link {
+    text-decoration: none;
+}
+.clear-link:hover {
+    font-weight: bold;
+    text-decoration:underline;
 }
