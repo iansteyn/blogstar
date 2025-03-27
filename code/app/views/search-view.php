@@ -25,14 +25,11 @@ echo generateDocumentHead(
         <h1>Search posts by keyword</h1>
     </header>
     <div class="panel">
-      <section class="search">
-        <?php
-            $searchAction = '/search';
-            // this component uses: $searchAction
-            include __DIR__."/components/search-bar-component.php";
-        ?>
-      </section>
-      <p>Note: full search functionality is coming in milestone 4</p>
+      <?php
+          $searchAction = '/search';
+          // this component uses: $searchAction
+          include __DIR__."/components/search-bar-component.php";
+      ?> 
     </div>
   </main>
 </body>
