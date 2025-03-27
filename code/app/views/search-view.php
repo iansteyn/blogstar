@@ -5,6 +5,7 @@
  * @var bool $isLoggedIn
  * @var bool $showResults
  * @var array $postDataList
+ * @var string $searchValue
  */
 
 require_once __DIR__."/../helpers/view-helpers.php";
@@ -27,21 +28,23 @@ echo generateDocumentHead(
     <header class="page-header">
         <h1>Search blog posts</h1>
     </header>
+
     <div class="panel post-list">
       <?php
           $searchAction = '/search';
-          // this component uses: $searchAction
+          // this component uses: $searchAction, $searchValue
           include __DIR__."/components/search-bar-component.php";
       ?>
+
       <?php if (! $showResults): ?>
         <div class='search-message help-message'>
-            You can search for blog posts using one or more keywords, seperated by spaces.
+            You can search for blog post titles using one or more keywords, seperated by spaces.
             Press "Enter" or click the search icon to submit your query.
         </div>
       <?php else: ?>
         <h3 class='search-message'>
           <?= empty($postDataList) ? ':( No' :  'Showing' ?>
-          results for: TODO insert terms var
+          results for "<?= $searchValue ?>"
         </h3>
         <?php
             foreach ($postDataList as $postData) {

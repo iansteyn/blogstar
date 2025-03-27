@@ -21,11 +21,13 @@ class SearchController {
         $isAdmin = AuthService::isAdmin();
         $showResults = false;
         $postDataList = [];
+        $searchValue = '';
 
         if (isset($_GET['terms'])) {
             $showResults = true;
+            $searchValue = $_GET['terms'];
 
-            $keywords = explode(' ', $_GET['terms']);
+            $keywords = explode(' ', $searchValue);
             $postDataList = $this->postModel->getSearchedPosts($keywords);
 
             foreach ($postDataList as &$postData) {
@@ -35,7 +37,7 @@ class SearchController {
             unset($postData);
         }
 
-        // This view uses: $isLoggedIn, $isAdmin, $showResults, $postDataList
+        // This view uses: $isLoggedIn, $isAdmin, $showResults, $postDataList, $searchValue
         require_once __DIR__."/../views/search-view.php";
     }
 }
