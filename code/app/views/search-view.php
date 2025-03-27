@@ -22,15 +22,20 @@ echo generateDocumentHead(
   </header>
   <main>
     <header class="page-header">
-        <h1>Search posts by keyword</h1>
+        <h1>Search blog posts</h1>
     </header>
     <div class="panel">
       <?php
           $searchAction = '/search';
           // this component uses: $searchAction
           include __DIR__."/components/search-bar-component.php";
-      ?> 
+      ?>
+      <div class='help-message'>
+        You can search for blog posts using one or more keywords, seperated by spaces.
+        Press "Enter" or click the search icon to submit your query.
+      </div>
     </div>
+
   </main>
 </body>
 

@@ -9,11 +9,11 @@ Search BAR styes are in main.css
     gap: 1rem;
 }
 
-.search-bar-container {
-    padding: 1.5rem;
-    padding-top: 0;
-}
-
 .search-bar {
     background-color: var(--background-primary);
+}
+
+.help-message {
+    margin-top: 1.5em;
+    font-style: italic;
 }
