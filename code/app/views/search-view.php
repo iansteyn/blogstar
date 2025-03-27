@@ -1,11 +1,19 @@
 <?php
-    require_once __DIR__."/../helpers/view-helpers.php";
+/**
+ * This view requires the following variables:
+ * @var bool $isAdmin
+ * @var bool $isLoggedIn
+ * @var bool $showResults
+ * @var array $postDataList
+ */
 
-    echo generateDocumentHead(
-        'Search',
-        ['search.css', 'post-list.css'],
-        ['post-interaction.js']
-    );
+require_once __DIR__."/../helpers/view-helpers.php";
+
+echo generateDocumentHead(
+    'Search',
+    ['search.css', 'post-list.css'],
+    ['post-interaction.js']
+);
 ?>
 
 <body>
@@ -14,7 +22,7 @@
   </header>
   <main>
     <header class="page-header">
-        <h1>Search</h1>
+        <h1>Search posts by keyword</h1>
     </header>
     <div class="panel">
       <section class="search">
