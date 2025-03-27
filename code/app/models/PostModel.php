@@ -170,9 +170,13 @@ class PostModel {
         $valuesTwice = array_merge($values, $values); 
         $statement->execute($valuesTwice); 
 
-        // GET RESULT
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        // GET RESULTS
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as &$result) {
+            $result['post_image'] = addImageMimeType($result['post_image']);
+        }
+        unset($result);
+        return $results;
     }
 
     public function createPost(array $postData) {
