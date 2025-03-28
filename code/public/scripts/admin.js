@@ -14,7 +14,9 @@ searchInput.addEventListener('input', ()=> handleSearchInput());
 function handleSearchInput() {
     let searchTerm = searchInput.value;
 
-    fetch(`/admin/search-users?terms=${encodeURIComponent(searchTerm)}`)
+    fetch(                              // send request to server
+        `/admin/search-users?terms=${encodeURIComponent(searchTerm)}`
+    )
     .then(response =>                   // Recieve response from server
         response.json()
     )
@@ -39,5 +41,5 @@ function updateUserList(usernames) {
             </li>
         `
     }
-    userList.innerHTML = userListInside;
+    userList.innerHTML = listItems;
 }
