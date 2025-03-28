@@ -15,10 +15,16 @@ class AdminController {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
+        if (!isset($_GET['terms'])) {
+            $usernames = $this->userModel->getAllUsernames();
+        }
+        else {
+            $searchValue = $_GET['terms'];
+            $usernames = $this->userModel->getSearchedUsernames($searchValue);
+        }
         
-        $usernames = $this->userModel->getAllUsernames();
 
-        // This view uses: $isLoggedIn, $isAdmin
+        // This view uses: $isLoggedIn, $isAdmin, $usernames
         require __DIR__.'/../views/admin-view.php';
     }
 }
