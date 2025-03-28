@@ -84,15 +84,6 @@ class UserModel {
     }
 
     /**
-     * Returns an array of string usernames
-     * @return array
-     */
-    public function getAllUsernames(): array {
-        //for admin dashboard stuff, for example
-        return [];
-    }
-
-    /**
      * @param string $email 
      * @param string $password
      * @return array 
@@ -148,6 +139,14 @@ class UserModel {
             $results1D[] = $result['username'];
         }
         return $results1D;
+    }
+
+    /**
+     * Returns an array of 
+     * @return array string usernames ordered alphabetically
+     */
+    public function getAllUsernames(): array {
+        return $this->getSearchedUsernames('');
     }
 }
 
