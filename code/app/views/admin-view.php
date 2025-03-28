@@ -3,6 +3,7 @@
  * This view expects the following variables:
  * @var bool $isAdmin
  * @var bool $isLoggedIn
+ * @var string $searchValue
  * @var array $usernames
 */
 require_once __DIR__."/../helpers/view-helpers.php";
@@ -28,8 +29,8 @@ echo generateDocumentHead('Admin Dashboard', ['admin.css'], []);
         <h2>User List</h2>
         <div class="action-bar">
             <?php
-                $searchAction = '#'; //TODO change searchAction
-                // this component uses: $searchAction
+                $searchAction = '/admin';
+                // this component uses: $searchAction, $searchValue
                 include __DIR__."/components/search-bar-component.php";
             ?>
         </div>
