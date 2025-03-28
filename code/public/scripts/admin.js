@@ -7,6 +7,7 @@
 
 const searchInput = document.querySelector('.search-bar input[type="search"]');
 const userList = document.querySelector('.user-list');
+const resultMessage = document.querySelector('.result-message');
 
 searchInput.addEventListener('input', ()=> handleSearchInput());
 
@@ -29,6 +30,7 @@ function handleSearchInput() {
 }
 
 function updateUserList(usernames) {
+    resultMessage.remove();
     let listItems = "";
 
     for (var username of usernames) {
