@@ -6,6 +6,7 @@
  */
 
 const searchInput = document.querySelector('.search-bar input[type="search"]');
+const userList = document.querySelector('.user-list');
 
 searchInput.addEventListener('input', ()=> handleSearchInput());
 
@@ -26,5 +27,17 @@ function handleSearchInput() {
 }
 
 function updateUserList(usernames) {
-    console.log(usernames);
+    let listItems = "";
+
+    for (var username of usernames) {
+        // TODO use DOMPurify to escape each username?
+        listItems += `
+            <li>
+              <a href="/profile/posts/${username}/">
+                <i>@${username}</i>
+              </a>
+            </li>
+        `
+    }
+    userList.innerHTML = userListInside;
 }
