@@ -30,7 +30,8 @@ echo generateDocumentHead('Admin Dashboard', ['admin.css'], []);
         <div class="action-bar">
             <?php
                 $searchAction = '/admin';
-                // this component uses: $searchAction, $searchValue
+                $isRequired = false;
+                // this component uses: $searchAction, $isRequired, $searchValue
                 include __DIR__."/components/search-bar-component.php";
             ?>
         </div>
