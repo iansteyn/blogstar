@@ -8,6 +8,7 @@ class UserModel {
         $this->db = $db;
     }
 
+    // TODO dont select password
     public function getUserByUsername($username): ?array{
         $statement = $this->db->prepare(<<<sql
             SELECT * 
@@ -112,6 +113,41 @@ class UserModel {
             return $result;
         }
         return null;
+    }
+
+    /**
+     * Note: this function can be modified to return more user info than just usernames, if desired.
+     * 
+     * @param string $searchTerm the term to search usernames with
+     * @return array
+     * A simple array of string usernames.
+     * They are ordered alphabetically, but usernames that have the same first letter as the search term
+     * are given higher priority (so they will appear first).
+     */
+    public function getSearchedUsernames(string $searchTerm): array {
+
+        $statement = $this->db->prepare(<<<sql
+            SELECT username
+            FROM users
+            WHERE username LIKE ?
+            ORDER BY
+                CASE
+                    WHEN LEFT(username, 1) = LEFT(?, 1) THEN 0
+                    ELSE 1
+                END,
+                username;
+        sql);
+        $statement->execute(["%$searchTerm%", "%$searchTerm%"]);
+
+        // results are returned in the form [0=>['username'=>'bob'], 1=>['username'=>'jan']]
+        $results2D = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // ...So flatten them to the form [0=>'bob', 1=>'jan']
+        $results1D = [];
+        foreach($results2D as $result) {
+            $results1D[] = $result['username'];
+        }
+        return $results1D;
     }
 }
 
