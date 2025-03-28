@@ -39,7 +39,7 @@ echo generateDocumentHead('Admin Dashboard', ['admin.css'], []);
           <?php foreach($usernames as $username): ?>
             <li>
               <a href="/profile/posts/<?= $username ?>/">
-                @<?= $username ?>
+                <i>@<?= $username ?></i>
               </a>
             </li>
           <?php endforeach; ?>
