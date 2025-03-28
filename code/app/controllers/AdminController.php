@@ -1,7 +1,14 @@
 <?php
 require_once __DIR__.'/../authentication/AuthService.php';
+require_once __DIR__.'/../models/UserModel.php';
 
 class AdminController {
+    private $userModel;
+
+    public function __construct(PDO $db) {
+        $this->userModel = new UserModel($db);
+    }
+
     public function admin() {
         AuthService::requireAuth(['admin']);
 
