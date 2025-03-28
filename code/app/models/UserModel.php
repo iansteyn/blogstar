@@ -128,7 +128,7 @@ class UserModel {
                 END,
                 username;
         sql);
-        $statement->execute(["%$searchTerm%", "%$searchTerm%"]);
+        $statement->execute(["%$searchTerm%", "$searchTerm"]);
 
         // results are returned in the form [0=>['username'=>'bob'], 1=>['username'=>'jan']]
         $results2D = $statement->fetchAll(PDO::FETCH_ASSOC);
