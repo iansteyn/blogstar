@@ -10,7 +10,11 @@ require_once __DIR__."/../helpers/view-helpers.php";
 
 $usernames = sanitizeData($usernames);
 
-echo generateDocumentHead('Admin Dashboard', ['admin.css'], ['admin.js']);
+echo generateDocumentHead(
+    'Admin Dashboard',
+    ['admin.css', 'search.css'],
+    ['admin.js']
+);
 ?>
 
 <body>
