@@ -15,6 +15,9 @@ class AdminController {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
+        
+        $usernames = $this->userModel->getAllUsernames();
+
         // This view uses: $isLoggedIn, $isAdmin
         require __DIR__.'/../views/admin-view.php';
     }

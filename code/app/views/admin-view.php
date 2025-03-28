@@ -1,11 +1,23 @@
 <?php
-    require_once __DIR__."/../helpers/view-helpers.php";
-    echo generateDocumentHead('Admin Dashboard', ['admin.css'], []);
+/**
+ * This view expects the following variables:
+ * @var bool $isAdmin
+ * @var bool $isLoggedIn
+ * @var array $usernames
+*/
+require_once __DIR__."/../helpers/view-helpers.php";
+
+$usernames = sanitizeData($usernames);
+
+echo generateDocumentHead('Admin Dashboard', ['admin.css'], []);
 ?>
 
 <body>
   <header>
-    <?php include __DIR__."/components/side-nav-component.php" ?>
+    <?php
+        // This component uses: $isAdmin, $isLoggedIn
+        include __DIR__."/components/side-nav-component.php"
+    ?>
   </header>
   <main>
     <header class="page-header">
@@ -22,31 +34,13 @@
             ?>
         </div>
         <ul class="user-list">
-          <li><a href="/profile">Sadie Smith</a></li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jae Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
-          <li>Jane Doe</li>
-          <li>John Appleseed</li>
+          <?php foreach($usernames as $username): ?>
+            <li>
+              <a href="/profile/posts/<?= $username ?>/">
+                @<?= $username ?>
+              </a>
+            </li>
+          <?php endforeach; ?>
         </ul>
       </section>
       <section class="panel site-analytics" id="site-analytics">
