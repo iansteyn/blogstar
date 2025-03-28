@@ -30,7 +30,11 @@ function handleSearchInput() {
 }
 
 function updateUserList(usernames) {
-    resultMessage.remove();
+
+    if (resultMessage != null) {
+        resultMessage.remove();
+    }
+
     let listItems = "";
 
     for (var username of usernames) {
