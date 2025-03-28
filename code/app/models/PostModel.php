@@ -144,7 +144,7 @@ class PostModel {
      * @param array $keywords Array of strings, any of which can match the title
      * @return array a list of posts with all the normal keys, ordered by number of matches first
      */
-    public function getSearchedPosts(array $keywords = ['weekend', 'hik']): array {
+    public function getSearchedPosts(array $keywords = []): array {
 
         // PREPARE SQL STATEMENT
         $matchCalculationParts = array_fill(0, count($keywords), 'IF(post_title LIKE ?, 1, 0)');
