@@ -21,6 +21,7 @@ $isRequired = $isRequired ?? true;
     title="Search posts by keyword"
     name="terms"
     placeholder="Search"
+    autocomplete="off"
     value="<?= $searchValue ?>"
     <?= $isRequired ? 'required' : '' ?>
   >
