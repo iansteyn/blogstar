@@ -5,6 +5,7 @@
  * @var bool $isLoggedIn
  * @var string $searchValue
  * @var array $usernames
+ * @var bool $showResultMessage
 */
 require_once __DIR__."/../helpers/view-helpers.php";
 
@@ -12,7 +13,7 @@ $usernames = sanitizeData($usernames);
 
 echo generateDocumentHead(
     'Admin Dashboard',
-    ['admin.css', 'search.css'],
+    ['search.css', 'admin.css'],
     ['admin.js']
 );
 ?>
@@ -39,6 +40,19 @@ echo generateDocumentHead(
                 include __DIR__."/components/search-bar-component.php";
             ?>
         </div>
+
+        <?php if($showResultMessage): ?>
+        <div class='search-message result-message'>
+          <h4>
+            <?= empty($usernames) ? ':( No' :  'Showing' ?>
+            results for "<?= $searchValue ?>"
+          </h4>
+          <a class='clear-link' href='/admin'>
+            Clear
+          </a>
+        </div>
+        <?php endif; ?>
+
         <ul class="user-list">
           <?php foreach($usernames as $username): ?>
             <li>
