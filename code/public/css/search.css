@@ -1,9 +1,26 @@
-.search {
-    margin-bottom: 1rem;
+/*
+NOTE: this file is for the search-PAGE specific styles.
+Search BAR styes are in main.css
+*/
+
+.search-bar {
+    background-color: var(--background-primary);
 }
 
-.search-results {
+.help-message {
+    font-style: italic;
+}
+
+.search-message {
+    margin-top: 1.5em;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content:space-between;
+}
+
+.clear-link {
+    text-decoration: none;
+}
+.clear-link:hover {
+    font-weight: bold;
+    text-decoration:underline;
 }
