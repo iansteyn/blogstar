@@ -44,8 +44,15 @@ echo generateDocumentHead(
         <?php if($showResultMessage): ?>
         <div class='search-message result-message'>
           <h4>
-            <?= empty($usernames) ? ':( No' :  'Showing' ?>
-            results for "<?= $searchValue ?>"
+            <?php
+                if ($searchValue == '') {
+                    echo 'Showing all users';
+                } else if (empty($usernames)) {
+                    echo "No results for: \"$searchValue\"";
+                } else {
+                    echo "Showing results for: \"$searchValue\"";
+                }
+            ?>
           </h4>
           <a class='clear-link' href='/admin'>
             Clear
