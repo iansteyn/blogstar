@@ -22,7 +22,7 @@
   padding-bottom: 1em;
 }
 
-#submit-post-button, #discard-post-button{
+#submit-post-button, #discard-post-button, #cancel-edit-button{
   width: min-content;
   font-size: smaller;
   padding: 0.5em;
