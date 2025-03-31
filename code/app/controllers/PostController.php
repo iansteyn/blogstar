@@ -94,6 +94,44 @@ class PostController {
         exit;
     }
 
+    public function edit(int $postId) {
+        AuthService::requireAuth(['registered']);
+        
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $postData = $this->postModel->getPostById($postId);
+            
+            if (!$postData) {
+                header('Location: /home');
+                exit;
+            }
+            
+            if (!AuthService::isCurrentUser($postData['username']) && !AuthService::isAdmin()) {
+                header('Location: /home');
+                exit;
+            }
+
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            require __DIR__.'/../views/edit-view.php';
+            return;
+        }
+        
+        $postData = [
+            'post_id' => $postId,
+            'post_title' => $_POST['post-title'],
+            'post_body' => $_POST['post-body']
+        ];
+        
+        if (!empty($_FILES['post-image']['tmp_name'])) {
+            $postData['post_image'] = $_FILES['post-image'];
+        }
+        
+        $this->postModel->updatePost($postData);
+        header('Location: /blog-post/' . $postId);
+        exit;
+    }
+
     /**
      * Toggles whether the current user likes the given post or not
      */
