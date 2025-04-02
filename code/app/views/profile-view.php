@@ -57,7 +57,7 @@ echo generateDocumentHead(
             <?php
             if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
                 if ($userData['is_current_user']) {
-                    echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+                    echo "<p>You have no saved posts yet! <a href='/?route=/home/popular'>See what's popular.</a></p>";
                 } else {
                     echo "<p>@{$userData['username']} has no saved posts.</p>";
                 }

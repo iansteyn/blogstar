@@ -47,7 +47,7 @@ echo generateDocumentHead(
             <?= empty($postDataList) ? ':( No' :  'Showing' ?>
             results for "<?= $searchValue ?>"
           </h3>
-          <a class='clear-link' href='/search'>
+          <a class='clear-link' href='/?route=/search'>
             Clear
           </a>
         </div>

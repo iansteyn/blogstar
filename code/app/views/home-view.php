@@ -51,7 +51,7 @@
     <article class="panel post-list <?= ($activeTab == 'recent') ? "left-most-subpage" : "" ?> ">
         <?php
         if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-            echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+            echo "<p>You have no saved posts yet! <a href='/?route=/home/popular'>See what's popular.</a></p>";
         }
         else {
             foreach ($postDataList as $postData) {
