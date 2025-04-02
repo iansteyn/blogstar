@@ -23,7 +23,7 @@
       <div class="page-header home-page-header">
         <h1>Home</h1>
         <?php
-            $searchAction = '/?route=/search';
+            $searchAction = 'search';
             // this component uses: $searchAction
             include __DIR__."/components/search-bar-component.php";
         ?>
