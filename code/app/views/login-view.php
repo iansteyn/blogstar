@@ -15,7 +15,7 @@
   <main>
     <div class="form-container">
       <div class="panel">
-        <form id="login-form" class="account-form" method="post" action="login" autocomplete="on" novalidate>
+        <form id="login-form" class="account-form" method="post" action="/?route=/login" autocomplete="on" novalidate>
           <h1 class="form-title">Log in to your account</h1>
           <?php
             if (isset($_SESSION['invalid_login'])) {

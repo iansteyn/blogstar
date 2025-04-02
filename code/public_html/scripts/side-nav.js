@@ -13,7 +13,7 @@ const logoutLink = document.getElementById("logout-link");
 logoutLink.addEventListener("click", function(event) {
     event.preventDefault();
     if(confirm("Are you sure you want to log out?")) {
-        window.location.href = "/logout";
+        window.location.href = "/?route=/logout";
     }
 });
 

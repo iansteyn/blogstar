@@ -12,6 +12,6 @@ discardButton.addEventListener("click", discardPost);
 function discardPost() {
     const confirmDiscard = confirm("Are you sure you want to discard this post?");
     if (confirmDiscard) {
-        window.location.href = "profile"; 
+        window.location.href = "/?route=/profile"; 
     }
 };

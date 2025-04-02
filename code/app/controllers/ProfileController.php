@@ -25,7 +25,7 @@ class ProfileController {
         AuthService::requireAuth(['registered','admin']);
 
         if (AuthService::isCurrentUser($username)) {
-            Header('Location: /profile');
+            header('Location: /?route=profile');
             exit;
         }
 
@@ -53,7 +53,7 @@ class ProfileController {
         AuthService::requireAuth(['registered', 'admin']);
 
         if (AuthService::isCurrentUser($username)) {
-            Header('Location: /profile/saved');
+            header('Location: /?route=profile/saved');
             exit;
         }
 

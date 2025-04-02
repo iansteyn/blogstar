@@ -34,11 +34,11 @@ class UserController {
                 ]);
         
                 //redirect to another page
-                header('Location: /login');
+                header('Location: /?route=login');
                 exit;
             } else {
                 $_SESSION['invalid_registration'] = 'Username or email is already registered.';
-                header('Location: /register');
+                header('Location: /?route=register');
                 exit;
             }
         }
@@ -56,10 +56,10 @@ class UserController {
         // Otherwise, handle the submission:
         else {
             if (!isset($_POST['email']) || empty($_POST['email'])) {
-                header('Location: /login');
+                header('Location: /?route=login');
             }
             if (!isset($_POST['password']) || empty($_POST['password'])) {
-                header('Location: /login');
+                header('Location: /?route=login');
             }
 
             $email = $_POST['email'];
@@ -74,16 +74,16 @@ class UserController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
-                    header('Location: /admin');
+                    header('Location: /?route=admin');
                     exit;
                 } else {
-                    header('Location: /home');
+                    header('Location: /?route=home');
                     exit;
                 }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
-                header('Location: /login');
+                header('Location: /?route=login');
                 exit;
             }
         }
@@ -93,7 +93,7 @@ class UserController {
         // Remove all session variables and destroy the session
         session_unset();
         session_destroy();
-        header('Location: /login');
+        header('Location: /?route=login');
         exit;
     }
 

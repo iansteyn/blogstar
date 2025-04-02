@@ -67,7 +67,7 @@ class PostController {
             'post_image' => $_FILES['post-image']
 
         ]);
-        header('Location: /profile');
+        header('Location: /?route=profile');
         exit;
         
     }
@@ -75,22 +75,22 @@ class PostController {
     public function delete($postId) {
         AuthService::requireAuth(['registered', 'admin']);
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: /home');
+            header('Location: /?route=home');
             exit;
         }
     
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
-            header('Location: /home');
+            header('Location: /?route=home');
             exit;
         }
         if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
-            header('Location: /home');
+            header('Location: /?route=home');
             exit;
         }
     
         $this->postModel->deletePost($postId);
-        header('Location: /profile');
+        header('Location: /?route=profile');
         exit;
     }
 
