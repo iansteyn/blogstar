@@ -82,7 +82,7 @@ class Route
         }
         // if no match, redirect to error page
         if ($matched != true) {
-            header('Location: /?route=error');
+            header('location: /?route=/error');
             exit;
         }
     }

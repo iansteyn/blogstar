@@ -31,7 +31,7 @@ $route = new Route();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
-    header('Location: /?route=home');
+    header('location: /?route=/home');
     exit;
 });
 
@@ -120,7 +120,7 @@ $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
 // $route->add('/.+', function() {
-//     header('Location: /?route=error');
+//     header('location: /?route=/error');
 //     exit;
 // });
 

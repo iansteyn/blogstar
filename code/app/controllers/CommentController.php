@@ -14,7 +14,7 @@ class CommentController {
     public function create($postId) {
         AuthService::requireAuth(['registered', 'admin']);
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: /?route=home');
+            header('location: /?route=/home');
             exit;
         }
     
@@ -27,25 +27,25 @@ class CommentController {
             'comment_body' => $commentBody
         ]);
     
-        header('Location: /?route=blog-post/' . $postId);
+        header('location: /?route=/blog-post/' . $postId);
         exit;
     }
 
     public function delete($commentId) {
         AuthService::requireAuth(['registered', 'admin']);
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        header('Location: /?route=home');
+        header('location: /?route=/home');
         exit;
     }
 
     $comment = $this->commentModel->getCommentById($commentId);
 
     if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
-        header('Location: /?route=home');
+        header('location: /?route=/home');
         exit;
     }
     $this->commentModel->deleteComment($commentId);
-    header('Location: /?route=blog-post/' . $comment['post_id']);
+    header('location: /?route=/blog-post/' . $comment['post_id']);
     exit;
 
     }
