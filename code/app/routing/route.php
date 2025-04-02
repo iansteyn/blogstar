@@ -47,7 +47,7 @@ class Route
     */
     public function submit()
     {
-        $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
+        $uri = isset($_GET['route']) ? $_GET['route'] : '/';
         $uri = trim($uri, $this->_trim);
 
         $path = parse_url($uri, PHP_URL_PATH);
