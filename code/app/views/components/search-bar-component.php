@@ -2,7 +2,7 @@
 /**
  * search-bar-component.php
  * This component requires the following variables:
- * @var string $searchAction - a URL route for the search request to be sent to
+ * @var string $searchAction - the name of the resource for the search request to be sent to
  * @var string $searchValue (optional) value to populate the searchbar with
  */
 
@@ -11,7 +11,12 @@ $searchValue = sanitizeData($searchValue ?? '');
 ?>
 
 <!-- Note: CSS for this is in main.css -->
-<form class="search-bar" action="<?= $searchAction ?>">
+<form class="search-bar" action="/">
+  <input
+    type="hidden"
+    name="route"
+    value='<?= $searchAction ?>'
+  >
   <input
     type="search"
     title="Search posts by keyword"
