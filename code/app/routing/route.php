@@ -35,8 +35,8 @@ class Route
     * @param string $uri A path such as about/system
     * @param object $function An anonymous function
     */
-    public function add($uri, $function)
-    {
+    public function add($uri, $function) {
+
         $uri = trim($uri, $this->_trim);
         $this->_listUri[] = $uri;
         $this->_listCall[] = $function;
@@ -45,9 +45,9 @@ class Route
     /**
     * submit - Looks for a match for the URI and runs the related function
     */
-    public function submit()
-    {
-        $uri = isset($_GET['route']) ? $_GET['route'] : '/';
+    public function submit() {
+
+        $uri = $_GET['route'] ?: '/';
         $uri = trim($uri, $this->_trim);
 
         $path = parse_url($uri, PHP_URL_PATH);
@@ -56,34 +56,35 @@ class Route
         $replacementValues = array();
 
         # iterate through the stored URI's
-        foreach ($this->_listUri as $listKey => $listUri)
-        {
+        foreach ($this->_listUri as $listKey => $listUri) {
             # See if there is a match
-            if (preg_match("#^$listUri$#", $path))
-            {
+            if (preg_match("#^$listUri$#", $path)) {
                 # Replace the values
                 $realUri = explode('/', $path);
                 $fakeUri = explode('/', $listUri);
 
                 # Gather the .+ values with the real values in the URI
-                foreach ($fakeUri as $key => $value) 
-                {
-                    if ($value == '.+') 
-                    {
+                foreach ($fakeUri as $key => $value) {
+                    if ($value == '.+') {
                         $replacementValues[] = $realUri[$key];
                     }
                 }
-                
+
                 # Pass an array for arguments
                 call_user_func_array($this->_listCall[$listKey], $replacementValues);
                 $matched = true;
                 break;
             }
         }
+
         // if no match, redirect to error page
         if ($matched != true) {
-            header('location: /?route=/error');
-            exit;
+            Route::error();
         }
+    }
+
+    public static function error() {
+        header('location: /?route=/error');
+        exit;
     }
 }
