@@ -30,16 +30,16 @@
       </div>
       <nav class="tab-group">
         <form method="get">
-          <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/?route=home/recent">
+          <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/?route=/home/recent">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
             Recent
           </button>
-          <button class="tab <?= isTabActive('popular', $activeTab) ?>" formaction="/?route=home/popular">
+          <button class="tab <?= isTabActive('popular', $activeTab) ?>" formaction="/?route=/home/popular">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
             Popular
           </button>
           <?php if ($isLoggedIn): ?>
-            <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/?route=home/saved">
+            <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/?route=/home/saved">
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
               Saved
             </button>

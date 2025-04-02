@@ -13,7 +13,7 @@
     <?= generatePostingInfo($comment['username'], $comment['comment_date'])?>
     <div class="button-group-icon-only">
       <?php if ($comment['belongs_to_current_user'] || $isAdmin): ?>
-        <form method="POST" action="/?route=comment/delete/<?= $comment['comment_id'] ?>">
+        <form method="POST" action="/?route=/comment/delete/<?= $comment['comment_id'] ?>">
           <button class="button-icon-only delete-comment-button" title="Delete">
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
                   <use href="/../vector-icons/icons.svg#icon-delete"></use>

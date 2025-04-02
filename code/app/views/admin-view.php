@@ -22,7 +22,7 @@
             ?>
         </div>
         <ul class="user-list">
-          <li><a href="/?route=profile">Sadie Smith</a></li>
+          <li><a href="/?route=/profile">Sadie Smith</a></li>
           <li>Jane Doe</li>
           <li>John Appleseed</li>
           <li>Jane Doe</li>

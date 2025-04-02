@@ -32,7 +32,7 @@
             <input type="password" id="password" name="password" placeholder="Enter your password" required />
           </div>
           <button type="submit">Log in</button>
-          <div>Don't have an account? <a href="/?route=register">Register an account</a></div>
+          <div>Don't have an account? <a href="/?route=/register">Register an account</a></div>
         </form>
       </div>
     </div>
