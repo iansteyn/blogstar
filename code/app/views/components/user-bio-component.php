@@ -12,7 +12,7 @@ $userData = sanitizeData($userData);
     <div class="user-info">
         <h3 class="user-name">
           About
-          <a href="/profile/posts/<?= $userData['username'] ?>">
+          <a href="/?route=profile/posts/<?= $userData['username'] ?>">
             <i>@<?= $userData['username'] ?></i>
           </a>
         </h3>

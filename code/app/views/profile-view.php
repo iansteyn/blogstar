@@ -30,20 +30,20 @@ echo generateDocumentHead(
         <form method="get">
           <button
             class="tab <?= isTabActive('posts', $activeTab) ?>"
-            formaction="/profile/posts/<?= $userData['username'] ?>">
+            formaction="/?route=profile/posts/<?= $userData['username'] ?>">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
             Posts
           </button>
           <button
             class="tab <?= isTabActive('saved', $activeTab) ?>"
-            formaction="/profile/saved/<?= $userData['username'] ?>">
+            formaction="/?route=profile/saved/<?= $userData['username'] ?>">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </button>
           <?php if ($userData['is_current_user']): ?>
             <button
               class="tab <?= isTabActive('settings', $activeTab) ?>"
-              formaction="/profile/settings">
+              formaction="/?route=profile/settings">
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
               Settings
             </button>
