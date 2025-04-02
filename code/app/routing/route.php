@@ -1,19 +1,20 @@
 <?php
-// SOURCE:
 /**
+ * NOTE: Original sources for this routing library are stated below;
+ * however we have modified it to fit our project.
+ * 
+ * Original Source:
  * @author		Jesse Boyer <contact@jream.com>
  * @copyright	Copyright (C), 2011-12 Jesse Boyer
  * @license		GNU General Public License 3 (http://www.gnu.org/licenses/)
- *				Refer to the LICENSE file distributed within the package.
- *
  * @link		http://jream.com
- *
  * @internal	Inspired by Klein @ https://github.com/chriso/klein.php
+ * 
+ * Secondary source:
+ * @link        https://github.com/amin007/route
  */
-// (But this has been modified by us)
 
-class Route
-{
+class Route {
     /**
     * @var array $_listUri List of URI's to match against
     */
