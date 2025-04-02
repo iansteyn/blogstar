@@ -27,28 +27,26 @@ echo generateDocumentHead(
         <?= $userData['is_current_user'] ? 'My profile' : "<i>@{$userData['username']}</i>" ?>
       </h1>
       <nav class="tab-group">
-        <form method="get">
-          <button
-            class="tab <?= isTabActive('posts', $activeTab) ?>"
-            formaction="/?route=/profile/posts/<?= $userData['username'] ?>">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
-            Posts
-          </button>
-          <button
-            class="tab <?= isTabActive('saved', $activeTab) ?>"
-            formaction="/?route=/profile/saved/<?= $userData['username'] ?>">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
-            Saved
-          </button>
-          <?php if ($userData['is_current_user']): ?>
-            <button
-              class="tab <?= isTabActive('settings', $activeTab) ?>"
-              formaction="/?route=/profile/settings">
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
-              Settings
-            </button>
-          <?php endif; ?>
-        </form>
+        <a
+          class="tab <?= isTabActive('posts', $activeTab) ?>"
+          href="/?route=/profile/posts/<?= $userData['username'] ?>">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
+          Posts
+        </a>
+        <a
+          class="tab <?= isTabActive('saved', $activeTab) ?>"
+          href="/?route=/profile/saved/<?= $userData['username'] ?>">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+          Saved
+        </a>
+        <?php if ($userData['is_current_user']): ?>
+          <a
+            class="tab <?= isTabActive('settings', $activeTab) ?>"
+            href="/?route=/profile/settings">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
+            Settings
+          </a>
+        <?php endif; ?>
       </nav>
     </header>
 

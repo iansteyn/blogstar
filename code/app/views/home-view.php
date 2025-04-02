@@ -29,22 +29,20 @@
         ?>
       </div>
       <nav class="tab-group">
-        <form method="get">
-          <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/?route=/home/recent">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
-            Recent
-          </button>
-          <button class="tab <?= isTabActive('popular', $activeTab) ?>" formaction="/?route=/home/popular">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
-            Popular
-          </button>
-          <?php if ($isLoggedIn): ?>
-            <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/?route=/home/saved">
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
-              Saved
-            </button>
-          <?php endif; ?>
-        </form>
+        <a class="tab <?= isTabActive('recent', $activeTab) ?>" href="/?route=/home/recent">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
+          Recent
+        </a>
+        <a class="tab <?= isTabActive('popular', $activeTab) ?>" href="/?route=/home/popular">
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
+          Popular
+        </a>
+        <?php if ($isLoggedIn): ?>
+          <a class="tab <?= isTabActive('saved', $activeTab) ?>" href="/?route=/home/saved">
+            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+            Saved
+          </a>
+        <?php endif; ?>
       </nav>
     </header>
 
