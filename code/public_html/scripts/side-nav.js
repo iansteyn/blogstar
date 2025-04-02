@@ -38,10 +38,15 @@ else if ('/post/create' == currentPagePath) {
     const createLink = document.querySelector(".nav-link[href='/?route=/create']");
     createLink.classList.add("current-page");
 }
+else if ('search' == currentPagePath) {
+    const searchLink = document.querySelector(".nav-link[href='/?route=/search']");
+    searchLink.classList.add("current-page");
+}
 else {
     for (navLink of navLinks) {
         if ((navLink.href  == currentPage) && (navLink.id != "nav-logo")) {
             navLink.classList.add("current-page");
+            break;
         }
     }
 }
