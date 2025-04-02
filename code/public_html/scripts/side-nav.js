@@ -22,20 +22,20 @@ logoutLink.addEventListener("click", function(event) {
 // HIGHLIGHT NAVLINK OF CURRENT PAGE
 // ---------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
-const currentPage = window.location.href.split("?")[0];
-const currentPagePath = new URL(currentPage).pathname;
+const currentPage = window.location.href.split("&")[0];
+const currentPagePath = new URLSearchParams(window.location.search).get('route');
 
 if (['/home/recent', '/home/popular', '/home/saved'].includes(currentPagePath)) {
-    const homeLink = document.querySelectorAll(".nav-link[href='/home']")[1];
+    const homeLink = document.querySelectorAll(".nav-link[href='/?route=/home']")[1];
     homeLink.classList.add("current-page");
 }
 else if (['/profile/posts', '/profile/saved', '/profile/settings'].includes(currentPagePath)) {
-    const profileLink = document.querySelector(".nav-link[href='/profile']");
+    const profileLink = document.querySelector(".nav-link[href='/?route=/profile']");
     console.log(profileLink);
     profileLink.classList.add("current-page");
 }
 else if ('/post/create' == currentPagePath) {
-    const createLink = document.querySelector(".nav-link[href='/create']");
+    const createLink = document.querySelector(".nav-link[href='/?route=/create']");
     createLink.classList.add("current-page");
 }
 else {
