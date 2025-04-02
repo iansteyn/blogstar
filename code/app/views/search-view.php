@@ -31,7 +31,7 @@ echo generateDocumentHead(
 
     <div class="panel post-list">
       <?php
-          $searchAction = '/search';
+          $searchAction = '/?route=/search';
           // this component uses: $searchAction, $searchValue
           include __DIR__."/components/search-bar-component.php";
       ?>
