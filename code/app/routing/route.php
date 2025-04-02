@@ -46,16 +46,16 @@ class Route
     * submit - Looks for a match for the URI and runs the related function
     */
     public function submit()
-    {	
+    {
         $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
         $uri = trim($uri, $this->_trim);
 
-        $path = $path = parse_url($uri, PHP_URL_PATH);
+        $path = parse_url($uri, PHP_URL_PATH);
         $path = trim($path, $this->_trim);
 
         $replacementValues = array();
 
-        # List through the stored URI's
+        # iterate through the stored URI's
         foreach ($this->_listUri as $listKey => $listUri)
         {
             # See if there is a match
@@ -76,10 +76,14 @@ class Route
                 
                 # Pass an array for arguments
                 call_user_func_array($this->_listCall[$listKey], $replacementValues);
-            } # end - if (preg_match("#^$listUri$#", $uri))
-            
-        } # end - foreach ($this->_listUri as $listKey => $listUri)
-        
-    } # end - public function submit()
-    
+                $matched = true;
+                break;
+            }
+        }
+        // if no match, redirect to error page
+        if ($matched != true) {
+            Header('Location: /error');
+            exit;
+        }
+    }
 }
