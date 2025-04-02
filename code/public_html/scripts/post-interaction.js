@@ -44,7 +44,7 @@ function handleButtonClick(button) {
     const resource = button.dataset.resource;
 
     // Send a request to the server
-    fetch(`/${resource}/${postId}`, {
+    fetch(`/?route=/${resource}/${postId}`, {
         method: 'POST',
     })
 
