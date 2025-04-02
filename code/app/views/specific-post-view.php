@@ -101,8 +101,9 @@ echo generateDocumentHead(
           </svg>
           Saved
         </button>
+
+        <!-- edit -->
         <?php if ($postData['belongs_to_current_user']): ?>
-          <!-- edit (if it is your own post) -->
           <button
             Title="Edit"
             class="interaction-button edit-post-button"
@@ -116,14 +117,14 @@ echo generateDocumentHead(
           </button>
         <?php endif; ?>
 
+        <!-- delete -->
         <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
-          <!-- delete (if it is your own post) -->
-          <form method = "POST" action = "/post/delete/<?= $postId?>">
+          <form method="POST" action="/?route=/post/delete/<?= $postId?>">
             <button
               Title="Delete"
               class="interaction-button delete-post-button"
               type="submit"
-              data-post-id="<?= $postData['post_id']?>"
+              data-post-id="<?= $postData['post_id'] ?>"
             >
               <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
                 <use href="/../vector-icons/icons.svg#icon-delete"></use> 
@@ -159,11 +160,11 @@ echo generateDocumentHead(
           <?php if ( ! $isLoggedIn):?>
             <p>You must <a href="/?route=/login">log in</a> to comment on this post.</p>
           <?php else: ?>
-            <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
+            <textarea class="comment" id="comment" name="comment-body" placeholder="Write your comment here!" required></textarea>
 
-            <button class = "interaction-button" id="submit-button" type="submit" value="Post">
-                <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href = "/../vector-icons/icons.svg#icon-comment"></use>
+            <button class="interaction-button" id="submit-button" type="submit" value="Post">
+                <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="/../vector-icons/icons.svg#icon-comment"></use>
                 </svg>
                 Post
             </button>
