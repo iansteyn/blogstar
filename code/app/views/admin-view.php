@@ -34,7 +34,7 @@ echo generateDocumentHead(
         <h2>User List</h2>
         <div class="action-bar">
             <?php
-                $searchAction = '/admin';
+                $searchAction = 'admin';
                 $isRequired = false;
                 // this component uses: $searchAction, $isRequired, $searchValue
                 include __DIR__."/components/search-bar-component.php";
@@ -54,7 +54,7 @@ echo generateDocumentHead(
                 }
             ?>
           </h4>
-          <a class='clear-link' href='/admin'>
+          <a class='clear-link' href='/?route=/admin'>
             Clear
           </a>
         </div>
