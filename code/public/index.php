@@ -114,8 +114,12 @@ $route->add('/comment/delete/.+', fn($commentId) =>
 $route->add('/post/delete/.+', fn($postId) =>
     $postController->delete($postId)
 );
+
 $route->add('/post/edit/.+', fn($postId) =>
     $postController->edit($postId)
+
+$route->add('/admin/search-users', fn() =>
+    $adminController->searchUsers()
 );
 
 // TODO add routing for error pages?

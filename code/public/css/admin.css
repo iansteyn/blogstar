@@ -22,10 +22,11 @@
 }
 
 .action-bar {
-    margin: 1rem 0;
+    margin-top: 1rem;
 }
 
 .user-list {
+    margin-top: 1rem;
     max-height: 100vh;
     overflow: auto;
     border-radius: 0.75em;
@@ -35,10 +36,10 @@
 }
 
 .user-list>li:nth-child(even) {
-    background-color: var(--low-opacity-darken-20);
+    background-color: var(--low-opacity-darken-10);
 }
 
 .user-list>li:nth-child(odd) {
-    background-color: var(--low-opacity-darken-10);
+    background-color: var(--low-opacity-darken-20);
 }
 
