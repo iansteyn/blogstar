@@ -18,7 +18,7 @@ $isRequired = $isRequired ?? true;
 <form class="search-bar" action="<?= $searchAction ?>">
   <input
     type="search"
-    title="Search posts by keyword"
+    title="Search"
     name="terms"
     placeholder="Search"
     autocomplete="off"
