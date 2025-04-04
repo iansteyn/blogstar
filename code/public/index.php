@@ -117,7 +117,7 @@ $route->add('/post/delete/.+', fn($postId) =>
 
 $route->add('/post/edit/.+', fn($postId) =>
     $postController->edit($postId)
-
+);
 $route->add('/admin/search-users', fn() =>
     $adminController->searchUsers()
 );
