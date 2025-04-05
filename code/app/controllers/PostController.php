@@ -47,31 +47,24 @@ class PostController {
 
     public function create() {
         AuthService::requireAuth(['registered','admin']);
-        // If form is not submitted, just display the page:
+        
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
-
-            // This view uses: $isLoggedIn, $isAdmin
+            
+            // passing in empty post data on creation
             require __DIR__.'/../views/create-view.php';
             return;
         }
-        // Otherwise, handle the submission:
         
-        //ammend this to hard-coded as needed
         $this->postModel->createPost([
             'username'   => $_SESSION['username'],
             'post_title' => $_POST['post-title'],
             'post_body'  => $_POST['post-body'],
             'post_image' => $_FILES['post-image']
-
         ]);
         header('Location: /profile');
         exit;
-        
     }
-
+    
     public function delete($postId) {
         AuthService::requireAuth(['registered', 'admin']);
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -95,25 +88,21 @@ class PostController {
     }
 
     public function edit(int $postId) {
-        AuthService::requireAuth(['registered']);
+        AuthService::requireAuth(['registered', 'admin']);
         
+        $postData = $this->postModel->getPostById($postId);
+        if (!$postData) {
+            header('Location: /home');
+            exit;
+        }
+        
+        if (!AuthService::isCurrentUser($postData['username']) && !AuthService::isAdmin()) {
+            header('Location: /home');
+            exit;
+        }
+    
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $postData = $this->postModel->getPostById($postId);
-            
-            if (!$postData) {
-                header('Location: /home');
-                exit;
-            }
-            
-            if (!AuthService::isCurrentUser($postData['username']) && !AuthService::isAdmin()) {
-                header('Location: /home');
-                exit;
-            }
-
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
-
-            require __DIR__.'/../views/edit-view.php';
+            require __DIR__.'/../views/create-view.php';
             return;
         }
         
