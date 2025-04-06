@@ -2,6 +2,7 @@
 
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../authentication/AuthService.php';
+require_once __DIR__."/../helpers/view-helpers.php";
 
 class UserController {
     private $userModel;
@@ -119,8 +120,8 @@ class UserController {
         }
     
         $updateData = [
-            'username' => $username,
-            'user_bio' => $userBio
+            'username' => $_SESSION['username'],
+            'user_bio' => sanitizeData($_POST['user-bio'] ?? '')
         ];
     
         if (!empty($newPassword)) {
