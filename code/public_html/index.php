@@ -26,7 +26,7 @@ $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
 
-require_once __DIR__.'/../app/routing/route.php';
+require_once __DIR__.'/../app/routing/Route.php';
 $route = new Route();
 
 // SIDE-NAV TOP
