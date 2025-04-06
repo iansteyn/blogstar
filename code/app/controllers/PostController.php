@@ -92,13 +92,8 @@ class PostController {
         AuthService::requireAuth(['registered', 'admin']);
         
         $postData = $this->postModel->getPostById($postId);
-        if (!$postData) {
-            header('Location: /home');
-            exit;
-        }
-        
-        if (!AuthService::isCurrentUser($postData['username'])) {
-            header('Location: /home');
+        if (!$postData or !AuthService::isCurrentUser($postData['username'])) {
+            header('Location: /home'); //TODO: make this redirect to bad request
             exit;
         }
     
