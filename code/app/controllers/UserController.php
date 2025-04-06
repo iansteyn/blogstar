@@ -98,7 +98,56 @@ class UserController {
     }
 
     public function updateSettings() {
-        //TODO
+        AuthService::requireAuth(['registered', 'admin']);
+        
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            header('Location: /profile/settings');
+            exit;
+        }
+    
+        $username = $_SESSION['username'];
+        $currentPassword = $_POST['current-password'] ?? '';
+        $newPassword = $_POST['new-password'] ?? '';
+        $confirmPassword = $_POST['confirm-password'] ?? '';
+        $userBio = $_POST['user-bio'] ?? '';
+    
+        $user = $this->userModel->getUserByUsername($username);
+        if (!$user || !password_verify($currentPassword, $user['password'])) {
+            $_SESSION['error'] = 'Current password is incorrect';
+            header('Location: /profile/settings');
+            exit;
+        }
+    
+        $updateData = [
+            'username' => $username,
+            'user_bio' => $userBio
+        ];
+    
+        if (!empty($newPassword)) {
+            if ($newPassword !== $confirmPassword) {
+                $_SESSION['error'] = 'New passwords do not match';
+                header('Location: /profile/settings');
+                exit;
+            }
+            $updateData['password'] = $newPassword;
+        }
+    
+        if (!empty($_FILES['profile-picture']['tmp_name'])) {
+            $updateData['profile_picture'] = $_FILES['profile-picture'];
+        }
+    
+        if ($this->userModel->updateUser($updateData)) {
+            if (isset($updateData['profile_picture'])) {
+                $user = $this->userModel->getUserByUsername($username);
+                $_SESSION['profile-picture'] = $user['profile-picture'];
+            }
+            $_SESSION['success'] = 'Settings updated successfully';
+        } else {
+            $_SESSION['error'] = 'Failed to update settings';
+        }
+    
+        header('Location: /profile/settings');
+        exit;
     }
 
 }
