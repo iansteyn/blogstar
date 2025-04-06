@@ -208,6 +208,22 @@ class PostModel {
         $statement->bindValue(':postId', $postId);
         $statement->execute();
     }
+
+    /**
+     * @return array 
+     * Returns an array of total number of posts, number of posts made in the 
+     * last 7 days, and the number of posts made today.
+     */
+    public function getPostAnalytics(): array {
+        $statement = $this->db->query(<<<SQL
+            SELECT
+                (SELECT COUNT(*) FROM posts) AS total_posts,
+                (SELECT COUNT(*) FROM posts WHERE post_date >= NOW() - INTERVAL 7 DAY) AS posts_last_week,
+                (SELECT COUNT(*) FROM posts WHERE post_date >= CURDATE()) AS posts_today
+        SQL);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 
 ?>
