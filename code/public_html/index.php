@@ -4,6 +4,7 @@ session_start();
 ------------
 This is the website's "root". All navigation and API requests are handled here,
 so this is where important configuration files are included and routes are set up.
+
 */
 
 require_once __DIR__.'/../config/url-generation.php';
@@ -32,7 +33,7 @@ $route = new Route();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
-    header('location: /?route=/home');
+    header('location: '.routeUrl('/home'));
     exit;
 });
 
@@ -75,7 +76,7 @@ $route->add('/search', fn()=>
     $searchController->search()
 );
 
-// SIDE-NAVE MIDDLE
+// SIDE-NAV MIDDLE
 $route->add('/admin', fn()=>
     $adminController->admin()
 );
