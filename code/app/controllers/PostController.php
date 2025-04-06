@@ -103,17 +103,17 @@ class PostController {
             return;
         }
         
-        $postData = [
+        $updatedPostData = [
             'post_id' => $postId,
             'post_title' => $_POST['post-title'],
             'post_body' => $_POST['post-body']
         ];
         
         if (!empty($_FILES['post-image']['tmp_name'])) {
-            $postData['post_image'] = $_FILES['post-image'];
+            $updatedPostData['post_image'] = $_FILES['post-image'];
         }
         
-        $this->postModel->updatePost($postData);
+        $this->postModel->updatePost($updatedPostData);
         header('Location: /blog-post/' . $postId);
         exit;
     }
