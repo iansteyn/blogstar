@@ -37,15 +37,27 @@ function resourceUrl(string $path): string {
     return $baseUrl . $path;
 }
 
-function basicUrl() {
-    // or formURLField, etc something like that
-    //TODO (for form actions that need to embed route as a hidden param)
+/**
+ * Since a GET-method form can drop query parameters given in the form action,
+ * use this method instead.
+ * 
+ * Use alongside formRouteElement.
+ * POST-method forms can use the regular routeUrl() function.
+ * 
+ * @return string the base URL for GET forms to append query parameters to
+ */
+function formActionUrl() {
+    global $baseUrl;
+    return $baseUrl;
 }
 
 /**
  * Since a GET-method form can drop query parameters given in the form action,
  * a special hidden element must be included in the form for it to be routed correctly.
+ * 
+ * Use alongside formActionUrl.
  * This function is not needed for POST-method forms.
+ * 
  * @param string $path the route path you want the request to take,
  * e.g. '/home/profile'. Note: leading slash is optional.
  * @return string the HTML element mentioned above
