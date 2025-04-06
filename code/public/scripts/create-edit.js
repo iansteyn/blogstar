@@ -5,12 +5,12 @@ Performs the following actions:
 - "submitting" the post which is a redirect back to profile
 -------------------------------------- */
 
-const discardButton = document.getElementById("discard-post-button");
+const discardButton = document.getElementById("discard-button");
 
 discardButton.addEventListener("click", discardPost);
 
 function discardPost() {
-    const confirmDiscard = confirm("Are you sure you want to discard this post?");
+    const confirmDiscard = confirm("Are you sure you want to discard your work?");
     if (confirmDiscard) {
         window.location.href = "profile"; 
     }

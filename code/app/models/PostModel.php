@@ -197,7 +197,35 @@ class PostModel {
     }
 
     public function updatePost(array $postData) {
-        //TODO
+        if (isset($postData['post_image'])) {
+            $imageBlob = file_get_contents($postData['post_image']['tmp_name']);
+            
+            $statement = $this->db->prepare(<<<SQL
+                UPDATE posts
+                SET post_title = :title,
+                    post_body = :body,
+                    post_image = :image
+                WHERE post_id = :postId
+            SQL);
+            
+            $statement->bindValue(':title', $postData['post_title']);
+            $statement->bindValue(':body', $postData['post_body']);
+            $statement->bindValue(':image', $imageBlob);
+            $statement->bindValue(':postId', $postData['post_id']);
+        } else {
+            $statement = $this->db->prepare(<<<SQL
+                UPDATE posts
+                SET post_title = :title,
+                    post_body = :body
+                WHERE post_id = :postId
+            SQL);
+            
+            $statement->bindValue(':title', $postData['post_title']);
+            $statement->bindValue(':body', $postData['post_body']);
+            $statement->bindValue(':postId', $postData['post_id']);
+        }
+        
+        $statement->execute();
     }
 
     public function deletePost(int $postId) {
