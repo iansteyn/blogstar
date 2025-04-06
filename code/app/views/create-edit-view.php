@@ -59,9 +59,8 @@
         name="post-title"
         placeholder="Write your title here!"
         required
-      >
-        <?= $postTitle ?>
-      </textarea>
+      ><?= $postTitle ?></textarea>
+      <?php // Note: the above line must stay one line, otherwise weird whitespace is introduced ?>
 
       <label for="post-body">
         Body
@@ -72,13 +71,12 @@
         name="post-body"
         placeholder="Write your post here!"
         required
-      >
-        <?= $postBody ?>
-      </textarea>
+      ><?= $postBody ?></textarea>
+      <?php // Note: the above line must stay one line, otherwise weird whitespace is introduced ?>
 
       <div class="form-group">
         <label for="post-image">
-          <?= $isEditMode ? 'Change photo (optional)' : 'Upload a photo' ?>
+          <?= $imageRequired ? 'Change photo (optional)' : 'Upload a photo' ?>
         </label>
         <input
           type="file"
