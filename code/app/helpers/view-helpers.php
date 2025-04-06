@@ -82,6 +82,8 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  * @return string doctype, opening `<html>` tag, and full `<head></head>` block
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
+
+    // $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css', 'user-bio.css']
     $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
@@ -96,7 +98,6 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
           <link rel="stylesheet" href="/css/reset.css">
           <link rel="stylesheet" href="/css/main.css">
           <link rel="stylesheet" href="/css/side-nav.css">
-          <link rel="stylesheet" href="/css/user-bio.css">
     HTML;
 
     foreach ($extraStylesheets as $stylesheet) {
