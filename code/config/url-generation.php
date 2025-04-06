@@ -21,12 +21,21 @@ function basicUrl() {
 }
 
 /**
- * Use this for navigation links or requests that call controller functions.
- * @param string $path the route path you want the string to take, e.g. /home
+ * Use this for most navigation links and API requests.
+ * @param string $path the route path you want the string to take, e.g. 'home/profile'
  * @return string a URL that can be mapped by Route.php.
  */
 function routeUrl(string $path): string {
     global $baseUrl;
     return "$baseUrl?route=$path";
 }
-//TODO: define resourceURL()
+
+/**
+ * Use this for links to resources like css files, vector icons, scripts, etc.
+ * @param string $path the path from the website root (public_html) to the resource
+ * @return string a URL that correctly locates the resource, e.g. 'css/main.css'
+ */
+function resourceUrl(string $path): string {
+    global $baseUrl;
+    return $baseUrl . $path;
+}
