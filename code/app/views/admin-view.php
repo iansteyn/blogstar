@@ -9,6 +9,9 @@
  * @var int $total_posts
  * @var int $posts_last_week
  * @var int $posts_today
+ * @var int $total_users
+ * @var int $registered_past_week
+ * @var int $registered_today
 */
 require_once __DIR__."/../helpers/view-helpers.php";
 
@@ -75,20 +78,24 @@ echo generateDocumentHead(
       </section>
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
-          <div class="panel">
+        <div class="widget-container">
+          <div class="panel analytics-widget">
             <h3>User Accounts</h3>
-            
-
-          </div>
-          <div class="panel">
-            <h3>Blog Posts</h3>
             <ul>
-              <li>Total posts: <?= $total_posts ?></li>
-              <li>Posts made in the past 7 days: <?= $posts_last_week ?></li>
-              <li>Posts created today: <?= $posts_today ?></li>
+              <li><span><?= $total_users ?></span><p>Total users</p></li>
+              <li><span><?= $registered_past_week ?></span><p>Accounts created this week</p></li>
+              <li><span><?= $registered_today ?></span><p>Accounts created today</p></li>
             </ul>
           </div>
-        
+          <div class="panel analytics-widget">
+            <h3>Blog Posts</h3>
+            <ul>
+              <li><span><?= $total_posts ?></span><p>Total posts</p></li>
+              <li><span><?= $posts_last_week ?></span><p>Posts created this week</p></li>
+              <li><span><?= $posts_today ?></span><p>Posts created today</p></li>
+            </ul>
+          </div>
+        </div>
       </section>
     </article>
   </main>
