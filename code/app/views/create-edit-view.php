@@ -28,8 +28,8 @@
       <textarea class="blog-title" id="post-title" name="post-title" placeholder="Write your title here!" required>
         <?= $isEditMode ? htmlspecialchars($postData['post_title']) : '' ?>
       </textarea>
-      <label for="post-text">
-        Post
+      <label for="post-body">
+        Body
       </label>
       <textarea class="blog-text" id="post-body" name="post-body" placeholder="Write your post here!" required><?= $isEditMode ? htmlspecialchars($postData['post_body']) : '' ?></textarea>
       <div class="form-group">
