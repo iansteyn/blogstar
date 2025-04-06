@@ -85,7 +85,7 @@ class Route {
     }
 
     public static function error() {
-        header('location: /?route=/error');
+        header('location: '.routeUrl('/error'));
         exit;
     }
 }

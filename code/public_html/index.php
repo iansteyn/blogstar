@@ -128,10 +128,6 @@ $route->add('/admin/search-users', fn() =>
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
-// $route->add('/.+', function() {
-//     header('location: /?route=/error');
-//     exit;
-// });
 
 $route->submit();
 ?>

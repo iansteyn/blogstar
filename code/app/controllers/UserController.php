@@ -34,11 +34,11 @@ class UserController {
                 ]);
         
                 //redirect to another page
-                header('location: /?route=/login');
+                header('location: '.routeUrl('/login'));
                 exit;
             } else {
                 $_SESSION['invalid_registration'] = 'Username or email is already registered.';
-                header('location: /?route=/register');
+                header('location: '.routeUrl('/register'));
                 exit;
             }
         }
@@ -56,10 +56,10 @@ class UserController {
         // Otherwise, handle the submission:
         else {
             if (!isset($_POST['email']) || empty($_POST['email'])) {
-                header('location: /?route=/login');
+                header('location: '.routeUrl('/login'));
             }
             if (!isset($_POST['password']) || empty($_POST['password'])) {
-                header('location: /?route=/login');
+                header('location: '.routeUrl('/login'));
             }
 
             $email = $_POST['email'];
@@ -74,16 +74,16 @@ class UserController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
-                    header('location: /?route=/admin');
+                    header('location: '.routeUrl('/admin'));
                     exit;
                 } else {
-                    header('location: /?route=/home');
+                    header('location: '.routeUrl('/home'));
                     exit;
                 }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
-                header('location: /?route=/login');
+                header('location: '.routeUrl('/login'));
                 exit;
             }
         }
@@ -93,7 +93,7 @@ class UserController {
         // Remove all session variables and destroy the session
         session_unset();
         session_destroy();
-        header('location: /?route=/login');
+        header('location: '.routeUrl('/login'));
         exit;
     }
 
