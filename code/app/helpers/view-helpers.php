@@ -49,13 +49,15 @@ function hiddenIf($condition): string {
 }
 
 function generatePostingInfo(string $username, $sqlDateTime): string {
+    $usernameLink = routeUrl("/profile/posts/$username");
+
     $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDateTime);
     $formattedDate = $dateTime->format('F j, Y');
     $htmlDateTime = $dateTime->format('Y-m-d\TH:i');
 
     return <<<HTML
       <div class="posting-info">
-        <a class="username" href="/?route=/profile/posts/$username" title="Author">
+        <a class="username" href="$usernameLink" title="Author">
           @$username
         </a>
         —
