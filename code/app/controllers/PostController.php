@@ -97,7 +97,7 @@ class PostController {
             exit;
         }
         
-        if (!AuthService::isCurrentUser($postData['username']) && !AuthService::isAdmin()) {
+        if (!AuthService::isCurrentUser($postData['username'])) {
             header('Location: /home');
             exit;
         }
