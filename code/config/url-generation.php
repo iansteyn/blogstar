@@ -15,14 +15,9 @@ require_once __DIR__.'/EnvironmentConfig.php';
 
 $baseUrl = EnvironmentConfig::baseUrl();
 
-function basicUrl() {
-    // or formURLField, etc something like that
-    //TODO (for form actions that need to embed route as a hidden param)
-}
-
 /**
  * Use this for most navigation links and API requests.
- * @param string $path the route path you want the string to take,
+ * @param string $path the route path you want the request to take,
  * e.g. '/home/profile'. Note: leading slash is optional.
  * @return string a URL that can be mapped by Route.php.
  */
@@ -40,4 +35,21 @@ function routeUrl(string $path): string {
 function resourceUrl(string $path): string {
     global $baseUrl;
     return $baseUrl . $path;
+}
+
+function basicUrl() {
+    // or formURLField, etc something like that
+    //TODO (for form actions that need to embed route as a hidden param)
+}
+
+/**
+ * Since a GET-method form can drop query parameters given in the form action,
+ * a special hidden element must be included in the form for it to be routed correctly.
+ * This function is not needed for POST-method forms.
+ * @param string $path the route path you want the request to take,
+ * e.g. '/home/profile'. Note: leading slash is optional.
+ * @return string the HTML element mentioned above
+ */
+function formRouteElement(string $path) {
+    return "<input type='hidden' name='route' value='$path'>";
 }
