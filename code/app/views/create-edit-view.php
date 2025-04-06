@@ -1,9 +1,32 @@
 <?php
     require_once __DIR__."/../helpers/view-helpers.php";
+
     $isEditMode = isset($postData);
-    $pageTitle = $isEditMode ? 'Edit Post' : 'Create Post';
-    $formAction = $isEditMode ? "/post/edit/{$postData['post_id']}" : "/create";
-    $imageRequired = !$isEditMode ? 'required' : '';
+
+    if ($isEditMode) {
+        $postData = sanitizeData($postData);
+
+        $pageTitle = 'Edit your post';
+        $formAction = "/post/edit/{$postData['post_id']}";
+        $imageRequired = false;
+
+        $postTitle = $postData['post_title'];
+        $postBody = $postData['post_body'];
+
+        $submitButtonText = 'Update';
+        $discardButtonText = 'Cancel';
+    }
+    else {
+        $pageTitle = 'Create your post';
+        $formAction = "/create";
+        $imageRequired = true;
+
+        $postTitle = '';
+        $postBody = '';
+
+        $submitButtonText = 'Post';
+        $discardButtonText = 'Discard';
+    }
 
     echo generateDocumentHead(
         $pageTitle,
@@ -18,7 +41,7 @@
   </header>
   <main>
     <h1 class="page-title">
-      <?= $isEditMode ? 'Edit your post' : 'Create your post' ?>
+      <?= $pageTitle ?>
     </h1>
     <form
       class="panel create-panel"
@@ -37,7 +60,7 @@
         placeholder="Write your title here!"
         required
       >
-        <?= $isEditMode ? htmlspecialchars($postData['post_title']) : '' ?>
+        <?= $postTitle ?>
       </textarea>
 
       <label for="post-body">
@@ -50,7 +73,7 @@
         placeholder="Write your post here!"
         required
       >
-        <?= $isEditMode ? htmlspecialchars($postData['post_body']) : '' ?>
+        <?= $postBody ?>
       </textarea>
 
       <div class="form-group">
@@ -62,7 +85,7 @@
           id="post-image"
           name="post-image"
           accept="image/png, image/jpeg, image/jpg, image/gif"
-          <?= $imageRequired ?>
+          <?= $imageRequired ? 'required' : '' ?>
         >
       </div>
 
@@ -72,16 +95,18 @@
         type="submit"
         value="Post"
       >
-        <?= $isEditMode ? 'Update' : 'Post' ?>
+        <?= $submitButtonText ?>
       </button>
-      <a href="/blog-post/<?= $postData['post_id'] ?>" class="button-link">
+      <?php if ($isEditMode): ?>
+        <a href="/blog-post/<?= $postData['post_id'] ?>" class="button-link">
+      <?php endif; ?>
         <input
           class='post-button'
           id="discard-button"
           type="button"
-          value="<?= $isEditMode ? 'Cancel' : 'Discard' ?>"
+          value="<?= $discardButtonText ?>"
         >
-      </a>
+      <?= $isEditMode ? '</a>' : '' ?>
 
     </form>
   </main>
