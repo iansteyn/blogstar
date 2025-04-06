@@ -47,29 +47,25 @@ class PostController {
 
     public function create() {
         AuthService::requireAuth(['registered','admin']);
-        // If form is not submitted, just display the page:
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $isLoggedIn = AuthService::isLoggedIn();
             $isAdmin = AuthService::isAdmin();
 
-            // This view uses: $isLoggedIn, $isAdmin
-            require __DIR__.'/../views/create-view.php';
+            // passing in empty post data on creation
+            // This view uses: $isLoggedIn
+            require __DIR__.'/../views/create-edit-view.php';
             return;
         }
-        // Otherwise, handle the submission:
-        
-        //ammend this to hard-coded as needed
+
         $this->postModel->createPost([
             'username'   => $_SESSION['username'],
             'post_title' => $_POST['post-title'],
             'post_body'  => $_POST['post-body'],
             'post_image' => $_FILES['post-image']
-
         ]);
         header('location: /?route=/profile');
         exit;
-        
     }
 
     public function delete($postId) {
@@ -78,7 +74,7 @@ class PostController {
             header('location: /?route=/home');
             exit;
         }
-    
+
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
             header('location: /?route=/home');
@@ -88,9 +84,42 @@ class PostController {
             header('location: /?route=/home');
             exit;
         }
-    
+
         $this->postModel->deletePost($postId);
         header('location: /?route=/profile');
+        exit;
+    }
+
+    public function edit(int $postId) {
+        AuthService::requireAuth(['registered', 'admin']);
+
+        $postData = $this->postModel->getPostById($postId);
+        if (!$postData or !AuthService::isCurrentUser($postData['username'])) {
+            header('Location: /home'); //TODO: make this redirect to error pages
+            exit;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $isLoggedIn = AuthService::isLoggedIn();
+            $isAdmin = AuthService::isAdmin();
+
+            // This view uses: $postData, $isLoggedIn, $isAdmin
+            require __DIR__.'/../views/create-edit-view.php';
+            return;
+        }
+
+        $updatedPostData = [
+            'post_id' => $postId,
+            'post_title' => $_POST['post-title'],
+            'post_body' => $_POST['post-body']
+        ];
+
+        if (!empty($_FILES['post-image']['tmp_name'])) {
+            $updatedPostData['post_image'] = $_FILES['post-image'];
+        }
+
+        $this->postModel->updatePost($updatedPostData);
+        header('Location: /blog-post/' . $postId);
         exit;
     }
 

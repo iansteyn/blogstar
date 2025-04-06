@@ -104,17 +104,19 @@ echo generateDocumentHead(
 
         <!-- edit -->
         <?php if ($postData['belongs_to_current_user']): ?>
-          <button
-            Title="Edit"
-            class="interaction-button edit-post-button"
-            type="button"
-            data-post-id="<?= $postData['post_id']?>"
-          >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-edit"></use> 
-            </svg>
-            Edit
-          </button>
+          <form method="GET" action="/post/edit/<?= $postData['post_id'] ?>">
+            <button
+              Title="Edit"
+              class="interaction-button edit-post-button"
+              type="button"
+              data-post-id="<?= $postData['post_id']?>"
+            >
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="/../vector-icons/icons.svg#icon-edit"></use> 
+              </svg>
+              Edit
+            </button>
+          </form>
         <?php endif; ?>
 
         <!-- delete -->
