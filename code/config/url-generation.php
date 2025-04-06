@@ -18,7 +18,7 @@ $baseUrl = EnvironmentConfig::baseUrl();
 /**
  * Use this for most navigation links and API requests.
  * @param string $path the route path you want the request to take,
- * e.g. '/home/profile'. Note: leading slash is optional.
+ * e.g. '/home/popular'. Note: leading slash is optional.
  * @return string a URL that can be mapped by Route.php.
  */
 function routeUrl(string $path): string {
