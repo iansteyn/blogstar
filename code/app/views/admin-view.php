@@ -6,6 +6,9 @@
  * @var string $searchValue
  * @var array $usernames
  * @var bool $showResultMessage
+ * @var int $total_posts
+ * @var int $posts_last_week
+ * @var int $posts_today
 */
 require_once __DIR__."/../helpers/view-helpers.php";
 
@@ -72,7 +75,20 @@ echo generateDocumentHead(
       </section>
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
+          <div class="panel">
+            <h3>User Accounts</h3>
+            
 
+          </div>
+          <div class="panel">
+            <h3>Blog Posts</h3>
+            <ul>
+              <li>Total posts: <?= $total_posts ?></li>
+              <li>Posts made in the past 7 days: <?= $posts_last_week ?></li>
+              <li>Posts created today: <?= $posts_today ?></li>
+            </ul>
+          </div>
+        
       </section>
     </article>
   </main>
