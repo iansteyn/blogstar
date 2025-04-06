@@ -22,7 +22,8 @@ function basicUrl() {
 
 /**
  * Use this for most navigation links and API requests.
- * @param string $path the route path you want the string to take, e.g. 'home/profile'
+ * @param string $path the route path you want the string to take,
+ * e.g. '/home/profile'. Note: leading slash is optional.
  * @return string a URL that can be mapped by Route.php.
  */
 function routeUrl(string $path): string {
@@ -32,8 +33,9 @@ function routeUrl(string $path): string {
 
 /**
  * Use this for links to resources like css files, vector icons, scripts, etc.
- * @param string $path the path from the website root (public_html) to the resource
- * @return string a URL that correctly locates the resource, e.g. 'css/main.css'
+ * @param string $path the path from the website root (public_html) to the resource,
+ * e.g. 'css/main.css'. Note: leading slashes should be removed.
+ * @return string a URL that correctly locates the resource
  */
 function resourceUrl(string $path): string {
     global $baseUrl;
