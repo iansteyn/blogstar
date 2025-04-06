@@ -7,7 +7,7 @@
 
     echo generateDocumentHead(
         $pageTitle,
-        ['forms.css', 'create.css'],
+        ['forms.css', 'create-edit.css'],
         ['create-edit.js']
     );
 ?>
