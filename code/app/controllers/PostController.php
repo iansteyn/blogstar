@@ -52,7 +52,7 @@ class PostController {
             
             // passing in empty post data on creation
             // This view uses: $isLoggedIn
-            require __DIR__.'/../views/create-view.php';
+            require __DIR__.'/../views/create-edit-view.php';
             return;
         }
         
@@ -99,7 +99,7 @@ class PostController {
     
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             // This view uses: $postData, $isLoggedIn
-            require __DIR__.'/../views/create-view.php';
+            require __DIR__.'/../views/create-edit-view.php';
             return;
         }
         
