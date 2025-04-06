@@ -101,19 +101,23 @@ echo generateDocumentHead(
           </svg>
           Saved
         </button>
+
+        
         <?php if ($postData['belongs_to_current_user']): ?>
-          <!-- edit (if it is your own post) -->
-          <button
-            Title="Edit"
-            class="interaction-button edit-post-button"
-            type="button"
-            data-post-id="<?= $postData['post_id']?>"
-          >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-edit"></use> 
-            </svg>
-            Edit
-          </button>
+          <!-- edit if it is your own post -->
+          <form method="GET" action="/post/edit/<?= $postData['post_id'] ?>">
+            <button
+                Title="Edit"
+                class="interaction-button edit-post-button"
+                type="submit"
+                data-post-id="<?= $postData['post_id']?>"
+            >
+              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+                <use href="/../vector-icons/icons.svg#icon-edit"></use> 
+              </svg>
+                Edit
+            </button>
+          </form>
         <?php endif; ?>
 
         <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>

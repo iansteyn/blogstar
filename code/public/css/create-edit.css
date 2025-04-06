@@ -22,10 +22,8 @@
   padding-bottom: 1em;
 }
 
-#submit-post-button, #discard-post-button{
-  width: min-content;
-  font-size: smaller;
-  padding: 0.5em;
-  margin: 0.2em;
+button.post-button, input.post-button {
+  width:fit-content;
+  margin-top: 1em;
 }
 
