@@ -6,7 +6,7 @@ This is the website's "root".
 Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
 */
 
-require_once __DIR__.'/../db_config/db_connect.php';
+require_once __DIR__.'/../config/db-connect.php';
 $db = getDatabaseConnection();
 
 require_once __DIR__.'/../app/controllers/HomeController.php';
