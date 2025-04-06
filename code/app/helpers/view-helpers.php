@@ -48,6 +48,23 @@ function hiddenIf($condition): string {
     return $condition ? "hidden" : "";
 }
 
+/**
+ * Generates a simple inline icon that can be used alongside text.
+ *
+ * Reduces the verbosity of including simple icons in views.
+ * Note: this function assumes the given icon is already defined in `icons.svg`.
+ * @param string $name the name of the icon resource, e.g. "icon-logo"
+ */
+function generateIconInline(string $name): string {
+    $resourceUrl = resourceUrl("vector-icons/icons.svg#$name");
+
+    return <<<HTML
+      <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+        <use href="$resourceUrl"></use>
+      </svg>
+    HTML;
+}
+
 function generatePostingInfo(string $username, $sqlDateTime): string {
     $usernameLink = routeUrl("/profile/posts/$username");
 
