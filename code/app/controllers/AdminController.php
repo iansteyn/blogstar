@@ -22,6 +22,8 @@ class AdminController {
         $searchValue = '';
         $postAnalytics = $this->postModel->getPostAnalytics();
         extract($postAnalytics); // creates $total_posts, $posts_last_week, $posts_today
+        $userAnalytics = $this->userModel->getUserAnalytics();
+        extract($userAnalytics); // creates $total_users, $registered_past_week, registered_today
 
         /* Note: this is distinct from the searchUsers function,
            because it handles the case where the user actually submits the search-bar form */
@@ -34,7 +36,7 @@ class AdminController {
         }
 
         // This view uses: $isLoggedIn, $isAdmin, $usernames, $searchValue, $showResultMessage,
-        // $total_posts, $posts_last_week, $posts_today
+        // $total_posts, $posts_last_week, $posts_today, $total_users, $registered_past_week, registered_today
         require __DIR__.'/../views/admin-view.php';
     }
 
