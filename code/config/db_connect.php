@@ -1,15 +1,21 @@
 <?php
-function getDatabaseConnection() {
-    $db_server = "localhost";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "our_site";
+require_once __DIR__.'/EnvironmentConfig.php';
+
+function getDatabaseConnection(): PDO {
+
+    $dbInfo = EnvironmentConfig::databaseInfo();
 
     try {
-        $conn = new PDO("mysql:host=$db_server;dbname=$db_name", $db_user, $db_pass);
+        $conn = new PDO(
+            "mysql:host={$dbInfo['host']};dbname={$dbInfo['db_name']}",
+            $dbInfo['user'],
+            $dbInfo['password']
+        );
+
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         die("Database connection error :(" . $e->getMessage());
     }
 }
