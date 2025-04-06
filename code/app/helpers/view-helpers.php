@@ -83,7 +83,6 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
 
-    // $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css', 'user-bio.css']
     $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
@@ -95,20 +94,23 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
             $title | Our Site
           </title>
 
-          <link rel="stylesheet" href="/css/reset.css">
-          <link rel="stylesheet" href="/css/main.css">
-          <link rel="stylesheet" href="/css/side-nav.css">
+          <link rel="icon" type="image/svg+xml" href="/vector-icons/favicon-light.svg">
     HTML;
 
-    foreach ($extraStylesheets as $stylesheet) {
-        $documentHead .= "<link rel='stylesheet' href='/css/$stylesheet'>";
+    $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css'];
+    $defaultScripts = ['side-nav.js'];
+
+    $allStylesheets = array_merge($defaultStylesheets, $extraStylesheets);
+    $allScripts = array_merge($defaultScripts, $extraScripts);
+
+    foreach ($allStylesheets as $stylesheet) {
+        $resourceUrl = resourceUrl("css/$stylesheet");
+        $documentHead .= "<link rel='stylesheet' href='$resourceUrl'>";
     }
 
-    $documentHead .= '<link rel="icon" type="image/svg+xml" href="/vector-icons/favicon-light.svg">' .
-                     '<script src="/scripts/side-nav.js" defer></script>';
-
-    foreach ($extraScripts as $script) {
-        $documentHead .= "<script src='/scripts/$script' defer></script>";
+    foreach ($allScripts as $script) {
+        $resourceUrl = resourceUrl("scripts/$script");
+        $documentHead .= "<script src='$resourceUrl' defer></script>";
     }
 
     $documentHead .= '</head>';
