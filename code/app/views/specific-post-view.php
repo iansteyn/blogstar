@@ -23,9 +23,9 @@ echo generateDocumentHead(
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="/?route=/profile/posts/<?= $userData['username'] ?>">@<?= $userData['username'] ?>'s profile</a>
+        <a href="<?= routeUrl("/profile/posts/{$userData['username']}") ?>">@<?= $userData['username'] ?>'s profile</a>
         &gt;
-        <a href="/?route=/#"><?= $postData['post_title'] ?></a>
+        <a href="#"><?= $postData['post_title'] ?></a>
       </span>
     </header>
     <article class="panel blog-panel">
@@ -121,7 +121,7 @@ echo generateDocumentHead(
 
         <!-- delete -->
         <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
-          <form method="POST" action="/?route=/post/delete/<?= $postId?>">
+          <form method="POST" action='<?= routeUrl("/post/delete/$postId") ?>'>
             <button
               Title="Delete"
               class="interaction-button delete-post-button"
@@ -156,11 +156,15 @@ echo generateDocumentHead(
         }
       ?>
 
-      <div class = "specific-comment-container">
-        <form method="POST" action="/?route=/comment/create/<?= $postId ?>">
-          <label for="comment">Add a Comment</label>
+      <div class="specific-comment-container">
+        <form method="POST" action='<?= routeUrl("/comment/create/$postId") ?>'>
+          <label for="comment">
+            Add a Comment
+          </label>
           <?php if ( ! $isLoggedIn):?>
-            <p>You must <a href="/?route=/login">log in</a> to comment on this post.</p>
+            <p>
+              You must <a href="<?= routeUrl('/login') ?>">log in</a> to comment on this post.
+            </p>
           <?php else: ?>
             <textarea class="comment" id="comment" name="comment-body" placeholder="Write your comment here!" required></textarea>
 

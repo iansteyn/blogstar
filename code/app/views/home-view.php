@@ -29,16 +29,16 @@
         ?>
       </div>
       <nav class="tab-group">
-        <a class="tab <?= isTabActive('recent', $activeTab) ?>" href="/?route=/home/recent">
+        <a class="tab <?= isTabActive('recent', $activeTab) ?>" href="<?= routeUrl('/home/recent') ?>">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
           Recent
         </a>
-        <a class="tab <?= isTabActive('popular', $activeTab) ?>" href="/?route=/home/popular">
+        <a class="tab <?= isTabActive('popular', $activeTab) ?>" href="<?= routeUrl('/home/popular') ?>">
           <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
           Popular
         </a>
         <?php if ($isLoggedIn): ?>
-          <a class="tab <?= isTabActive('saved', $activeTab) ?>" href="/?route=/home/saved">
+          <a class="tab <?= isTabActive('saved', $activeTab) ?>" href="<?= routeUrl('/home/saved') ?>">
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
             Saved
           </a>
@@ -49,7 +49,8 @@
     <article class="panel post-list <?= ($activeTab == 'recent') ? "left-most-subpage" : "" ?> ">
         <?php
         if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-            echo "<p>You have no saved posts yet! <a href='/?route=/home/popular'>See what's popular.</a></p>";
+            $popularLink = routeUrl('/home/popular');
+            echo "<p>You have no saved posts yet! <a href='$popularLink'>See what's popular.</a></p>";
         }
         else {
             foreach ($postDataList as $postData) {

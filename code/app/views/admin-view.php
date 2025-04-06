@@ -54,7 +54,7 @@ echo generateDocumentHead(
                 }
             ?>
           </h4>
-          <a class='clear-link' href='/?route=/admin'>
+          <a class='clear-link' href='<?= routeUrl('/admin') ?>'>
             Clear
           </a>
         </div>
@@ -63,7 +63,7 @@ echo generateDocumentHead(
         <ul class="user-list">
           <?php foreach($usernames as $username): ?>
             <li>
-              <a href="/?route=/profile/posts/<?= $username ?>/">
+              <a href='<?= routeUrl("/profile/posts/$username") ?>'>
                 <i>@<?= $username ?></i>
               </a>
             </li>

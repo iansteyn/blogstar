@@ -29,20 +29,27 @@ echo generateDocumentHead(
       <nav class="tab-group">
         <a
           class="tab <?= isTabActive('posts', $activeTab) ?>"
-          href="/?route=/profile/posts/<?= $userData['username'] ?>">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-post"></use></svg>
+          href='<?= routeUrl("/profile/posts/{$userData['username']}") ?>'
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="/../vector-icons/icons.svg#icon-post"></use>
+          </svg>
           Posts
         </a>
         <a
           class="tab <?= isTabActive('saved', $activeTab) ?>"
-          href="/?route=/profile/saved/<?= $userData['username'] ?>">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+          href="<?= routeUrl("/profile/saved/{$userData['username']}") ?>"
+        >
+          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+            <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use>
+          </svg>
           Saved
         </a>
         <?php if ($userData['is_current_user']): ?>
           <a
             class="tab <?= isTabActive('settings', $activeTab) ?>"
-            href="/?route=/profile/settings">
+            href="<?= routeUrl("/profile/settings") ?>"
+          >
             <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
             Settings
           </a>
@@ -55,7 +62,8 @@ echo generateDocumentHead(
             <?php
             if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
                 if ($userData['is_current_user']) {
-                    echo "<p>You have no saved posts yet! <a href='/?route=/home/popular'>See what's popular.</a></p>";
+                    $popularLink = routeUrl("/home/popular");
+                    echo "<p>You have no saved posts yet! <a href='$popularLink'>See what's popular.</a></p>";
                 } else {
                     echo "<p>@{$userData['username']} has no saved posts.</p>";
                 }
