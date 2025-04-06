@@ -6,18 +6,37 @@
  */
 class EnvironmentConfig {
     /**
+     * Note: few files should have to use baseUrl directly;
+     * links can instead be generated with the help of routing/url-generation.php
      * @return string the base URL to be used in all links for the current server
      */
     public static function baseUrl() {
-        //TODO
+        if ($_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca') {
+            return '/iansteyn/';
+        }
+        return '/';
     }
 
     /**
      * Determines the database information used to connect to the correct database
      * (based on current server)
-     * @return array with keys 'server', 'name', 'user', 'password';
+     * @return array with keys 'host', 'db_name', 'user', 'password';
      */
     public static function databaseInfo() {
-
+        if ($_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca') {
+            return [
+                'host'     => 'localhost',
+                'db_name'  => 'iansteyn',
+                'user'     => 'iansteyn',
+                'password' => 'iansteyn'
+            ];
+        }
+        return [
+            'host'     => 'localhost',
+            'db_name'  => 'our_site',
+            'user'     => 'root',
+            'password' => ''
+        ];
     }
 }
+?>
