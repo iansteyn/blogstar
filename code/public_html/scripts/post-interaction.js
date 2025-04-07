@@ -2,7 +2,6 @@
 --------------------------------------
 Performs the following actions:
 - Deleting (with confirmation)
-- Editing (redirect)
 - like/unlike, save/unsave toggling
 -------------------------------------- */
 
@@ -18,18 +17,6 @@ function deletePost(){
   if (confirmDelete) {
     window.location.href = `${BASE_URL}?route=/profile`; 
   }
-}
-
-// TODO probably delete this, right?
-// EDIT
-const editPostButtons = document.querySelectorAll(".edit-post-button");
-
-editPostButtons.forEach((button) => {
-    button.addEventListener("click", ()=> editPost());
-});
-
-function editPost(){
-  window.location.href = `${BASE_URL}?route=/create`; 
 }
 
 //LIKE and SAVE
