@@ -15,7 +15,7 @@ class AppConfig {
      * links can instead be generated with the help of routing/url-generation.php
      * @return string the base URL to be used in all links for the current server
      */
-    public static function baseUrl() {
+    public static function baseUrl(): string {
         if (AppConfig::usingProductionServer()) {
             return '/iansteyn/';
         }
@@ -27,7 +27,7 @@ class AppConfig {
      * (based on current server)
      * @return array with keys 'host', 'db_name', 'user', 'password';
      */
-    public static function databaseInfo() {
+    public static function databaseInfo(): array {
         if (AppConfig::usingProductionServer()) {
             return [
                 'host'     => 'localhost',
@@ -45,7 +45,7 @@ class AppConfig {
     }
 
     /** Determines type of favicon to use (dev or production) */
-    public static function faviconType() {
+    public static function faviconType(): string {
         if (AppConfig::usingProductionServer()) {
             return '';
         }
