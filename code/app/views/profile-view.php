@@ -31,18 +31,14 @@ echo generateDocumentHead(
           class="tab <?= isTabActive('posts', $activeTab) ?>"
           href='<?= routeUrl("/profile/posts/{$userData['username']}") ?>'
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-post"></use>
-          </svg>
+          <?= generateIconInline('icon-post') ?>
           Posts
         </a>
         <a
           class="tab <?= isTabActive('saved', $activeTab) ?>"
           href="<?= routeUrl("/profile/saved/{$userData['username']}") ?>"
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use>
-          </svg>
+          <?= generateIconInline('icon-save-unfilled') ?>
           Saved
         </a>
         <?php if ($userData['is_current_user']): ?>
@@ -50,7 +46,7 @@ echo generateDocumentHead(
             class="tab <?= isTabActive('settings', $activeTab) ?>"
             href="<?= routeUrl("/profile/settings") ?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-settings"></use></svg>
+            <?= generateIconInline('icon-settings') ?>
             Settings
           </a>
         <?php endif; ?>

@@ -44,9 +44,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="like"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
-            </svg>
+            <?= generateIconInline('icon-like-unfilled') ?>
           </button>
           <button
             title="Unlike"
@@ -54,9 +52,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="like"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-like-filled"></use>
-            </svg>
+            <?= generateIconInline('icon-like-filled') ?>
           </button>
           
           <button
@@ -65,9 +61,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="save"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use>
-            </svg>
+            <?= generateIconInline('icon-save-unfilled') ?>
           </button>
           <button
             title="Unsave"
@@ -75,9 +69,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="save"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-save-filled"></use>
-            </svg>
+            <?= generateIconInline('icon-save-filled') ?>
           </button>
         </div>
 
@@ -88,9 +80,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
               class="button-icon-only edit-post-button"
               data-post-id="<?= $postData['post_id']?>"
             >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-edit"></use>
-              </svg>
+              <?= generateIconInline('icon-edit') ?>
             </button>
           <?php endif; ?>
           <?php if ($postData['belongs_to_current_user'] or $isAdmin): ?>
@@ -99,9 +89,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
               class="button-icon-only delete-post-button"
               data-post-id="<?= $postData['post_id']?>"
             >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-delete"></use>
-              </svg>
+              <?= generateIconInline('icon-delete') ?>
             </button>
           <?php endif; ?>
         </div>

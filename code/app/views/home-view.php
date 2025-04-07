@@ -30,16 +30,16 @@
       </div>
       <nav class="tab-group">
         <a class="tab <?= isTabActive('recent', $activeTab) ?>" href="<?= routeUrl('/home/recent') ?>">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
+          <?= generateIconInline('icon-recent') ?>
           Recent
         </a>
         <a class="tab <?= isTabActive('popular', $activeTab) ?>" href="<?= routeUrl('/home/popular') ?>">
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
+          <?= generateIconInline('icon-popular') ?>
           Popular
         </a>
         <?php if ($isLoggedIn): ?>
           <a class="tab <?= isTabActive('saved', $activeTab) ?>" href="<?= routeUrl('/home/saved') ?>">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
+            <?= generateIconInline('icon-save-unfilled') ?>
             Saved
           </a>
         <?php endif; ?>

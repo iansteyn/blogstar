@@ -31,8 +31,6 @@ $isRequired = $isRequired ?? true;
     <?= $isRequired ? 'required' : '' ?>
   >
   <button type="submit" class="button-icon-only">
-    <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-      <use href="/../vector-icons/icons.svg#icon-search"></use>
-    </svg>
+    <?= generateIconInline('icon-search') ?>
   </button>
 </form>
