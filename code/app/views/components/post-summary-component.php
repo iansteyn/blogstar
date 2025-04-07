@@ -75,22 +75,22 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 
         <div class="modify-buttons">
           <?php if ($postData['belongs_to_current_user']): ?>
-            <button
+            <a
               title="Edit"
+              href="<?= routeUrl("/post/edit/".$postData['post_id']) ?>"
               class="button-icon-only edit-post-button"
-              data-post-id="<?= $postData['post_id']?>"
             >
               <?= generateIconInline('icon-edit') ?>
-            </button>
+            </a>
           <?php endif; ?>
           <?php if ($postData['belongs_to_current_user'] or $isAdmin): ?>
-            <button
+            <a
               title="Delete"
+              href="<?= routeUrl("/post/delete/".$postData['post_id']) ?>"
               class="button-icon-only delete-post-button"
-              data-post-id="<?= $postData['post_id']?>"
             >
               <?= generateIconInline('icon-delete') ?>
-            </button>
+            </a>
           <?php endif; ?>
         </div>
 
