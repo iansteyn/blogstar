@@ -255,7 +255,7 @@ class PostModel {
 
     /**
      * @return array
-     * Array of postData arrays with keys {post_id, username, post_title, post_date, likes},
+     * Array of postData arrays with keys {post_id, username, post_title, likes},
      * ordered by most likes, then by most recent post_date first.
      */
     public function getMostLikedPosts(): array {
