@@ -89,7 +89,7 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" maxlength="300" placeholder="Tell us about yourself" rows="4"><?= htmlspecialchars($userData['user_bio'] ?? '') ?></textarea>
+            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"><?= htmlspecialchars($userData['user_bio'] ?? '') ?></textarea>
           </div>
           <button type="submit">Update Settings</button>
         </form>
