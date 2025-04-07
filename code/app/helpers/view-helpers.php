@@ -91,7 +91,7 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  * Contains stuff that every page needs: the main, reset and side-nav stylesheet links,
  * favicon link, side-nav script link.
  * 
- * ALSO! passes the base URL to javascript files.
+ * ALSO! passes configuration info (base URL, favicon type) to javascript files.
  * 
  * @param string $title
  * @param array $extraStylesheets
@@ -102,10 +102,10 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
 
-    $faviconUrl = resourceUrl('vector-icons/dev-favicon-dark.svg');
-
     require_once __DIR__.'/../../config/AppConfig.php';
     $baseUrl = AppConfig::baseUrl();
+    $faviconType = AppConfig::faviconType();
+    $faviconUrl = resourceUrl("vector-icons/{$faviconType}favicon-light.svg");
 
     $documentHead =  <<<HTML
         <!DOCTYPE html>
@@ -122,7 +122,7 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
 
           <script>
             const BASE_URL = '$baseUrl';
-            const FAVICON_TYPE = 'dev-';
+            const FAVICON_TYPE = '$faviconType';
           </script>
     HTML;
 
