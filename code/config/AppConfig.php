@@ -4,7 +4,7 @@
  * (remote or local). This allows us to sync files with the remote server while continuing
  * to develop locally.
  */
-class EnvironmentConfig {
+class AppConfig {
 
     private static function usingProductionServer(): bool {
         return $_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca';
@@ -16,7 +16,7 @@ class EnvironmentConfig {
      * @return string the base URL to be used in all links for the current server
      */
     public static function baseUrl() {
-        if (EnvironmentConfig::usingProductionServer()) {
+        if (AppConfig::usingProductionServer()) {
             return '/iansteyn/';
         }
         return '/';
@@ -28,7 +28,7 @@ class EnvironmentConfig {
      * @return array with keys 'host', 'db_name', 'user', 'password';
      */
     public static function databaseInfo() {
-        if (EnvironmentConfig::usingProductionServer()) {
+        if (AppConfig::usingProductionServer()) {
             return [
                 'host'     => 'localhost',
                 'db_name'  => 'iansteyn',

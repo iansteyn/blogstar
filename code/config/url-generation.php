@@ -11,9 +11,8 @@
  * - and can instead look like `routeUrl('/home')`
  */
 
-require_once __DIR__.'/EnvironmentConfig.php';
-
-$baseUrl = EnvironmentConfig::baseUrl();
+require_once __DIR__.'/AppConfig.php';
+$baseUrl = AppConfig::baseUrl();
 
 /**
  * Use this for most navigation links and API requests.

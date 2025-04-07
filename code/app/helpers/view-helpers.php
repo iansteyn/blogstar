@@ -102,10 +102,10 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
 
-    $faviconUrl = resourceUrl('vector-icons/favicon-light.svg');
+    $faviconUrl = resourceUrl('vector-icons/dev-favicon-dark.svg');
 
-    require_once __DIR__.'/../../config/EnvironmentConfig.php';
-    $baseUrl = EnvironmentConfig::baseUrl();
+    require_once __DIR__.'/../../config/AppConfig.php';
+    $baseUrl = AppConfig::baseUrl();
 
     $documentHead =  <<<HTML
         <!DOCTYPE html>
@@ -122,6 +122,7 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
 
           <script>
             const BASE_URL = '$baseUrl';
+            const FAVICON_TYPE = 'dev-';
           </script>
     HTML;
 
