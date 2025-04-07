@@ -44,9 +44,12 @@ class AppConfig {
         ];
     }
 
-    // /** Determines type of favicon to use (dev or production) */
-    // public static function faviconType() {
-        
-    // }
+    /** Determines type of favicon to use (dev or production) */
+    public static function faviconType() {
+        if (AppConfig::usingProductionServer()) {
+            return '';
+        }
+        return 'dev-';
+    }
 }
 ?>
