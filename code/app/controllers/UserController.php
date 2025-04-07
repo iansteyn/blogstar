@@ -118,6 +118,10 @@ class UserController {
             exit;
         }
     
+        $updateData = [
+            'username' => $_SESSION['username'],
+            'user_bio' => !empty($userBio) ? $userBio : 'This user has not yet added a bio'
+        ];
     
         if (!empty($newPassword)) {
             if ($newPassword !== $confirmPassword) {
