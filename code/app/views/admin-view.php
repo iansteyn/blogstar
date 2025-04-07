@@ -12,9 +12,9 @@
  * @var int $total_users
  * @var int $registered_past_week
  * @var int $registered_today
+ * @var array $likedPosts
 */
 require_once __DIR__."/../helpers/view-helpers.php";
-
 $usernames = sanitizeData($usernames);
 
 echo generateDocumentHead(
@@ -94,6 +94,26 @@ echo generateDocumentHead(
               <li><span><?= $posts_last_week ?></span><p>Posts created this week</p></li>
               <li><span><?= $posts_today ?></span><p>Posts created today</p></li>
             </ul>
+          </div>
+          <div class="panel analytics-widget">
+            <h3>Top 5 Blog Posts by Likes
+              <svg class="icon-inline bottom-align" preserveAspectRatio="xMidYMid meet">
+                <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
+              </svg>
+            </h3>
+            <ol class="top-posts">
+              <?php foreach($likedPosts as $post): ?>
+                <li>
+                  <a href="/blog-post/<?= sanitizeData($post['post_id']) ?>/">
+                    <span><?= sanitizeData($post['post_title']) ?></span>
+                  </a>
+                  <a href="/profile/posts/<?= sanitizeData($post['username']) ?>/">
+                    <i>@<?= sanitizeData($post['username']) ?></i>
+                  </a>
+                  <p><span><?= sanitizeData($post['likes']) ?></span> Likes</p>
+                </li>
+              <?php endforeach; ?>
+              </ol>
           </div>
         </div>
       </section>
