@@ -73,28 +73,72 @@ echo generateDocumentHead(
             ?>
         </article>
     <?php else: ?>
-      <form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
+      <form
+        id="user-settings"
+        class="panel account-form"
+        method="post"
+        action="<?= routeUrl('/profile/update-settings') ?>"
+        enctype="multipart/form-data"
+      >
           <div class="form-group">
-            <label for="current-password">Current password (required for changes)</label>
-            <input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
+            <label for="current-password">
+                Current password (required for changes)
+            </label>
+            <input
+              type="password"
+              id="current-password"
+              name="current-password"
+              placeholder="Enter your current password"
+              required
+            >
           </div>
           <div class="form-group">
-            <label for="new-password">New password (leave blank to keep current)</label>
-            <input type="password" id="new-password" name="new-password" placeholder="Enter new password" />
+            <label for="new-password">
+              New password (leave blank to keep current)
+            </label>
+            <input
+              type="password"
+              id="new-password"
+              name="new-password"
+              placeholder="Enter new password"
+            >
           </div>
           <div class="form-group">
-            <label for="confirm-password">Confirm new password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" />
+            <label for="confirm-password">
+              Confirm new password
+            </label>
+            <input
+              type="password" 
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirm new password"
+            >
           </div>
           <div class="form-group">
-            <label for="profile-picture">Update profile picture</label>
-            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg, image/gif" />
+            <label for="profile-picture">
+              Update profile picture
+            </label>
+            <input
+              type="file"
+              id="profile-picture"
+              name="profile-picture"
+              accept="image/png, image/jpeg, image/jpg, image/gif"
+            >
           </div>
           <div class="form-group">
-            <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"><?= ($userData['user_bio']) ?></textarea>
+            <label for="user-bio">
+              Bio
+            </label>
+            <textarea
+              id="user-bio"
+              name="user-bio"
+              placeholder="Tell us about yourself"
+              rows="4"
+            ><?= $userData['user_bio'] ?></textarea>
           </div>
-          <button type="submit">Update Settings</button>
+          <button type="submit">
+            Update Settings
+          </button>
         </form>
     <?php endif; ?>
   </main>
