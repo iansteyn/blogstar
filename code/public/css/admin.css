@@ -84,3 +84,20 @@
     font-size: smaller;
     margin: 0.5em 0;
 }
+
+.analytics-widget ol {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.analytics-widget>ol>li {
+    display: grid;
+    grid-template-columns: 1.5fr 0.25fr 0.25fr;
+}
+
+.bottom-align {
+    display: inline-block;
+    vertical-align: bottom;
+}
