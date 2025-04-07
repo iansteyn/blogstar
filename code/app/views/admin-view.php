@@ -102,15 +102,18 @@ echo generateDocumentHead(
               </svg>
             </h3>
             <ol class="top-posts">
-              <?php foreach($likedPosts as $post): ?>
+              <?php
+                foreach($likedPosts as $post): 
+                    $post = sanitizeData($post);
+              ?>
                 <li>
-                  <a href="/blog-post/<?= sanitizeData($post['post_id']) ?>/">
-                    <span><?= sanitizeData($post['post_title']) ?></span>
+                  <a href="/blog-post/<?= $post['post_id'] ?>/">
+                    <span><?= $post['post_title'] ?></span>
                   </a>
-                  <a href="/profile/posts/<?= sanitizeData($post['username']) ?>/">
-                    <i>@<?= sanitizeData($post['username']) ?></i>
+                  <a href="/profile/posts/<?= $post['username'] ?>/">
+                    <i>@<?= $post['username'] ?></i>
                   </a>
-                  <p><span><?= sanitizeData($post['likes']) ?></span> Likes</p>
+                  <p><span><?= $post['likes'] ?></span> Likes</p>
                 </li>
               <?php endforeach; ?>
               </ol>
