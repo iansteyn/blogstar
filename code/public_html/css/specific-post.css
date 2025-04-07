@@ -24,13 +24,20 @@
   gap: 1em;
 }
 
-.interaction-button[type="button"], .interaction-button[type="submit"] {
+a.interaction-button,
+.interaction-button[type="button"],
+.interaction-button[type="submit"]
+{
     white-space: nowrap;
     width: auto;
     font-size:small;
     padding: 0.5rem;
+    text-decoration: none;
 }
-.interaction-button[type="button"]:hover, .interaction-button[type="submit"]:hover {
+a.interaction-button:hover,
+.interaction-button[type="button"]:hover,
+.interaction-button[type="submit"]:hover
+{
     background-color: var(--accent-hover);
     cursor:pointer;
 }

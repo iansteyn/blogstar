@@ -96,32 +96,26 @@ echo generateDocumentHead(
 
         <!-- edit -->
         <?php if ($postData['belongs_to_current_user']): ?>
-          <form method="GET" action="/post/edit/<?= $postData['post_id'] ?>">
-            <button
-              Title="Edit"
-              class="interaction-button edit-post-button"
-              type="button"
-              data-post-id="<?= $postData['post_id']?>"
-            >
-              <?= generateIconInline('icon-edit') ?>
-              Edit
-            </button>
-          </form>
+          <a
+            Title="Edit"
+            href="<?= routeUrl("/post/edit/".$postData['post_id']) ?>"
+            class="interaction-button edit-post-button"
+          >
+            <?= generateIconInline('icon-edit') ?>
+            Edit
+          </a>
         <?php endif; ?>
 
         <!-- delete -->
         <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
-          <form method="POST" action='<?= routeUrl("/post/delete/$postId") ?>'>
-            <button
-              Title="Delete"
-              class="interaction-button delete-post-button"
-              type="submit"
-              data-post-id="<?= $postData['post_id'] ?>"
-            >
+          <a
+            Title="Delete"
+            href="<?= routeUrl("/post/delete/".$postData['post_id']) ?>"
+            class="interaction-button delete-post-button"
+          >
               <?= generateIconInline('icon-delete') ?>
               Delete
-            </button>
-          </form>
+          </a>
         <?php endif; ?>
       </div>
     <?php endif; ?>
