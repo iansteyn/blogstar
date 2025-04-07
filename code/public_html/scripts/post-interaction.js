@@ -16,10 +16,11 @@ deletePostButtons.forEach((button) => {
 function deletePost(){
   const confirmDelete = confirm("Are you sure you want to delete this post?");
   if (confirmDelete) {
-    window.location.href = "/?route=/profile"; 
+    window.location.href = `${BASE_URL}?route=/profile`; 
   }
 }
 
+// TODO probably delete this, right?
 // EDIT
 const editPostButtons = document.querySelectorAll(".edit-post-button");
 
@@ -28,7 +29,7 @@ editPostButtons.forEach((button) => {
 });
 
 function editPost(){
-  window.location.href = "/?route=/create"; 
+  window.location.href = `${BASE_URL}?route=/create`; 
 }
 
 //LIKE and SAVE
@@ -44,7 +45,7 @@ function handleButtonClick(button) {
     const resource = button.dataset.resource;
 
     // Send a request to the server
-    fetch(`/?route=/${resource}/${postId}`, {
+    fetch(`${BASE_URL}?route=/${resource}/${postId}`, {
         method: 'POST',
     })
 

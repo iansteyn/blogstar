@@ -14,7 +14,7 @@ if (logoutLink) {
     logoutLink.addEventListener("click", function(event) {
         event.preventDefault();
         if(confirm("Are you sure you want to log out?")) {
-            window.location.href = "/?route=/logout";
+            window.location.href = `${BASE_URL}?route=/logout`;
         }
     });
 }
@@ -29,20 +29,20 @@ const currentPage = window.location.href.split("&")[0];
 const currentPagePath = new URLSearchParams(window.location.search).get('route');
 
 if (['/home/recent', '/home/popular', '/home/saved'].includes(currentPagePath)) {
-    const homeLink = document.querySelectorAll(".nav-link[href='/?route=/home']")[1];
+    const homeLink = document.querySelectorAll(`.nav-link[href='${BASE_URL}?route=/home']`)[1];
     homeLink.classList.add("current-page");
 }
 else if (['/profile/posts', '/profile/saved', '/profile/settings'].includes(currentPagePath)) {
-    const profileLink = document.querySelector(".nav-link[href='/?route=/profile']");
+    const profileLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/profile']`);
     console.log(profileLink);
     profileLink.classList.add("current-page");
 }
 else if ('/post/create' == currentPagePath) {
-    const createLink = document.querySelector(".nav-link[href='/?route=/create']");
+    const createLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/create']`);
     createLink.classList.add("current-page");
 }
 else if ('search' == currentPagePath) {
-    const searchLink = document.querySelector(".nav-link[href='/?route=/search']");
+    const searchLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/search']`);
     searchLink.classList.add("current-page");
 }
 else {
@@ -184,7 +184,7 @@ function setFavicon(theme) {
             faviconTheme = theme;
         }
 
-        faviconLink.setAttribute('href', `/vector-icons/favicon-${faviconTheme}.svg`)
+        faviconLink.setAttribute('href', `${BASE_URL}vector-icons/favicon-${faviconTheme}.svg`)
     }
 }
 
