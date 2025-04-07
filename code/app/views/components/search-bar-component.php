@@ -2,7 +2,7 @@
 /**
  * search-bar-component.php
  * This component requires the following variables:
- * @var string $searchAction - the name of the resource for the search request to be sent to
+ * @var string $searchAction - the path for the search request to be sent to
  * @var string $searchValue (optional) value to populate the searchbar with
  * @var bool $isRequired (optional) determines if searchbar can be empty on submission
  */
@@ -15,12 +15,8 @@ $isRequired = $isRequired ?? true;
 ?>
 
 <!-- Note: CSS for this is in main.css -->
-<form class="search-bar" action="/">
-  <input
-    type="hidden"
-    name="route"
-    value='<?= $searchAction ?>'
-  >
+<form class="search-bar" action='<?= formActionUrl() ?>'>
+  <?= formRouteElement($searchAction) ?>
   <input
     type="search"
     title="Search"
