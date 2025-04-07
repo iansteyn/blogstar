@@ -9,7 +9,6 @@
  * @var bool $isLoggedIn
  */
 require_once __DIR__."/../helpers/view-helpers.php";
-
 $userData = sanitizeData($userData);
 
 echo generateDocumentHead(
@@ -91,7 +90,7 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"></textarea>
+            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"><?= ($userData['user_bio']) ?></textarea>
           </div>
           <button type="submit">Update Settings</button>
         </form>
