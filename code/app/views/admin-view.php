@@ -76,6 +76,7 @@ echo generateDocumentHead(
           <?php endforeach; ?>
         </ul>
       </section>
+
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
         <div class="widget-container">
@@ -96,9 +97,10 @@ echo generateDocumentHead(
             </ul>
           </div>
           <div class="panel analytics-widget">
-            <h3>Top 5 Blog Posts by Likes
+            <h3>
+              Top 5 Blog Posts by Likes
               <svg class="icon-inline bottom-align" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
+                <use href="<?= resourceUrl('vector-icons/icons.svg#icon-like-unfilled') ?>"></use>
               </svg>
             </h3>
             <ol class="top-posts">
@@ -107,10 +109,10 @@ echo generateDocumentHead(
                     $post = sanitizeData($post);
               ?>
                 <li>
-                  <a href="/blog-post/<?= $post['post_id'] ?>/">
+                  <a href="<?= routeUrl('/blog-post/'.$post['post_id']) ?>">
                     <span><?= $post['post_title'] ?></span>
                   </a>
-                  <a href="/profile/posts/<?= $post['username'] ?>/">
+                  <a href="<?= routeUrl('/profile/posts/'.$post['username']) ?>">
                     <i>@<?= $post['username'] ?></i>
                   </a>
                   <p><span><?= $post['likes'] ?></span> Likes</p>
