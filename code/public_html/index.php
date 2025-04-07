@@ -1,11 +1,12 @@
 <?php
-session_start();
 /* index.php
 ------------
 This is the website's "root". All navigation and API requests are handled here,
 so this is where important configuration files are included and routes are set up.
-
+The current session is also started here, before anything else happens.
 */
+
+session_start();
 
 require_once __DIR__.'/../config/url-generation.php';
 require_once __DIR__.'/../config/db-connect.php';
@@ -23,7 +24,7 @@ $homeController = new HomeController($db);
 $profileController = new ProfileController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
-$commentController = new commentController($db);
+$commentController = new CommentController($db);
 $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
