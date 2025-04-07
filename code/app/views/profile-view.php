@@ -72,10 +72,6 @@ echo generateDocumentHead(
     <?php else: ?>
       <form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<?= htmlspecialchars($userData['username']) ?>" readonly />
-          </div>
-          <div class="form-group">
             <label for="current-password">Current password (required for changes)</label>
             <input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
           </div>
