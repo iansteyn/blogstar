@@ -236,6 +236,47 @@ class PostModel {
         $statement->bindValue(':postId', $postId);
         $statement->execute();
     }
+
+    /**
+     * @return array 
+     * Returns an array of total number of posts, number of posts made in the 
+     * last 7 days, and the number of posts made today.
+     */
+    public function getPostAnalytics(): array {
+        $statement = $this->db->query(<<<SQL
+            SELECT
+                (SELECT COUNT(*) FROM posts) AS total_posts,
+                (SELECT COUNT(*) FROM posts WHERE post_date >= NOW() - INTERVAL 1 WEEK) AS posts_last_week,
+                (SELECT COUNT(*) FROM posts WHERE post_date >= CURDATE()) AS posts_today
+        SQL);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    /**
+     * @return array
+     * Array of postData arrays with keys {post_id, username, post_title, likes},
+     * ordered by most likes, then by most recent post_date first.
+     */
+    public function getMostLikedPosts(): array {
+        $statement = $this->db->query(<<<SQL
+            SELECT
+                posts.post_id AS post_id,
+                posts.username AS username,
+                post_title,
+                COUNT(likes.post_id) AS likes
+            FROM posts
+                JOIN likes
+                ON posts.post_id = likes.post_id
+            GROUP BY
+                posts.post_id
+            ORDER BY
+                COUNT(likes.post_id) DESC, post_date DESC
+            LIMIT 5
+        SQL);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 
 ?>

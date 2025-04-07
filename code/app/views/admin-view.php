@@ -6,9 +6,15 @@
  * @var string $searchValue
  * @var array $usernames
  * @var bool $showResultMessage
+ * @var int $total_posts
+ * @var int $posts_last_week
+ * @var int $posts_today
+ * @var int $total_users
+ * @var int $registered_past_week
+ * @var int $registered_today
+ * @var array $likedPosts
 */
 require_once __DIR__."/../helpers/view-helpers.php";
-
 $usernames = sanitizeData($usernames);
 
 echo generateDocumentHead(
@@ -72,28 +78,50 @@ echo generateDocumentHead(
       </section>
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
-        <canvas id="analytics" width="300" height="300"></canvas><!-- temporary placeholder graphic -->
+        <div class="widget-container">
+          <div class="panel analytics-widget">
+            <h3>User Accounts</h3>
+            <ul>
+              <li><span><?= $total_users ?></span><p>Total users</p></li>
+              <li><span><?= $registered_past_week ?></span><p>Accounts created this week</p></li>
+              <li><span><?= $registered_today ?></span><p>Accounts created today</p></li>
+            </ul>
+          </div>
+          <div class="panel analytics-widget">
+            <h3>Blog Posts</h3>
+            <ul>
+              <li><span><?= $total_posts ?></span><p>Total posts</p></li>
+              <li><span><?= $posts_last_week ?></span><p>Posts created this week</p></li>
+              <li><span><?= $posts_today ?></span><p>Posts created today</p></li>
+            </ul>
+          </div>
+          <div class="panel analytics-widget">
+            <h3>Top 5 Blog Posts by Likes
+              <svg class="icon-inline bottom-align" preserveAspectRatio="xMidYMid meet">
+                <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
+              </svg>
+            </h3>
+            <ol class="top-posts">
+              <?php
+                foreach($likedPosts as $post): 
+                    $post = sanitizeData($post);
+              ?>
+                <li>
+                  <a href="/blog-post/<?= $post['post_id'] ?>/">
+                    <span><?= $post['post_title'] ?></span>
+                  </a>
+                  <a href="/profile/posts/<?= $post['username'] ?>/">
+                    <i>@<?= $post['username'] ?></i>
+                  </a>
+                  <p><span><?= $post['likes'] ?></span> Likes</p>
+                </li>
+              <?php endforeach; ?>
+              </ol>
+          </div>
+        </div>
       </section>
     </article>
   </main>
-
-  <!-- temporary placeholder for site analytics -->
-  <script>
-    var ctx = document.getElementById("analytics").getContext("2d");
-    ctx.beginPath();
-    ctx.arc(150,150,125,0,2*Math.PI);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.strokeStyle = "green";
-    ctx.moveTo(25, 150);
-    ctx.lineTo(275, 150);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.strokeStyle = "blue";
-    ctx.moveTo(150, 150);
-    ctx.lineTo(150, 25);
-    ctx.stroke();
-  </script>
 </body>
 
 </html>

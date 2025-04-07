@@ -1,7 +1,7 @@
 .dashboard-grid {
     box-sizing:content-box;
     display: grid;
-    grid-gap: 2rem;
+    gap: 2rem;
     grid-template-columns: 1fr 1.75fr;
     grid-template-areas: "user-search site-analytics";
 }
@@ -9,6 +9,7 @@
 .user-search {
     grid-area: user-search;
     width: inherit;
+    height: fit-content;
 }
 
 .search-topics {
@@ -43,3 +44,60 @@
     background-color: var(--low-opacity-darken-20);
 }
 
+.widget-container {
+    display: grid;
+    gap: 2em;
+    margin-top: 1em;
+}
+
+.analytics-widget {
+    background-color: var(--low-opacity-darken-10);
+    box-shadow: none;
+}
+
+.analytics-widget ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+.analytics-widget li {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-secondary);
+    border-radius: 0.75em;
+    padding: 1em 0.75em;
+    align-items: center;
+    justify-content: center;
+}
+
+.analytics-widget span {
+    font-size: 1.17em;
+    font-weight: bold;
+    align-self: center;
+}
+
+.analytics-widget p {
+    min-width: 22ch;
+    text-align: center;
+    font-size: smaller;
+    margin: 0.5em 0;
+}
+
+.analytics-widget ol {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.analytics-widget>ol>li {
+    display: grid;
+    grid-template-columns: 1.5fr 0.25fr 0.25fr;
+}
+
+.bottom-align {
+    display: inline-block;
+    vertical-align: bottom;
+}
