@@ -148,6 +148,22 @@ class UserModel {
     public function getAllUsernames(): array {
         return $this->getSearchedUsernames('');
     }
+
+    /**
+     * @return array
+     * Returns an arrray of total number of users, users registered in
+     * the past week, and users registered today.
+     */
+    public function getUserAnalytics(): array {
+        $statement = $this->db->query(<<<SQL
+            SELECT
+                (SELECT COUNT(*) FROM users) AS total_users,
+                (SELECT COUNT(*) FROM users WHERE date_registered >= NOW() - INTERVAL 1 WEEK) AS registered_past_week,
+                (SELECT COUNT(*) FROM users WHERE date_registered >= CURDATE()) AS registered_today
+        SQL);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 
 ?>
