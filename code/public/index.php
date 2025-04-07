@@ -60,6 +60,9 @@ $route->add('/profile/saved', fn()=>
 $route->add('/profile/settings', fn()=>
     $profileController->settings()
 );
+$route->add('/profile/update-settings', fn() =>
+    $userController->updateSettings()
+);
 $route->add('/profile/posts/.+', fn($username)=>
     $profileController->posts($username)
 );

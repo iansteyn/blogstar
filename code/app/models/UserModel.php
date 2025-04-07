@@ -77,10 +77,36 @@ class UserModel {
      * Updates an existing user's data in the database
      * 
      * @param array{username, email, password, image, bio} $userData
-     * @return void
+     * @return bool
      */
-    public function updateUser(array $userData) {
-
+    public function updateUser(array $userData): bool {
+        $fields = [];
+        $params = [':username' => $userData['username']];
+        
+        if (isset($userData['user_bio'])) {
+            $fields[] = 'user_bio = :user_bio';
+            $params[':user_bio'] = $userData['user_bio'];
+        }
+        
+        if (isset($userData['password'])) {
+            $fields[] = 'password = :password';
+            $params[':password'] = password_hash($userData['password'], PASSWORD_DEFAULT);
+        }
+        
+        if (isset($userData['profile_picture'])) {
+            $imageBlob = file_get_contents($userData['profile_picture']['tmp_name']);
+            $fields[] = 'profile_picture = :profile_picture';
+            $params[':profile_picture'] = $imageBlob;
+        }
+        
+        if (empty($fields)) {
+            return false;
+        }
+        
+        $sql = "UPDATE users SET " . implode(', ', $fields) . " WHERE username = :username";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute($params);
+    
     }
 
     /**
