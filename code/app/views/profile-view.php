@@ -10,6 +10,8 @@
  */
 require_once __DIR__."/../helpers/view-helpers.php";
 
+$userData = sanitizeData($userData);
+
 echo generateDocumentHead(
     'My Profile',
     ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
@@ -89,7 +91,7 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"><?= htmlspecialchars($userData['user_bio'] ?? '') ?></textarea>
+            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"></textarea>
           </div>
           <button type="submit">Update Settings</button>
         </form>
