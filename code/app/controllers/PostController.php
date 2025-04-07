@@ -83,7 +83,12 @@ class PostController {
 
         $this->postModel->deletePost($postId);
 
-        $redirectLocation = $_SERVER['HTTP_REFERER'] ?: routeUrl('/profile');
+        if (isset($_SERVER['HTTP_REFERER']) and ! str_ends_with($_SERVER['HTTP_REFERER'], $postId)) {
+            $redirectLocation = $_SERVER['HTTP_REFERER'];
+        } else {
+            $redirectLocation =  routeUrl('/profile');
+        }
+
         header("location: $redirectLocation");
         exit;
     }
