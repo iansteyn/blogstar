@@ -2,7 +2,7 @@
 /**
  * search-bar-component.php
  * This component requires the following variables:
- * @var string $searchAction - a URL route for the search request to be sent to
+ * @var string $searchAction - the path for the search request to be sent to
  * @var string $searchValue (optional) value to populate the searchbar with
  * @var bool $isRequired (optional) determines if searchbar can be empty on submission
  */
@@ -15,7 +15,8 @@ $isRequired = $isRequired ?? true;
 ?>
 
 <!-- Note: CSS for this is in main.css -->
-<form class="search-bar" action="<?= $searchAction ?>">
+<form class="search-bar" action='<?= formActionUrl() ?>'>
+  <?= formRouteElement($searchAction) ?>
   <input
     type="search"
     title="Search"
@@ -26,8 +27,6 @@ $isRequired = $isRequired ?? true;
     <?= $isRequired ? 'required' : '' ?>
   >
   <button type="submit" class="button-icon-only">
-    <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-      <use href="/../vector-icons/icons.svg#icon-search"></use>
-    </svg>
+    <?= generateIconInline('icon-search') ?>
   </button>
 </form>

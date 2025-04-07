@@ -15,7 +15,7 @@
       <section>
         <h2>
           Welcome to
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-logo"></use></svg>
+          <?= generateIconInline('icon-logo') ?>
           Our Site!
         </h2>
         <p>
@@ -57,10 +57,10 @@
           <summary><h3>What if I post something I didn't mean to?</h3></summary>
           <p>
             You can edit or delete your posts by clicking on the
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-edit"></use></svg>
+            <?= generateIconInline('icon-edit') ?>
             <i>edit</i>
             or
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/../vector-icons/icons.svg#icon-delete"></use></svg>
+            <?= generateIconInline('icon-delete') ?>
             <i>delete</i>
             buttons on your profile page or on the post itself.
           </p>
@@ -68,7 +68,7 @@
         <details>
           <summary><h3>How do I change my username/password/profile picture?</h3></summary>
           <p>
-            See the <a href="/profile/settings">settings tab</a> on your profile page.
+            See the <a href="<?= routeUrl('/profile/settings') ?>">settings tab</a> on your profile page.
           </p>
         </details>
       </section>

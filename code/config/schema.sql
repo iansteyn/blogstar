@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS our_site;
-USE our_site;
+CREATE DATABASE IF NOT EXISTS iansteyn;
+USE iansteyn;
 
 CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50) PRIMARY KEY,

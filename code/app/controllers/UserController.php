@@ -34,11 +34,11 @@ class UserController {
                 ]);
         
                 //redirect to another page
-                header('Location: /login');
+                header('location: '.routeUrl('/login'));
                 exit;
             } else {
                 $_SESSION['invalid_registration'] = 'Username or email is already registered.';
-                header('Location: /register');
+                header('location: '.routeUrl('/register'));
                 exit;
             }
         }
@@ -56,10 +56,10 @@ class UserController {
         // Otherwise, handle the submission:
         else {
             if (!isset($_POST['email']) || empty($_POST['email'])) {
-                header('Location: /login');
+                header('location: '.routeUrl('/login'));
             }
             if (!isset($_POST['password']) || empty($_POST['password'])) {
-                header('Location: /login');
+                header('location: '.routeUrl('/login'));
             }
 
             $email = $_POST['email'];
@@ -74,16 +74,16 @@ class UserController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
-                    header('Location: /admin');
+                    header('location: '.routeUrl('/admin'));
                     exit;
                 } else {
-                    header('Location: /home');
+                    header('location: '.routeUrl('/home'));
                     exit;
                 }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
-                header('Location: /login');
+                header('location: '.routeUrl('/login'));
                 exit;
             }
         }
@@ -93,7 +93,7 @@ class UserController {
         // Remove all session variables and destroy the session
         session_unset();
         session_destroy();
-        header('Location: /login');
+        header('location: '.routeUrl('/login'));
         exit;
     }
 
@@ -101,7 +101,7 @@ class UserController {
         AuthService::requireAuth(['registered', 'admin']);
         
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: /profile/settings');
+            header('Location: '.routeUrl('/profile/settings'));
             exit;
         }
     
@@ -114,28 +114,28 @@ class UserController {
         $user = $this->userModel->getUserByUsername($username);
         if (!$user || !password_verify($currentPassword, $user['password'])) {
             $_SESSION['error'] = 'Current password is incorrect';
-            header('Location: /profile/settings');
+            header('Location: '.routeUrl('/profile/settings'));
             exit;
         }
-    
+
         $updateData = [
             'username' => $_SESSION['username'],
             'user_bio' => !empty($userBio) ? $userBio : 'This user has not yet added a bio'
         ];
-    
+
         if (!empty($newPassword)) {
             if ($newPassword !== $confirmPassword) {
                 $_SESSION['error'] = 'New passwords do not match';
-                header('Location: /profile/settings');
+                header('Location: '.routeUrl('/profile/settings'));
                 exit;
             }
             $updateData['password'] = $newPassword;
         }
-    
+
         if (!empty($_FILES['profile-picture']['tmp_name'])) {
             $updateData['profile_picture'] = $_FILES['profile-picture'];
         }
-    
+
         if ($this->userModel->updateUser($updateData)) {
             if (isset($updateData['profile_picture'])) {
                 $user = $this->userModel->getUserByUsername($username);
@@ -145,8 +145,8 @@ class UserController {
         } else {
             $_SESSION['error'] = 'Failed to update settings';
         }
-    
-        header('Location: /profile/settings');
+
+        header('Location: '.routeUrl('/profile/settings'));
         exit;
     }
 

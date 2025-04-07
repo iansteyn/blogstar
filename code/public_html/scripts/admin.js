@@ -16,7 +16,7 @@ function handleSearchInput() {
     let searchTerm = searchInput.value;
 
     fetch(                              // send request to server
-        `/admin/search-users?terms=${encodeURIComponent(searchTerm)}`
+        `${BASE_URL}?route=/admin/search-users&terms=${encodeURIComponent(searchTerm)}`
     )
     .then(response =>                   // Recieve response from server
         response.json()
@@ -30,6 +30,7 @@ function handleSearchInput() {
 }
 
 function updateUserList(usernames) {
+    console.log(usernames);
 
     if (resultMessage != null) {
         resultMessage.remove();
@@ -41,7 +42,7 @@ function updateUserList(usernames) {
         // TODO use DOMPurify to escape each username?
         listItems += `
             <li>
-              <a href="/profile/posts/${username}/">
+              <a href="${BASE_URL}?route=/profile/posts/${username}/">
                 <i>@${username}</i>
               </a>
             </li>

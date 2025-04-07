@@ -2,7 +2,6 @@
 --------------------------------------
 Performs the following actions:
 - Deleting (with confirmation)
-- Editing (redirect)
 - like/unlike, save/unsave toggling
 -------------------------------------- */
 
@@ -10,25 +9,13 @@ Performs the following actions:
 const deletePostButtons = document.querySelectorAll(".delete-post-button");
 
 deletePostButtons.forEach((button) => {
-    button.addEventListener("click", ()=> deletePost());
+    button.addEventListener("click", (event)=> confirmDelete(event));
 });
     
-function deletePost(){
-  const confirmDelete = confirm("Are you sure you want to delete this post?");
-  if (confirmDelete) {
-    window.location.href = "profile"; 
+function confirmDelete(event){
+  if ( ! confirm("Are you sure you want to delete this post?")) {
+    event.preventDefault();
   }
-}
-
-// EDIT
-const editPostButtons = document.querySelectorAll(".edit-post-button");
-
-editPostButtons.forEach((button) => {
-    button.addEventListener("click", ()=> editPost());
-});
-
-function editPost(){
-  window.location.href = "create"; 
 }
 
 //LIKE and SAVE
@@ -44,7 +31,7 @@ function handleButtonClick(button) {
     const resource = button.dataset.resource;
 
     // Send a request to the server
-    fetch(`/${resource}/${postId}`, {
+    fetch(`${BASE_URL}?route=/${resource}/${postId}`, {
         method: 'POST',
     })
 

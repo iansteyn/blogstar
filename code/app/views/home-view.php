@@ -23,35 +23,34 @@
       <div class="page-header home-page-header">
         <h1>Home</h1>
         <?php
-            $searchAction = '/search';
+            $searchAction = 'search';
             // this component uses: $searchAction
             include __DIR__."/components/search-bar-component.php";
         ?>
       </div>
       <nav class="tab-group">
-        <form method="get">
-          <button class="tab <?= isTabActive('recent', $activeTab) ?>" formaction="/home/recent">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-recent"></use></svg>
-            Recent
-          </button>
-          <button class="tab <?= isTabActive('popular', $activeTab) ?>" formaction="/home/popular">
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-popular"></use></svg>
-            Popular
-          </button>
-          <?php if ($isLoggedIn): ?>
-            <button class="tab <?= isTabActive('saved', $activeTab) ?>" formaction="/home/saved">
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet"><use href="/vector-icons/icons.svg#icon-save-unfilled"></use></svg>
-              Saved
-            </button>
-          <?php endif; ?>
-        </form>
+        <a class="tab <?= isTabActive('recent', $activeTab) ?>" href="<?= routeUrl('/home/recent') ?>">
+          <?= generateIconInline('icon-recent') ?>
+          Recent
+        </a>
+        <a class="tab <?= isTabActive('popular', $activeTab) ?>" href="<?= routeUrl('/home/popular') ?>">
+          <?= generateIconInline('icon-popular') ?>
+          Popular
+        </a>
+        <?php if ($isLoggedIn): ?>
+          <a class="tab <?= isTabActive('saved', $activeTab) ?>" href="<?= routeUrl('/home/saved') ?>">
+            <?= generateIconInline('icon-save-unfilled') ?>
+            Saved
+          </a>
+        <?php endif; ?>
       </nav>
     </header>
 
     <article class="panel post-list <?= ($activeTab == 'recent') ? "left-most-subpage" : "" ?> ">
         <?php
         if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-            echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+            $popularLink = routeUrl('/home/popular');
+            echo "<p>You have no saved posts yet! <a href='$popularLink'>See what's popular.</a></p>";
         }
         else {
             foreach ($postDataList as $postData) {
