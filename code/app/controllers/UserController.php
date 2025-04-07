@@ -101,7 +101,7 @@ class UserController {
         AuthService::requireAuth(['registered', 'admin']);
         
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: /profile/settings');
+            header('Location: '.routeUrl('/profile/settings'));
             exit;
         }
     
@@ -114,28 +114,28 @@ class UserController {
         $user = $this->userModel->getUserByUsername($username);
         if (!$user || !password_verify($currentPassword, $user['password'])) {
             $_SESSION['error'] = 'Current password is incorrect';
-            header('Location: /profile/settings');
+            header('Location: '.routeUrl('/profile/settings'));
             exit;
         }
-    
+
         $updateData = [
             'username' => $_SESSION['username'],
             'user_bio' => !empty($userBio) ? $userBio : 'This user has not yet added a bio'
         ];
-    
+
         if (!empty($newPassword)) {
             if ($newPassword !== $confirmPassword) {
                 $_SESSION['error'] = 'New passwords do not match';
-                header('Location: /profile/settings');
+                header('Location: '.routeUrl('/profile/settings'));
                 exit;
             }
             $updateData['password'] = $newPassword;
         }
-    
+
         if (!empty($_FILES['profile-picture']['tmp_name'])) {
             $updateData['profile_picture'] = $_FILES['profile-picture'];
         }
-    
+
         if ($this->userModel->updateUser($updateData)) {
             if (isset($updateData['profile_picture'])) {
                 $user = $this->userModel->getUserByUsername($username);
@@ -145,8 +145,8 @@ class UserController {
         } else {
             $_SESSION['error'] = 'Failed to update settings';
         }
-    
-        header('Location: /profile/settings');
+
+        header('Location: '.routeUrl('/profile/settings'));
         exit;
     }
 
