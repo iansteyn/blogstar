@@ -5,13 +5,18 @@
  * to develop locally.
  */
 class EnvironmentConfig {
+
+    private static function usingProductionServer(): bool {
+        return $_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca';
+    }
+
     /**
      * Note: few files should have to use baseUrl directly;
      * links can instead be generated with the help of routing/url-generation.php
      * @return string the base URL to be used in all links for the current server
      */
     public static function baseUrl() {
-        if ($_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca') {
+        if (EnvironmentConfig::usingProductionServer()) {
             return '/iansteyn/';
         }
         return '/';
@@ -23,7 +28,7 @@ class EnvironmentConfig {
      * @return array with keys 'host', 'db_name', 'user', 'password';
      */
     public static function databaseInfo() {
-        if ($_SERVER['SERVER_NAME'] === 'cosc360.ok.ubc.ca') {
+        if (EnvironmentConfig::usingProductionServer()) {
             return [
                 'host'     => 'localhost',
                 'db_name'  => 'iansteyn',
@@ -38,5 +43,10 @@ class EnvironmentConfig {
             'password' => ''
         ];
     }
+
+    // /** Determines type of favicon to use (dev or production) */
+    // public static function faviconType() {
+        
+    // }
 }
 ?>
