@@ -70,10 +70,6 @@ class PostController {
 
     public function delete($postId) {
         AuthService::requireAuth(['registered', 'admin']);
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('location: '.routeUrl('/home'));
-            exit;
-        }
 
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
@@ -86,7 +82,9 @@ class PostController {
         }
 
         $this->postModel->deletePost($postId);
-        header('location: '.routeUrl('/profile'));
+
+        $redirectLocation = $_SERVER['HTTP_REFERER'] ?: routeUrl('/profile');
+        header("location: $redirectLocation");
         exit;
     }
 
