@@ -100,6 +100,8 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
 
+    $faviconUrl = resourceUrl('vector-icons/favicon-light.svg');
+
     $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
@@ -111,7 +113,7 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
             $title | Our Site
           </title>
 
-          <link rel="icon" type="image/svg+xml" href="/vector-icons/favicon-light.svg">
+          <link rel="icon" type="image/svg+xml" href="$faviconUrl">
     HTML;
 
     $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css'];
