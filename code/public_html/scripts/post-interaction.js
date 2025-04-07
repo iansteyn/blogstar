@@ -9,13 +9,12 @@ Performs the following actions:
 const deletePostButtons = document.querySelectorAll(".delete-post-button");
 
 deletePostButtons.forEach((button) => {
-    button.addEventListener("click", ()=> deletePost());
+    button.addEventListener("click", (event)=> confirmDelete(event));
 });
     
-function deletePost(){
-  const confirmDelete = confirm("Are you sure you want to delete this post?");
-  if (confirmDelete) {
-    window.location.href = `${BASE_URL}?route=/profile`; 
+function confirmDelete(event){
+  if ( ! confirm("Are you sure you want to delete this post?")) {
+    event.preventDefault();
   }
 }
 
