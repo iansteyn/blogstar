@@ -246,7 +246,7 @@ class PostModel {
         $statement = $this->db->query(<<<SQL
             SELECT
                 (SELECT COUNT(*) FROM posts) AS total_posts,
-                (SELECT COUNT(*) FROM posts WHERE post_date >= NOW() - INTERVAL 7 DAY) AS posts_last_week,
+                (SELECT COUNT(*) FROM posts WHERE post_date >= NOW() - INTERVAL 1 WEEK) AS posts_last_week,
                 (SELECT COUNT(*) FROM posts WHERE post_date >= CURDATE()) AS posts_today
         SQL);
         $result = $statement->fetch(PDO::FETCH_ASSOC);

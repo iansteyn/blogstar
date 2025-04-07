@@ -158,7 +158,7 @@ class UserModel {
         $statement = $this->db->query(<<<SQL
             SELECT
                 (SELECT COUNT(*) FROM users) AS total_users,
-                (SELECT COUNT(*) FROM users WHERE date_registered >= NOW() - INTERVAL 7 DAY) AS registered_past_week,
+                (SELECT COUNT(*) FROM users WHERE date_registered >= NOW() - INTERVAL 1 WEEK) AS registered_past_week,
                 (SELECT COUNT(*) FROM users WHERE date_registered >= CURDATE()) AS registered_today
         SQL);
         $result = $statement->fetch(PDO::FETCH_ASSOC);
