@@ -172,8 +172,6 @@ function setFavicon(theme) {
     if (faviconLink) {
         let faviconTheme;
 
-        // console.log(window.matchMedia('(prefers-color-scheme: no-preference').matches);
-    
         if (theme == 'default' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             faviconTheme = 'dark';
         }
@@ -184,7 +182,10 @@ function setFavicon(theme) {
             faviconTheme = theme;
         }
 
-        faviconLink.setAttribute('href', `${BASE_URL}vector-icons/favicon-${faviconTheme}.svg`)
+        faviconLink.setAttribute(
+            'href',
+            `${BASE_URL}vector-icons/${FAVICON_TYPE}favicon-${faviconTheme}.svg`
+        );
     }
 }
 
