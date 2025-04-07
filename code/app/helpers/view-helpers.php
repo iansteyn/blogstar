@@ -91,6 +91,8 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  * Contains stuff that every page needs: the main, reset and side-nav stylesheet links,
  * favicon link, side-nav script link.
  * 
+ * ALSO! passes the base URL to javascript files.
+ * 
  * @param string $title
  * @param array $extraStylesheets
  * A list of stylesheet filenames - eg `['home.css']`
@@ -101,6 +103,9 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
 
     $faviconUrl = resourceUrl('vector-icons/favicon-light.svg');
+
+    require_once __DIR__.'/../../config/EnvironmentConfig.php';
+    $baseUrl = EnvironmentConfig::baseUrl();
 
     $documentHead =  <<<HTML
         <!DOCTYPE html>
@@ -114,6 +119,10 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
           </title>
 
           <link rel="icon" type="image/svg+xml" href="$faviconUrl">
+
+          <script>
+            const BASE_URL = '$baseUrl';
+          </script>
     HTML;
 
     $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css'];
