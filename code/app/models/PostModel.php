@@ -264,7 +264,6 @@ class PostModel {
                 posts.post_id AS post_id,
                 posts.username AS username,
                 post_title,
-                post_date,
                 COUNT(likes.post_id) AS likes
             FROM posts
                 JOIN likes
