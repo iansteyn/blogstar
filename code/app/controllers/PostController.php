@@ -72,14 +72,17 @@ class PostController {
     }
 
     public function delete($postId) {
+        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        $post = $this->postModel->getPostById($postId);
-        if (!$post) {
-            Redirect::to('/home');
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
         }
-        if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
-            Redirect::to('/home');
+
+        $post = $this->postModel->getPostById($postId);
+
+        if (! AuthStatus::isCurrentUser($post['username']) or ! AuthStatus::isAdmin()) {
+            ErrorService::forbidden();
         }
 
         $this->postModel->deletePost($postId);
