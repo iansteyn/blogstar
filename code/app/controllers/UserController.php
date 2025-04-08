@@ -95,12 +95,9 @@ class UserController {
     }
 
     public function updateSettings() {
+        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
-        
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            Redirect::to('/profile/settings');
-        }
-    
+
         $username = $_SESSION['username'];
         $currentPassword = $_POST['current-password'] ?? '';
         $newPassword = $_POST['new-password'] ?? '';
