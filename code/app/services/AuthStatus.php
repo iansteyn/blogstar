@@ -4,6 +4,7 @@
  * A simple service class with static methods for checking authentication status of client
  */
 class AuthStatus {
+
     /**
      * @return bool true if client is logged in, false otherwise
      */
@@ -26,6 +27,4 @@ class AuthStatus {
         return (AuthStatus::isLoggedIn() and $_SESSION['username'] == $username);
     }
 }
-
-
 ?>

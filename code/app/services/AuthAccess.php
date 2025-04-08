@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__.'/ErrorService.php';
 require_once __DIR__.'/AuthStatus.php';
 
