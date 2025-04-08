@@ -2,16 +2,29 @@
 /* index.php
 ------------
 This is the website's "root". All navigation and API requests are handled here,
-so this is where important configuration files are included and routes are set up.
-The current session is also started here, before anything else happens.
+so this is where:
+- GENERAL PREP HAPPENS
+  - The current session is started, before anything else happens.
+  - important configuration files are included
+  - common utitility/service classes are included
+  - controllers are initiliazed
+- ROUTES ARE DEFINED
 */
 
+// GENERAL PREP
+// ------------
+// SESSION
 session_start();
 
+// CONFIG
 require_once __DIR__.'/../config/url-generation.php';
 require_once __DIR__.'/../config/db-connect.php';
 $db = getDatabaseConnection();
 
+// UTILITY
+require_once __DIR__.'/../app/routing/Redirect.php';
+
+// CONTROLLERS
 require_once __DIR__.'/../app/controllers/HomeController.php';
 require_once __DIR__.'/../app/controllers/ProfileController.php';
 require_once __DIR__.'/../app/controllers/UserController.php';
@@ -29,13 +42,14 @@ $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
 
+// ROUTE DEFINITIONS
+// -----------------
 require_once __DIR__.'/../app/routing/Router.php';
 $router = new Router();
 
 // SIDE-NAV TOP
 $router->add('/', function() {
-    header('location: '.routeUrl('/home'));
-    exit;
+    Redirect::to('/home');
 });
 
 $router->add('/home', fn()=>
@@ -62,9 +76,6 @@ $router->add('/profile/saved', fn()=>
 );
 $router->add('/profile/settings', fn()=>
     $profileController->settings()
-);
-$router->add('/profile/update-settings', fn() =>
-    $userController->updateSettings()
 );
 $router->add('/profile/posts/.+', fn($username)=>
     $profileController->posts($username)
@@ -104,28 +115,33 @@ $router->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
-// ROUTES THAT DO NOT LEAD TO DISPLAY
+// NON-DISPLAY REQUEST ROUTES
 $router->add('/like/.+', fn($postId) =>
     $postController->toggleLike($postId)
 );
 $router->add('/save/.+', fn($postId) =>
     $postController->toggleSave($postId)
 );
+$router->add('/post/delete/.+', fn($postId) =>
+    $postController->delete($postId)
+);
+$router->add('/post/edit/.+', fn($postId) =>
+    $postController->edit($postId)
+);
+
 $router->add('/comment/create/.+', fn($postId) =>
     $commentController->create($postId)
 );
 $router->add('/comment/delete/.+', fn($commentId) =>
     $commentController->delete($commentId)
 );
-$router->add('/post/delete/.+', fn($postId) =>
-    $postController->delete($postId)
-);
 
-$router->add('/post/edit/.+', fn($postId) =>
-    $postController->edit($postId)
-);
 $router->add('/admin/search-users', fn() =>
     $adminController->searchUsers()
+);
+
+$router->add('/profile/update-settings', fn() =>
+    $userController->updateSettings()
 );
 
 $router->submit();
