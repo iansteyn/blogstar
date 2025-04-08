@@ -49,7 +49,7 @@ class HomeController {
     }
 
     public function saved() {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $activeTab = "saved";
         $isLoggedIn = AuthService::isLoggedIn();

@@ -46,7 +46,7 @@ class PostController {
     }
 
     public function create() {
-        AuthService::requireAuth(['registered','admin']);
+        AuthAccess::restrictTo(['registered','admin']);
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $isLoggedIn = AuthService::isLoggedIn();
@@ -69,7 +69,7 @@ class PostController {
     }
 
     public function delete($postId) {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
@@ -94,7 +94,7 @@ class PostController {
     }
 
     public function edit(int $postId) {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $postData = $this->postModel->getPostById($postId);
         if (!$postData or !AuthService::isCurrentUser($postData['username'])) {

@@ -22,7 +22,7 @@ class ProfileController {
     }
 
     function posts(?string $username = null) {
-        AuthService::requireAuth(['registered','admin']);
+        AuthAccess::restrictTo(['registered','admin']);
 
         if (AuthService::isCurrentUser($username)) {
             header('location: '.routeUrl('/profile'));
@@ -50,7 +50,7 @@ class ProfileController {
     }
 
     public function saved(?string $username = null) {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         if (AuthService::isCurrentUser($username)) {
             header('location: '.routeUrl('/profile/saved'));
@@ -78,7 +78,7 @@ class ProfileController {
     }
 
     function settings() {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $activeTab = "settings";
         $isLoggedIn = AuthService::isLoggedIn();

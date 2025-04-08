@@ -98,7 +98,7 @@ class UserController {
     }
 
     public function updateSettings() {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
         
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             header('Location: '.routeUrl('/profile/settings'));

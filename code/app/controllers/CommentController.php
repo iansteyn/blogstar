@@ -15,7 +15,7 @@ class CommentController {
 
     public function create($postId) {
         ErrorService::requirePostRequest();
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $commentBody = trim($_POST['comment-body'] ?? '');
     
@@ -31,11 +31,11 @@ class CommentController {
 
     public function delete($commentId) {
         ErrorService::requirePostRequest();
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $comment = $this->commentModel->getCommentById($commentId);
 
-        if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
+        if (! AuthService::isCurrentUser($comment['username']) or ! AuthService::isAdmin()) {
             header('location: '.routeUrl('/home'));
             exit;
         }

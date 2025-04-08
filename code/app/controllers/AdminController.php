@@ -15,7 +15,7 @@ class AdminController {
     }
 
     public function admin() {
-        AuthService::requireAuth(['admin']);
+        AuthAccess::restrictTo(['admin']);
 
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
@@ -45,7 +45,7 @@ class AdminController {
 
     public function searchUsers() {
         ErrorService::requirePostRequest();
-        AuthService::requireAuth(['admin']);
+        AuthAccess::restrictTo(['admin']);
 
         if (isset($_GET['terms'])) {
             $usernames = $this->userModel->getSearchedUsernames($_GET['terms']);
