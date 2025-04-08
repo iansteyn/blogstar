@@ -16,8 +16,8 @@ class ErrorService {
 
         $errorData = [
             'code'    => 404,
-            'name'    => 'Page not found',
-            'message' => 'Sorry! The page you are looking for does not exist.'
+            'name'    => 'Not Found',
+            'message' => 'Sorry! The resource you are looking for does not exist.'
         ];
 
         http_response_code(404);
