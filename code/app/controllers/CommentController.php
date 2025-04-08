@@ -15,7 +15,7 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        if (! is_int($postId)) {
+        if (! ctype_digit($postId)) {
             ErrorService::badRequest();
         }
         if (! $this->postModel->postExists($postId)) {
@@ -37,7 +37,7 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        if (! is_int($commentId)) {
+        if (! ctype_digit($commentId)) {
             ErrorService::badRequest();
         }
         if (! $this->commentModel->commentExists($commentId)) {
