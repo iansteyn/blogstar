@@ -8,6 +8,18 @@ class UserModel {
         $this->db = $db;
     }
 
+    public function userExists(string $username): bool {
+        $statement = $this->db->prepare(<<<sql
+            SELECT username
+            FROM users
+            WHERE username = ?
+        sql);
+        $statement->execute([$username]);
+
+        $result = $statement->fetch();
+        return ! empty($result);
+    }
+
     // TODO dont select password
     public function getUserByUsername($username): ?array{
         $statement = $this->db->prepare(<<<sql
