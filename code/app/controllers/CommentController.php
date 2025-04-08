@@ -36,7 +36,7 @@ class CommentController {
 
         $comment = $this->commentModel->getCommentById($commentId);
 
-        if (! AuthService::isCurrentUser($comment['username']) or ! AuthService::isAdmin()) {
+        if (! AuthStatus::isCurrentUser($comment['username']) or ! AuthStatus::isAdmin()) {
             header('location: '.routeUrl('/home'));
             exit;
         }

@@ -25,7 +25,7 @@ class ProfileController {
     function posts(?string $username = null) {
         AuthAccess::restrictTo(['registered','admin']);
 
-        if (AuthService::isCurrentUser($username)) {
+        if (AuthStatus::isCurrentUser($username)) {
             header('location: '.routeUrl('/profile'));
             exit;
         }
@@ -33,15 +33,15 @@ class ProfileController {
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
-        $userData['is_current_user'] = AuthService::isCurrentUser($username);
+        $userData['is_current_user'] = AuthStatus::isCurrentUser($username);
 
         $activeTab = "posts";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postDataList = $this->postModel->getUserPosts($username);
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -53,7 +53,7 @@ class ProfileController {
     public function saved(?string $username = null) {
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        if (AuthService::isCurrentUser($username)) {
+        if (AuthStatus::isCurrentUser($username)) {
             header('location: '.routeUrl('/profile/saved'));
             exit;
         }
@@ -61,15 +61,15 @@ class ProfileController {
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
-        $userData['is_current_user'] = AuthService::isCurrentUser($username);
+        $userData['is_current_user'] = AuthStatus::isCurrentUser($username);
 
         $activeTab = "saved";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postDataList = $this->postModel->getSavedPosts($username);
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -82,8 +82,8 @@ class ProfileController {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $activeTab = "settings";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $userData = $this->userModel->getUserByUsername($_SESSION['username']);
         $userData['is_current_user'] = true;
 

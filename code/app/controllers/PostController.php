@@ -27,18 +27,18 @@ class PostController {
      * Gets data for this postId, and gives it to the view.
      */
     public function blogPost($postId) {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postData = $this->postModel->getPostById($postId);
         $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
-        $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+        $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
         $comments = $this->commentModel->getComments($postId);
       
         foreach ($comments as &$comment) {
-            $comment['belongs_to_current_user'] = AuthService::isCurrentUser($comment['username']);
+            $comment['belongs_to_current_user'] = AuthStatus::isCurrentUser($comment['username']);
         }
         unset($comment);
 
@@ -50,8 +50,8 @@ class PostController {
         AuthAccess::restrictTo(['registered','admin']);
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
+            $isLoggedIn = AuthStatus::isLoggedIn();
+            $isAdmin = AuthStatus::isAdmin();
 
             // passing in empty post data on creation
             // This view uses: $isLoggedIn
@@ -98,14 +98,14 @@ class PostController {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $postData = $this->postModel->getPostById($postId);
-        if (!$postData or !AuthService::isCurrentUser($postData['username'])) {
+        if (!$postData or !AuthStatus::isCurrentUser($postData['username'])) {
             header('Location: '.routeUrl('/home')); //TODO: make this redirect to error pages
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
+            $isLoggedIn = AuthStatus::isLoggedIn();
+            $isAdmin = AuthStatus::isAdmin();
 
             // This view uses: $postData, $isLoggedIn, $isAdmin
             require __DIR__.'/../views/create-edit-view.php';

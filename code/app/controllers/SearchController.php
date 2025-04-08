@@ -18,8 +18,8 @@ class SearchController {
     }
 
     public function search() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $showResults = false;
         $postDataList = [];
         $searchValue = '';
@@ -32,7 +32,7 @@ class SearchController {
             $postDataList = $this->postModel->getSearchedPosts($keywords);
 
             foreach ($postDataList as &$postData) {
-                $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+                $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
                 $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
             }
             unset($postData);

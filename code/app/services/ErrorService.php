@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/AuthService.php';
+require_once __DIR__.'/AuthStatus.php';
 
 class ErrorService {
 
@@ -9,8 +9,8 @@ class ErrorService {
      * Call this when resources are requested that do not exist
      */
     public static function notFound() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $errorData = [
             'code'    => 404,
@@ -30,8 +30,8 @@ class ErrorService {
      * e.g. /blog-post/banana
      */
     public static function badRequest() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $errorData = [
             'code'    => 400,
@@ -50,8 +50,8 @@ class ErrorService {
      * Call if user attempts to access a page that requires special roles (like admin)
      */
     public static function forbidden() {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $errorData = [
             'code'    => 403,

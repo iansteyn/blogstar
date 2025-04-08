@@ -18,8 +18,8 @@ class AdminController {
     public function admin() {
         AuthAccess::restrictTo(['admin']);
 
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $showResultMessage = false;
         $searchValue = '';
         $postAnalytics = $this->postModel->getPostAnalytics();

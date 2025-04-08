@@ -19,12 +19,12 @@ class HomeController {
 
     public function recent() {
         $activeTab = "recent";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $postDataList = $this->postModel->getRecentPosts();
 
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -35,12 +35,12 @@ class HomeController {
 
     public function popular() {
         $activeTab = "popular";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $postDataList = $this->postModel->getPopularPosts();
 
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -53,18 +53,18 @@ class HomeController {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $activeTab = "saved";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $postDataList = $this->postModel->getSavedPosts($_SESSION['username']);
 
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
 
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
         require __DIR__.'/../views/home-view.php';
