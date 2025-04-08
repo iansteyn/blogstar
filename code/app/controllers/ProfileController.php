@@ -20,6 +20,15 @@ class ProfileController {
         $this->likeModel = new likeModel($db);
     }
 
+    private function validateUsername($username) {
+        if (! isset($username)) {
+            return;
+        }
+        if (! $this->userModel->userExists($username)) {
+            ErrorService::notFound();
+        }
+    }
+
     function posts(?string $username = null) {
         AuthAccess::restrictTo(['registered','admin']);
 
@@ -27,6 +36,7 @@ class ProfileController {
             Redirect::to('/profile');
         }
 
+        $this->validateUsername($username);
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
@@ -54,6 +64,7 @@ class ProfileController {
             Redirect::to('/profile/saved');
         }
 
+        $this->validateUsername($username);
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
