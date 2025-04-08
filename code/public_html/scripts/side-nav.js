@@ -10,38 +10,46 @@ Performs the following dynamic actions:
 // LOGOUT
 // -----------------------
 const logoutLink = document.getElementById("logout-link");
-logoutLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    if(confirm("Are you sure you want to log out?")) {
-        window.location.href = "/logout";
-    }
-});
+if (logoutLink) {
+    logoutLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        if(confirm("Are you sure you want to log out?")) {
+            window.location.href = `${BASE_URL}?route=/logout`;
+        }
+    });
+}
+
 
 // }}}}}}} 
 
 // HIGHLIGHT NAVLINK OF CURRENT PAGE
 // ---------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
-const currentPage = window.location.href.split("?")[0];
-const currentPagePath = new URL(currentPage).pathname;
+const currentPage = window.location.href.split("&")[0];
+const currentPagePath = new URLSearchParams(window.location.search).get('route');
 
 if (['/home/recent', '/home/popular', '/home/saved'].includes(currentPagePath)) {
-    const homeLink = document.querySelectorAll(".nav-link[href='/home']")[1];
+    const homeLink = document.querySelectorAll(`.nav-link[href='${BASE_URL}?route=/home']`)[1];
     homeLink.classList.add("current-page");
 }
 else if (['/profile/posts', '/profile/saved', '/profile/settings'].includes(currentPagePath)) {
-    const profileLink = document.querySelector(".nav-link[href='/profile']");
+    const profileLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/profile']`);
     console.log(profileLink);
     profileLink.classList.add("current-page");
 }
 else if ('/post/create' == currentPagePath) {
-    const createLink = document.querySelector(".nav-link[href='/create']");
+    const createLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/create']`);
     createLink.classList.add("current-page");
+}
+else if ('search' == currentPagePath) {
+    const searchLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/search']`);
+    searchLink.classList.add("current-page");
 }
 else {
     for (navLink of navLinks) {
         if ((navLink.href  == currentPage) && (navLink.id != "nav-logo")) {
             navLink.classList.add("current-page");
+            break;
         }
     }
 }
@@ -164,8 +172,6 @@ function setFavicon(theme) {
     if (faviconLink) {
         let faviconTheme;
 
-        // console.log(window.matchMedia('(prefers-color-scheme: no-preference').matches);
-    
         if (theme == 'default' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             faviconTheme = 'dark';
         }
@@ -176,7 +182,10 @@ function setFavicon(theme) {
             faviconTheme = theme;
         }
 
-        faviconLink.setAttribute('href', `/vector-icons/favicon-${faviconTheme}.svg`)
+        faviconLink.setAttribute(
+            'href',
+            `${BASE_URL}vector-icons/${FAVICON_TYPE}favicon-${faviconTheme}.svg`
+        );
     }
 }
 

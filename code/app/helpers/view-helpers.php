@@ -48,14 +48,33 @@ function hiddenIf($condition): string {
     return $condition ? "hidden" : "";
 }
 
+/**
+ * Generates a simple inline icon that can be used alongside text.
+ *
+ * Reduces the verbosity of including simple icons in views.
+ * Note: this function assumes the given icon is already defined in `icons.svg`.
+ * @param string $name the name of the icon resource, e.g. "icon-logo"
+ */
+function generateIconInline(string $name): string {
+    $resourceUrl = resourceUrl("vector-icons/icons.svg#$name");
+
+    return <<<HTML
+      <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
+        <use href="$resourceUrl"></use>
+      </svg>
+    HTML;
+}
+
 function generatePostingInfo(string $username, $sqlDateTime): string {
+    $usernameLink = routeUrl("/profile/posts/$username");
+
     $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDateTime);
     $formattedDate = $dateTime->format('F j, Y');
     $htmlDateTime = $dateTime->format('Y-m-d\TH:i');
 
     return <<<HTML
       <div class="posting-info">
-        <a class="username" href="/profile/posts/$username" title="Author">
+        <a class="username" href="$usernameLink" title="Author">
           @$username
         </a>
         —
@@ -72,6 +91,8 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  * Contains stuff that every page needs: the main, reset and side-nav stylesheet links,
  * favicon link, side-nav script link.
  * 
+ * ALSO! passes configuration info (base URL, favicon type) to javascript files.
+ * 
  * @param string $title
  * @param array $extraStylesheets
  * A list of stylesheet filenames - eg `['home.css']`
@@ -80,6 +101,12 @@ function generatePostingInfo(string $username, $sqlDateTime): string {
  * @return string doctype, opening `<html>` tag, and full `<head></head>` block
  */
 function generateDocumentHead(string $title, array $extraStylesheets, array $extraScripts): string {
+
+    require_once __DIR__.'/../../config/AppConfig.php';
+    $baseUrl = AppConfig::baseUrl();
+    $faviconType = AppConfig::faviconType();
+    $faviconUrl = resourceUrl("vector-icons/{$faviconType}favicon-light.svg");
+
     $documentHead =  <<<HTML
         <!DOCTYPE html>
         <html lang="en" class="hidden">
@@ -91,21 +118,28 @@ function generateDocumentHead(string $title, array $extraStylesheets, array $ext
             $title | Our Site
           </title>
 
-          <link rel="stylesheet" href="/css/reset.css">
-          <link rel="stylesheet" href="/css/main.css">
-          <link rel="stylesheet" href="/css/side-nav.css">
-          <link rel="stylesheet" href="/css/user-bio.css">
+          <link rel="icon" type="image/svg+xml" href="$faviconUrl">
+
+          <script>
+            const BASE_URL = '$baseUrl';
+            const FAVICON_TYPE = '$faviconType';
+          </script>
     HTML;
 
-    foreach ($extraStylesheets as $stylesheet) {
-        $documentHead .= "<link rel='stylesheet' href='/css/$stylesheet'>";
+    $defaultStylesheets = ['reset.css', 'main.css', 'side-nav.css'];
+    $defaultScripts = ['side-nav.js'];
+
+    $allStylesheets = array_merge($defaultStylesheets, $extraStylesheets);
+    $allScripts = array_merge($defaultScripts, $extraScripts);
+
+    foreach ($allStylesheets as $stylesheet) {
+        $resourceUrl = resourceUrl("css/$stylesheet");
+        $documentHead .= "<link rel='stylesheet' href='$resourceUrl'>";
     }
 
-    $documentHead .= '<link rel="icon" type="image/svg+xml" href="/vector-icons/favicon-light.svg">' .
-                     '<script src="/scripts/side-nav.js" defer></script>';
-
-    foreach ($extraScripts as $script) {
-        $documentHead .= "<script src='/scripts/$script' defer></script>";
+    foreach ($allScripts as $script) {
+        $resourceUrl = resourceUrl("scripts/$script");
+        $documentHead .= "<script src='$resourceUrl' defer></script>";
     }
 
     $documentHead .= '</head>';

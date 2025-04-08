@@ -7,7 +7,7 @@
 require_once __DIR__."/../../helpers/view-helpers.php";
 $postData = sanitizeData($postData);
 
-$blogPostLink = "/blog-post/".$postData['post_id'];
+$blogPostLink = routeUrl("/blog-post/{$postData['post_id']}");
 $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
 ?>
 
@@ -44,9 +44,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="like"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
-            </svg>
+            <?= generateIconInline('icon-like-unfilled') ?>
           </button>
           <button
             title="Unlike"
@@ -54,9 +52,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="like"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-like-filled"></use>
-            </svg>
+            <?= generateIconInline('icon-like-filled') ?>
           </button>
           
           <button
@@ -65,9 +61,7 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="save"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use>
-            </svg>
+            <?= generateIconInline('icon-save-unfilled') ?>
           </button>
           <button
             title="Unsave"
@@ -75,34 +69,28 @@ $postBodyExcerpt = substr($postData['post_body'], 0, 300) . "...";
             data-resource="save"
             data-post-id="<?= $postData['post_id']?>"
           >
-            <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-              <use href="/../vector-icons/icons.svg#icon-save-filled"></use>
-            </svg>
+            <?= generateIconInline('icon-save-filled') ?>
           </button>
         </div>
 
         <div class="modify-buttons">
           <?php if ($postData['belongs_to_current_user']): ?>
-            <button
+            <a
               title="Edit"
+              href="<?= routeUrl("/post/edit/".$postData['post_id']) ?>"
               class="button-icon-only edit-post-button"
-              data-post-id="<?= $postData['post_id']?>"
             >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-edit"></use>
-              </svg>
-            </button>
+              <?= generateIconInline('icon-edit') ?>
+            </a>
           <?php endif; ?>
           <?php if ($postData['belongs_to_current_user'] or $isAdmin): ?>
-            <button
+            <a
               title="Delete"
+              href="<?= routeUrl("/post/delete/".$postData['post_id']) ?>"
               class="button-icon-only delete-post-button"
-              data-post-id="<?= $postData['post_id']?>"
             >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-delete"></use>
-              </svg>
-            </button>
+              <?= generateIconInline('icon-delete') ?>
+            </a>
           <?php endif; ?>
         </div>
 

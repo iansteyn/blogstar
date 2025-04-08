@@ -31,7 +31,7 @@ echo generateDocumentHead(
 
     <div class="panel post-list">
       <?php
-          $searchAction = '/search';
+          $searchAction = 'search';
           // this component uses: $searchAction, $searchValue
           include __DIR__."/components/search-bar-component.php";
       ?>
@@ -47,7 +47,7 @@ echo generateDocumentHead(
             <?= empty($postDataList) ? ':( No' :  'Showing' ?>
             results for "<?= $searchValue ?>"
           </h3>
-          <a class='clear-link' href='/search'>
+          <a class='clear-link' href='<?= routeUrl('/search') ?>'>
             Clear
           </a>
         </div>

@@ -40,7 +40,7 @@ echo generateDocumentHead(
         <h2>User List</h2>
         <div class="action-bar">
             <?php
-                $searchAction = '/admin';
+                $searchAction = 'admin';
                 $isRequired = false;
                 // this component uses: $searchAction, $isRequired, $searchValue
                 include __DIR__."/components/search-bar-component.php";
@@ -60,7 +60,7 @@ echo generateDocumentHead(
                 }
             ?>
           </h4>
-          <a class='clear-link' href='/admin'>
+          <a class='clear-link' href='<?= routeUrl('/admin') ?>'>
             Clear
           </a>
         </div>
@@ -69,13 +69,14 @@ echo generateDocumentHead(
         <ul class="user-list">
           <?php foreach($usernames as $username): ?>
             <li>
-              <a href="/profile/posts/<?= $username ?>/">
+              <a href='<?= routeUrl("/profile/posts/$username") ?>'>
                 <i>@<?= $username ?></i>
               </a>
             </li>
           <?php endforeach; ?>
         </ul>
       </section>
+
       <section class="panel site-analytics" id="site-analytics">
         <h2>Site Analytics</h2>
         <div class="widget-container">
@@ -96,9 +97,10 @@ echo generateDocumentHead(
             </ul>
           </div>
           <div class="panel analytics-widget">
-            <h3>Top 5 Blog Posts by Likes
+            <h3>
+              Top 5 Blog Posts by Likes
               <svg class="icon-inline bottom-align" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use>
+                <use href="<?= resourceUrl('vector-icons/icons.svg#icon-like-unfilled') ?>"></use>
               </svg>
             </h3>
             <ol class="top-posts">
@@ -107,10 +109,10 @@ echo generateDocumentHead(
                     $post = sanitizeData($post);
               ?>
                 <li>
-                  <a href="/blog-post/<?= $post['post_id'] ?>/">
+                  <a href="<?= routeUrl('/blog-post/'.$post['post_id']) ?>">
                     <span><?= $post['post_title'] ?></span>
                   </a>
-                  <a href="/profile/posts/<?= $post['username'] ?>/">
+                  <a href="<?= routeUrl('/profile/posts/'.$post['username']) ?>">
                     <i>@<?= $post['username'] ?></i>
                   </a>
                   <p><span><?= $post['likes'] ?></span> Likes</p>

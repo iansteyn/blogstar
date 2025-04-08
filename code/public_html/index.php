@@ -1,12 +1,15 @@
 <?php
-session_start();
 /* index.php
 ------------
-This is the website's "root".
-Here, we set-up URL routing, so that all of our pages can be viewed without needing the whole URL.
+This is the website's "root". All navigation and API requests are handled here,
+so this is where important configuration files are included and routes are set up.
+The current session is also started here, before anything else happens.
 */
 
-require_once __DIR__.'/../db_config/db_connect.php';
+session_start();
+
+require_once __DIR__.'/../config/url-generation.php';
+require_once __DIR__.'/../config/db-connect.php';
 $db = getDatabaseConnection();
 
 require_once __DIR__.'/../app/controllers/HomeController.php';
@@ -21,17 +24,17 @@ $homeController = new HomeController($db);
 $profileController = new ProfileController($db);
 $userController = new UserController($db);
 $postController = new PostController($db);
-$commentController = new commentController($db);
+$commentController = new CommentController($db);
 $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
 
-require_once __DIR__.'/../app/routing/route.php';
+require_once __DIR__.'/../app/routing/Route.php';
 $route = new Route();
 
 // SIDE-NAV TOP
 $route->add('/', function() {
-    header('Location: /home');
+    header('location: '.routeUrl('/home'));
     exit;
 });
 
@@ -77,7 +80,7 @@ $route->add('/search', fn()=>
     $searchController->search()
 );
 
-// SIDE-NAVE MIDDLE
+// SIDE-NAV MIDDLE
 $route->add('/admin', fn()=>
     $adminController->admin()
 );
@@ -129,10 +132,6 @@ $route->add('/admin/search-users', fn() =>
 $route->add('/error', fn()=>
     require __DIR__ . '/../app/views/error-view.php'
 );
-// $route->add('/.+', function() {
-//     header('Location: /error');
-//     exit;
-// });
 
 $route->submit();
 ?>

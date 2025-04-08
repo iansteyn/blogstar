@@ -7,7 +7,7 @@
         $postData = sanitizeData($postData);
 
         $pageTitle = 'Edit your post';
-        $formAction = "/post/edit/{$postData['post_id']}";
+        $formAction = routeUrl("post/edit/{$postData['post_id']}");
         $imageRequired = false;
 
         $postTitle = $postData['post_title'];
@@ -18,7 +18,7 @@
     }
     else {
         $pageTitle = 'Create your post';
-        $formAction = "/create";
+        $formAction = routeUrl("/create");
         $imageRequired = true;
 
         $postTitle = '';
@@ -46,7 +46,7 @@
     <form
       class="panel create-panel"
       id="post-form"
-      method="post"
+      method="POST"
       action="<?= $formAction ?>"
       enctype="multipart/form-data"
     >
@@ -96,7 +96,7 @@
         <?= $submitButtonText ?>
       </button>
       <?php if ($isEditMode): ?>
-        <a href="/blog-post/<?= $postData['post_id'] ?>" class="button-link">
+        <a href='<?= routeUrl("blog-post/{$postData['post_id']}") ?>' class="button-link">
       <?php endif; ?>
         <input
           class='post-button'

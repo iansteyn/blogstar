@@ -23,9 +23,9 @@ echo generateDocumentHead(
   <main>
     <header class="page-header">
       <span class="breadcrumbs">
-        <a href="/profile/posts/<?= $userData['username'] ?>">@<?= $userData['username'] ?>'s profile</a>
+        <a href="<?= routeUrl("/profile/posts/{$userData['username']}") ?>">@<?= $userData['username'] ?>'s profile</a>
         &gt;
-        <a href="/#"><?= $postData['post_title'] ?></a>
+        <a href="#"><?= $postData['post_title'] ?></a>
       </span>
     </header>
     <article class="panel blog-panel">
@@ -58,9 +58,7 @@ echo generateDocumentHead(
           data-resource="like"
           data-post-id="<?= $postData['post_id']?>"
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-like-unfilled"></use> 
-          </svg>
+          <?= generateIconInline('icon-like-unfilled') ?>
           Like
         </button>
         <button
@@ -70,9 +68,7 @@ echo generateDocumentHead(
           data-resource="like"
           data-post-id="<?= $postData['post_id']?>"
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-like-filled"></use> 
-          </svg>
+          <?= generateIconInline('icon-like-filled') ?>
           Liked
         </button>
         
@@ -84,9 +80,7 @@ echo generateDocumentHead(
           data-resource="save"
           data-post-id="<?= $postData['post_id']?>"
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-save-unfilled"></use> 
-          </svg>
+          <?= generateIconInline('icon-save-unfilled') ?>
           Save
         </button>
         <button
@@ -96,45 +90,32 @@ echo generateDocumentHead(
           data-resource="save"
           data-post-id="<?= $postData['post_id']?>"
         >
-          <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-            <use href="/../vector-icons/icons.svg#icon-save-filled"></use> 
-          </svg>
+          <?= generateIconInline('icon-save-filled') ?>
           Saved
         </button>
 
-        
+        <!-- edit -->
         <?php if ($postData['belongs_to_current_user']): ?>
-          <!-- edit if it is your own post -->
-          <form method="GET" action="/post/edit/<?= $postData['post_id'] ?>">
-            <button
-                Title="Edit"
-                class="interaction-button edit-post-button"
-                type="submit"
-                data-post-id="<?= $postData['post_id']?>"
-            >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-edit"></use> 
-              </svg>
-                Edit
-            </button>
-          </form>
+          <a
+            Title="Edit"
+            href="<?= routeUrl("/post/edit/".$postData['post_id']) ?>"
+            class="interaction-button edit-post-button"
+          >
+            <?= generateIconInline('icon-edit') ?>
+            Edit
+          </a>
         <?php endif; ?>
 
+        <!-- delete -->
         <?php if ($postData['belongs_to_current_user'] || $isAdmin): ?>
-          <!-- delete (if it is your own post) -->
-          <form method = "POST" action = "/post/delete/<?= $postId?>">
-            <button
-              Title="Delete"
-              class="interaction-button delete-post-button"
-              type="submit"
-              data-post-id="<?= $postData['post_id']?>"
-            >
-              <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-delete"></use> 
-              </svg>
+          <a
+            Title="Delete"
+            href="<?= routeUrl("/post/delete/".$postData['post_id']) ?>"
+            class="interaction-button delete-post-button"
+          >
+              <?= generateIconInline('icon-delete') ?>
               Delete
-            </button>
-          </form>
+          </a>
         <?php endif; ?>
       </div>
     <?php endif; ?>
@@ -157,26 +138,26 @@ echo generateDocumentHead(
         }
       ?>
 
-      <div class = "specific-comment-container">
-        <form method="POST" action="/comment/create/<?= $postId ?>">
-          <label for="comment">Add a Comment</label>
+      <div class="specific-comment-container">
+        <form method="POST" action='<?= routeUrl("/comment/create/$postId") ?>'>
+          <label for="comment">
+            Add a Comment
+          </label>
           <?php if ( ! $isLoggedIn):?>
-            <p>You must <a href="/login">log in</a> to comment on this post.</p>
+            <p>
+              You must <a href="<?= routeUrl('/login') ?>">log in</a> to comment on this post.
+            </p>
           <?php else: ?>
-            <textarea class = "comment" id = "comment" name = "comment-body" placeholder = "Write your comment here!" required></textarea>
+            <textarea class="comment" id="comment" name="comment-body" placeholder="Write your comment here!" required></textarea>
 
-            <button class = "interaction-button" id="submit-button" type="submit" value="Post">
-                <svg class = "icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href = "/../vector-icons/icons.svg#icon-comment"></use>
-                </svg>
-                Post
+            <button class="interaction-button" id="submit-button" type="submit" value="Post">
+              <?= generateIconInline('icon-comment') ?>
+              Post
             </button>
 
             <button class="interaction-button" id="discard-comment-button" type="button" value="Discard">
-                <svg class="icon-inline" preserveAspectRatio="xMidYMid meet">
-                <use href="/../vector-icons/icons.svg#icon-delete"></use>
-                </svg>
-                Discard
+              <?= generateIconInline('icon-delete') ?>
+              Discard
             </button>
           <?php endif; ?>
         </form>
