@@ -16,7 +16,7 @@
 
 require_once __DIR__.'/../services/ErrorService.php';
 
-class Route {
+class Router {
     /**
     * @var array $_listUri List of URI's to match against
     */

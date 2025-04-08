@@ -29,104 +29,104 @@ $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
 
-require_once __DIR__.'/../app/routing/Route.php';
-$route = new Route();
+require_once __DIR__.'/../app/routing/Router.php';
+$router = new Router();
 
 // SIDE-NAV TOP
-$route->add('/', function() {
+$router->add('/', function() {
     header('location: '.routeUrl('/home'));
     exit;
 });
 
-$route->add('/home', fn()=>
+$router->add('/home', fn()=>
     $homeController->recent()
 );
-$route->add('/home/recent', fn()=>
+$router->add('/home/recent', fn()=>
     $homeController->recent()
 );
-$route->add('/home/popular', fn()=>
+$router->add('/home/popular', fn()=>
     $homeController->popular()
 );
-$route->add('/home/saved', fn()=>
+$router->add('/home/saved', fn()=>
     $homeController->saved()
 );
 
-$route->add('/profile', fn()=>
+$router->add('/profile', fn()=>
     $profileController->posts()
 );
-$route->add('/profile/posts', fn()=>
+$router->add('/profile/posts', fn()=>
     $profileController->posts()
 );
-$route->add('/profile/saved', fn()=>
+$router->add('/profile/saved', fn()=>
     $profileController->saved()
 );
-$route->add('/profile/settings', fn()=>
+$router->add('/profile/settings', fn()=>
     $profileController->settings()
 );
-$route->add('/profile/update-settings', fn() =>
+$router->add('/profile/update-settings', fn() =>
     $userController->updateSettings()
 );
-$route->add('/profile/posts/.+', fn($username)=>
+$router->add('/profile/posts/.+', fn($username)=>
     $profileController->posts($username)
 );
-$route->add('/profile/saved/.+', fn($username)=>
+$router->add('/profile/saved/.+', fn($username)=>
     $profileController->saved($username)
 );
 
-$route->add('/create', fn()=>
+$router->add('/create', fn()=>
     $postController->create()
 );
-$route->add('/search', fn()=>
+$router->add('/search', fn()=>
     $searchController->search()
 );
 
 // SIDE-NAV MIDDLE
-$route->add('/admin', fn()=>
+$router->add('/admin', fn()=>
     $adminController->admin()
 );
 
 // SIDE_NAV BOTTOM
-$route->add('/login', fn()=>
+$router->add('/login', fn()=>
     $userController->login()
 );
-$route->add('/register', fn()=>
+$router->add('/register', fn()=>
     $userController->register()
 );
-$route->add('/about', fn()=>
+$router->add('/about', fn()=>
     $aboutController->about()
 );
-$route->add('/logout', fn()=>
+$router->add('/logout', fn()=>
     $userController->logout()
 );
 
 // OTHER
-$route->add('/blog-post/.+', fn($postId) =>
+$router->add('/blog-post/.+', fn($postId) =>
     $postController->blogPost($postId)
 );
 
 // ROUTES THAT DO NOT LEAD TO DISPLAY
-$route->add('/like/.+', fn($postId) =>
+$router->add('/like/.+', fn($postId) =>
     $postController->toggleLike($postId)
 );
-$route->add('/save/.+', fn($postId) =>
+$router->add('/save/.+', fn($postId) =>
     $postController->toggleSave($postId)
 );
-$route->add('/comment/create/.+', fn($postId) =>
+$router->add('/comment/create/.+', fn($postId) =>
     $commentController->create($postId)
 );
-$route->add('/comment/delete/.+', fn($commentId) =>
+$router->add('/comment/delete/.+', fn($commentId) =>
     $commentController->delete($commentId)
 );
-$route->add('/post/delete/.+', fn($postId) =>
+$router->add('/post/delete/.+', fn($postId) =>
     $postController->delete($postId)
 );
 
-$route->add('/post/edit/.+', fn($postId) =>
+$router->add('/post/edit/.+', fn($postId) =>
     $postController->edit($postId)
 );
-$route->add('/admin/search-users', fn() =>
+$router->add('/admin/search-users', fn() =>
     $adminController->searchUsers()
 );
 
-$route->submit();
+$router->submit();
 ?>
