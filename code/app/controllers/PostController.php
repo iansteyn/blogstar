@@ -22,13 +22,30 @@ class PostController {
     }
 
     /**
+     * Helper function that handles errors related to postIds.
+     */
+    private function validatePostId($postId) {
+        if (! is_int($postId)) {
+            ErrorService::badRequest();
+        }
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
+        }
+    }
+
+    /**
+     * Call to restrict action to the resource owner.
+     */
+    private function restrictToOwner($postId) {
+
+    }
+
+    /**
      * Gets data for this postId, and gives it to the view.
      */
     public function blogPost($postId) {
 
-        if (! $this->postModel->postExists($postId)) {
-            ErrorService::notFound();
-        }
+        
 
         $isLoggedIn = AuthStatus::isLoggedIn();
         $isAdmin = AuthStatus::isAdmin();
@@ -75,6 +92,9 @@ class PostController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        if (! is_int($postId)) {
+            ErrorService::badRequest();
+        }
         if (! $this->postModel->postExists($postId)) {
             ErrorService::notFound();
         }
@@ -94,7 +114,7 @@ class PostController {
         }
     }
 
-    public function edit(int $postId) {
+    public function edit($postId) {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $postData = $this->postModel->getPostById($postId);
