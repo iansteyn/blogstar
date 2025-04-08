@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__.'/../models/CommentModel.php';
 require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../services/AuthService.php';
+require_once __DIR__.'/../services/ErrorService.php';
 
 class CommentController {
     private $commentModel;
@@ -12,13 +14,9 @@ class CommentController {
     }
 
     public function create($postId) {
+        ErrorService::requirePostRequest();
         AuthService::requireAuth(['registered', 'admin']);
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('location: '.routeUrl('/home'));
-            exit;
-        }
-    
-    
+
         $commentBody = trim($_POST['comment-body'] ?? '');
     
         $this->commentModel->createComment([
@@ -32,27 +30,20 @@ class CommentController {
     }
 
     public function delete($commentId) {
+        ErrorService::requirePostRequest();
         AuthService::requireAuth(['registered', 'admin']);
-    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        header('location: '.routeUrl('/home'));
+
+        $comment = $this->commentModel->getCommentById($commentId);
+
+        if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
+            header('location: '.routeUrl('/home'));
+            exit;
+        }
+
+        $this->commentModel->deleteComment($commentId);
+        header('location: '.routeUrl("/blog-post/{$comment['post_id']}"));
         exit;
-    }
 
-    $comment = $this->commentModel->getCommentById($commentId);
-
-    if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
-        header('location: '.routeUrl('/home'));
-        exit;
-    }
-    $this->commentModel->deleteComment($commentId);
-    header('location: '.routeUrl("/blog-post/{$comment['post_id']}"));
-    exit;
-
-    }
-
-    //Handles editing a comment.
-    public function edit($commentId) {
-        
     }
 }
 ?>
