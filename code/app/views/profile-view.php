@@ -79,7 +79,7 @@ echo generateDocumentHead(
     <?php else: ?>
       <form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
           <div class="form-group">
-			<h2>All changes are optional but require current password beforehand!</h2>
+			<h2>All changes are optional but require current password beforehand!</h2><br>
             <label for="current-password">Current password</label>
             <input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
           </div>
@@ -97,7 +97,7 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself" rows="4"><?= ($userData['user_bio']) ?></textarea>
+            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself"><?= ($userData['user_bio']) ?></textarea>
           </div>
           <button type="submit">Update Settings</button>
         </form>
