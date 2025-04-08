@@ -14,7 +14,7 @@ $userData = sanitizeData($userData);
 echo generateDocumentHead(
     'My Profile',
     ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
-    ['post-interaction.js']
+    ['post-interaction.js', 'form-validation.js']
 );
 ?>
 
@@ -53,55 +53,60 @@ echo generateDocumentHead(
       </nav>
     </header>
 
-    <?php if ($activeTab != 'settings'): ?>
-        <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
-            <?php
-            if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-				if ($userData['is_current_user']) {
-					echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
-				} else {
-					echo "<p>@{$userData['username']} has no saved posts.</p>";
-				}
-			} elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
-				if ($userData['is_current_user']) {
-					echo "<p>You have no posts yet! <a href='/create'>Write your first post here!.</a></p>";
-				} else {
-					echo "<p>@{$userData['username']} has no posts.</p>";
-				}
-			} else {
-				foreach ($postDataList as $postData) {
-					// This component uses: $postData
-					include __DIR__."/components/post-summary-component.php";
-				}
-			}
-            ?>
-        </article>
-    <?php else: ?>
-      <form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
-          <div class="form-group">
-			<h2>All changes are optional but require current password beforehand!</h2><br>
-            <label for="current-password">Current password</label>
-            <input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
-          </div>
-          <div class="form-group">
-            <label for="new-password">New password (leave blank to keep current)</label>
-            <input type="password" id="new-password" name="new-password" placeholder="Enter new password" />
-          </div>
-          <div class="form-group">
-            <label for="confirm-password">Confirm new password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" />
-          </div>
-          <div class="form-group">
-            <label for="profile-picture">Update profile picture</label>
-            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg, image/gif" />
-          </div>
-          <div class="form-group">
-            <label for="user-bio">Bio</label>
-            <textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself"><?= ($userData['user_bio']) ?></textarea>
-          </div>
-          <button type="submit">Update Settings</button>
-        </form>
-    <?php endif; ?>
+			<?php if ($activeTab != 'settings'): ?>
+					<article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
+						<?php if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
+							if ($userData['is_current_user']) {
+								echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+							} else {
+								echo "<p>@{$userData['username']} has no saved posts.</p>";
+							}
+						} elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
+							if ($userData['is_current_user']) {
+								echo "<p>You have no posts yet! <a href='/create'>Write your first post here!.</a></p>";
+							} else {
+								echo "<p>@{$userData['username']} has no posts.</p>";
+							}
+						} else {
+							foreach ($postDataList as $postData) {
+								// This component uses: $postData
+								include __DIR__."/components/post-summary-component.php";
+							}
+						}
+						?>
+        	</article>
+				<?php else: ?>
+					<form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
+						<div class="form-group">
+							<h2>All changes are optional but require current password beforehand!</h2>
+							<label for="current-password">Current password</label>
+							<input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
+							<?php if (isset($_SESSION['error'])): ?>
+								<div class="error-message" style="color: var(--color-error); max-width: 42ch;">
+									<?= sanitizeData($_SESSION['error']) ?>
+								</div>
+								<?php unset($_SESSION['error']); ?>
+							<?php endif; ?>
+						</div>
+						<div class="form-group">
+							<label for="new-password">New password (leave blank to keep current)</label>
+							<input type="password" id="new-password" name="new-password" placeholder="Enter new password" />
+						</div>
+						<div class="form-group">
+							<label for="confirm-password">Confirm new password</label>
+							<input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" />
+						</div>
+						<div class="form-group">
+							<label for="profile-picture">Update profile picture</label>
+							<input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg, image/gif" />
+						</div>
+						<div class="form-group">
+							<label for="user-bio">Bio</label>
+							<textarea id="user-bio" name="user-bio" placeholder="Tell us about yourself"><?= ($userData['user_bio']) ?></textarea>
+						</div>
+						<button type="submit">Update Settings</button>
+					</form>
+    		<?php endif; ?>
   </main>
 
   <aside>
