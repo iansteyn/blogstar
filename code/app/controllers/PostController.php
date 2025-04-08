@@ -65,7 +65,7 @@ class PostController {
             'post_body'  => $_POST['post-body'],
             'post_image' => $_FILES['post-image']
         ]);
-        Redirector::route('/profile');
+        Redirect::to('/profile');
     }
 
     public function delete($postId) {
@@ -73,18 +73,18 @@ class PostController {
 
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
-            Redirector::route('/home');
+            Redirect::to('/home');
         }
         if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
-            Redirector::route('/home');
+            Redirect::to('/home');
         }
 
         $this->postModel->deletePost($postId);
 
         if (isset($_SERVER['HTTP_REFERER']) and ! str_ends_with($_SERVER['HTTP_REFERER'], $postId)) {
-            Redirector::route($_SERVER['HTTP_REFERER']);
+            Redirect::to($_SERVER['HTTP_REFERER']);
         } else {
-            Redirector::route('/profile');
+            Redirect::to('/profile');
         }
     }
 
@@ -93,7 +93,7 @@ class PostController {
 
         $postData = $this->postModel->getPostById($postId);
         if (!$postData or !AuthStatus::isCurrentUser($postData['username'])) {
-            Redirector::route('/home'); //TODO: make this redirect to error pages
+            Redirect::to('/home'); //TODO: make this redirect to error pages
         }
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -116,7 +116,7 @@ class PostController {
         }
 
         $this->postModel->updatePost($updatedPostData);
-        Redirector::route("/blog-post/$postId");
+        Redirect::to("/blog-post/$postId");
     }
 
     /**

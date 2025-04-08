@@ -33,11 +33,11 @@ class UserController {
                     'image'     => $_FILES['profile-picture'],
                     'bio'       => 'This user has not added a bio yet.'
                 ]);
-                Redirector::route('/login');
+                Redirect::to('/login');
             }
             else {
                 $_SESSION['invalid_registration'] = 'Username or email is already registered.';
-                Redirector::route('/register');
+                Redirect::to('/register');
             }
         }
     }
@@ -59,7 +59,7 @@ class UserController {
                 !isset($_POST['password']) or
                 empty($_POST['password'])
             ) {
-                Redirector::route('/login');
+                Redirect::to('/login');
             }
 
             $email = $_POST['email'];
@@ -74,14 +74,14 @@ class UserController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
-                    Redirector::route('/admin');
+                    Redirect::to('/admin');
                 } else {
-                    Redirector::route('/home');
+                    Redirect::to('/home');
                 }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
-                Redirector::route('/login');
+                Redirect::to('/login');
             }
         }
     }
@@ -90,14 +90,14 @@ class UserController {
     public function logout() {
         session_unset();
         session_destroy();
-        Redirector::route('/login');
+        Redirect::to('/login');
     }
 
     public function updateSettings() {
         AuthAccess::restrictTo(['registered', 'admin']);
         
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            Redirector::route('/profile/settings');
+            Redirect::to('/profile/settings');
         }
     
         $username = $_SESSION['username'];
@@ -109,7 +109,7 @@ class UserController {
         $user = $this->userModel->getUserByUsername($username);
         if (!$user || !password_verify($currentPassword, $user['password'])) {
             $_SESSION['error'] = 'Current password is incorrect';
-            Redirector::route('/profile/settings');
+            Redirect::to('/profile/settings');
         }
 
         $updateData = [
@@ -120,7 +120,7 @@ class UserController {
         if (!empty($newPassword)) {
             if ($newPassword !== $confirmPassword) {
                 $_SESSION['error'] = 'New passwords do not match';
-                Redirector::route('/profile/settings');
+                Redirect::to('/profile/settings');
             }
             $updateData['password'] = $newPassword;
         }
@@ -139,7 +139,7 @@ class UserController {
             $_SESSION['error'] = 'Failed to update settings';
         }
 
-        Redirector::route('/profile/settings');
+        Redirect::to('/profile/settings');
     }
 
 }
