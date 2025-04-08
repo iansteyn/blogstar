@@ -7,7 +7,11 @@
  */
 
 require_once __DIR__."/../helpers/view-helpers.php";
-echo generateDocumentHead('404 Not Found', [], []);
+echo generateDocumentHead(
+    $errorData['code'].' '.$errorData['name'],
+    [],
+    []
+);
 ?>
 
 <body>
