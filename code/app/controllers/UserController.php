@@ -40,6 +40,10 @@ class UserController {
     }
 
     public function login() {
+        if (AuthStatus::isLoggedIn()) {
+            Redirect::to('/home');
+        }
+
         // If form is not submitted, display the page:
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $isLoggedIn = AuthStatus::isLoggedIn();
