@@ -15,6 +15,9 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        if (! is_int($postId)) {
+            ErrorService::badRequest();
+        }
         if (! $this->postModel->postExists($postId)) {
             ErrorService::notFound();
         }
@@ -34,6 +37,9 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        if (! is_int($commentId)) {
+            ErrorService::badRequest();
+        }
         if (! $this->commentModel->commentExists($commentId)) {
             ErrorService::notFound();
         }
