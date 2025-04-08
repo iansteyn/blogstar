@@ -25,6 +25,11 @@ class PostController {
      * Gets data for this postId, and gives it to the view.
      */
     public function blogPost($postId) {
+
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
+        }
+
         $isLoggedIn = AuthStatus::isLoggedIn();
         $isAdmin = AuthStatus::isAdmin();
 
