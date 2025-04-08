@@ -22,9 +22,8 @@ class CommentController {
             'post_id'      => $postId, 
             'comment_body' => $commentBody
         ]);
-    
-        header('location: '.routeUrl("/blog-post/$postId"));
-        exit;
+
+        Redirector::route("/blog-post/$postId");
     }
 
     public function delete($commentId) {
@@ -34,14 +33,11 @@ class CommentController {
         $comment = $this->commentModel->getCommentById($commentId);
 
         if (! AuthStatus::isCurrentUser($comment['username']) or ! AuthStatus::isAdmin()) {
-            header('location: '.routeUrl('/home'));
-            exit;
+            Redirector::route('/home');
         }
 
         $this->commentModel->deleteComment($commentId);
-        header('location: '.routeUrl("/blog-post/{$comment['post_id']}"));
-        exit;
-
+        Redirector::route('/blog-post/'.$comment['post_id']);
     }
 }
 ?>

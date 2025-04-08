@@ -26,8 +26,7 @@ class ProfileController {
         AuthAccess::restrictTo(['registered','admin']);
 
         if (AuthStatus::isCurrentUser($username)) {
-            header('location: '.routeUrl('/profile'));
-            exit;
+            Redirector::route('/profile');
         }
 
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
@@ -54,8 +53,7 @@ class ProfileController {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         if (AuthStatus::isCurrentUser($username)) {
-            header('location: '.routeUrl('/profile/saved'));
-            exit;
+            Redirector::route('/profile/saved');
         }
 
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided

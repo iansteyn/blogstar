@@ -33,14 +33,11 @@ class UserController {
                     'image'     => $_FILES['profile-picture'],
                     'bio'       => 'This user has not added a bio yet.'
                 ]);
-        
-                //redirect to another page
-                header('location: '.routeUrl('/login'));
-                exit;
-            } else {
+                Redirector::route('/login');
+            }
+            else {
                 $_SESSION['invalid_registration'] = 'Username or email is already registered.';
-                header('location: '.routeUrl('/register'));
-                exit;
+                Redirector::route('/register');
             }
         }
     }
@@ -56,11 +53,13 @@ class UserController {
         }
         // Otherwise, handle the submission:
         else {
-            if (!isset($_POST['email']) || empty($_POST['email'])) {
-                header('location: '.routeUrl('/login'));
-            }
-            if (!isset($_POST['password']) || empty($_POST['password'])) {
-                header('location: '.routeUrl('/login'));
+            if (
+                !isset($_POST['email']) or
+                empty($_POST['email']) or
+                !isset($_POST['password']) or
+                empty($_POST['password'])
+            ) {
+                Redirector::route('/login');
             }
 
             $email = $_POST['email'];
@@ -75,35 +74,30 @@ class UserController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($_SESSION['role'] === 'admin') {
-                    header('location: '.routeUrl('/admin'));
-                    exit;
+                    Redirector::route('/admin');
                 } else {
-                    header('location: '.routeUrl('/home'));
-                    exit;
+                    Redirector::route('/home');
                 }
             }
             else {
                 $_SESSION['invalid_login'] = 'Email or password is invalid.';
-                header('location: '.routeUrl('/login'));
-                exit;
+                Redirector::route('/login');
             }
         }
     }
 
+    /** Remove all session variables and destroy the session */
     public function logout() {
-        // Remove all session variables and destroy the session
         session_unset();
         session_destroy();
-        header('location: '.routeUrl('/login'));
-        exit;
+        Redirector::route('/login');
     }
 
     public function updateSettings() {
         AuthAccess::restrictTo(['registered', 'admin']);
         
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: '.routeUrl('/profile/settings'));
-            exit;
+            Redirector::route('/profile/settings');
         }
     
         $username = $_SESSION['username'];
@@ -115,8 +109,7 @@ class UserController {
         $user = $this->userModel->getUserByUsername($username);
         if (!$user || !password_verify($currentPassword, $user['password'])) {
             $_SESSION['error'] = 'Current password is incorrect';
-            header('Location: '.routeUrl('/profile/settings'));
-            exit;
+            Redirector::route('/profile/settings');
         }
 
         $updateData = [
@@ -127,8 +120,7 @@ class UserController {
         if (!empty($newPassword)) {
             if ($newPassword !== $confirmPassword) {
                 $_SESSION['error'] = 'New passwords do not match';
-                header('Location: '.routeUrl('/profile/settings'));
-                exit;
+                Redirector::route('/profile/settings');
             }
             $updateData['password'] = $newPassword;
         }
@@ -147,8 +139,7 @@ class UserController {
             $_SESSION['error'] = 'Failed to update settings';
         }
 
-        header('Location: '.routeUrl('/profile/settings'));
-        exit;
+        Redirector::route('/profile/settings');
     }
 
 }

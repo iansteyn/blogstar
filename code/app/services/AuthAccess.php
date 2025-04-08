@@ -16,8 +16,7 @@ class AuthAccess {
     public static function restrictTo(array $allowedRoles) {
 
         if (! AuthStatus::isLoggedIn()) {
-            header('location: ' . routeUrl('/login'));
-            exit;
+            Redirector::route('/login');
         }
 
         if (! in_array($_SESSION['role'], $allowedRoles)) {

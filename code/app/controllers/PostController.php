@@ -65,8 +65,7 @@ class PostController {
             'post_body'  => $_POST['post-body'],
             'post_image' => $_FILES['post-image']
         ]);
-        header('location: '.routeUrl('/profile'));
-        exit;
+        Redirector::route('/profile');
     }
 
     public function delete($postId) {
@@ -74,24 +73,19 @@ class PostController {
 
         $post = $this->postModel->getPostById($postId);
         if (!$post) {
-            header('location: '.routeUrl('/home'));
-            exit;
+            Redirector::route('/home');
         }
         if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
-            header('location: '.routeUrl('/home'));
-            exit;
+            Redirector::route('/home');
         }
 
         $this->postModel->deletePost($postId);
 
         if (isset($_SERVER['HTTP_REFERER']) and ! str_ends_with($_SERVER['HTTP_REFERER'], $postId)) {
-            $redirectLocation = $_SERVER['HTTP_REFERER'];
+            Redirector::route($_SERVER['HTTP_REFERER']);
         } else {
-            $redirectLocation =  routeUrl('/profile');
+            Redirector::route('/profile');
         }
-
-        header("location: $redirectLocation");
-        exit;
     }
 
     public function edit(int $postId) {
@@ -99,8 +93,7 @@ class PostController {
 
         $postData = $this->postModel->getPostById($postId);
         if (!$postData or !AuthStatus::isCurrentUser($postData['username'])) {
-            header('Location: '.routeUrl('/home')); //TODO: make this redirect to error pages
-            exit;
+            Redirector::route('/home'); //TODO: make this redirect to error pages
         }
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -123,8 +116,7 @@ class PostController {
         }
 
         $this->postModel->updatePost($updatedPostData);
-        header('Location: '.routeUrl("/blog-post/$postId"));
-        exit;
+        Redirector::route("/blog-post/$postId");
     }
 
     /**
