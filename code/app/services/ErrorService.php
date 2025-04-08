@@ -66,8 +66,9 @@ class ErrorService {
     }
 
     /**
-     * Redirects to badRequest error if the current request is not POST-type
-     * Useful for functions that should not be called by users entering URl. */
+     * Redirects to badRequest error if the current request is not POST-type.
+     * Use for controller functions that should not be called by users just
+     * entering the route URL into their browser. */
     public static function requirePostRequest() {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             ErrorService::badRequest();
