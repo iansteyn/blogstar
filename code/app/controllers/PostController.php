@@ -5,7 +5,7 @@ require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/CommentModel.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
-require_once __DIR__.'/../authentication/AuthService.php';
+require_once __DIR__.'/../services/AuthService.php';
 
 class PostController {
     private $postModel;

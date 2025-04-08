@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/PostModel.php';
-require_once __DIR__.'/../authentication/AuthService.php';
+require_once __DIR__.'/../services/AuthService.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
 
 class AdminController {
