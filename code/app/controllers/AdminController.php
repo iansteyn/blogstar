@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/PostModel.php';
-require_once __DIR__.'/../services/AuthService.php';
+require_once __DIR__.'/../services/AuthAccess.php';
+require_once __DIR__.'/../services/AuthStatus.php';
 require_once __DIR__.'/../services/ErrorService.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
 

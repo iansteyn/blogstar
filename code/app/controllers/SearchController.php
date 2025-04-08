@@ -3,7 +3,8 @@
 require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/SaveModel.php';
-require_once __DIR__.'/../services/AuthService.php';
+require_once __DIR__.'/../services/AuthAccess.php';
+require_once __DIR__.'/../services/AuthStatus.php';
 
 class SearchController {
     private $postModel;
