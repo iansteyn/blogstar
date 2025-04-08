@@ -1,16 +1,23 @@
 <?php
 require_once __DIR__.'/../models/CommentModel.php';
+require_once __DIR__.'/../models/PostModel.php';
 
 class CommentController {
     private $commentModel;
+    private $postModel;
 
     public function __construct($db) {
         $this->commentModel = new CommentModel($db);
+        $this->postModel = new PostModel($db);
     }
 
     public function create($postId) {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
+
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
+        }
 
         $commentBody = trim($_POST['comment-body'] ?? '');
     
