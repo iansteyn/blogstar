@@ -34,10 +34,14 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        if (! $this->commentModel->commentExists($commentId)) {
+            ErrorService::notFound();
+        }
+
         $comment = $this->commentModel->getCommentById($commentId);
 
         if (! AuthStatus::isCurrentUser($comment['username']) or ! AuthStatus::isAdmin()) {
-            Redirect::to('/home');
+            ErrorService::forbidden();
         }
 
         $this->commentModel->deleteComment($commentId);
