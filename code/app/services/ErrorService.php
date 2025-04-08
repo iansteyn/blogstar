@@ -58,7 +58,7 @@ class ErrorService {
         $errorData = [
             'code'    => 403,
             'name'    => 'Forbidden',
-            'message' => "Sorry! You do not have permission to access this page."
+            'message' => "Sorry! You do not have permission to access this page or perform this action."
         ];
 
         http_response_code(401);
