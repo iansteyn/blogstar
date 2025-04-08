@@ -1,12 +1,14 @@
 <?php
-
 require_once __DIR__.'/AuthStatus.php';
 
+/**
+ * A service class with static functions for generating HTTP error responses.
+ */
 class ErrorService {
 
     /**
      * Gives the browser a 404 response code and displays not found error page.
-     * Call this when resources are requested that do not exist
+     * Call this when resources are requested that do not exist.
      */
     public static function notFound() {
         $isLoggedIn = AuthStatus::isLoggedIn();
