@@ -21,6 +21,7 @@ class ErrorService {
         http_response_code(404);
         // This view uses: $isLoggedIn, $isAdmin, $errorData
         require_once __DIR__."/../views/error-view.php";
+        exit;
     }
 
     /**
@@ -41,6 +42,7 @@ class ErrorService {
         http_response_code(400);
         // This view uses: $isLoggedIn, $isAdmin, $errorData
         require_once __DIR__."/../views/error-view.php";
+        exit;
     }
 
     /**
@@ -57,9 +59,10 @@ class ErrorService {
             'message' => "Sorry! You do not have access to this page."
         ];
 
-        http_response_code(400);
+        http_response_code(401);
         // This view uses: $isLoggedIn, $isAdmin, $errorData
         require_once __DIR__."/../views/error-view.php";
+        exit;
     }
 }
 
