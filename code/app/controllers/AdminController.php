@@ -2,6 +2,7 @@
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/PostModel.php';
 require_once __DIR__.'/../services/AuthService.php';
+require_once __DIR__.'/../services/ErrorService.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
 
 class AdminController {
@@ -43,6 +44,8 @@ class AdminController {
     }
 
     public function searchUsers() {
+        AuthService::requireAuth(['admin']);
+        ErrorService::requirePostRequest();
 
         if (isset($_GET['terms'])) {
             $usernames = $this->userModel->getSearchedUsernames($_GET['terms']);
