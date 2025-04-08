@@ -61,9 +61,6 @@ class HomeController {
         }
         unset($postData);
 
-        $isLoggedIn = AuthStatus::isLoggedIn();
-        $isAdmin = AuthStatus::isAdmin();
-
         // This view uses: $activeTab, $postDataList, $isAdmin, $isLoggedIn
         require __DIR__.'/../views/home-view.php';
     }
