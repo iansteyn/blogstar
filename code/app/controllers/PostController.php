@@ -25,7 +25,7 @@ class PostController {
      * Helper function that handles errors related to postIds.
      */
     private function validatePostId($postId) {
-        if (! is_int($postId)) {
+        if (! ctype_digit($postId)) {
             ErrorService::badRequest();
         }
         if (! $this->postModel->postExists($postId)) {
@@ -37,7 +37,11 @@ class PostController {
      * Call to restrict action to the resource owner.
      */
     private function restrictToOwner($postId) {
+        $post = $this->postModel->getPostById($postId);
 
+        if (! AuthStatus::isCurrentUser($post['username']) or ! AuthStatus::isAdmin()) {
+            ErrorService::forbidden();
+        }
     }
 
     /**
@@ -45,7 +49,7 @@ class PostController {
      */
     public function blogPost($postId) {
 
-        
+        $this->validatePostId($postId);
 
         $isLoggedIn = AuthStatus::isLoggedIn();
         $isAdmin = AuthStatus::isAdmin();
@@ -92,18 +96,8 @@ class PostController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        if (! is_int($postId)) {
-            ErrorService::badRequest();
-        }
-        if (! $this->postModel->postExists($postId)) {
-            ErrorService::notFound();
-        }
-
-        $post = $this->postModel->getPostById($postId);
-
-        if (! AuthStatus::isCurrentUser($post['username']) or ! AuthStatus::isAdmin()) {
-            ErrorService::forbidden();
-        }
+        $this->validatePostId($postId);
+        $this->restrictToOwner($postId);
 
         $this->postModel->deletePost($postId);
 
@@ -117,14 +111,13 @@ class PostController {
     public function edit($postId) {
         AuthAccess::restrictTo(['registered', 'admin']);
 
-        $postData = $this->postModel->getPostById($postId);
-        if (!$postData or !AuthStatus::isCurrentUser($postData['username'])) {
-            Redirect::to('/home'); //TODO: make this redirect to error pages
-        }
+        $this->validatePostId($postId);
+        $this->restrictToOwner($postId);
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $isLoggedIn = AuthStatus::isLoggedIn();
             $isAdmin = AuthStatus::isAdmin();
+            $postData = $this->postModel->getPostById($postId);
 
             // This view uses: $postData, $isLoggedIn, $isAdmin
             require __DIR__.'/../views/create-edit-view.php';
