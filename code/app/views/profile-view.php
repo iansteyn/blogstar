@@ -78,7 +78,7 @@ echo generateDocumentHead(
 				<?php else: ?>
 					<form id="user-settings" class="panel account-form" method="post" action="/profile/update-settings" enctype="multipart/form-data">
 						<div class="form-group">
-							<h2>All changes are optional but require current password beforehand!</h2>
+							<h2>All changes are optional but require current password beforehand!</h2><br>
 							<label for="current-password">Current password</label>
 							<input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required />
 							<?php if (isset($_SESSION['error'])): ?>
