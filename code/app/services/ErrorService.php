@@ -64,6 +64,15 @@ class ErrorService {
         require_once __DIR__."/../views/error-view.php";
         exit;
     }
+
+    /**
+     * Redirects to badRequest error if the current request is not POST-type
+     * Useful for functions that should not be called by users entering URl. */
+    public static function requirePostRequest() {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            ErrorService::badRequest();
+        }
+    }
 }
 
 ?>
