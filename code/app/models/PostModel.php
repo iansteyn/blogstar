@@ -8,6 +8,18 @@ class PostModel {
         $this->db = $db;
     }
 
+    public function postExists(int $postId): bool {
+        $statement = $this->db->prepare(<<<sql
+            SELECT post_id
+            FROM posts
+            WHERE post_id = ?
+        sql);
+        $statement->execute([$postId]);
+
+        $result = $statement->fetch();
+        return ! empty($result);
+    }
+
     /**
      * @param int $postId
      * @return array{post_id, username, post_title, post_body, post_image, post_date}
