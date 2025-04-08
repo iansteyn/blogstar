@@ -57,17 +57,23 @@ echo generateDocumentHead(
         <article class="panel post-list <?= ($activeTab == 'posts') ? "left-most-subpage" : "" ?> ">
             <?php
             if ($activeTab == 'saved' and empty($postDataList) and $isLoggedIn) {
-                if ($userData['is_current_user']) {
-                    echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
-                } else {
-                    echo "<p>@{$userData['username']} has no saved posts.</p>";
-                }
-            } else {
-                foreach ($postDataList as $postData) {
-                    // This component uses: $postData
-                    include __DIR__."/components/post-summary-component.php";
-                }
-            }
+				if ($userData['is_current_user']) {
+					echo "<p>You have no saved posts yet! <a href='/home/popular'>See what's popular.</a></p>";
+				} else {
+					echo "<p>@{$userData['username']} has no saved posts.</p>";
+				}
+			} elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
+				if ($userData['is_current_user']) {
+					echo "<p>You have no posts yet! <a href='/create'>Write your first post here!.</a></p>";
+				} else {
+					echo "<p>@{$userData['username']} has no posts.</p>";
+				}
+			} else {
+				foreach ($postDataList as $postData) {
+					// This component uses: $postData
+					include __DIR__."/components/post-summary-component.php";
+				}
+			}
             ?>
         </article>
     <?php else: ?>
