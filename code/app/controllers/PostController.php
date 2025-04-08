@@ -141,7 +141,8 @@ class PostController {
     /**
      * Toggles whether the current user likes the given post or not
      */
-    public function toggleLike(int $postId) {
+    public function toggleLike($postId) {
+        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
         $this->validatePostId($postId);
 
@@ -164,7 +165,8 @@ class PostController {
     /**
      * Toggles whether the current user saves the given post or not
      */
-    public function toggleSave(int $postId) {
+    public function toggleSave($postId) {
+        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
         $this->validatePostId($postId);
 
