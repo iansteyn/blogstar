@@ -1,8 +1,5 @@
 <?php
 require_once __DIR__.'/../models/CommentModel.php';
-require_once __DIR__.'/../services/AuthAccess.php';
-require_once __DIR__.'/../services/AuthStatus.php';
-require_once __DIR__.'/../services/ErrorService.php';
 
 class CommentController {
     private $commentModel;

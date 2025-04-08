@@ -23,6 +23,9 @@ $db = getDatabaseConnection();
 
 // UTILITY
 require_once __DIR__.'/../app/routing/Redirect.php';
+require_once __DIR__.'/../app/services/AuthAccess.php';
+require_once __DIR__.'/../app/services/AuthStatus.php';
+require_once __DIR__.'/../app/services/ErrorService.php';
 
 // CONTROLLERS
 require_once __DIR__.'/../app/controllers/HomeController.php';
