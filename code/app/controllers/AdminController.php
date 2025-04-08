@@ -44,8 +44,8 @@ class AdminController {
     }
 
     public function searchUsers() {
-        AuthService::requireAuth(['admin']);
         ErrorService::requirePostRequest();
+        AuthService::requireAuth(['admin']);
 
         if (isset($_GET['terms'])) {
             $usernames = $this->userModel->getSearchedUsernames($_GET['terms']);

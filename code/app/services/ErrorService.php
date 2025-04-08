@@ -49,14 +49,14 @@ class ErrorService {
      * Gives the browser a 401 unauthorized response code and displays error page.
      * Call if user attempts to access a page that requires special roles (like admin)
      */
-    public static function unauthorized() {
+    public static function forbidden() {
         $isLoggedIn = AuthService::isLoggedIn();
         $isAdmin = AuthService::isAdmin();
 
         $errorData = [
-            'code'    => 401,
-            'name'    => 'Unauthorized Access',
-            'message' => "Sorry! You do not have access to this page."
+            'code'    => 403,
+            'name'    => 'Forbidden',
+            'message' => "Sorry! You do not have permission to access this page."
         ];
 
         http_response_code(401);

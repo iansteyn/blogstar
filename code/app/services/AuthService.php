@@ -18,7 +18,7 @@ class AuthService {
     }
 
     if ( ! in_array($_SESSION['role'], $allowedRoles)) {
-        ErrorService::unauthorized();
+        ErrorService::forbidden();
     }
   }
 
