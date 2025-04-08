@@ -142,6 +142,9 @@ class PostController {
      * Toggles whether the current user likes the given post or not
      */
     public function toggleLike(int $postId) {
+        AuthAccess::restrictTo(['registered', 'admin']);
+        $this->validatePostId($postId);
+
         $username = $_SESSION['username'];
         $isLiked = $this->likeModel->userHasLikedPost($username, $postId);
 
@@ -162,6 +165,9 @@ class PostController {
      * Toggles whether the current user saves the given post or not
      */
     public function toggleSave(int $postId) {
+        AuthAccess::restrictTo(['registered', 'admin']);
+        $this->validatePostId($postId);
+
         $username = $_SESSION['username'];
         $isSaved = $this->saveModel->userHasSavedPost($username, $postId);
 
