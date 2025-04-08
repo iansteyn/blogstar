@@ -20,7 +20,6 @@ require_once __DIR__.'/../app/controllers/CommentController.php';
 require_once __DIR__.'/../app/controllers/AdminController.php';
 require_once __DIR__.'/../app/controllers/SearchController.php';
 require_once __DIR__.'/../app/controllers/AboutController.php';
-require_once __DIR__.'/../app/controllers/ErrorController.php';
 $homeController = new HomeController($db);
 $profileController = new ProfileController($db);
 $userController = new UserController($db);
@@ -29,7 +28,6 @@ $commentController = new CommentController($db);
 $adminController = new AdminController($db);
 $searchController = new SearchController($db);
 $aboutController = new AboutController();
-$errorController = new ErrorController();
 
 require_once __DIR__.'/../app/routing/Route.php';
 $route = new Route();
@@ -128,11 +126,6 @@ $route->add('/post/edit/.+', fn($postId) =>
 );
 $route->add('/admin/search-users', fn() =>
     $adminController->searchUsers()
-);
-
-// TODO add routing for error pages?
-$route->add('/error', fn()=>
-    $errorController->notFound()
 );
 
 $route->submit();
