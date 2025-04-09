@@ -14,7 +14,7 @@ $userData = sanitizeData($userData);
 echo generateDocumentHead(
     'My Profile',
     ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
-    ['post-interaction.js']
+    ['post-interaction.js', 'form-validation.js']
 );
 ?>
 
@@ -64,6 +64,14 @@ echo generateDocumentHead(
                 } else {
                     echo "<p>@{$userData['username']} has no saved posts.</p>";
                 }
+
+            } elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
+                if ($userData['is_current_user']) {
+                    $createLink = routeUrl("/create");
+                    echo "<p>You have no posts yet! <a href='$createLink'>Write your first post here!.</a></p>";
+                } else {
+                    echo "<p>@{$userData['username']} has no posts.</p>";
+                }
             } else {
                 foreach ($postDataList as $postData) {
                     // This component uses: $postData
@@ -81,8 +89,11 @@ echo generateDocumentHead(
         enctype="multipart/form-data"
       >
           <div class="form-group">
+              <p>
+              <i>All changes are optional but require current password beforehand!</i>
+            </p>
             <label for="current-password">
-                Current password (required for changes)
+                Current password
             </label>
             <input
               type="password"
@@ -91,6 +102,12 @@ echo generateDocumentHead(
               placeholder="Enter your current password"
               required
             >
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="error-message" style="color: var(--color-error); max-width: 42ch;">
+                    <?= sanitizeData($_SESSION['error']) ?>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
           </div>
           <div class="form-group">
             <label for="new-password">
@@ -127,13 +144,13 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">
-              Bio
+              Edit Bio
             </label>
             <textarea
               id="user-bio"
               name="user-bio"
+              rows='10'
               placeholder="Tell us about yourself"
-              rows="4"
             ><?= $userData['user_bio'] ?></textarea>
           </div>
           <button type="submit">
