@@ -66,7 +66,7 @@ function validateForm(event, form) {
             displayError(profilePicture, "Profile picture cannot be empty");
             isValid = false;
         } else if (profilePicture.files.length > 0 && !validateProfilePicture(profilePicture.files[0])) {
-            displayError(profilePicture, "Profile picture must be a jpg, png, or gif less than 5 MB");
+            displayError(profilePicture, "Profile picture must be a jpg, png, or gif less than 2 MB");
             isValid = false;
         }
     }
@@ -115,11 +115,11 @@ function validatePassword(password) {
 }
 
 /*
-profile picture uploads are limited to image file types under 5 MB
+profile picture uploads are limited to image file types under 2 MB
 */
 function validateProfilePicture(file) {
     const imageTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
-    const maxFileSize = 5 * 1024 * 1024;
+    const maxFileSize = 2 * 1024 * 1024;
     return imageTypes.includes(file.type) && file.size <= maxFileSize;
 }
 
