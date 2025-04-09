@@ -15,6 +15,7 @@ class CommentController {
         ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        // validate postId
         if (! ctype_digit($postId)) {
             ErrorService::badRequest();
         }
@@ -22,8 +23,9 @@ class CommentController {
             ErrorService::notFound();
         }
 
+        // create comment and redirect
         $commentBody = trim($_POST['comment-body'] ?? '');
-    
+
         $this->commentModel->createComment([
             'username'     => $_SESSION['username'], 
             'post_id'      => $postId, 
@@ -36,6 +38,7 @@ class CommentController {
     public function delete($commentId) {
         AuthAccess::restrictTo(['registered', 'admin']);
 
+        // validate commentId
         if (! ctype_digit($commentId)) {
             ErrorService::badRequest();
         }
@@ -43,12 +46,14 @@ class CommentController {
             ErrorService::notFound();
         }
 
+        //restrict to owner or admin
         $comment = $this->commentModel->getCommentById($commentId);
 
-        if (! AuthStatus::isCurrentUser($comment['username']) or ! AuthStatus::isAdmin()) {
+        if (! AuthStatus::isCurrentUser($comment['username']) and ! AuthStatus::isAdmin()) {
             ErrorService::forbidden();
         }
 
+        // delete comment and redirect
         $this->commentModel->deleteComment($commentId);
         Redirect::to('/blog-post/'.$comment['post_id']);
     }
