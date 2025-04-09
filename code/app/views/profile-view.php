@@ -147,6 +147,7 @@ echo generateDocumentHead(
             <textarea
               id="user-bio"
               name="user-bio"
+              rows='10'
               placeholder="Tell us about yourself"
             ><?= $userData['user_bio'] ?></textarea>
           </div>
