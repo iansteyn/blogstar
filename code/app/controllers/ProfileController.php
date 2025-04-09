@@ -5,7 +5,6 @@ require_once __DIR__.'/../models/SaveModel.php';
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
-require_once __DIR__.'/../authentication/AuthService.php';
 
 class ProfileController {
     private $userModel;
@@ -21,26 +20,35 @@ class ProfileController {
         $this->likeModel = new likeModel($db);
     }
 
-    function posts(?string $username = null) {
-        AuthService::requireAuth(['registered','admin']);
+    private function validateUsername($username) {
+        if (! isset($username)) {
+            return;
+        }
+        if (! $this->userModel->userExists($username)) {
+            ErrorService::notFound();
+        }
+    }
 
-        if (AuthService::isCurrentUser($username)) {
-            header('location: '.routeUrl('/profile'));
-            exit;
+    function posts(?string $username = null) {
+        AuthAccess::restrictTo(['registered','admin']);
+
+        if (AuthStatus::isCurrentUser($username)) {
+            Redirect::to('/profile');
         }
 
+        $this->validateUsername($username);
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
-        $userData['is_current_user'] = AuthService::isCurrentUser($username);
+        $userData['is_current_user'] = AuthStatus::isCurrentUser($username);
 
         $activeTab = "posts";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postDataList = $this->postModel->getUserPosts($username);
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -50,25 +58,25 @@ class ProfileController {
     }
 
     public function saved(?string $username = null) {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
-        if (AuthService::isCurrentUser($username)) {
-            header('location: '.routeUrl('/profile/saved'));
-            exit;
+        if (AuthStatus::isCurrentUser($username)) {
+            Redirect::to('/profile/saved');
         }
 
+        $this->validateUsername($username);
         $username = $username ?? $_SESSION['username']; //use current user if no other user is provided
 
         $userData = $this->userModel->getUserByUsername($username);
-        $userData['is_current_user'] = AuthService::isCurrentUser($username);
+        $userData['is_current_user'] = AuthStatus::isCurrentUser($username);
 
         $activeTab = "saved";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postDataList = $this->postModel->getSavedPosts($username);
         foreach ($postDataList as &$postData) {
-            $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+            $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
             $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
         }
         unset($postData);
@@ -78,11 +86,11 @@ class ProfileController {
     }
 
     function settings() {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
         $activeTab = "settings";
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
         $userData = $this->userModel->getUserByUsername($_SESSION['username']);
         $userData['is_current_user'] = true;
 

@@ -6,6 +6,18 @@
             $this->db = $db;
         }
 
+        public function commentExists(int $commentId): bool {
+            $statement = $this->db->prepare(<<<sql
+                SELECT comment_id
+                FROM comments
+                WHERE comment_id = ?
+            sql);
+            $statement->execute([$commentId]);
+
+            $result = $statement->fetch();
+            return ! empty($result);
+        }
+
         public function getComments($postId): array {
             $statement = $this->db->prepare(<<<sql
                 SELECT *

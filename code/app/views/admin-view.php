@@ -41,8 +41,7 @@ echo generateDocumentHead(
         <div class="action-bar">
             <?php
                 $searchAction = 'admin';
-                $isRequired = false;
-                // this component uses: $searchAction, $isRequired, $searchValue
+                // this component uses: $searchAction, $searchValue
                 include __DIR__."/components/search-bar-component.php";
             ?>
         </div>

@@ -1,6 +1,17 @@
 <?php
-    require_once __DIR__."/../helpers/view-helpers.php";
-    echo generateDocumentHead('404 Not Found', [], []);
+/**
+ * This view expects the following variables:
+ * @var bool $isAdmin
+ * @var bool $isLoggedIn
+ * @var array $errorData with keys 'code', 'name', 'message'
+ */
+
+require_once __DIR__."/../helpers/view-helpers.php";
+echo generateDocumentHead(
+    $errorData['code'].' '.$errorData['name'],
+    [],
+    []
+);
 ?>
 
 <body>
@@ -9,12 +20,12 @@
   </header>
   <main>
     <header class="page-header">
-        <h1>404</h1>
+        <h1><?= $errorData['code'] ?></h1>
     </header>
     <div class="panel">
       <section>
-        <h2>oops</h2>
-        <p>The page you were looking for does not exist.</p>
+        <h2><?= $errorData['name'] ?></h2>
+        <p><?= $errorData['message'] ?></p>
       </section>
   </main>
 </body>

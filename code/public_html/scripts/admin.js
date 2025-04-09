@@ -16,7 +16,8 @@ function handleSearchInput() {
     let searchTerm = searchInput.value;
 
     fetch(                              // send request to server
-        `${BASE_URL}?route=/admin/search-users&terms=${encodeURIComponent(searchTerm)}`
+        `${BASE_URL}?route=/admin/search-users&terms=${encodeURIComponent(searchTerm)}`,
+        {method: 'POST',}
     )
     .then(response =>                   // Recieve response from server
         response.json()

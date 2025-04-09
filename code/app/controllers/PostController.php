@@ -5,7 +5,6 @@ require_once __DIR__.'/../models/LikeModel.php';
 require_once __DIR__.'/../models/UserModel.php';
 require_once __DIR__.'/../models/CommentModel.php';
 require_once __DIR__.'/../helpers/controller-helpers.php';
-require_once __DIR__.'/../authentication/AuthService.php';
 
 class PostController {
     private $postModel;
@@ -23,21 +22,55 @@ class PostController {
     }
 
     /**
+     * Helper function that handles errors related to postIds.
+     */
+    private function validatePostId($postId) {
+        if (! ctype_digit($postId)) {
+            ErrorService::badRequest();
+        }
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
+        }
+    }
+
+    /**
+     * Call to restrict action to the resource owner.
+     */
+    private function restrictToOwner($postId) {
+        $post = $this->postModel->getPostById($postId);
+
+        if (! AuthStatus::isCurrentUser($post['username'])) {
+            ErrorService::forbidden();
+        }
+    }
+
+    private function restrictToOwnerOrAdmin($postId) {
+        $post = $this->postModel->getPostById($postId);
+
+        if (! AuthStatus::isCurrentUser($post['username']) and ! AuthStatus::isAdmin()) {
+            ErrorService::forbidden();
+        }
+    }
+
+    /**
      * Gets data for this postId, and gives it to the view.
      */
     public function blogPost($postId) {
-        $isLoggedIn = AuthService::isLoggedIn();
-        $isAdmin = AuthService::isAdmin();
+
+        $this->validatePostId($postId);
+
+        $isLoggedIn = AuthStatus::isLoggedIn();
+        $isAdmin = AuthStatus::isAdmin();
 
         $postData = $this->postModel->getPostById($postId);
         $postData = setLikeAndSaveStatus($postData, $isLoggedIn, $this->likeModel, $this->saveModel);
-        $postData['belongs_to_current_user'] = AuthService::isCurrentUser($postData['username']);
+        $postData['belongs_to_current_user'] = AuthStatus::isCurrentUser($postData['username']);
 
         $userData = $this->userModel->getUserByUsername($postData['username']);
         $comments = $this->commentModel->getComments($postId);
       
         foreach ($comments as &$comment) {
-            $comment['belongs_to_current_user'] = AuthService::isCurrentUser($comment['username']);
+            $comment['belongs_to_current_user'] = AuthStatus::isCurrentUser($comment['username']);
         }
         unset($comment);
 
@@ -46,11 +79,11 @@ class PostController {
     }
 
     public function create() {
-        AuthService::requireAuth(['registered','admin']);
+        AuthAccess::restrictTo(['registered','admin']);
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
+            $isLoggedIn = AuthStatus::isLoggedIn();
+            $isAdmin = AuthStatus::isAdmin();
 
             // passing in empty post data on creation
             // This view uses: $isLoggedIn
@@ -64,47 +97,34 @@ class PostController {
             'post_body'  => $_POST['post-body'],
             'post_image' => $_FILES['post-image']
         ]);
-        header('location: '.routeUrl('/profile'));
-        exit;
+        Redirect::to('/profile');
     }
 
     public function delete($postId) {
-        AuthService::requireAuth(['registered', 'admin']);
+        AuthAccess::restrictTo(['registered', 'admin']);
 
-        $post = $this->postModel->getPostById($postId);
-        if (!$post) {
-            header('location: '.routeUrl('/home'));
-            exit;
-        }
-        if ($_SESSION['username'] !== $post['username'] && $_SESSION['role'] !== 'admin') {
-            header('location: '.routeUrl('/home'));
-            exit;
-        }
+        $this->validatePostId($postId);
+        $this->restrictToOwnerOrAdmin($postId);
 
         $this->postModel->deletePost($postId);
 
         if (isset($_SERVER['HTTP_REFERER']) and ! str_ends_with($_SERVER['HTTP_REFERER'], $postId)) {
-            $redirectLocation = $_SERVER['HTTP_REFERER'];
+            Redirect::to($_SERVER['HTTP_REFERER']);
         } else {
-            $redirectLocation =  routeUrl('/profile');
+            Redirect::to('/profile');
         }
-
-        header("location: $redirectLocation");
-        exit;
     }
 
-    public function edit(int $postId) {
-        AuthService::requireAuth(['registered', 'admin']);
+    public function edit($postId) {
+        AuthAccess::restrictTo(['registered', 'admin']);
 
-        $postData = $this->postModel->getPostById($postId);
-        if (!$postData or !AuthService::isCurrentUser($postData['username'])) {
-            header('Location: '.routeUrl('/home')); //TODO: make this redirect to error pages
-            exit;
-        }
+        $this->validatePostId($postId);
+        $this->restrictToOwner($postId);
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $isLoggedIn = AuthService::isLoggedIn();
-            $isAdmin = AuthService::isAdmin();
+            $isLoggedIn = AuthStatus::isLoggedIn();
+            $isAdmin = AuthStatus::isAdmin();
+            $postData = $this->postModel->getPostById($postId);
 
             // This view uses: $postData, $isLoggedIn, $isAdmin
             require __DIR__.'/../views/create-edit-view.php';
@@ -122,14 +142,17 @@ class PostController {
         }
 
         $this->postModel->updatePost($updatedPostData);
-        header('Location: '.routeUrl("/blog-post/$postId"));
-        exit;
+        Redirect::to("/blog-post/$postId");
     }
 
     /**
      * Toggles whether the current user likes the given post or not
      */
-    public function toggleLike(int $postId) {
+    public function toggleLike($postId) {
+        ErrorService::requirePostRequest();
+        AuthAccess::restrictTo(['registered', 'admin']);
+        $this->validatePostId($postId);
+
         $username = $_SESSION['username'];
         $isLiked = $this->likeModel->userHasLikedPost($username, $postId);
 
@@ -149,7 +172,11 @@ class PostController {
     /**
      * Toggles whether the current user saves the given post or not
      */
-    public function toggleSave(int $postId) {
+    public function toggleSave($postId) {
+        ErrorService::requirePostRequest();
+        AuthAccess::restrictTo(['registered', 'admin']);
+        $this->validatePostId($postId);
+
         $username = $_SESSION['username'];
         $isSaved = $this->saveModel->userHasSavedPost($username, $postId);
 

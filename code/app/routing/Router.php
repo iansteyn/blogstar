@@ -14,7 +14,7 @@
  * @link        https://github.com/amin007/route
  */
 
-class Route {
+class Router {
     /**
     * @var array $_listUri List of URI's to match against
     */
@@ -55,6 +55,8 @@ class Route {
         $path = trim($path, $this->_trim);
 
         $replacementValues = array();
+        
+        $matched = false;
 
         # iterate through the stored URI's
         foreach ($this->_listUri as $listKey => $listUri) {
@@ -78,14 +80,9 @@ class Route {
             }
         }
 
-        // if no match, redirect to error page
+        // if no match, show 404 page.
         if ($matched != true) {
-            Route::error();
+            ErrorService::notFound();
         }
-    }
-
-    public static function error() {
-        header('location: '.routeUrl('/error'));
-        exit;
     }
 }

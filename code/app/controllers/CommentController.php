@@ -1,58 +1,61 @@
 <?php
 require_once __DIR__.'/../models/CommentModel.php';
-require_once __DIR__.'/../models/UserModel.php';
+require_once __DIR__.'/../models/PostModel.php';
 
 class CommentController {
     private $commentModel;
-    private $userModel;
+    private $postModel;
 
     public function __construct($db) {
         $this->commentModel = new CommentModel($db);
-        $this->userModel = new UserModel($db);
+        $this->postModel = new PostModel($db);
     }
 
     public function create($postId) {
-        AuthService::requireAuth(['registered', 'admin']);
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('location: '.routeUrl('/home'));
-            exit;
+        ErrorService::requirePostRequest();
+        AuthAccess::restrictTo(['registered', 'admin']);
+
+        // validate postId
+        if (! ctype_digit($postId)) {
+            ErrorService::badRequest();
         }
-    
-    
+        if (! $this->postModel->postExists($postId)) {
+            ErrorService::notFound();
+        }
+
+        // create comment and redirect
         $commentBody = trim($_POST['comment-body'] ?? '');
-    
+
         $this->commentModel->createComment([
             'username'     => $_SESSION['username'], 
             'post_id'      => $postId, 
             'comment_body' => $commentBody
         ]);
-    
-        header('location: '.routeUrl("/blog-post/$postId"));
-        exit;
+
+        Redirect::to("/blog-post/$postId");
     }
 
     public function delete($commentId) {
-        AuthService::requireAuth(['registered', 'admin']);
-    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        header('location: '.routeUrl('/home'));
-        exit;
-    }
+        AuthAccess::restrictTo(['registered', 'admin']);
 
-    $comment = $this->commentModel->getCommentById($commentId);
+        // validate commentId
+        if (! ctype_digit($commentId)) {
+            ErrorService::badRequest();
+        }
+        if (! $this->commentModel->commentExists($commentId)) {
+            ErrorService::notFound();
+        }
 
-    if ($_SESSION['username'] !== $comment['username'] && $_SESSION['role'] !== 'admin') {
-        header('location: '.routeUrl('/home'));
-        exit;
-    }
-    $this->commentModel->deleteComment($commentId);
-    header('location: '.routeUrl("/blog-post/{$comment['post_id']}"));
-    exit;
+        //restrict to owner or admin
+        $comment = $this->commentModel->getCommentById($commentId);
 
-    }
+        if (! AuthStatus::isCurrentUser($comment['username']) and ! AuthStatus::isAdmin()) {
+            ErrorService::forbidden();
+        }
 
-    //Handles editing a comment.
-    public function edit($commentId) {
-        
+        // delete comment and redirect
+        $this->commentModel->deleteComment($commentId);
+        Redirect::to('/blog-post/'.$comment['post_id']);
     }
 }
 ?>
