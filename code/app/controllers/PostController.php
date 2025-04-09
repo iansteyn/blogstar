@@ -101,7 +101,6 @@ class PostController {
     }
 
     public function delete($postId) {
-        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $this->validatePostId($postId);

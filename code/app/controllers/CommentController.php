@@ -34,7 +34,6 @@ class CommentController {
     }
 
     public function delete($commentId) {
-        ErrorService::requirePostRequest();
         AuthAccess::restrictTo(['registered', 'admin']);
 
         if (! ctype_digit($commentId)) {
