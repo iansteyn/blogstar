@@ -63,10 +63,11 @@
             <?= generateIconInline('icon-delete') ?>
             <i>delete</i>
             buttons on your profile page or on the post itself.
+            You can also delete your comments.
           </p>
         </details>
         <details>
-          <summary><h3>How do I change my username/password/profile picture?</h3></summary>
+          <summary><h3>How do I change my bio/password/profile picture?</h3></summary>
           <p>
             See the <a href="<?= routeUrl('/profile/settings') ?>">settings tab</a> on your profile page.
           </p>
