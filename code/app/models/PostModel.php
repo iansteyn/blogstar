@@ -81,7 +81,7 @@ class PostModel {
                 JOIN likes
                 ON posts.post_id = likes.post_id
             WHERE
-                post_date >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
+                post_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
             GROUP BY
                 posts.post_id
             ORDER BY
