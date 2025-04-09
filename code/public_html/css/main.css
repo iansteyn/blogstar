@@ -67,9 +67,8 @@ body{
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    /* font-family: 'Cambria', Georgia, Times, 'Times New Roman', serif; */
+    font-family: 'Cambria', Georgia, Times, 'Times New Roman', serif;
 }
-
 
 
 h1{font-size: 2em;}
