@@ -47,6 +47,8 @@ Styles for the side navigation bar.
 }
 .logo-text.nav-link-text {
     margin: 0;
+    font-size:1.5em;
+    font-style: italic;
 }
 
 /* LINKS */
