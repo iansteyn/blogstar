@@ -89,7 +89,9 @@ echo generateDocumentHead(
         enctype="multipart/form-data"
       >
           <div class="form-group">
-		  	<h2>All changes are optional but require current password beforehand!</h2><br>
+		  	<p>
+              <i>All changes are optional but require current password beforehand!</i>
+            </p>
             <label for="current-password">
                 Current password
             </label>
@@ -142,7 +144,7 @@ echo generateDocumentHead(
           </div>
           <div class="form-group">
             <label for="user-bio">
-              Bio
+              Edit Bio
             </label>
             <textarea
               id="user-bio"
