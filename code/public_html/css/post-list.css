@@ -45,6 +45,7 @@
 }
 .blog-start {
     margin: 1em 0 0;
+    line-height: 1.2;
 }
 .post-summary-title a, .blog-start a {
     color: var(--text-primary);
