@@ -43,7 +43,7 @@ Styles for the side navigation bar.
     display: block;
     width: 4em;
     height: 4em;
-    margin: 1em auto 0.75em;
+    margin: 1em auto 1em;
 }
 .logo-text.nav-link-text {
     margin: 0;
