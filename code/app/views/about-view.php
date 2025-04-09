@@ -38,7 +38,7 @@
         </ul>
         <h3>Code</h3>
         <p>
-          You can find the source code for this website at <a href="https://github.com/iansteyn/cosc-360-project" target="_blank">our GitHub repository</a>. We used no front-end frameworks. It's pure HTML/CSS/JS, hand-crafted!
+          You can find the source code for this website at <a href="https://github.com/iansteyn/cosc-360-project" target="_blank">our GitHub repository</a>. We used no front-end frameworks. It's pure HTML/CSS/JS, hand-crafted! The back-end stack is LAMP (Linux, Apache, MySQL, PHP), again without any frameworks.
         </p>
         <h3>Attribution</h3>
         <p>
