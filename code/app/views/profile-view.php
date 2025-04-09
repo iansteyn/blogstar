@@ -89,8 +89,9 @@ echo generateDocumentHead(
         enctype="multipart/form-data"
       >
           <div class="form-group">
+		  	<h2>All changes are optional but require current password beforehand!</h2><br>
             <label for="current-password">
-                Current password (required for changes)
+                Current password
             </label>
             <input
               type="password"
@@ -99,6 +100,12 @@ echo generateDocumentHead(
               placeholder="Enter your current password"
               required
             >
+			<?php if (isset($_SESSION['error'])): ?>
+				<div class="error-message" style="color: var(--color-error); max-width: 42ch;">
+					<?= sanitizeData($_SESSION['error']) ?>
+				</div>
+				<?php unset($_SESSION['error']); ?>
+        	<?php endif; ?>
           </div>
           <div class="form-group">
             <label for="new-password">
