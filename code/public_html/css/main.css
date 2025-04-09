@@ -61,13 +61,16 @@ This is where we put styles that are shared by all (or most) pages.
 
 /* TEXT STUFF */
 body{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   color: var(--text-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
+    /* font-family: 'Cambria', Georgia, Times, 'Times New Roman', serif; */
 }
+
+
 
 h1{font-size: 2em;}
 h2{font-size: 1.5em;}
