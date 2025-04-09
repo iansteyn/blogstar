@@ -65,20 +65,20 @@ echo generateDocumentHead(
                     echo "<p>@{$userData['username']} has no saved posts.</p>";
                 }
 
-			} elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
-				if ($userData['is_current_user']) {
-					$createLink = routeUrl("/create");
-					echo "<p>You have no posts yet! <a href='$createLink'>Write your first post here!.</a></p>";
-				} else {
-					echo "<p>@{$userData['username']} has no posts.</p>";
-				}
-			} else {
-				foreach ($postDataList as $postData) {
-					// This component uses: $postData
-					include __DIR__."/components/post-summary-component.php";
-				}
-			}
-			?>
+            } elseif ($activeTab == 'posts' && empty($postDataList) && $isLoggedIn) {
+                if ($userData['is_current_user']) {
+                    $createLink = routeUrl("/create");
+                    echo "<p>You have no posts yet! <a href='$createLink'>Write your first post here!.</a></p>";
+                } else {
+                    echo "<p>@{$userData['username']} has no posts.</p>";
+                }
+            } else {
+                foreach ($postDataList as $postData) {
+                    // This component uses: $postData
+                    include __DIR__."/components/post-summary-component.php";
+                }
+            }
+            ?>
         </article>
     <?php else: ?>
       <form
@@ -89,7 +89,7 @@ echo generateDocumentHead(
         enctype="multipart/form-data"
       >
           <div class="form-group">
-		  	<p>
+              <p>
               <i>All changes are optional but require current password beforehand!</i>
             </p>
             <label for="current-password">
@@ -102,12 +102,12 @@ echo generateDocumentHead(
               placeholder="Enter your current password"
               required
             >
-			<?php if (isset($_SESSION['error'])): ?>
-				<div class="error-message" style="color: var(--color-error); max-width: 42ch;">
-					<?= sanitizeData($_SESSION['error']) ?>
-				</div>
-				<?php unset($_SESSION['error']); ?>
-        	<?php endif; ?>
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="error-message" style="color: var(--color-error); max-width: 42ch;">
+                    <?= sanitizeData($_SESSION['error']) ?>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
           </div>
           <div class="form-group">
             <label for="new-password">
