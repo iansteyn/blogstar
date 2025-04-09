@@ -39,7 +39,15 @@ class PostController {
     private function restrictToOwner($postId) {
         $post = $this->postModel->getPostById($postId);
 
-        if (! AuthStatus::isCurrentUser($post['username']) or ! AuthStatus::isAdmin()) {
+        if (! AuthStatus::isCurrentUser($post['username'])) {
+            ErrorService::forbidden();
+        }
+    }
+
+    private function restrictToOwnerOrAdmin($postId) {
+        $post = $this->postModel->getPostById($postId);
+
+        if (! AuthStatus::isCurrentUser($post['username']) and ! AuthStatus::isAdmin()) {
             ErrorService::forbidden();
         }
     }
@@ -97,7 +105,7 @@ class PostController {
         AuthAccess::restrictTo(['registered', 'admin']);
 
         $this->validatePostId($postId);
-        $this->restrictToOwner($postId);
+        $this->restrictToOwnerOrAdmin($postId);
 
         $this->postModel->deletePost($postId);
 
