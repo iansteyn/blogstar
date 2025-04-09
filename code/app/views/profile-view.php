@@ -148,7 +148,6 @@ echo generateDocumentHead(
               id="user-bio"
               name="user-bio"
               placeholder="Tell us about yourself"
-              rows="4"
             ><?= $userData['user_bio'] ?></textarea>
           </div>
           <button type="submit">
