@@ -61,12 +61,17 @@ This is where we put styles that are shared by all (or most) pages.
 
 /* TEXT STUFF */
 body{
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text-primary);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: var(--text-primary);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, span.logo-text {
     font-weight: bold;
+    font-family: 'Cambria', Georgia, Times, 'Times New Roman', serif;
+}
+
+span.logo-text {
+    font-style: italic;
 }
 
 h1{font-size: 2em;}
@@ -79,6 +84,8 @@ h6{font-size: 0.67em;}
 p{
     font-size: 1em;
     margin: 1em 0;
+    line-height: 1.4;
+    hyphens: auto;
 }
 
 i { font-style: italic; }

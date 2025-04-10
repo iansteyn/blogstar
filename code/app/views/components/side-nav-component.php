@@ -15,7 +15,7 @@ require_once __DIR__."/../../helpers/view-helpers.php";
         <use href="<?= resourceUrl('vector-icons/icons.svg#icon-logo') ?>"></use>
       </svg>
       <span class="nav-link-text logo-text">
-        OUR SITE
+        BlogStar
       </span>
     </a>
   </div>
