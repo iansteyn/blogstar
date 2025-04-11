@@ -34,10 +34,8 @@ function displayError(input, message) {
 }
 
 function removeError(input) {
-    const error = input.parentElement.querySelector(".error-message");
-    if (error) {
-        error.remove();
-        input.classList.remove("validation-error");
-    }
+    const errors = input.parentElement.querySelectorAll(".error-message");
+    errors.forEach((error) => error.remove());
+    input.classList.remove("validation-error");
 }
 
