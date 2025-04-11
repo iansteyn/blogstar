@@ -4,7 +4,7 @@ This is a last-minute addition
 It simply ensures that uploaded images cannot be more than 2 MB,
 since this is the max_allowed_packet for the remote server.
 */
-const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+const MAX_FILE_SIZE = 2 * 1000 * 1000; // 2MB
 
 const forms = Array.from(document.querySelectorAll('form'));
 const formWithFileInput = forms.filter(form => form.querySelector('input[type="file"]'))[0]; //there should only be one per page in the current site implementation
