@@ -76,7 +76,7 @@
 
       <div class="form-group">
         <label for="post-image">
-          <?= $imageRequired ? 'Change photo (optional)' : 'Upload a photo' ?>
+          <?= $imageRequired ? 'Upload a photo':'Change photo (optional)'  ?>
         </label>
         <input
           type="file"
