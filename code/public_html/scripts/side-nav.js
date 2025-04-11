@@ -34,7 +34,6 @@ if (['/home/recent', '/home/popular', '/home/saved'].includes(currentPagePath)) 
 }
 else if (['/profile/posts', '/profile/saved', '/profile/settings'].includes(currentPagePath)) {
     const profileLink = document.querySelector(`.nav-link[href='${BASE_URL}?route=/profile']`);
-    console.log(profileLink);
     profileLink.classList.add("current-page");
 }
 else if ('/post/create' == currentPagePath) {
