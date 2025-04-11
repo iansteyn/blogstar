@@ -31,7 +31,7 @@
     echo generateDocumentHead(
         $pageTitle,
         ['forms.css', 'create-edit.css'],
-        ['create-edit.js']
+        ['create-edit.js', 'image-size-limit.js']
     );
 ?>
 

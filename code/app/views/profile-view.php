@@ -14,7 +14,7 @@ $userData = sanitizeData($userData);
 echo generateDocumentHead(
     'My Profile',
     ['forms.css', 'tabs.css', 'post-list.css', 'user-bio.css'],
-    ['post-interaction.js', 'form-validation.js']
+    ['post-interaction.js', 'form-validation.js', 'image-size-limit.js']
 );
 ?>
 
