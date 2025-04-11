@@ -7,6 +7,7 @@
  */
 require_once __DIR__."/../helpers/view-helpers.php";
 $postData = sanitizeData($postData);
+$userData = sanitizeData($userData);
 
 echo generateDocumentHead(
     $postData['post_title'],
