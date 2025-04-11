@@ -6,8 +6,8 @@ since this is the max_allowed_packet for the remote server.
 */
 const MAX_FILE_SIZE = 2 * 1000 * 1000; // 2MB
 
-const forms = Array.from(document.querySelectorAll('form'));
-const formWithFileInput = forms.filter(form => form.querySelector('input[type="file"]'))[0]; //there should only be one per page in the current site implementation
+const allForms = Array.from(document.querySelectorAll('form'));
+const formWithFileInput = allForms.filter(form => form.querySelector('input[type="file"]'))[0]; //there should only be one per page in the current site implementation
 const fileInput = formWithFileInput.querySelector('input[type="file"]');
 
 formWithFileInput.addEventListener ('submit', (submitEvent)=> {
@@ -33,6 +33,7 @@ function displayError(input, message) {
     input.classList.add("validation-error");
 }
 
+// (modified from form-validation.js)
 function removeError(input) {
     const errors = input.parentElement.querySelectorAll(".error-message");
     errors.forEach((error) => error.remove());
