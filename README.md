@@ -1,39 +1,24 @@
-# cosc-360-project
-Group project for COSC 360 - Web Programming. 
-Hi :)
+# BlogStar
 
-# Git practices
-Ian's personal Git cheat sheet: [git_tips.md gist](https://gist.github.com/iansteyn/abf4cb875b7022e46fa13b363f3753a1)
+## Overview
 
-- remember to pull main before you branch!
-- 1 issue, 1 branch - approximately
-- commit frequently with short, descriptive commit messages
-- try to do 1 commit to 1 file if possible
-- push before you close your computer
-- Reviews are required before a branch can be merged to main
-- branch naming convetion: `branch-name`
+BlogStar is a web application where you can create and read longform text posts. There's lots of different ways to find posts: search by keyword, check out what's popular, and save your favorites! You can also engage with other bloggers by browsing their profiles and commenting on their posts.
 
-# File naming conventions
-- `file-name.html`
-- `file-name.css`
-- `file-name.svg`
-- `file-name.js`??
-- `file-name.php`
-# coding name conventions
-## CSS
-- class/id names: `class-name`
-- name it something useful - BEM convention
+This site was created as a term project for _COSC 360 - Web Programming_. We have learned a great deal in the process, and are very proud of what we have built. We achieved a total grade of 99% for this project across its four milestones.
 
-## HTML
-- 2 spaces indent
-- Indent your html
-- use semantic tags
+— [iansteyn](https://github.com/iansteyn), [SammieScully](https://github.com/SammieScully) & [JoyMusiel](https://github.com/JoyMusiel)
 
-## JavaScript
-- java conventions? - camelCase
+## See what we built
 
-## General
-- Header comments for all files (except html and css)
-- comment sources for code if you get it from somewhere
-- try to name things well instead of just commenting what they do
-  - good comments are used sparingly, and describe *why* something is a certain way
+**🔗 Live site: [cosc360.ok.ubc.ca/iansteyn](https://cosc360.ok.ubc.ca/iansteyn)** (Will work while the site is still hosted on UBC's servers, probably until 2026)
+
+**⏯️ {coming soon: Youtube link}**
+
+<img src="/_pics/homepage-screenshot.png" alt="Screenshot of the BlogStar homepage" style="max-width: 75%">
+
+## Built With
+
+- Front-end: Pure HTML, CSS and JavaScript.
+- Back-end: LAMP Stack (Linux, Apache, MySQL, PHP).
+
+No front-end or back-end frameworks were used for this project (as per course instructions). Because of this, we organized it with our own implementation of the [Model-View-Controller (MVC) pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). For more details on the system design, including routing, services and scripting, see [m4-system-description.md](/docs/current/m4-system-description.md).
