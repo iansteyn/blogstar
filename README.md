@@ -8,7 +8,7 @@ This site was created as a term project for _COSC 360 - Web Programming_. We hav
 
 — [iansteyn](https://github.com/iansteyn), [SammieScully](https://github.com/SammieScully) & [JoyMusiel](https://github.com/JoyMusiel)
 
-## Access the Site
+## See what we built
 
 **🔗 Live site: [cosc360.ok.ubc.ca/iansteyn](https://cosc360.ok.ubc.ca/iansteyn)** (Will work while the site is still hosted on UBC's servers, probably until 2026)
 
