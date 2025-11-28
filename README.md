@@ -14,7 +14,7 @@ This site was created as a term project for _COSC 360 - Web Programming_. We hav
 
 **⏯️ {coming soon: Youtube link}**
 
-<img src="/_pics/homepage-screenshot.png" alt="Screenshot of the BlogStar homepage" width="200" height="100">
+<img src="/_pics/homepage-screenshot.png" alt="Screenshot of the BlogStar homepage" style="max-width: 75%">
 
 ## Built With
 
