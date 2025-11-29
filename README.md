@@ -12,7 +12,7 @@ This site was created as a term project for _COSC 360 - Web Programming_. We hav
 
 **🔗 Live site: [cosc360.ok.ubc.ca/iansteyn](https://cosc360.ok.ubc.ca/iansteyn)** (Will work while the site is still hosted on UBC's servers, probably until 2026)
 
-**⏯️ [Video Walkthrough](https://youtu.be/_AQO8AVgzZA)
+**⏯️ [Video Walkthrough](https://youtu.be/_AQO8AVgzZA)**
 
 <img src="/_pics/homepage-screenshot.png" alt="Screenshot of the BlogStar homepage" style="max-width: 75%">
 
