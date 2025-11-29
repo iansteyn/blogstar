@@ -10,7 +10,7 @@ This site was created as a term project for _COSC 360 - Web Programming_. We hav
 
 ## See what we built
 
-**🔗 Live site: [cosc360.ok.ubc.ca/iansteyn](https://cosc360.ok.ubc.ca/iansteyn)** (Will work while the site is still hosted on UBC's servers, probably until 2026)
+**🔗 [Live site](https://cosc360.ok.ubc.ca/iansteyn)** (Will work while the site is still hosted on UBC's servers, probably until 2026)
 
 **⏯️ [Video Walkthrough](https://youtu.be/_AQO8AVgzZA)**
 
